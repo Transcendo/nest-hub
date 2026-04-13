@@ -1,20 +1,5 @@
 {
-  "title": "guide",
+  "title": "NestHub",
   "root": true,
-  "pages": [
-    "weekly-picks",
-    "ai-agents",
-    "developer-tools",
-    "cybersecurity",
-    "fintech",
-    "healthcare",
-    "climate-energy",
-    "embodied-ai",
-    "robotics",
-    "emotional-companions",
-    "gaming",
-    "open-world",
-    "vertical-ai",
-    "companies"
-  ]
+  "pages": ["nesthub"]
 }

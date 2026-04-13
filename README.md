@@ -3,15 +3,15 @@
 
   <source media="(prefers-color-scheme: light)" srcset="public/branding/better-auth-logo-wordmark-light.svg" />
 
-  <img alt="Better Auth" src="public/branding/better-auth-logo-wordmark-dark.svg" width="280" />
+  <img alt="NestHub" src="public/branding/better-auth-logo-wordmark-dark.svg" width="280" />
 </picture>
 
 ### Fumadocs Frontend
 
-Standalone Better Auth documentation frontend built with Next.js and Fumadocs.
+Standalone NestHub documentation frontend built with Next.js and Fumadocs.
 
-[![Website](https://img.shields.io/badge/better--auth.com-000?style=flat\&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCA2MCA0NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMEgxNVYxNUgzMFYzMEgxNVY0NUgwVjMwVjE1VjBaTTQ1IDMwVjE1SDMwVjBINDVINjBWMTVWMzBWNDVINDVIMzBWMzBINDVaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==\&logoColor=white)](https://better-auth.com)
-[![GitHub Stars](https://img.shields.io/github/stars/better-auth/better-auth?style=flat\&logo=github\&label=stars\&color=24292e)](https://github.com/better-auth/better-auth)
+[![Website](https://img.shields.io/badge/better--auth.com-000?style=flat\&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCA2MCA0NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMEgxNVYxNUgzMFYzMEgxNVY0NUgwVjMwVjE1VjBaTTQ1IDMwVjE1SDMwVjBINDVINjBWMTVWMzBWNDVINDVIMzBWMzBINDVaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==\&logoColor=white)](https://nest-hub)
+[![GitHub Stars](https://img.shields.io/github/stars/better-auth/better-auth?style=flat\&logo=github\&label=stars\&color=24292e)](https://github.com/Transcendo/nest-hub)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 
 ***
@@ -102,5 +102,5 @@ To enable deployment:
 
 ### Notes
 
-- If you later publish under a repository subpath (for example `https://<user>.github.io/content-show/`), you may also need to configure `basePath` and `assetPrefix` in `next.config.js`.
+- If you later publish under a repository subpath (for example `https://<user>.github.io/nest-hub/`), you may also need to configure `basePath` and `assetPrefix` in `next.config.js`.
 - If you deploy to a custom domain or root domain via GitHub Pages, the current setup is the simplest path.
