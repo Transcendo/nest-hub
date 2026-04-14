@@ -1,5 +1,10 @@
 {
   "title": "NestHub",
   "root": true,
-  "pages": ["nesthub"]
+  "pages": [
+    "jd-beijing-renting-guide",
+    "mandatory-read",
+    "bytedance-beijing-renting-guide",
+    "bytedance-beijing-area-map"
+  ]
 }

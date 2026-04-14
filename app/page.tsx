@@ -12,9 +12,9 @@ const cards = [
 		href: "/docs/mandatory-read/renting-pitfalls",
 	},
 	{
-		title: "进入文档目录",
-		description: "查看 NestHub 当前已经整理好的租房与居住决策内容。",
-		href: "/docs",
+		title: "字节租房指南",
+		description: "围绕北京字节办公区通勤和租房选择的另一条参考线。",
+		href: "/docs/bytedance-beijing-renting-guide",
 	},
 ];
 
