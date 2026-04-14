@@ -589,15 +589,42 @@ html:not([data-anchor-scrolling]) {
 	overflow-wrap: anywhere;
 }
 
-/* Docs layout */
+/* Docs layout: narrow sidebar, wide content */
 .docs-layout {
-	--fd-sidebar-width: min(22vw, 300px);
+	--fd-sidebar-width: 0px;
 	--fd-toc-width: 0px;
-	--fd-layout-width: min(100vw, 1200px);
+	--fd-layout-width: 100vw;
 	--fd-layout-offset: 0px;
 	--fd-page-width: 900px;
 	--fd-banner-height: var(--docs-topbar-height);
+	--docs-left-pane-width: min(22vw, 300px);
 	padding-top: var(--docs-topbar-height);
+}
+
+@media (min-width: 64rem) {
+	.docs-layout {
+		--fd-layout-width: min(
+			calc(100vw - var(--docs-left-pane-width)),
+			1200px
+		);
+		padding-inline-start: var(--docs-left-pane-width);
+	}
+
+	.docs-layout::before {
+		content: "";
+		position: fixed;
+		inset-block-start: 0;
+		height: var(--docs-topbar-height);
+		inset-inline-start: calc(var(--docs-left-pane-width) - 1px);
+		width: 1px;
+		background: var(--color-border);
+		opacity: 0.55;
+		transition:
+			inset-inline-start 280ms ease-out,
+			opacity 220ms ease-out;
+		pointer-events: none;
+		z-index: 100;
+	}
 }
 
 @media (min-width: 80rem) {
