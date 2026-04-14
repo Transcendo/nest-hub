@@ -4,17 +4,17 @@ const cards = [
 	{
 		title: "京东租房指南",
 		description: "围绕京东北京总部, 经海路, 次渠, 嘉会湖一带的租房决策建议。",
-		href: "/docs/nesthub/jd-beijing-renting-guide",
+		href: "/docs/jd-beijing-renting-guide",
 	},
 	{
 		title: "租房避坑指南",
 		description: "签约前先过一遍这份清单, 能少踩很多坑。",
-		href: "/docs/nesthub/mandatory-read/renting-pitfalls",
+		href: "/docs/mandatory-read/renting-pitfalls",
 	},
 	{
 		title: "进入文档目录",
 		description: "查看 NestHub 当前已经整理好的租房与居住决策内容。",
-		href: "/docs/nesthub",
+		href: "/docs",
 	},
 ];
 
@@ -27,21 +27,21 @@ export default function HomePage() {
 						NestHub
 					</p>
 					<h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-						面向打工人和搬家人群的租房, 通勤与居住决策内容库。
+						给北京打工人看的租房, 通勤与居住决策指南。
 					</h1>
 					<p className="text-base leading-7 text-muted-foreground sm:text-lg">
-						这里不做中介话术, 不堆空泛攻略, 只整理真正影响租房选择的区域判断, 通勤线路, 价格带和避坑经验。
+						聚焦真实租房问题, 包括区域选择, 地铁通勤, 价格带判断, 合租与整租取舍, 以及签约前必须避开的坑。
 					</p>
 					<div className="flex flex-wrap gap-3 pt-2">
 						<Link
 							className="inline-flex items-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90"
-							href="/docs/nesthub"
+							href="/docs"
 						>
 							进入文档目录
 						</Link>
 						<Link
 							className="inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium transition hover:bg-muted"
-							href="/docs/nesthub/jd-beijing-renting-guide"
+							href="/docs/jd-beijing-renting-guide"
 						>
 							查看京东租房指南
 						</Link>

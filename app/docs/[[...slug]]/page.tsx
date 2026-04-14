@@ -35,7 +35,8 @@ export default async function Page({
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const { slug } = await params;
-	const page = source.getPage(slug);
+	const normalizedSlug = !slug || slug.length === 0 ? ["nesthub"] : slug;
+	const page = source.getPage(normalizedSlug);
 
 	if (!page) {
 		return notFound();
@@ -137,7 +138,8 @@ export async function generateMetadata({
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const { slug } = await params;
-	const page = source.getPage(slug);
+	const normalizedSlug = !slug || slug.length === 0 ? ["nesthub"] : slug;
+	const page = source.getPage(normalizedSlug);
 	if (!page) return notFound();
 
 	return createMetadata({
