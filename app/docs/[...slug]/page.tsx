@@ -32,11 +32,10 @@ import { cn } from "@/lib/utils";
 export default async function Page({
 	params,
 }: {
-	params: Promise<{ slug?: string[] }>;
+	params: Promise<{ slug: string[] }>;
 }) {
 	const { slug } = await params;
-	const normalizedSlug = !slug || slug.length === 0 ? ["nesthub"] : slug;
-	const page = source.getPage(normalizedSlug);
+	const page = source.getPage(slug);
 
 	if (!page) {
 		return notFound();
@@ -53,15 +52,17 @@ export default async function Page({
 			}}
 			breadcrumb={{ enabled: false }}
 			editOnGithub={{
-				owner: "better-auth",
-				repo: "better-auth",
+				owner: "Transcendo",
+				repo: "nest-hub",
 				sha: "main",
-				path: `docs/content/docs/${page.path}`,
+				path: `content/docs/${page.path}`,
 			}}
 		>
 			<div className="flex items-center justify-between gap-4">
 				<DocsTitle className="mb-0">{page.data.title}</DocsTitle>
-				<div className="flex items-center gap-2">{page.url === "/docs/ai-card/asi" ? <Link className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm hover:bg-fd-accent/70" href="/docs/ai-card/asi/export">ASI Story Cards</Link> : null}<ExportPosterButton title={page.data.title} /></div>
+				<div className="flex items-center gap-2">
+					<ExportPosterButton title={page.data.title} />
+				</div>
 			</div>
 			{page.data.description && (
 				<DocsDescription>{page.data.description}</DocsDescription>
@@ -135,11 +136,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ slug?: string[] }>;
+	params: Promise<{ slug: string[] }>;
 }) {
 	const { slug } = await params;
-	const normalizedSlug = !slug || slug.length === 0 ? ["nesthub"] : slug;
-	const page = source.getPage(normalizedSlug);
+	const page = source.getPage(slug);
 	if (!page) return notFound();
 
 	return createMetadata({

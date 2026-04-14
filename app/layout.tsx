@@ -17,15 +17,15 @@ const fontMono = localFont({
 
 export const metadata: Metadata = createMetadata({
 	title: {
-		template: "%s | Better Auth",
-		default: "Better Auth",
+		template: "%s | NestHub",
+		default: "NestHub",
 	},
-	description: "The Most Comprehensive Authentication Framework",
+	description: "面向打工人和搬家人群的租房, 通勤与居住决策指南。",
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+		<html lang="zh-CN" suppressHydrationWarning data-scroll-behavior="smooth">
 			<body
 				className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
 				suppressHydrationWarning
