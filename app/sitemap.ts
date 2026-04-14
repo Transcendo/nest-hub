@@ -3,7 +3,7 @@ import { source } from "@/lib/source";
 
 export const dynamic = "force-static";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://transcendo.github.io/content-show";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://transcendo.github.io/nest-hub";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const basePages: MetadataRoute.Sitemap = [

@@ -2,19 +2,19 @@ import Link from "next/link";
 
 const cards = [
 	{
-		title: "Companies",
-		description: "按公司维度沉淀创业项目研究，适合长期积累。",
-		href: "/docs/companies",
+		title: "京东租房指南",
+		description: "围绕京东北京总部, 经海路, 次渠, 嘉会湖一带的租房决策建议。",
+		href: "/docs/nesthub/jd-beijing-renting-guide",
 	},
 	{
-		title: "Themes",
-		description: "按方向和赛道组织研究框架，不再按日期堆信息。",
-		href: "/docs/themes",
+		title: "租房避坑指南",
+		description: "签约前先过一遍这份清单, 能少踩很多坑。",
+		href: "/docs/nesthub/mandatory-read/renting-pitfalls",
 	},
 	{
-		title: "Latest",
-		description: "直接查看最近整理的一篇公司研究。",
-		href: "/docs/companies/sycamore",
+		title: "进入文档目录",
+		description: "查看 NestHub 当前已经整理好的租房与居住决策内容。",
+		href: "/docs/nesthub",
 	},
 ];
 
@@ -24,26 +24,26 @@ export default function HomePage() {
 			<section className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20">
 				<div className="max-w-3xl space-y-5">
 					<p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
-						Business Idea
+						NestHub
 					</p>
 					<h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-						A public research archive for startup ideas, companies, and themes.
+						面向打工人和搬家人群的租房, 通勤与居住决策内容库。
 					</h1>
 					<p className="text-base leading-7 text-muted-foreground sm:text-lg">
-						这里不是日历式流水账，而是把值得长期跟踪的创业公司、方向和判断沉淀成可复用的研究资产。
+						这里不做中介话术, 不堆空泛攻略, 只整理真正影响租房选择的区域判断, 通勤线路, 价格带和避坑经验。
 					</p>
 					<div className="flex flex-wrap gap-3 pt-2">
 						<Link
 							className="inline-flex items-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90"
-							href="/docs/companies"
+							href="/docs/nesthub"
 						>
-							进入研究目录
+							进入文档目录
 						</Link>
 						<Link
 							className="inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium transition hover:bg-muted"
-							href="/docs/companies/sycamore"
+							href="/docs/nesthub/jd-beijing-renting-guide"
 						>
-							查看最新公司页
+							查看京东租房指南
 						</Link>
 					</div>
 				</div>
