@@ -2,19 +2,19 @@ import Link from "next/link";
 
 const cards = [
 	{
-		title: "京东租房指南",
+		title: "租房必看",
+		description: "先看避坑和签约清单, 再看具体地区指南。",
+		href: "/docs/mandatory-read",
+	},
+	{
+		title: "北京地区指南",
+		description: "按北京不同办公区和通勤带查看租房建议。",
+		href: "/docs/regional-guides/beijing",
+	},
+	{
+		title: "京东总部租房指南",
 		description: "围绕京东北京总部, 经海路, 次渠, 嘉会湖一带的租房决策建议。",
-		href: "/docs/jd-beijing-renting-guide",
-	},
-	{
-		title: "租房避坑指南",
-		description: "签约前先过一遍这份清单, 能少踩很多坑。",
-		href: "/docs/mandatory-read/renting-pitfalls",
-	},
-	{
-		title: "字节租房指南",
-		description: "围绕北京字节办公区通勤和租房选择的另一条参考线。",
-		href: "/docs/bytedance-beijing-renting-guide",
+		href: "/docs/regional-guides/beijing/jd-headquarters-renting-guide",
 	},
 ];
 
@@ -41,9 +41,9 @@ export default function HomePage() {
 						</Link>
 						<Link
 							className="inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium transition hover:bg-muted"
-							href="/docs/jd-beijing-renting-guide"
+							href="/docs/regional-guides/beijing/jd-headquarters-renting-guide"
 						>
-							查看京东租房指南
+							查看北京京东租房指南
 						</Link>
 					</div>
 				</div>
