@@ -77,16 +77,9 @@ export const contents: Content[] = [
 		Icon: () => <BookOpen className="w-4 h-4 text-current" />,
 		list: [
 			{
-				title: "租房必看",
-				href: "/docs/mandatory-read",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
-				subpages: [
-					{
-						title: "租房避坑指南",
-						href: "/docs/mandatory-read/renting-pitfalls",
-						icon: () => <FileWarning className="w-4 h-4 text-current" />,
-					},
-				],
+				title: "租房避坑指南",
+				href: "/docs/mandatory-read/renting-pitfalls",
+				icon: () => <FileWarning className="w-4 h-4 text-current" />,
 			},
 		],
 	},
@@ -99,23 +92,21 @@ export const contents: Content[] = [
 				title: "北京地区指南",
 				href: "/docs/regional-guides/beijing",
 				icon: () => <Building2 className="w-4 h-4 text-current" />,
-				subpages: [
-					{
-						title: "北京京东租房指南",
-						href: "/docs/regional-guides/beijing/jd-headquarters-renting-guide",
-						icon: () => <Building2 className="w-4 h-4 text-current" />,
-					},
-					{
-						title: "北京租房指南",
-						href: "/docs/regional-guides/beijing/bytedance-renting-guide",
-						icon: () => <BookOpen className="w-4 h-4 text-current" />,
-					},
-					{
-						title: "北京区域地图",
-						href: "/docs/regional-guides/beijing/bytedance-area-map",
-						icon: () => <Map className="w-4 h-4 text-current" />,
-					},
-				],
+			},
+			{
+				title: "北京京东租房指南",
+				href: "/docs/regional-guides/beijing/jd-headquarters-renting-guide",
+				icon: () => <Building2 className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "北京租房指南",
+				href: "/docs/regional-guides/beijing/bytedance-renting-guide",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "北京区域地图",
+				href: "/docs/regional-guides/beijing/bytedance-area-map",
+				icon: () => <Map className="w-4 h-4 text-current" />,
 			},
 		],
 	},
