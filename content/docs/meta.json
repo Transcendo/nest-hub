@@ -2,7 +2,7 @@
   "title": "NestHub",
   "root": true,
   "pages": [
-    "mandatory-read",
-    "regional-guides"
+    "avoid-pitfalls",
+    "cities"
   ]
 }

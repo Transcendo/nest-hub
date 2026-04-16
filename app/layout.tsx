@@ -20,7 +20,7 @@ export const metadata: Metadata = createMetadata({
 		template: "%s | NestHub",
 		default: "NestHub",
 	},
-	description: "面向打工人和搬家人群的租房, 通勤与居住决策指南。",
+	description: "面向打工人和搬家人群的多城市租房、通勤与居住决策指南。",
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {

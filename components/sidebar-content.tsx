@@ -1,6 +1,6 @@
 import type { Folder, Root } from "fumadocs-core/page-tree";
 import type { LucideIcon } from "lucide-react";
-import { BookOpen, Building2, FileWarning, Map } from "lucide-react";
+import { BookOpen, Building2, FileWarning, Map, MapPinned } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
 
 export interface SubpageItem {
@@ -72,41 +72,96 @@ export function getPageTree(): Root {
 
 export const contents: Content[] = [
 	{
-		title: "租房必看",
-		expandSectionForPathPrefix: "/docs/mandatory-read",
+		title: "避坑指南",
+		href: "/docs/avoid-pitfalls",
+		expandSectionForPathPrefix: "/docs/avoid-pitfalls",
 		Icon: () => <BookOpen className="w-4 h-4 text-current" />,
 		list: [
 			{
-				title: "租房避坑指南",
-				href: "/docs/mandatory-read/renting-pitfalls",
+				title: "总览",
+				href: "/docs/avoid-pitfalls",
 				icon: () => <FileWarning className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "租前准备",
+				href: "/docs/avoid-pitfalls/preparation",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "实地看房",
+				href: "/docs/avoid-pitfalls/viewing",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "签约谈判",
+				href: "/docs/avoid-pitfalls/contract",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "入住生活",
+				href: "/docs/avoid-pitfalls/living",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "常见陷阱",
+				href: "/docs/avoid-pitfalls/traps",
+				icon: () => <FileWarning className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "维权指南",
+				href: "/docs/avoid-pitfalls/rights",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
 			},
 		],
 	},
 	{
-		title: "按地区看房",
-		expandSectionForPathPrefix: "/docs/regional-guides",
+		title: "按城市看房",
+		expandSectionForPathPrefix: "/docs/cities",
 		Icon: () => <Map className="w-4 h-4 text-current" />,
 		list: [
 			{
-				title: "北京地区指南",
-				href: "/docs/regional-guides/beijing",
+				title: "北京",
+				href: "/docs/cities/beijing",
 				icon: () => <Building2 className="w-4 h-4 text-current" />,
+				subpages: [
+					{
+						title: "京东总部租房指南",
+						href: "/docs/cities/beijing/jd-headquarters-renting-guide",
+						icon: () => <Building2 className="w-4 h-4 text-current" />,
+					},
+					{
+						title: "字节跳动租房指南",
+						href: "/docs/cities/beijing/bytedance-renting-guide",
+						icon: () => <Building2 className="w-4 h-4 text-current" />,
+					},
+					{
+						title: "北京区域地图",
+						href: "/docs/cities/beijing/bytedance-area-map",
+						icon: () => <MapPinned className="w-4 h-4 text-current" />,
+					},
+				],
 			},
 			{
-				title: "北京京东租房指南",
-				href: "/docs/regional-guides/beijing/jd-headquarters-renting-guide",
+				title: "上海",
+				href: "/docs/cities/shanghai",
 				icon: () => <Building2 className="w-4 h-4 text-current" />,
+				subpages: [
+					{
+						title: "阿里巴巴租房指南",
+						href: "/docs/cities/shanghai/alibaba-renting-guide",
+						icon: () => <Building2 className="w-4 h-4 text-current" />,
+					},
+				],
 			},
 			{
-				title: "北京租房指南",
-				href: "/docs/regional-guides/beijing/bytedance-renting-guide",
+				title: "杭州",
+				href: "/docs/cities/hangzhou",
 				icon: () => <BookOpen className="w-4 h-4 text-current" />,
 			},
 			{
-				title: "北京区域地图",
-				href: "/docs/regional-guides/beijing/bytedance-area-map",
-				icon: () => <Map className="w-4 h-4 text-current" />,
+				title: "深圳",
+				href: "/docs/cities/shenzhen",
+				icon: () => <BookOpen className="w-4 h-4 text-current" />,
 			},
 		],
 	},

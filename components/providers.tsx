@@ -1,5 +1,6 @@
 "use client";
 
+import { RootProvider } from "fumadocs-ui/provider/next";
 import { ThemeProvider } from "next-themes";
 import type { ReactNode } from "react";
 
@@ -10,7 +11,7 @@ export function Providers({ children }: { children: ReactNode }) {
 			enableSystem={true}
 			disableTransitionOnChange
 		>
-			{children}
+			<RootProvider>{children}</RootProvider>
 		</ThemeProvider>
 	);
 }

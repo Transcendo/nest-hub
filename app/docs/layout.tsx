@@ -2,6 +2,7 @@ import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { Suspense } from "react";
 import { DocsSidebar } from "@/components/docs/docs-sidebar";
+import { docsLayoutProps } from "@/lib/site-config";
 import { source } from "@/lib/source";
 import type { PageEntry } from "./provider";
 import { DocsProvider } from "./provider";
@@ -18,10 +19,8 @@ export default function Layout({ children }: { children: ReactNode }) {
 				<DocsSidebar />
 			</Suspense>
 			<DocsLayout
+				{...docsLayoutProps}
 				tree={source.pageTree}
-				nav={{ enabled: false }}
-				searchToggle={{ enabled: false }}
-				themeSwitch={{ enabled: false }}
 				sidebar={{ enabled: false }}
 				containerProps={{
 					className: "docs-layout",
