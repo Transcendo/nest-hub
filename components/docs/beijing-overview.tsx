@@ -6,6 +6,7 @@ import {
 	Route,
 } from "lucide-react";
 import Link from "next/link";
+import { publicAsset } from "@/lib/public-asset";
 
 const collectedCompanies = [
 	{ name: "京东", href: "/docs/beijing/jd-headquarters-renting-guide" },
@@ -179,7 +180,7 @@ export function BeijingOverview() {
 					</div>
 					<div className="relative min-h-[300px] border-t border-zinc-200 bg-white lg:border-l lg:border-t-0 dark:border-zinc-800 dark:bg-zinc-900">
 						<img
-							src="/city-guides/beijing-tech-ecosystem.png"
+							src={publicAsset("/city-guides/beijing-tech-ecosystem.png")}
 							alt="北京互联网公司生态抽象插图"
 							className="h-full min-h-[300px] w-full object-cover"
 						/>

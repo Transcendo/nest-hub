@@ -9,6 +9,7 @@ import {
 	ShieldCheck,
 } from "lucide-react";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
+import { publicAsset } from "@/lib/public-asset";
 import { docsLayoutProps } from "@/lib/site-config";
 
 const repoUrl = "https://github.com/Transcendo/nest-hub";
@@ -70,37 +71,37 @@ const companyGuides = [
 	{
 		name: "京东",
 		href: "/docs/beijing/jd-headquarters-renting-guide",
-		icon: "/company-icons/jd.png",
+		icon: publicAsset("/company-icons/jd.png"),
 		area: "亦庄 / 经海路",
 	},
 	{
 		name: "百度",
 		href: "/docs/beijing/baidu-renting-guide",
-		icon: "/company-icons/baidu.svg",
+		icon: publicAsset("/company-icons/baidu.svg"),
 		area: "上地 / 西二旗",
 	},
 	{
 		name: "字节跳动",
 		href: "/docs/beijing/bytedance-renting-guide",
-		icon: "/company-icons/bytedance.svg",
+		icon: publicAsset("/company-icons/bytedance.svg"),
 		area: "大钟寺 / 知春路",
 	},
 	{
 		name: "阿里巴巴",
 		href: "/docs/beijing/alibaba-renting-guide",
-		icon: "/company-icons/alibabadotcom.svg",
+		icon: publicAsset("/company-icons/alibabadotcom.svg"),
 		area: "望京 / 来广营",
 	},
 	{
 		name: "小米",
 		href: "/docs/beijing/xiaomi-renting-guide",
-		icon: "/company-icons/xiaomi.svg",
+		icon: publicAsset("/company-icons/xiaomi.svg"),
 		area: "安宁庄 / 清河",
 	},
 	{
 		name: "快手",
 		href: "/docs/beijing/kuaishou-renting-guide",
-		icon: "/company-icons/kuaishou.svg",
+		icon: publicAsset("/company-icons/kuaishou.svg"),
 		area: "后厂村 / 西二旗",
 	},
 ];

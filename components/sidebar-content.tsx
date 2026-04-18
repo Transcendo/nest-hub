@@ -1,7 +1,22 @@
 import type { Folder, Root } from "fumadocs-core/page-tree";
 import type { LucideIcon } from "lucide-react";
-import { BookOpen, Building2, FileWarning } from "lucide-react";
+import {
+	ClipboardCheck,
+	Eye,
+	Factory,
+	FileSignature,
+	House,
+	KeyRound,
+	Landmark,
+	MapPinned,
+	Mountain,
+	Scale,
+	ShieldAlert,
+	TriangleAlert,
+	Waves,
+} from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
+import { publicAsset } from "@/lib/public-asset";
 import { cn } from "@/lib/utils";
 
 export interface SubpageItem {
@@ -29,6 +44,41 @@ interface Content {
 	Icon: ((props?: SVGProps<any>) => ReactNode) | LucideIcon;
 	isNew?: boolean;
 	list: ListItem[];
+}
+
+const moduleLogoStyles = {
+	pitfalls:
+		"bg-rose-50 text-rose-700 ring-rose-200 dark:bg-rose-950/35 dark:text-rose-300 dark:ring-rose-800/60",
+	beijing:
+		"bg-red-50 text-red-700 ring-red-200 dark:bg-red-950/35 dark:text-red-300 dark:ring-red-800/60",
+	shanghai:
+		"bg-sky-50 text-sky-700 ring-sky-200 dark:bg-sky-950/35 dark:text-sky-300 dark:ring-sky-800/60",
+	hangzhou:
+		"bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950/35 dark:text-emerald-300 dark:ring-emerald-800/60",
+	shenzhen:
+		"bg-amber-50 text-amber-700 ring-amber-200 dark:bg-amber-950/35 dark:text-amber-300 dark:ring-amber-800/60",
+};
+
+function ModuleLogo({
+	children,
+	className,
+	variant,
+}: {
+	children: ReactNode;
+	className?: string;
+	variant: keyof typeof moduleLogoStyles;
+}) {
+	return (
+		<span
+			className={cn(
+				"inline-flex size-5 shrink-0 items-center justify-center rounded-[5px] ring-1 [&>svg]:size-[13px]",
+				moduleLogoStyles[variant],
+				className,
+			)}
+		>
+			{children}
+		</span>
+	);
 }
 
 function contentToPageTree(content: Content): Folder {
@@ -78,22 +128,22 @@ function CompanyLogoIcon({
 
 const companyIcons = {
 	jd: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src="/company-icons/jd.png" />
+		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/jd.png")} />
 	),
 	alibaba: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src="/company-icons/alibabadotcom.svg" />
+		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/alibabadotcom.svg")} />
 	),
 	bytedance: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src="/company-icons/bytedance.svg" />
+		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/bytedance.svg")} />
 	),
 	baidu: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src="/company-icons/baidu.svg" />
+		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/baidu.svg")} />
 	),
 	xiaomi: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src="/company-icons/xiaomi.svg" />
+		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/xiaomi.svg")} />
 	),
 	kuaishou: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src="/company-icons/kuaishou.svg" />
+		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/kuaishou.svg")} />
 	),
 };
 
@@ -118,42 +168,46 @@ export const contents: Content[] = [
 		title: "避坑指南",
 		href: "/docs/avoid-pitfalls",
 		expandSectionForPathPrefix: "/docs/avoid-pitfalls",
-		Icon: () => <BookOpen className="w-4 h-4 text-current" />,
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="pitfalls">
+				<ShieldAlert />
+			</ModuleLogo>
+		),
 		list: [
 			{
 				title: "总览",
 				href: "/docs/avoid-pitfalls",
-				icon: () => <FileWarning className="w-4 h-4 text-current" />,
+				icon: () => <ClipboardCheck className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "租前准备",
 				href: "/docs/avoid-pitfalls/preparation",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+				icon: () => <KeyRound className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "实地看房",
 				href: "/docs/avoid-pitfalls/viewing",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+				icon: () => <Eye className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "签约谈判",
 				href: "/docs/avoid-pitfalls/contract",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+				icon: () => <FileSignature className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "入住生活",
 				href: "/docs/avoid-pitfalls/living",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+				icon: () => <House className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "常见陷阱",
 				href: "/docs/avoid-pitfalls/traps",
-				icon: () => <FileWarning className="w-4 h-4 text-current" />,
+				icon: () => <TriangleAlert className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "维权指南",
 				href: "/docs/avoid-pitfalls/rights",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
+				icon: () => <Scale className="w-4 h-4 text-current" />,
 			},
 		],
 	},
@@ -161,9 +215,13 @@ export const contents: Content[] = [
 		title: "北京",
 		href: "/docs/beijing",
 		expandSectionForPathPrefix: "/docs/beijing",
-		Icon: () => <Building2 className="w-4 h-4 text-current" />,
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="beijing">
+				<Landmark />
+			</ModuleLogo>
+		),
 		list: [
-			{ title: "总览", href: "/docs/beijing", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "总览", href: "/docs/beijing", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
 			{ title: "京东总部租房指南", href: "/docs/beijing/jd-headquarters-renting-guide", icon: companyIcons.jd },
 			{ title: "阿里巴巴租房指南", href: "/docs/beijing/alibaba-renting-guide", icon: companyIcons.alibaba },
 			{ title: "字节跳动租房指南", href: "/docs/beijing/bytedance-renting-guide", icon: companyIcons.bytedance },
@@ -176,9 +234,13 @@ export const contents: Content[] = [
 		title: "上海",
 		href: "/docs/shanghai",
 		expandSectionForPathPrefix: "/docs/shanghai",
-		Icon: () => <Building2 className="w-4 h-4 text-current" />,
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="shanghai">
+				<Waves />
+			</ModuleLogo>
+		),
 		list: [
-			{ title: "总览", href: "/docs/shanghai", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "总览", href: "/docs/shanghai", icon: () => <Waves className="w-4 h-4 text-current" /> },
 			{ title: "阿里巴巴租房指南", href: "/docs/shanghai/alibaba-renting-guide", icon: companyIcons.alibaba },
 		],
 	},
@@ -186,15 +248,23 @@ export const contents: Content[] = [
 		title: "杭州",
 		href: "/docs/hangzhou",
 		expandSectionForPathPrefix: "/docs/hangzhou",
-		Icon: () => <Building2 className="w-4 h-4 text-current" />,
-		list: [{ title: "总览", href: "/docs/hangzhou", icon: () => <Building2 className="w-4 h-4 text-current" /> }],
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="hangzhou">
+				<Mountain />
+			</ModuleLogo>
+		),
+		list: [{ title: "总览", href: "/docs/hangzhou", icon: () => <Mountain className="w-4 h-4 text-current" /> }],
 	},
 	{
 		title: "深圳",
 		href: "/docs/shenzhen",
 		expandSectionForPathPrefix: "/docs/shenzhen",
-		Icon: () => <Building2 className="w-4 h-4 text-current" />,
-		list: [{ title: "总览", href: "/docs/shenzhen", icon: () => <Building2 className="w-4 h-4 text-current" /> }],
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="shenzhen">
+				<Factory />
+			</ModuleLogo>
+		),
+		list: [{ title: "总览", href: "/docs/shenzhen", icon: () => <Factory className="w-4 h-4 text-current" /> }],
 	},
 ];
 
