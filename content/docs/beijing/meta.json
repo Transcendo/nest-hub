@@ -3,8 +3,11 @@
   "pages": [
     "index",
     "jd-headquarters-renting-guide",
-    "bytedance-renting-guide",
     "alibaba-renting-guide",
+    "bytedance-renting-guide",
+    "baidu-renting-guide",
+    "xiaomi-renting-guide",
+    "kuaishou-renting-guide",
     "bytedance-area-map"
   ]
 }
