@@ -1,6 +1,6 @@
 import type { Folder, Root } from "fumadocs-core/page-tree";
 import type { LucideIcon } from "lucide-react";
-import { BookOpen, Building2, FileWarning, Map, MapPinned } from "lucide-react";
+import { BookOpen, Building2, FileWarning, MapPinned } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
 
 export interface SubpageItem {
@@ -115,60 +115,41 @@ export const contents: Content[] = [
 		],
 	},
 	{
-		title: "按城市看房",
+		title: "北京",
+		href: "/docs/beijing",
 		expandSectionForPathPrefix: "/docs/beijing",
-		Icon: () => <Map className="w-4 h-4 text-current" />,
+		Icon: () => <Building2 className="w-4 h-4 text-current" />,
 		list: [
-			{
-				title: "北京",
-				href: "/docs/beijing",
-				icon: () => <Building2 className="w-4 h-4 text-current" />,
-				subpages: [
-					{
-						title: "京东总部租房指南",
-						href: "/docs/beijing/jd-headquarters-renting-guide",
-						icon: () => <Building2 className="w-4 h-4 text-current" />,
-					},
-					{
-						title: "阿里巴巴租房指南",
-						href: "/docs/beijing/alibaba-renting-guide",
-						icon: () => <Building2 className="w-4 h-4 text-current" />,
-					},
-					{
-						title: "字节跳动租房指南",
-						href: "/docs/beijing/bytedance-renting-guide",
-						icon: () => <Building2 className="w-4 h-4 text-current" />,
-					},
-					{
-						title: "北京区域地图",
-						href: "/docs/beijing/bytedance-area-map",
-						icon: () => <MapPinned className="w-4 h-4 text-current" />,
-					},
-				],
-			},
-			{
-				title: "上海",
-				href: "/docs/shanghai",
-				icon: () => <Building2 className="w-4 h-4 text-current" />,
-				subpages: [
-					{
-						title: "阿里巴巴租房指南",
-						href: "/docs/shanghai/alibaba-renting-guide",
-						icon: () => <Building2 className="w-4 h-4 text-current" />,
-					},
-				],
-			},
-			{
-				title: "杭州",
-				href: "/docs/hangzhou",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
-			},
-			{
-				title: "深圳",
-				href: "/docs/shenzhen",
-				icon: () => <BookOpen className="w-4 h-4 text-current" />,
-			},
+			{ title: "总览", href: "/docs/beijing", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "京东总部租房指南", href: "/docs/beijing/jd-headquarters-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "阿里巴巴租房指南", href: "/docs/beijing/alibaba-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "字节跳动租房指南", href: "/docs/beijing/bytedance-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "北京区域地图", href: "/docs/beijing/bytedance-area-map", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
 		],
+	},
+	{
+		title: "上海",
+		href: "/docs/shanghai",
+		expandSectionForPathPrefix: "/docs/shanghai",
+		Icon: () => <Building2 className="w-4 h-4 text-current" />,
+		list: [
+			{ title: "总览", href: "/docs/shanghai", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "阿里巴巴租房指南", href: "/docs/shanghai/alibaba-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+		],
+	},
+	{
+		title: "杭州",
+		href: "/docs/hangzhou",
+		expandSectionForPathPrefix: "/docs/hangzhou",
+		Icon: () => <Building2 className="w-4 h-4 text-current" />,
+		list: [{ title: "总览", href: "/docs/hangzhou", icon: () => <Building2 className="w-4 h-4 text-current" /> }],
+	},
+	{
+		title: "深圳",
+		href: "/docs/shenzhen",
+		expandSectionForPathPrefix: "/docs/shenzhen",
+		Icon: () => <Building2 className="w-4 h-4 text-current" />,
+		list: [{ title: "总览", href: "/docs/shenzhen", icon: () => <Building2 className="w-4 h-4 text-current" /> }],
 	},
 ];
 
