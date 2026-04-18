@@ -116,51 +116,56 @@ export const contents: Content[] = [
 	},
 	{
 		title: "按城市看房",
-		expandSectionForPathPrefix: "/docs/cities",
+		expandSectionForPathPrefix: "/docs/beijing",
 		Icon: () => <Map className="w-4 h-4 text-current" />,
 		list: [
 			{
 				title: "北京",
-				href: "/docs/cities/beijing",
+				href: "/docs/beijing",
 				icon: () => <Building2 className="w-4 h-4 text-current" />,
 				subpages: [
 					{
 						title: "京东总部租房指南",
-						href: "/docs/cities/beijing/jd-headquarters-renting-guide",
+						href: "/docs/beijing/jd-headquarters-renting-guide",
+						icon: () => <Building2 className="w-4 h-4 text-current" />,
+					},
+					{
+						title: "阿里巴巴租房指南",
+						href: "/docs/beijing/alibaba-renting-guide",
 						icon: () => <Building2 className="w-4 h-4 text-current" />,
 					},
 					{
 						title: "字节跳动租房指南",
-						href: "/docs/cities/beijing/bytedance-renting-guide",
+						href: "/docs/beijing/bytedance-renting-guide",
 						icon: () => <Building2 className="w-4 h-4 text-current" />,
 					},
 					{
 						title: "北京区域地图",
-						href: "/docs/cities/beijing/bytedance-area-map",
+						href: "/docs/beijing/bytedance-area-map",
 						icon: () => <MapPinned className="w-4 h-4 text-current" />,
 					},
 				],
 			},
 			{
 				title: "上海",
-				href: "/docs/cities/shanghai",
+				href: "/docs/shanghai",
 				icon: () => <Building2 className="w-4 h-4 text-current" />,
 				subpages: [
 					{
 						title: "阿里巴巴租房指南",
-						href: "/docs/cities/shanghai/alibaba-renting-guide",
+						href: "/docs/shanghai/alibaba-renting-guide",
 						icon: () => <Building2 className="w-4 h-4 text-current" />,
 					},
 				],
 			},
 			{
 				title: "杭州",
-				href: "/docs/cities/hangzhou",
+				href: "/docs/hangzhou",
 				icon: () => <BookOpen className="w-4 h-4 text-current" />,
 			},
 			{
 				title: "深圳",
-				href: "/docs/cities/shenzhen",
+				href: "/docs/shenzhen",
 				icon: () => <BookOpen className="w-4 h-4 text-current" />,
 			},
 		],

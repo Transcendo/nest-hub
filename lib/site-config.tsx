@@ -15,22 +15,22 @@ export const topNavLinks: LinkItemType[] = [
 	},
 	{
 		text: "北京",
-		url: "/docs/cities/beijing",
+		url: "/docs/beijing",
 		active: "nested-url",
 	},
 	{
 		text: "上海",
-		url: "/docs/cities/shanghai",
+		url: "/docs/shanghai",
 		active: "nested-url",
 	},
 	{
 		text: "杭州",
-		url: "/docs/cities/hangzhou",
+		url: "/docs/hangzhou",
 		active: "nested-url",
 	},
 	{
 		text: "深圳",
-		url: "/docs/cities/shenzhen",
+		url: "/docs/shenzhen",
 		active: "nested-url",
 	},
 ];
@@ -52,23 +52,23 @@ export const docsLayoutProps = {
 export const cityCards = [
 	{
 		title: "北京",
-		description: "覆盖京东总部、字节跳动等办公区，先看通勤带，再决定预算和片区。",
-		href: "/docs/cities/beijing",
+		description: "覆盖阿里巴巴、京东总部、字节跳动等办公区，先看通勤带，再决定预算和片区。",
+		href: "/docs/beijing",
 	},
 	{
 		title: "上海",
 		description: "围绕张江等办公区整理租房建议，先解决通勤半径，再筛选社区。",
-		href: "/docs/cities/shanghai",
+		href: "/docs/shanghai",
 	},
 	{
 		title: "杭州",
 		description: "城市入口已准备好，后续可持续补充阿里、滨江等片区经验。",
-		href: "/docs/cities/hangzhou",
+		href: "/docs/hangzhou",
 	},
 	{
 		title: "深圳",
 		description: "城市入口已准备好，后续可持续补充南山、坂田等典型通勤片区内容。",
-		href: "/docs/cities/shenzhen",
+		href: "/docs/shenzhen",
 	},
 ];
 

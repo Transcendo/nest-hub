@@ -3,6 +3,9 @@
   "root": true,
   "pages": [
     "avoid-pitfalls",
-    "cities"
+    "beijing",
+    "shanghai",
+    "hangzhou",
+    "shenzhen"
   ]
 }
