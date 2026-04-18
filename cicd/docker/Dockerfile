@@ -9,9 +9,10 @@ server {
 
   root /usr/share/nginx/html;
   index index.html;
+  absolute_redirect off;
 
   location / {
-    try_files $uri $uri/ $uri.html =404;
+    try_files $uri $uri.html $uri/ =404;
   }
 
   error_page 404 /404.html;
