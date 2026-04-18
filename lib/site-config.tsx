@@ -1,13 +1,9 @@
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import { Logo } from "@/components/icons/logo";
 
 export const siteName = "NestHub";
 
 export const topNavLinks: LinkItemType[] = [
-	{
-		text: "首页",
-		url: "/",
-		active: "url",
-	},
 	{
 		text: "避坑指南",
 		url: "/docs/avoid-pitfalls",
@@ -36,9 +32,15 @@ export const topNavLinks: LinkItemType[] = [
 ];
 
 export const docsLayoutProps = {
+	githubUrl: "https://github.com/Transcendo/nest-hub",
 	links: topNavLinks,
 	nav: {
-		title: siteName,
+		title: (
+			<span className="inline-flex items-center gap-2">
+				<Logo className="h-7 w-7" />
+				<span>{siteName}</span>
+			</span>
+		),
 		url: "/",
 	},
 	searchToggle: {

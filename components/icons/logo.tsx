@@ -4,19 +4,43 @@ import { cn } from "@/lib/utils";
 export const Logo = ({ className }: { className?: string }) => {
 	return (
 		<svg
-			className={className || "h-5 w-5"}
-			width="60"
-			height="45"
-			viewBox="0 0 60 45"
+			className={className || "h-7 w-7"}
+			width="64"
+			height="64"
+			viewBox="0 0 64 64"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
 		>
+			<circle cx="32" cy="32" r="29" className="fill-[#101615] dark:fill-[#edf7f1]" />
 			<path
-				fillRule="evenodd"
-				clipRule="evenodd"
-				d="M0 0H15V15H30V30H15V45H0V30V15V0ZM45 30V15H30V0H45H60V15V30V45H45H30V30H45Z"
-				className="fill-foreground"
-			></path>
+				d="M15 37C21 29.5 28.5 26 36.5 26C42.5 26 47.5 28 52 32"
+				className="stroke-[#92f5c8] dark:stroke-[#0f7a55]"
+				strokeWidth="5"
+				strokeLinecap="round"
+			/>
+			<path
+				d="M13 29C19 21.5 27.5 18 37 19C43 19.7 48 22.3 52 27"
+				className="stroke-[#facc15] dark:stroke-[#b08900]"
+				strokeWidth="5"
+				strokeLinecap="round"
+			/>
+			<path
+				d="M18 43C24.5 47.5 35.5 49.5 46.5 44.5"
+				className="stroke-[#38bdf8] dark:stroke-[#0e7490]"
+				strokeWidth="5"
+				strokeLinecap="round"
+			/>
+			<path
+				d="M24 35L32 28L40 35V45H24V35Z"
+				className="fill-[#f6fbf8] stroke-[#101615] dark:fill-[#101615] dark:stroke-[#edf7f1]"
+				strokeWidth="3"
+				strokeLinejoin="round"
+			/>
+			<circle cx="32" cy="39" r="4.5" className="fill-[#10b981]" />
+			<circle cx="18" cy="24" r="3.5" className="fill-[#92f5c8] dark:fill-[#0f7a55]" />
+			<circle cx="49" cy="38" r="3.5" className="fill-[#facc15] dark:fill-[#b08900]" />
+			<circle cx="43" cy="19" r="3.5" className="fill-[#38bdf8] dark:fill-[#0e7490]" />
 		</svg>
 	);
 };
@@ -43,19 +67,41 @@ export const BetterAuthLogo = (props: SVGProps<SVGSVGElement>) => {
 	return (
 		<svg
 			{...props}
-			width="60"
-			height="45"
-			viewBox="0 0 60 45"
+			width="64"
+			height="64"
+			viewBox="0 0 64 64"
 			fill="none"
-			// className="w-5 h-5"
 			xmlns="http://www.w3.org/2000/svg"
 		>
+			<circle cx="32" cy="32" r="29" className="fill-[#101615] dark:fill-[#edf7f1]" />
 			<path
-				fillRule="evenodd"
-				clipRule="evenodd"
-				d="M0 0H15V15H30V30H15V45H0V30V15V0ZM45 30V15H30V0H45H60V15V30V45H45H30V30H45Z"
-				className="fill-foreground"
+				d="M15 37C21 29.5 28.5 26 36.5 26C42.5 26 47.5 28 52 32"
+				className="stroke-[#92f5c8] dark:stroke-[#0f7a55]"
+				strokeWidth="5"
+				strokeLinecap="round"
 			/>
+			<path
+				d="M13 29C19 21.5 27.5 18 37 19C43 19.7 48 22.3 52 27"
+				className="stroke-[#facc15] dark:stroke-[#b08900]"
+				strokeWidth="5"
+				strokeLinecap="round"
+			/>
+			<path
+				d="M18 43C24.5 47.5 35.5 49.5 46.5 44.5"
+				className="stroke-[#38bdf8] dark:stroke-[#0e7490]"
+				strokeWidth="5"
+				strokeLinecap="round"
+			/>
+			<path
+				d="M24 35L32 28L40 35V45H24V35Z"
+				className="fill-[#f6fbf8] stroke-[#101615] dark:fill-[#101615] dark:stroke-[#edf7f1]"
+				strokeWidth="3"
+				strokeLinejoin="round"
+			/>
+			<circle cx="32" cy="39" r="4.5" className="fill-[#10b981]" />
+			<circle cx="18" cy="24" r="3.5" className="fill-[#92f5c8] dark:fill-[#0f7a55]" />
+			<circle cx="49" cy="38" r="3.5" className="fill-[#facc15] dark:fill-[#b08900]" />
+			<circle cx="43" cy="19" r="3.5" className="fill-[#38bdf8] dark:fill-[#0e7490]" />
 		</svg>
 	);
 };

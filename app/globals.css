@@ -244,6 +244,21 @@
 	animation: logo-marquee 30s linear infinite;
 }
 
+.company-marquee-track {
+	animation: logo-marquee 16s linear infinite;
+	will-change: transform;
+}
+
+.company-marquee:hover .company-marquee-track {
+	animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.company-marquee-track {
+		animation: none;
+	}
+}
+
 @keyframes vertical-marquee {
 	0% {
 		transform: translateY(0);
