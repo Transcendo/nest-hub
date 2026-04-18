@@ -1,7 +1,8 @@
 import type { Folder, Root } from "fumadocs-core/page-tree";
 import type { LucideIcon } from "lucide-react";
-import { BookOpen, Building2, FileWarning, MapPinned } from "lucide-react";
+import { BookOpen, Building2, FileWarning } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
+import { cn } from "@/lib/utils";
 
 export interface SubpageItem {
 	title: string;
@@ -53,6 +54,48 @@ function contentToPageTree(content: Content): Folder {
 			),
 	};
 }
+
+function CompanyLogoIcon({
+	className,
+	src,
+}: SVGProps<any> & { src: string }) {
+	return (
+		<span
+			className={cn(
+				"inline-flex size-4 shrink-0 items-center justify-center overflow-hidden rounded-[3px]",
+				className,
+			)}
+		>
+			<img
+				src={src}
+				alt=""
+				aria-hidden="true"
+				className="block size-full object-contain"
+			/>
+		</span>
+	);
+}
+
+const companyIcons = {
+	jd: (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src="/company-icons/jd.png" />
+	),
+	alibaba: (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src="/company-icons/alibabadotcom.svg" />
+	),
+	bytedance: (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src="/company-icons/bytedance.svg" />
+	),
+	baidu: (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src="/company-icons/baidu.svg" />
+	),
+	xiaomi: (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src="/company-icons/xiaomi.svg" />
+	),
+	kuaishou: (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src="/company-icons/kuaishou.svg" />
+	),
+};
 
 export function getPageTree(): Root {
 	return {
@@ -121,13 +164,12 @@ export const contents: Content[] = [
 		Icon: () => <Building2 className="w-4 h-4 text-current" />,
 		list: [
 			{ title: "总览", href: "/docs/beijing", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "京东总部租房指南", href: "/docs/beijing/jd-headquarters-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "阿里巴巴租房指南", href: "/docs/beijing/alibaba-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "字节跳动租房指南", href: "/docs/beijing/bytedance-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "百度北京租房指南", href: "/docs/beijing/baidu-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "小米北京租房指南", href: "/docs/beijing/xiaomi-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "快手北京租房指南", href: "/docs/beijing/kuaishou-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "北京区域地图", href: "/docs/beijing/bytedance-area-map", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			{ title: "京东总部租房指南", href: "/docs/beijing/jd-headquarters-renting-guide", icon: companyIcons.jd },
+			{ title: "阿里巴巴租房指南", href: "/docs/beijing/alibaba-renting-guide", icon: companyIcons.alibaba },
+			{ title: "字节跳动租房指南", href: "/docs/beijing/bytedance-renting-guide", icon: companyIcons.bytedance },
+			{ title: "百度北京租房指南", href: "/docs/beijing/baidu-renting-guide", icon: companyIcons.baidu },
+			{ title: "小米北京租房指南", href: "/docs/beijing/xiaomi-renting-guide", icon: companyIcons.xiaomi },
+			{ title: "快手北京租房指南", href: "/docs/beijing/kuaishou-renting-guide", icon: companyIcons.kuaishou },
 		],
 	},
 	{
@@ -137,7 +179,7 @@ export const contents: Content[] = [
 		Icon: () => <Building2 className="w-4 h-4 text-current" />,
 		list: [
 			{ title: "总览", href: "/docs/shanghai", icon: () => <Building2 className="w-4 h-4 text-current" /> },
-			{ title: "阿里巴巴租房指南", href: "/docs/shanghai/alibaba-renting-guide", icon: () => <Building2 className="w-4 h-4 text-current" /> },
+			{ title: "阿里巴巴租房指南", href: "/docs/shanghai/alibaba-renting-guide", icon: companyIcons.alibaba },
 		],
 	},
 	{

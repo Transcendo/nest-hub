@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { APIMethod } from "@/components/api-method";
+import { BeijingOverview } from "@/components/docs/beijing-overview";
 import { Features } from "@/components/docs/features";
 import {
 	AddToCursor,
@@ -82,6 +83,7 @@ export default async function Page({
 						Folder,
 						TypeTable,
 						APIMethod,
+						BeijingOverview,
 						DatabaseTable,
 						ForkButton,
 						AddToCursor,
