@@ -1,9 +1,15 @@
 import type { MetadataRoute } from "next";
 import { source } from "@/lib/source";
+import { productionSiteUrl } from "@/lib/site-constants";
 
 export const dynamic = "force-static";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://transcendo.github.io/nest-hub";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || productionSiteUrl;
+type LoadablePageData = {
+	load: () => Promise<{
+		lastModified?: string | Date;
+	}>;
+};
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const basePages: MetadataRoute.Sitemap = [
@@ -17,7 +23,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 	const docPages: MetadataRoute.Sitemap = await Promise.all(
 		source.getPages().map(async (page) => {
-			const { lastModified } = await page.data.load();
+			const loadableData = page.data as typeof page.data & LoadablePageData;
+			const { lastModified } = await loadableData.load();
 			return {
 				url: `${BASE_URL}${page.url}`,
 				lastModified: lastModified ? new Date(lastModified) : new Date(),

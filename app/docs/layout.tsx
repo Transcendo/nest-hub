@@ -8,7 +8,7 @@ import type { PageEntry } from "./provider";
 import { DocsProvider } from "./provider";
 
 const allPages: PageEntry[] = source.getPages().map((page) => ({
-	name: page.data.title,
+	name: page.data.title ?? page.url,
 	url: page.url,
 }));
 

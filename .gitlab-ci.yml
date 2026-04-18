@@ -1,0 +1,59 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^(.*-main|main)$/
+
+stages:
+  - build
+  - deploy
+
+default:
+  timeout: 15m
+  retry:
+    max: 1
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+
+variables:
+  APPLICATION_PORT: "8460"
+  CONTAINER_PORT: "80"
+  DEPLOYER_PRO_IP: "ec-r-pro-project-1"
+  DOCKER_IMAGE_NAME: "${CI_REGISTRY_IMAGE}"
+  DOCKER_IMAGE_VERSION: "${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}"
+  DOCKERFILE_PATH: "${CI_PROJECT_DIR}/cicd/docker/Dockerfile"
+  NACOS_ENABLED: "false"
+  NEXT_PUBLIC_SITE_URL: "https://nest-hub.eggcampus.com"
+  NEXT_TELEMETRY_DISABLED: "1"
+  NPM_REGISTRY_URL: "https://repo.huaweicloud.com/repository/npm/"
+  PNPM_STORE_PATH: ".pnpm-store"
+  PNPM_VERSION: "10.30.2"
+  WORK_PROJECT_NAME_DIR: "${CI_PROJECT_DIR}"
+
+build:
+  stage: build
+  tags:
+    - build
+  image: node:22-alpine
+  cache:
+    paths:
+      - .pnpm-store/
+    when: always
+  before_script:
+    - . cicd/script/common-variables.sh
+  script:
+    - . cicd/script/build-nodejs.sh
+
+.deploy_template:
+  stage: deploy
+  before_script:
+    - . cicd/script/common-variables.sh
+    - . cicd/script/deploy-docker-prepare.sh
+  script:
+    - . cicd/script/deploy-docker-runner.sh
+
+deploy_pro:
+  extends: .deploy_template
+  tags:
+    - ec-pro
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(.*-main|main)$/'

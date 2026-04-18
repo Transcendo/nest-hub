@@ -29,6 +29,14 @@ import { createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
+type LoadableDocData = {
+	load: () => Promise<{
+		body: React.ComponentType<any>;
+		toc: unknown;
+		lastModified?: string | Date;
+	}>;
+};
+
 export default async function Page({
 	params,
 }: {
@@ -41,7 +49,9 @@ export default async function Page({
 		return notFound();
 	}
 
-	const { body: MDX, toc } = await page.data.load();
+	const loadableData = page.data as typeof page.data & LoadableDocData;
+	const { body: MDX, toc } = await loadableData.load();
+	const title = page.data.title ?? page.url;
 
 	return (
 		<DocsPage
@@ -51,14 +61,8 @@ export default async function Page({
 				style: "clerk",
 			}}
 			breadcrumb={{ enabled: false }}
-			editOnGithub={{
-				owner: "Transcendo",
-				repo: "nest-hub",
-				sha: "main",
-				path: `content/docs/${page.path}`,
-			}}
 		>
-			<DocsTitle>{page.data.title}</DocsTitle>
+			<DocsTitle>{title}</DocsTitle>
 			{page.data.description && (
 				<DocsDescription>{page.data.description}</DocsDescription>
 			)}
@@ -137,18 +141,19 @@ export async function generateMetadata({
 	const { slug } = await params;
 	const page = source.getPage(slug);
 	if (!page) return notFound();
+	const title = page.data.title ?? page.url;
 
 	return createMetadata({
-		title: page.data.title,
+		title,
 		description: page.data.description,
 		openGraph: {
-			title: page.data.title,
+			title,
 			description: page.data.description,
 			type: "article",
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: page.data.title,
+			title,
 			description: page.data.description,
 		},
 	});

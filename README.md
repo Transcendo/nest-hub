@@ -8,6 +8,10 @@
   面向租房决策的城市内容站，把通用避坑流程、城市总览和公司办公区租房指南整理成可持续维护的知识库。
 </p>
 
+[![Website](https://img.shields.io/badge/site-nest--hub.eggcampus.com-0f172a?style=flat)](https://nest-hub.eggcampus.com)
+[![GitLab](https://img.shields.io/badge/repo-gitlab-fc6d26?style=flat&logo=gitlab&logoColor=white)](https://gitlab.eggcampus.com/ec/nest-hub)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
+
 ## 项目定位
 
 NestHub 当前是一个基于 **Next.js + Fumadocs** 的静态内容站，用来发布结构化租房参考内容。
@@ -20,7 +24,7 @@ NestHub 当前是一个基于 **Next.js + Fumadocs** 的静态内容站，用来
 
 当前内容以北京和通用避坑指南为主，上海已有张江方向入口，杭州和深圳保留稳定城市入口用于后续扩展。
 
-线上默认地址：<https://transcendo.github.io/nest-hub>
+线上默认地址：<https://nest-hub.eggcampus.com>
 
 ## 当前内容结构
 
@@ -54,7 +58,7 @@ content/docs/
 
 ## 本地开发
 
-推荐使用 Node.js 22，与 GitHub Actions 构建环境保持一致。
+推荐使用 Node.js 22，与当前 CI 构建环境保持一致。
 
 ```bash
 pnpm install
@@ -74,6 +78,14 @@ pnpm dev          # 启动本地开发服务器
 pnpm build        # 构建静态站点，输出到 out/
 pnpm start        # 本地预览 out/ 静态产物
 pnpm typecheck    # TypeScript 类型检查
+```
+
+## 环境变量
+
+生产环境的 metadata、sitemap 和 OG 链接依赖：
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://nest-hub.eggcampus.com
 ```
 
 ## 目录说明
@@ -122,9 +134,26 @@ public/
 
 - `next.config.js` 使用 `output: "export"`。
 - `pnpm build` 会生成 `out/`。
-- GitHub Actions 会在推送到 `main` 时构建并部署到 GitHub Pages。
-- 在 GitHub Actions 环境中会自动设置 `/nest-hub` 作为 `basePath` 和 `assetPrefix`。
+- 生产域名是 `https://nest-hub.eggcampus.com`。
 
-部署流程见 `.github/workflows/deploy-github-pages.yml`。
+### GitLab CI/CD
 
-如需改为自定义域名，可通过 `NEXT_PUBLIC_SITE_URL` 设置生产站点地址，并根据部署平台调整 `basePath` / `assetPrefix`。
+当前生产部署基于 GitLab CI/CD 和静态 nginx 容器：
+
+- `.gitlab-ci.yml`
+- `cicd/script/`
+- `cicd/docker/Dockerfile`
+
+发布流程：
+
+1. Push `main` 到 GitLab。
+2. CI 执行 `pnpm install --frozen-lockfile`。
+3. CI 构建静态 `out/` 目录。
+4. CI 构建并推送 nginx 镜像。
+5. CI 将容器部署到 `ec-r-pro-project-1`。
+6. `ec-r-gateway-1` 对外暴露 `nest-hub.eggcampus.com`。
+
+### 说明
+
+- 当前以根域名方式部署，不使用 `basePath`。
+- 生产环境直接提供静态文件，不依赖长期运行的 Next.js 服务。

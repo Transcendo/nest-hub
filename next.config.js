@@ -3,18 +3,10 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
-const isGithubPages = process.env.GITHUB_ACTIONS === "true";
-const repoName = "nest-hub";
-const basePath = isGithubPages ? `/${repoName}` : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	output: "export",
-	basePath,
-	assetPrefix: basePath || undefined,
-	env: {
-		NEXT_PUBLIC_BASE_PATH: basePath,
-	},
 	experimental: {
 		optimizePackageImports: [
 			"lucide-react",

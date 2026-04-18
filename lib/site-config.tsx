@@ -1,5 +1,6 @@
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
 import { Logo } from "@/components/icons/logo";
+import { repositoryUrl } from "@/lib/site-constants";
 
 export const siteName = "NestHub";
 
@@ -29,10 +30,13 @@ export const topNavLinks: LinkItemType[] = [
 		url: "/docs/shenzhen",
 		active: "nested-url",
 	},
+	{
+		text: "源码",
+		url: repositoryUrl,
+	},
 ];
 
 export const docsLayoutProps = {
-	githubUrl: "https://github.com/Transcendo/nest-hub",
 	links: topNavLinks,
 	nav: {
 		title: (
