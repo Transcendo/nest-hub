@@ -26,7 +26,7 @@ cd "${WORK_DIR}"
 echo "准备 Docker"
 if command -v apk >/dev/null 2>&1; then
   sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsinghua.edu.cn/alpine#g' /etc/apk/repositories || true
-  apk add --no-cache docker-cli
+  apk add --no-cache docker-cli git
 fi
 
 echo "准备 Node.js 与 pnpm"
