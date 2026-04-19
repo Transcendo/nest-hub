@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { Logo } from "@/components/icons/logo";
 import type { ListItem } from "@/components/sidebar-content";
 import { contents } from "@/components/sidebar-content";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -70,12 +71,37 @@ export function DocsSidebar() {
 	}, [pathname, currentOpen]);
 
 	return (
-		<motion.aside
-			initial={{ x: -24, opacity: 0 }}
-			animate={{ x: 0, opacity: 1 }}
-			transition={{ duration: 0.28, ease: "easeOut" }}
-			className="fixed left-0 top-(--docs-topbar-height) bottom-0 w-[22vw] max-w-[300px] hidden lg:flex flex-col z-30 bg-background border-r border-foreground/5 transition-[width] duration-300 ease-out"
-		>
+		<>
+			<motion.div
+				initial={{ x: -24, opacity: 0 }}
+				animate={{ x: 0, opacity: 1 }}
+				transition={{ duration: 0.28, ease: "easeOut" }}
+				className="fixed left-0 top-0 z-50 hidden w-[22vw] max-w-[300px] items-center border-b border-r border-foreground/5 bg-background/95 px-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 lg:flex"
+				style={{ height: "var(--docs-topbar-height)" }}
+			>
+				<Link
+					href="/"
+					className="flex min-w-0 w-full items-center gap-2.5 rounded-md px-1.5 py-1 text-foreground transition-colors hover:bg-foreground/3"
+					aria-label="返回 NestHub 首页"
+				>
+					<Logo className="size-7 shrink-0" />
+					<span className="min-w-0">
+						<span className="block truncate text-[13px] font-semibold leading-none">
+							NestHub
+						</span>
+						<span className="mt-0.5 block truncate text-[11px] leading-none text-foreground/55">
+							城市租房情报台
+						</span>
+					</span>
+				</Link>
+			</motion.div>
+
+			<motion.aside
+				initial={{ x: -24, opacity: 0 }}
+				animate={{ x: 0, opacity: 1 }}
+				transition={{ duration: 0.28, ease: "easeOut" }}
+				className="fixed left-0 top-(--docs-topbar-height) bottom-0 w-[22vw] max-w-[300px] hidden lg:flex flex-col z-30 bg-background border-r border-foreground/5 transition-[width] duration-300 ease-out"
+			>
 			<button
 				type="button"
 				className="flex w-full items-center gap-2 px-4 py-[9px] border-y border-foreground/5 text-sm text-foreground/55 hover:text-foreground/80 hover:bg-foreground/3 transition-colors"
@@ -167,7 +193,8 @@ export function DocsSidebar() {
 					<ThemeToggle />
 				</div>
 			</div>
-		</motion.aside>
+			</motion.aside>
+		</>
 	);
 }
 

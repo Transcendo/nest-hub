@@ -1,5 +1,8 @@
 import { createMDX } from "fumadocs-mdx/next";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
+const rootDir = dirname(fileURLToPath(import.meta.url));
 const isGithubPages = process.env.GITHUB_ACTIONS === "true";
 const repoName = "nest-hub";
 const basePath = isGithubPages ? `/${repoName}` : "";
@@ -19,6 +22,9 @@ const nextConfig = {
 			"@radix-ui/react-tabs",
 			"@radix-ui/react-scroll-area",
 		],
+	},
+	turbopack: {
+		root: rootDir,
 	},
 	images: {
 		unoptimized: true,

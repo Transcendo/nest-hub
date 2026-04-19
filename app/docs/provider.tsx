@@ -30,6 +30,7 @@ export function DocsProvider({
 	return (
 		<PagesContext value={pages}>
 			<RootProvider
+				theme={{ enabled: false }}
 				search={{
 					SearchDialog,
 				}}

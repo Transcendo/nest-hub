@@ -47,7 +47,7 @@ export const docsLayoutProps = {
 		enabled: false,
 	},
 	themeSwitch: {
-		enabled: true,
+		enabled: false,
 	},
 } as const;
 

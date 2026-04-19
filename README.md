@@ -1,106 +1,130 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/branding/better-auth-logo-wordmark-dark.svg" />
+<p align="center">
+  <img src="public/branding/nest-hub-logo.svg" alt="NestHub" width="96" />
+</p>
 
-  <source media="(prefers-color-scheme: light)" srcset="public/branding/better-auth-logo-wordmark-light.svg" />
+<h1 align="center">NestHub</h1>
 
-  <img alt="NestHub" src="public/branding/better-auth-logo-wordmark-dark.svg" width="280" />
-</picture>
+<p align="center">
+  面向租房决策的城市内容站，把通用避坑流程、城市总览和公司办公区租房指南整理成可持续维护的知识库。
+</p>
 
-### Fumadocs Frontend
+## 项目定位
 
-Standalone NestHub documentation frontend built with Next.js and Fumadocs.
+NestHub 当前是一个基于 **Next.js + Fumadocs** 的静态内容站，用来发布结构化租房参考内容。
 
-[![Website](https://img.shields.io/badge/better--auth.com-000?style=flat\&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCA2MCA0NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMEgxNVYxNUgzMFYzMEgxNVY0NUgwVjMwVjE1VjBaTTQ1IDMwVjE1SDMwVjBINDVINjBWMTVWMzBWNDVINDVIMzBWMzBINDVaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==\&logoColor=white)](https://nest-hub)
-[![GitHub Stars](https://img.shields.io/github/stars/better-auth/better-auth?style=flat\&logo=github\&label=stars\&color=24292e)](https://github.com/Transcendo/nest-hub)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
+它重点解决三类问题：
 
-***
+- **先避坑**：把租前准备、实地看房、签约谈判、入住生活、常见陷阱和维权路径整理成通用流程。
+- **按城市进入**：北京、上海、杭州、深圳作为一级城市入口，方便后续持续扩展。
+- **按办公区落地**：已收录的公司指南会围绕通勤、地铁、班车、小区和签约风险组织内容。
 
-## Quick Start
+当前内容以北京和通用避坑指南为主，上海已有张江方向入口，杭州和深圳保留稳定城市入口用于后续扩展。
+
+线上默认地址：<https://transcendo.github.io/nest-hub>
+
+## 当前内容结构
+
+```text
+content/docs/
+├─ avoid-pitfalls/        # 通用租房避坑指南
+├─ beijing/               # 北京城市总览与公司租房指南
+├─ shanghai/              # 上海城市入口与张江方向内容
+├─ hangzhou/              # 杭州城市入口，待继续补充
+└─ shenzhen/              # 深圳城市入口，待继续补充
+```
+
+北京当前收录：
+
+- 京东总部租房指南
+- 阿里巴巴北京租房指南
+- 字节跳动北京租房指南
+- 百度北京租房指南
+- 小米北京租房指南
+- 快手北京租房指南
+
+## 技术栈
+
+- **框架**：Next.js 16，App Router
+- **内容系统**：Fumadocs + MDX
+- **样式**：Tailwind CSS 4
+- **UI 基础**：Fumadocs UI、Radix UI、Lucide React
+- **运行时**：React 19
+- **包管理器**：pnpm 10
+- **部署形态**：Next.js static export，输出到 `out/`
+
+## 本地开发
+
+推荐使用 Node.js 22，与 GitHub Actions 构建环境保持一致。
 
 ```bash
-# install
 pnpm install
-
-# develop
 pnpm dev
 ```
 
-Open **[localhost:3000/docs/introduction](http://localhost:3000/docs/introduction)** to preview.
+打开本地站点：
 
-## Stack
+- 首页：<http://localhost:3000>
+- 文档入口：<http://localhost:3000/docs>
+- 避坑指南：<http://localhost:3000/docs/avoid-pitfalls>
 
-- **Framework**: Next.js 16 (App Router, Turbopack)
-- **Styling**: Tailwind CSS 4
-- **Docs**: Fumadocs
-- **Search**: Fumadocs static search
-- **Icons**: Lucide React
-- **Fonts**: Geist Sans & Geist Mono
-
-## Structure
-
-```
-├─ app/
-│  ├─ page.tsx              # Redirects to the docs
-│  ├─ api/search/           # Static Fumadocs search index
-│  └─ docs/[[...slug]]/     # Documentation pages
-│
-├─ components/
-│  ├─ docs/                 # Documentation components
-│  ├─ ui/                   # Shared primitives
-│  └─ icons/                # Brand icons & logo
-│
-├─ content/docs/            # MDX documentation files
-│
-├─ lib/
-│  ├─ source.ts             # Fumadocs content source
-│  └─ utils.ts              # Utilities
-│
-└─ public/
-   └─ branding/             # Logo assets (SVG + PNG)
-```
-
-## Scripts
+## 常用命令
 
 ```bash
-pnpm dev          # Start dev server (Turbopack)
-pnpm build        # Production build
-pnpm start        # Serve the static out/ build
-pnpm typecheck    # Type-check the app
+pnpm dev          # 启动本地开发服务器
+pnpm build        # 构建静态站点，输出到 out/
+pnpm start        # 本地预览 out/ 静态产物
+pnpm typecheck    # TypeScript 类型检查
 ```
 
+## 目录说明
 
-## GitHub Pages Deployment
+```text
+app/
+├─ page.tsx               # NestHub 首页
+├─ docs/                  # Fumadocs 文档路由
+└─ api/search/            # Fumadocs 搜索索引接口
 
-This project is already configured for **static export** with Next.js:
+components/
+├─ docs/                  # 文档页自定义组件
+├─ icons/                 # 站点图标与 Logo
+└─ ui/                    # 通用 UI 组件
 
-- `next.config.js` uses `output: "export"`
-- production output is generated into `out/`
+content/docs/             # 已发布到站点导航的 MDX 内容
+AI Knowledge/             # 研究草稿和主题资料沉淀
+lib/
+├─ site-config.tsx        # 站点名称、顶栏导航、布局配置
+├─ source.ts              # Fumadocs 内容源
+├─ metadata.ts            # SEO、OG、favicon 配置
+└─ public-asset.ts        # 静态资源路径处理
 
-### Local production check
-
-```bash
-pnpm install
-pnpm build
-pnpm start
+public/
+├─ branding/              # NestHub Logo 与历史品牌资源
+├─ city-guides/           # 城市内容配图
+├─ company-icons/         # 公司图标
+└─ favicon/               # favicon 与 web manifest
 ```
 
-Then open the locally served static site.
+## 内容维护方式
 
-### Deploy with GitHub Actions
+新增研究型内容时，优先放在 `AI Knowledge/` 中沉淀资料和草稿；确认要发布到站点后，再整理到 `content/docs/`。
 
-This repository includes a GitHub Actions workflow:
+新增站点页面时：
 
-- `.github/workflows/deploy-github-pages.yml`
+1. 在 `content/docs/<topic>/` 下新增 `.mdx` 文件。
+2. 在同目录 `meta.json` 中登记页面顺序。
+3. 如果是新的一级栏目，更新 `content/docs/meta.json`。
+4. 如果需要出现在顶部导航，更新 `lib/site-config.tsx`。
+5. 使用可信来源，区分事实、推断和建议，避免没有依据的租金或推荐结论。
 
-To enable deployment:
+## 部署
 
-1. Go to **GitHub → Settings → Pages**
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Push to `main`
-4. GitHub Actions will build the site and deploy the `out/` directory to Pages
+项目已配置为静态导出：
 
-### Notes
+- `next.config.js` 使用 `output: "export"`。
+- `pnpm build` 会生成 `out/`。
+- GitHub Actions 会在推送到 `main` 时构建并部署到 GitHub Pages。
+- 在 GitHub Actions 环境中会自动设置 `/nest-hub` 作为 `basePath` 和 `assetPrefix`。
 
-- If you later publish under a repository subpath (for example `https://<user>.github.io/nest-hub/`), you may also need to configure `basePath` and `assetPrefix` in `next.config.js`.
-- If you deploy to a custom domain or root domain via GitHub Pages, the current setup is the simplest path.
+部署流程见 `.github/workflows/deploy-github-pages.yml`。
+
+如需改为自定义域名，可通过 `NEXT_PUBLIC_SITE_URL` 设置生产站点地址，并根据部署平台调整 `basePath` / `assetPrefix`。

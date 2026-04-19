@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<title>NestHub</title>
+	<circle cx="32" cy="32" r="29" fill="#101615"/>
+	<path d="M15 37C21 29.5 28.5 26 36.5 26C42.5 26 47.5 28 52 32" stroke="#92f5c8" stroke-width="5" stroke-linecap="round"/>
+	<path d="M13 29C19 21.5 27.5 18 37 19C43 19.7 48 22.3 52 27" stroke="#facc15" stroke-width="5" stroke-linecap="round"/>
+	<path d="M18 43C24.5 47.5 35.5 49.5 46.5 44.5" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+	<path d="M24 35L32 28L40 35V45H24V35Z" fill="#f6fbf8" stroke="#101615" stroke-width="3" stroke-linejoin="round"/>
+	<circle cx="32" cy="39" r="4.5" fill="#10b981"/>
+	<circle cx="18" cy="24" r="3.5" fill="#92f5c8"/>
+	<circle cx="49" cy="38" r="3.5" fill="#facc15"/>
+	<circle cx="43" cy="19" r="3.5" fill="#38bdf8"/>
+</svg>

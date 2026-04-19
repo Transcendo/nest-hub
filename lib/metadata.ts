@@ -7,6 +7,7 @@ export function createMetadata(override: Metadata): Metadata {
 	return {
 		...override,
 		metadataBase: baseUrl,
+		manifest: absoluteAsset("/favicon/site.webmanifest"),
 		openGraph: {
 			title: override.title ?? undefined,
 			description: override.description ?? undefined,
@@ -24,7 +25,11 @@ export function createMetadata(override: Metadata): Metadata {
 		},
 		icons: {
 			icon: [
-				{ url: absoluteAsset("/favicon/favicon.ico"), sizes: "any" },
+				{
+					url: absoluteAsset("/branding/nest-hub-logo.svg"),
+					sizes: "any",
+					type: "image/svg+xml",
+				},
 				{
 					url: absoluteAsset("/favicon/favicon-32x32.png"),
 					sizes: "32x32",
