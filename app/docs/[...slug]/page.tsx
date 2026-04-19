@@ -14,6 +14,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { APIMethod } from "@/components/api-method";
 import { AvoidPitfallsOverview } from "@/components/docs/avoid-pitfalls-overview";
+import {
+	ContractGuidePage,
+	LivingGuidePage,
+	PreparationGuidePage,
+	RightsGuidePage,
+	TrapsGuidePage,
+	ViewingGuidePage,
+} from "@/components/docs/avoid-pitfalls-pages";
 import { BeijingOverview } from "@/components/docs/beijing-overview";
 import { Features } from "@/components/docs/features";
 import {
@@ -83,6 +91,12 @@ export default async function Page({
 						TypeTable,
 						APIMethod,
 						AvoidPitfallsOverview,
+						ContractGuidePage,
+						LivingGuidePage,
+						PreparationGuidePage,
+						RightsGuidePage,
+						TrapsGuidePage,
+						ViewingGuidePage,
 						BeijingOverview,
 						DatabaseTable,
 						ForkButton,
