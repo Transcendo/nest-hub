@@ -24,7 +24,7 @@ NestHub 当前是一个基于 **Next.js + Fumadocs** 的静态内容站，用来
 
 当前内容以北京和通用避坑指南为主，上海已有张江方向入口，杭州和深圳保留稳定城市入口用于后续扩展。
 
-线上默认地址：<https://nest-hub.eggcampus.com>
+线上默认地址： <https://nest-hub.eggcampus.com>
 
 ## 当前内容结构
 
