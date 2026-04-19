@@ -79,6 +79,24 @@ const ecosystemRows = [
 		source: "https://ir.kuaishou.com/static-files/fbc818fa-693c-4251-a468-f2dce25aa794",
 	},
 	{
+		company: "美团",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "望京东 / 恒基伟业",
+		track: "本地生活、即时零售",
+		mapLogic: "望京东通勤带，14/15 号线、阜通和最后步行都要核。",
+		source: "https://media-meituan.todayir.com/202505020944401774654665_en.pdf",
+	},
+	{
+		company: "腾讯",
+		status: "待补充",
+		beijingRole: "北京主要办公地",
+		area: "中关村软件园 / 西北旺",
+		track: "社交、游戏、广告、云",
+		mapLogic: "海淀北部软件园通勤，和百度、网易、新浪片区逻辑接近。",
+		source: "https://www.biad.com.cn/project/id/25/",
+	},
+	{
 		company: "滴滴",
 		status: "待补充",
 		beijingRole: "北京主要办公地",
@@ -86,6 +104,33 @@ const ecosystemRows = [
 		track: "出行、交通平台",
 		mapLogic: "海淀北部外圈，通常要把班车、打车和地铁接驳一起核算。",
 		source: "https://ir.didiglobal.com/supplemental-information",
+	},
+	{
+		company: "微博",
+		status: "待补充",
+		beijingRole: "北京主要办公地",
+		area: "新源南路 / 三元桥",
+		track: "社交媒体、广告",
+		mapLogic: "东三环北段通勤，三元桥、东直门、亮马桥和机场线方向都可比较。",
+		source: "https://www.sec.gov/Archives/edgar/data/0001595761/000110465925034868/tm2511937d1_6k.htm",
+	},
+	{
+		company: "搜狐",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "中关村 / 科学院南路",
+		track: "门户媒体、游戏",
+		mapLogic: "中关村核心区通勤，看 4/10/13 号线换乘和骑行接驳。",
+		source: "https://investors.sohu.com/static-files/2bf6b8ed-66b2-4d70-9a48-a195d225d48b",
+	},
+	{
+		company: "汽车之家",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "丹棱街 / 中关村西区",
+		track: "汽车媒体、交易线索",
+		mapLogic: "中关村西区办公，优先核海淀黄庄、苏州街、知春路换乘成本。",
+		source: "https://ir.autohome.com.cn/contact-us",
 	},
 	{
 		company: "知乎",
@@ -97,6 +142,33 @@ const ecosystemRows = [
 		source: "https://ir.zhihu.com/en/investor-resources/",
 	},
 	{
+		company: "BOSS直聘",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "太阳宫 / 朝阳",
+		track: "在线招聘、人力资源科技",
+		mapLogic: "东北三环到太阳宫通勤，10/13/17 号线和骑行接驳要一起看。",
+		source: "https://www.sec.gov/Archives/edgar/data/1842827/000141057825000682/bz-20241231x20f.htm",
+	},
+	{
+		company: "58同城",
+		status: "待补充",
+		beijingRole: "北京主要办公地",
+		area: "酒仙桥北路 / 电子城",
+		track: "分类信息、招聘、房产",
+		mapLogic: "酒仙桥北侧通勤，和望京、将台、东坝居住选择相关。",
+		source: "https://edgar.secdatabase.com/2518/110465920005100/filing-main.htm",
+	},
+	{
+		company: "陌陌 / Hello Group",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "望京 SOHO / 阜通东",
+		track: "社交、直播、线上娱乐",
+		mapLogic: "望京核心区通勤，优先看 14/15 号线站点和晚归路线。",
+		source: "https://ir.hellogroup.com/news-releases/news-release-details/hello-group-files-annual-report-form-20-f-fiscal-year-2024",
+	},
+	{
 		company: "爱奇艺",
 		status: "待补充",
 		beijingRole: "北京总部",
@@ -106,13 +178,112 @@ const ecosystemRows = [
 		source: "https://ir.iqiyi.com/financial-information/investor-faqs/",
 	},
 	{
+		company: "贝壳",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "海淀创业路 / 东方电子科技大厦",
+		track: "房产交易、居住服务",
+		mapLogic: "海淀中北部通勤，适合和知春路、中关村、清河一起比较。",
+		source: "https://www.sec.gov/Archives/edgar/data/1809587/000141057825000783/beke-20241231x20f.htm",
+	},
+	{
+		company: "好未来",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "昌平七辛中街 / TAL Building",
+		track: "教育科技、学习服务",
+		mapLogic: "昌平北部通勤，和海淀北部不同，要单独算地铁、公交和自驾。",
+		source: "https://ir.100tal.com/Annual-General-Meeting",
+	},
+	{
+		company: "金山办公",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "西二旗 / 小米科技园",
+		track: "办公软件、AI 协作",
+		mapLogic: "西二旗中路通勤，和小米、百度一带共享清河/回龙观居住池。",
+		source: "https://ir.wps.cn/contact.html",
+	},
+	{
+		company: "用友",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "永丰 / 北清路",
+		track: "企业软件、SaaS",
+		mapLogic: "海淀永丰通勤，16 号线、自驾和园区接驳比市中心换乘更关键。",
+		source: "https://www.yonyou.com/yy/contact.html",
+	},
+	{
 		company: "360",
 		status: "待补充",
 		beijingRole: "北京主要办公地",
 		area: "酒仙桥 / 电子城",
 		track: "网络安全、企业安全",
 		mapLogic: "望京和酒仙桥之间的办公带，适合和东北通勤圈联动判断。",
-		source: "https://jia.360.cn/index_en_US.html",
+		source: "https://www.360.cn/about/contactus.html",
+	},
+	{
+		company: "奇安信",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "西直门外 / 金融科技中心",
+		track: "网络安全、政企安全",
+		mapLogic: "西直门外通勤更依赖 2/4/13 号线换乘，居住选择可向海淀和西城分流。",
+		source: "https://www.qianxin.com/investment/index",
+	},
+	{
+		company: "第四范式",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "上地西路 / 后厂村",
+		track: "企业 AI、决策智能",
+		mapLogic: "上地西路通勤，和快手后厂村接驳问题类似。",
+		source: "https://ir.4paradigm.com/en/upload/file/2025/0425/2025042500793.pdf",
+	},
+	{
+		company: "地平线",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "丰豪东路 / 永丰",
+		track: "智能驾驶计算、车载 AI",
+		mapLogic: "永丰片区通勤，16 号线、园区班车和自驾停车都要核。",
+		source: "https://en.horizon.auto/privacy-policy/",
+	},
+	{
+		company: "理想汽车",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "顺义文良街 / 研发总部",
+		track: "智能汽车、车载软件",
+		mapLogic: "顺义通勤独立成题，优先核自驾、班车和 15 号线/首都机场线接驳。",
+		source: "https://ir.lixiang.com/investor-faqs",
+	},
+	{
+		company: "昆仑万维",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "东城西总布胡同 / 明阳国际中心",
+		track: "AI、内容娱乐、海外社交",
+		mapLogic: "东城核心区通勤，地铁密度高但租金和停车成本要单独看。",
+		source: "https://www.kunlun.com/investor/",
+	},
+	{
+		company: "完美世界",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "北苑路 / 来广营",
+		track: "游戏、影视内容",
+		mapLogic: "北苑到来广营通勤，可和望京、北苑、立水桥居住圈联动判断。",
+		source: "https://www.pwrd.com/mobile/zh/contactus.html",
+	},
+	{
+		company: "掌阅科技",
+		status: "待补充",
+		beijingRole: "北京总部",
+		area: "四惠东 / 四惠大厦",
+		track: "数字阅读、内容平台",
+		mapLogic: "东四环通勤，1 号线、八通线和朝阳东部居住圈相关。",
+		source: "https://big5.sse.com.cn/site/cht/www.sse.com.cn/disclosure/listedinfo/announcement/c/new/2025-04-19/603533_20250419_BGWM.pdf",
 	},
 ];
 
@@ -120,27 +291,43 @@ const mapMarkers = [
 	{ label: "百度", detail: "上地 / 西北旺", x: 24, y: 31, status: "已收录" },
 	{ label: "小米", detail: "安宁庄", x: 31, y: 29, status: "已收录" },
 	{ label: "快手", detail: "上地西路", x: 26, y: 37, status: "已收录" },
+	{ label: "腾讯", detail: "中关村软件园", x: 21, y: 34, status: "待补充" },
 	{ label: "滴滴", detail: "唐家岭", x: 19, y: 24, status: "待补充" },
+	{ label: "金山", detail: "西二旗", x: 30, y: 32, status: "待补充" },
+	{ label: "用友", detail: "永丰", x: 17, y: 16, status: "待补充" },
+	{ label: "地平线", detail: "丰豪东路", x: 20, y: 19, status: "待补充" },
 	{ label: "字节", detail: "大钟寺", x: 43, y: 49, status: "已收录" },
 	{ label: "知乎", detail: "学清路", x: 40, y: 37, status: "待补充" },
+	{ label: "搜狐", detail: "中关村", x: 37, y: 42, status: "待补充" },
+	{ label: "汽车之家", detail: "丹棱街", x: 35, y: 44, status: "待补充" },
+	{ label: "贝壳", detail: "海淀创业路", x: 38, y: 45, status: "待补充" },
 	{ label: "阿里", detail: "崔各庄 / 望京", x: 68, y: 38, status: "已收录" },
+	{ label: "美团", detail: "望京东", x: 66, y: 43, status: "待补充" },
+	{ label: "陌陌", detail: "望京 SOHO", x: 64, y: 44, status: "待补充" },
+	{ label: "BOSS", detail: "太阳宫", x: 57, y: 47, status: "待补充" },
 	{ label: "360", detail: "酒仙桥", x: 66, y: 50, status: "待补充" },
 	{ label: "爱奇艺", detail: "工体北路", x: 62, y: 58, status: "待补充" },
+	{ label: "微博", detail: "新源南路", x: 60, y: 55, status: "待补充" },
+	{ label: "奇安信", detail: "西直门外", x: 47, y: 49, status: "待补充" },
+	{ label: "昆仑", detail: "东城", x: 55, y: 58, status: "待补充" },
+	{ label: "完美", detail: "北苑路", x: 60, y: 34, status: "待补充" },
+	{ label: "掌阅", detail: "四惠东", x: 69, y: 61, status: "待补充" },
+	{ label: "好未来", detail: "昌平七辛中街", x: 31, y: 10, status: "待补充" },
+	{ label: "理想", detail: "顺义文良街", x: 84, y: 23, status: "待补充" },
 	{ label: "京东", detail: "亦庄经海路", x: 72, y: 76, status: "已收录" },
 ];
 
-const stats = [
-	{ label: "已收录公司", value: "6" },
-	{ label: "观察样本", value: "10" },
-	{ label: "核心通勤带", value: "4" },
-];
-
-const sourceBackedDate = "2026-04-18";
+const sourceBackedDate = "2026-04-19";
 
 export function BeijingOverview() {
 	const collectedCount = ecosystemRows.filter(
 		(row) => row.status === "已收录",
 	).length;
+	const stats = [
+		{ label: "已收录公司", value: String(collectedCount) },
+		{ label: "观察样本", value: String(ecosystemRows.length) },
+		{ label: "核心通勤带", value: "8" },
+	];
 
 	return (
 		<div className="not-prose my-8 space-y-8">
@@ -157,7 +344,7 @@ export function BeijingOverview() {
 									先看城市格局，再进入公司指南
 								</h2>
 								<p className="max-w-xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-									北京互联网大厂不是集中在一个 CBD，而是分布在海淀北部、北三环、望京/来广营和亦庄。租房前先判断公司属于哪条通勤带，再按预算、地铁、班车和最后接驳筛选小区。
+									北京互联网和科技公司不是集中在一个 CBD，而是分布在海淀北部、北三环、望京/来广营、朝阳中部、亦庄、昌平和顺义。租房前先判断公司属于哪条通勤带，再按预算、地铁、班车和最后接驳筛选小区。
 								</p>
 							</div>
 						</div>
@@ -346,7 +533,7 @@ export function BeijingOverview() {
 						当前已收录
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						已完成 {collectedCount} 个北京公司指南，覆盖海淀北部、北三环、东北望京/来广营、东南亦庄四类典型通勤题。
+						已完成 {collectedCount} 个北京公司指南；生态样本先扩展为 {ecosystemRows.length} 家，待补充公司用于后续排租房指南优先级。
 					</p>
 					<div className="mt-4 grid gap-2">
 						{collectedCompanies.map((company) => (
