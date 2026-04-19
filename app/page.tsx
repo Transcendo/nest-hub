@@ -280,9 +280,9 @@ export default function HomePage() {
 								href={repositoryUrl}
 								target="_blank"
 								rel="noreferrer"
-								aria-label="打开 NestHub GitLab 项目"
+								aria-label="打开 NestHub GitHub 项目"
 							>
-								GitLab
+								GitHub
 								<ExternalLink className="h-4 w-4" aria-hidden="true" />
 							</a>
 						</div>

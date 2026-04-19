@@ -27,12 +27,10 @@ import {
 	Siren,
 	Sparkles,
 	Sun,
-	TriangleAlert,
 	UsersRound,
 	Wrench,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 type Stat = {
@@ -67,51 +65,12 @@ type Scenario = {
 	icon: LucideIcon;
 };
 
-type NavItem = {
-	title: string;
-	href: string;
-	description: string;
-};
-
 const toneClasses: Record<NonNullable<Section["tone"]>, string> = {
 	green: "border-l-[#10b981]",
 	blue: "border-l-[#38bdf8]",
 	amber: "border-l-[#f59e0b]",
 	red: "border-l-[#ef4444]",
 	zinc: "border-l-[#64748b]",
-};
-
-const nextNav: Record<string, NavItem> = {
-	preparation: {
-		title: "下一步：实地看房",
-		href: "/docs/avoid-pitfalls/viewing",
-		description: "把预算和候选房源带到现场，开始核验采光、噪音、水电和周边。",
-	},
-	viewing: {
-		title: "下一步：签约谈判",
-		href: "/docs/avoid-pitfalls/contract",
-		description: "把现场发现的问题变成维修、更换、降价或合同条款。",
-	},
-	contract: {
-		title: "下一步：入住生活",
-		href: "/docs/avoid-pitfalls/living",
-		description: "签完不等于结束，入住当天要完成验收、拍照和初始读数记录。",
-	},
-	living: {
-		title: "下一步：常见陷阱",
-		href: "/docs/avoid-pitfalls/traps",
-		description: "提前认识低价引流、隐形收费、假房东和隔断房等高频套路。",
-	},
-	traps: {
-		title: "下一步：维权指南",
-		href: "/docs/avoid-pitfalls/rights",
-		description: "真出问题时，按证据、协商、投诉、调解、法律路径推进。",
-	},
-	rights: {
-		title: "回到：避坑总览",
-		href: "/docs/avoid-pitfalls",
-		description: "回到总览，把整套租房流程再过一遍。",
-	},
 };
 
 const legalLinks = [
@@ -140,7 +99,6 @@ function GuideShell({
 	stats,
 	actions,
 	children,
-	next,
 }: {
 	badge: string;
 	title: string;
@@ -149,7 +107,6 @@ function GuideShell({
 	stats: Stat[];
 	actions: Action[];
 	children: ReactNode;
-	next: NavItem;
 }) {
 	return (
 		<div className="not-prose my-8 space-y-9">
@@ -222,15 +179,6 @@ function GuideShell({
 				</div>
 			</section>
 			{children}
-			<Link
-				href={next.href}
-				className="block rounded-lg border border-zinc-200 bg-[#101615] p-5 text-white transition-colors hover:bg-[#1f2a26] dark:border-zinc-800"
-			>
-				<div className="text-lg font-semibold">{next.title}</div>
-				<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-300">
-					{next.description}
-				</p>
-			</Link>
 		</div>
 	);
 }
@@ -535,7 +483,6 @@ export function PreparationGuidePage() {
 					icon: ClipboardList,
 				},
 			]}
-			next={nextNav.preparation}
 		>
 			<section>
 				<SectionHeader
@@ -682,7 +629,6 @@ export function ViewingGuidePage() {
 					icon: Camera,
 				},
 			]}
-			next={nextNav.viewing}
 		>
 			<section>
 				<SectionHeader
@@ -829,7 +775,6 @@ export function ContractGuidePage() {
 					icon: Camera,
 				},
 			]}
-			next={nextNav.contract}
 		>
 			<section>
 				<SectionHeader
@@ -967,7 +912,6 @@ export function LivingGuidePage() {
 					icon: KeyRound,
 				},
 			]}
-			next={nextNav.living}
 		>
 			<section>
 				<SectionHeader
@@ -1125,7 +1069,6 @@ export function TrapsGuidePage() {
 					icon: Camera,
 				},
 			]}
-			next={nextNav.traps}
 		>
 			<section>
 				<SectionHeader
@@ -1255,7 +1198,6 @@ export function RightsGuidePage() {
 					icon: Scale,
 				},
 			]}
-			next={nextNav.rights}
 		>
 			<section>
 				<SectionHeader

@@ -179,7 +179,7 @@ export function DocsSidebar() {
 					target="_blank"
 					rel="noreferrer noopener"
 					className="inline-flex items-center justify-center size-8 hover:text-foreground/70 hover:bg-foreground/5 transition-colors"
-					aria-label="GitLab"
+					aria-label="GitHub"
 				>
 					<ExternalLink className="size-4" aria-hidden="true" />
 				</a>
