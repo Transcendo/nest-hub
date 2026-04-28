@@ -3,6 +3,23 @@
   "pages": [
     "index",
     "fudan-jiangwan-campus-renting-guide",
-    "alibaba-renting-guide"
+    "alibaba-renting-guide",
+    "qiniu-renting-guide",
+    "yuewen-renting-guide",
+    "bilibili-renting-guide",
+    "dewu-renting-guide",
+    "ucloud-renting-guide",
+    "bytedance-renting-guide",
+    "pdd-renting-guide",
+    "trip-com-renting-guide",
+    "tencent-renting-guide",
+    "mihoyo-renting-guide",
+    "sensetime-renting-guide",
+    "yoozoo-renting-guide",
+    "xiaohongshu-renting-guide",
+    "ximalaya-renting-guide",
+    "giant-network-renting-guide",
+    "lilith-games-renting-guide",
+    "eleme-renting-guide"
   ]
 }

@@ -9,6 +9,23 @@ import Link from "next/link";
 
 const collectedCompanies = [
 	{ name: "阿里巴巴", href: "/docs/shanghai/alibaba-renting-guide" },
+	{ name: "七牛云", href: "/docs/shanghai/qiniu-renting-guide" },
+	{ name: "阅文集团", href: "/docs/shanghai/yuewen-renting-guide" },
+	{ name: "哔哩哔哩", href: "/docs/shanghai/bilibili-renting-guide" },
+	{ name: "得物", href: "/docs/shanghai/dewu-renting-guide" },
+	{ name: "UCloud 优刻得", href: "/docs/shanghai/ucloud-renting-guide" },
+	{ name: "字节跳动", href: "/docs/shanghai/bytedance-renting-guide" },
+	{ name: "拼多多 / PDD", href: "/docs/shanghai/pdd-renting-guide" },
+	{ name: "携程 / Trip.com Group", href: "/docs/shanghai/trip-com-renting-guide" },
+	{ name: "腾讯", href: "/docs/shanghai/tencent-renting-guide" },
+	{ name: "米哈游", href: "/docs/shanghai/mihoyo-renting-guide" },
+	{ name: "商汤科技", href: "/docs/shanghai/sensetime-renting-guide" },
+	{ name: "游族网络", href: "/docs/shanghai/yoozoo-renting-guide" },
+	{ name: "小红书", href: "/docs/shanghai/xiaohongshu-renting-guide" },
+	{ name: "喜马拉雅", href: "/docs/shanghai/ximalaya-renting-guide" },
+	{ name: "巨人网络", href: "/docs/shanghai/giant-network-renting-guide" },
+	{ name: "莉莉丝游戏", href: "/docs/shanghai/lilith-games-renting-guide" },
+	{ name: "饿了么 / 拉扎斯", href: "/docs/shanghai/eleme-renting-guide" },
 ];
 
 const contentEntries = [
@@ -37,178 +54,212 @@ const ecosystemRows = [
 	},
 	{
 		company: "拼多多 / PDD",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部 / principal executive offices",
 		area: "长宁娄山关路 / 金虹桥",
 		track: "电商、农业、跨境电商",
 		mapLogic: "长宁内环通勤，优先看娄山关路、古北、天山、威宁路、北新泾。",
+
+		href: "/docs/shanghai/pdd-renting-guide",
 		source: "https://investor.pddholdings.com/static-files/fd20e450-1dfb-416d-b39d-784b071f6bd6",
 	},
 	{
 		company: "哔哩哔哩",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部",
 		area: "杨浦五角场 / 政立路国正中心",
 		track: "视频社区、游戏、直播",
 		mapLogic: "五角场和新江湾通勤带，和复旦江湾/杨浦滨江租房逻辑部分重叠。",
+
+		href: "/docs/shanghai/bilibili-renting-guide",
 		source: "https://ir.bilibili.com/en/investor-resources/",
 	},
 	{
 		company: "小红书",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部",
 		area: "黄浦新天地 / SOHO 复兴广场",
 		track: "生活方式社区、电商、广告",
 		mapLogic: "市中心通勤，优先看 9/10/13 号线和夜间回家路线，预算压力高。",
+
+		href: "/docs/shanghai/xiaohongshu-renting-guide",
 		source: "https://www.xiaohongshu.com/contact",
 	},
 	{
 		company: "携程 / Trip.com Group",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部 / principal executive offices",
 		area: "长宁凌空 SOHO / 金钟路",
 		track: "在线旅游、商旅、本地服务",
 		mapLogic: "长宁西部通勤，优先看淞虹路、北新泾、天山西路和 2 号线西段。",
+
+		href: "/docs/shanghai/trip-com-renting-guide",
 		source: "https://investors.trip.com/static-files/08bd6175-f635-419c-9b88-f9f4eefe79ff",
 	},
 	{
 		company: "字节跳动",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海主要办公区",
 		area: "闵行科技绿洲 / 杨浦尚浦领世",
 		track: "内容平台、广告、AI、效率工具",
 		mapLogic: "多办公点，必须先确认团队楼栋；闵行看 9/12 号线，杨浦看 10 号线/新江湾。",
+
+		href: "/docs/shanghai/bytedance-renting-guide",
 		source: "https://www.shyp.gov.cn/shypq/yshj-gzdt/20210318/376645.html",
 	},
 	{
 		company: "腾讯",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "华东总部 / 上海主要办公区",
 		area: "徐汇滨江 / 漕河泾",
 		track: "社交、游戏、广告、云、AI",
 		mapLogic: "徐汇滨江和漕河泾两套通勤逻辑，先确认是龙爱路滨江还是虹梅路/漕河泾。",
+
+		href: "/docs/shanghai/tencent-renting-guide",
 		source: "https://map.baidu.com/place/130db0493d992b5ef8221385",
 	},
 	{
 		company: "饿了么 / 拉扎斯",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海运营主体",
 		area: "普陀 / 阿里本地生活办公区",
 		track: "即时零售、外卖、本地生活",
 		mapLogic: "普陀通勤更看 7/13/15 号线和内环高架周边居住区，别直接套张江逻辑。",
+
+		href: "/docs/shanghai/eleme-renting-guide",
 		source: "https://www.shpt.gov.cn/qyzs-yinshang/20231013/919722.html",
 	},
 	{
 		company: "得物",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部 / 运营主体",
 		area: "杨浦黄兴路 / 互联宝地",
 		track: "潮流电商、鉴别、社区",
 		mapLogic: "杨浦滨江/大桥通勤，优先看黄兴路、江浦路、鞍山新村、控江路。",
+
+		href: "/docs/shanghai/dewu-renting-guide",
 		source: "https://www.dewucdn.com/about.html",
 	},
 	{
 		company: "米哈游",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部 / 研发办公区",
 		area: "徐汇漕河泾 / 光启园",
 		track: "游戏、二次元内容、全球发行",
 		mapLogic: "徐汇漕河泾通勤，优先看桂林路、漕宝路、田林、宜山路和徐汇中环外扩。",
+
+		href: "/docs/shanghai/mihoyo-renting-guide",
 		source: "https://shnie.org.cn/web/member/detail/id/116.html",
 	},
 	{
 		company: "莉莉丝游戏",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部 / 公开注册口径",
 		area: "嘉定银翔路 / 南翔",
 		track: "游戏研发、全球发行",
 		mapLogic: "嘉定/南翔通勤，和市中心互联网公司完全不同，要先确认实际办公点和班车。",
+
+		href: "/docs/shanghai/lilith-games-renting-guide",
 		source: "https://www.lilith.com/corporate_responsibility/3/?locale=zh_CN",
 	},
 	{
 		company: "游族网络",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部",
 		area: "徐汇宜山路 / 华鑫商务中心",
 		track: "游戏研发、全球发行",
 		mapLogic: "徐汇内中环通勤，宜山路、桂林路、漕宝路、田林都能作为租房候选。",
+
+		href: "/docs/shanghai/yoozoo-renting-guide",
 		source: "https://www.yoozoo.com/connect",
 	},
 	{
 		company: "巨人网络",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部",
 		area: "松江新城 / 巨人园区",
 		track: "游戏研发、发行",
 		mapLogic: "松江是独立通勤题，优先看 9 号线、园区班车和自驾，不要按徐汇租房半径估算。",
+
+		href: "/docs/shanghai/giant-network-renting-guide",
 		source: "https://www.ztgame.com/contact.html",
 	},
 	{
 		company: "阅文集团",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部",
 		area: "浦东陆家嘴滨江中心",
 		track: "数字阅读、IP、网文生态",
 		mapLogic: "陆家嘴/滨江通勤，预算压力高，可向杨浦滨江、塘桥、世纪大道和 4/14 号线外扩。",
+
+		href: "/docs/shanghai/yuewen-renting-guide",
 		source: "https://www.yuewen.com/contact",
 	},
 	{
 		company: "喜马拉雅",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部 / 主要办公区",
 		area: "静安汶水路 / 静安国际科创社区",
 		track: "在线音频、内容平台",
 		mapLogic: "静安北部通勤，优先看 1 号线汶水路、彭浦、延长路、大宁和广中路。",
+
+		href: "/docs/shanghai/ximalaya-renting-guide",
 		source: "https://www.ximalaya.com/more/aboutus/",
 	},
 	{
 		company: "商汤科技",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "中国总部 / 全球研发总部",
 		area: "徐汇漕河泾 / 虹梅路商汤科技大厦",
 		track: "AI、计算机视觉、大模型、智能汽车",
 		mapLogic: "漕河泾 AI 通勤带，和米哈游、腾讯漕河泾、游族可共用租房判断。",
+
+		href: "/docs/shanghai/sensetime-renting-guide",
 		source: "https://www.sensetime.com/cn/news-detail/841?categoryId=72",
 	},
 	{
 		company: "UCloud 优刻得",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总公司",
 		area: "杨浦隆昌路 / 城市概念园区",
 		track: "云计算、基础设施、政企服务",
 		mapLogic: "杨浦东部通勤，优先看隆昌路、周家嘴路、黄兴公园、内江路和 12/18 号线。",
+
+		href: "/docs/shanghai/ucloud-renting-guide",
 		source: "https://www.ucloud.cn/site/about/contact/",
 	},
 	{
 		company: "七牛云",
-		status: "待补充",
+		status: "已收录",
 		shanghaiRole: "上海总部",
 		area: "浦东张江 / 亮秀路",
 		track: "云服务、音视频云、AI",
 		mapLogic: "张江东区通勤，和阿里张江、喜马拉雅旧址、人工智能岛一带可共用居住池。",
+
+		href: "/docs/shanghai/qiniu-renting-guide",
 		source: "https://www.qiniu.com/company",
 	},
 ];
 
 const mapMarkers = [
 	{ label: "阿里", detail: "张江 / 金科路", x: 72, y: 48, status: "已收录" },
-	{ label: "七牛", detail: "张江 / 亮秀路", x: 75, y: 50, status: "待补充" },
-	{ label: "阅文", detail: "陆家嘴滨江", x: 61, y: 48, status: "待补充" },
-	{ label: "B站", detail: "五角场", x: 58, y: 33, status: "待补充" },
-	{ label: "得物", detail: "黄兴路", x: 56, y: 40, status: "待补充" },
-	{ label: "UCloud", detail: "隆昌路", x: 58, y: 42, status: "待补充" },
-	{ label: "字节", detail: "杨浦 / 闵行", x: 53, y: 35, status: "待补充" },
-	{ label: "PDD", detail: "娄山关路", x: 38, y: 48, status: "待补充" },
-	{ label: "携程", detail: "凌空 SOHO", x: 30, y: 45, status: "待补充" },
-	{ label: "小红书", detail: "新天地", x: 51, y: 54, status: "待补充" },
-	{ label: "饿了么", detail: "普陀", x: 48, y: 39, status: "待补充" },
-	{ label: "腾讯", detail: "徐汇滨江", x: 47, y: 61, status: "待补充" },
-	{ label: "米哈游", detail: "漕河泾", x: 40, y: 62, status: "待补充" },
-	{ label: "商汤", detail: "虹梅路", x: 39, y: 60, status: "待补充" },
-	{ label: "游族", detail: "宜山路", x: 42, y: 59, status: "待补充" },
-	{ label: "喜马拉雅", detail: "汶水路", x: 47, y: 31, status: "待补充" },
-	{ label: "巨人", detail: "松江", x: 20, y: 72, status: "待补充" },
-	{ label: "莉莉丝", detail: "南翔 / 嘉定", x: 25, y: 28, status: "待补充" },
+	{ label: "七牛", detail: "张江 / 亮秀路", x: 75, y: 50, status: "已收录" },
+	{ label: "阅文", detail: "陆家嘴滨江", x: 61, y: 48, status: "已收录" },
+	{ label: "B站", detail: "五角场", x: 58, y: 33, status: "已收录" },
+	{ label: "得物", detail: "黄兴路", x: 56, y: 40, status: "已收录" },
+	{ label: "UCloud", detail: "隆昌路", x: 58, y: 42, status: "已收录" },
+	{ label: "字节", detail: "杨浦 / 闵行", x: 53, y: 35, status: "已收录" },
+	{ label: "PDD", detail: "娄山关路", x: 38, y: 48, status: "已收录" },
+	{ label: "携程", detail: "凌空 SOHO", x: 30, y: 45, status: "已收录" },
+	{ label: "小红书", detail: "新天地", x: 51, y: 54, status: "已收录" },
+	{ label: "饿了么", detail: "普陀", x: 48, y: 39, status: "已收录" },
+	{ label: "腾讯", detail: "徐汇滨江", x: 47, y: 61, status: "已收录" },
+	{ label: "米哈游", detail: "漕河泾", x: 40, y: 62, status: "已收录" },
+	{ label: "商汤", detail: "虹梅路", x: 39, y: 60, status: "已收录" },
+	{ label: "游族", detail: "宜山路", x: 42, y: 59, status: "已收录" },
+	{ label: "喜马拉雅", detail: "汶水路", x: 47, y: 31, status: "已收录" },
+	{ label: "巨人", detail: "松江", x: 20, y: 72, status: "已收录" },
+	{ label: "莉莉丝", detail: "南翔 / 嘉定", x: 25, y: 28, status: "已收录" },
 ];
 
 const commuteBelts = [
@@ -392,7 +443,7 @@ export function ShanghaiOverview() {
 						当前已收录
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						已完成 {collectedCount} 个上海公司指南；上海生态样本先扩展为 {ecosystemRows.length} 家，待补充公司用于后续租房指南排期。
+						已完成 {collectedCount} 个上海公司指南；上海生态样本先扩展为 {ecosystemRows.length} 家，后续可继续按片区扩展更多公司。
 					</p>
 					<div className="mt-4 grid gap-2">
 						{collectedCompanies.map((company) => (
@@ -462,7 +513,7 @@ export function ShanghaiOverview() {
 							上海互联网公司生态信息表
 						</div>
 						<p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-							数据口径：优先使用官网、投资者关系页、年报、政府公开信息和地图公开信息核验上海总部或主要办公地；“待补充”表示已纳入上海地图视野，但暂未形成独立租房指南。
+							数据口径：优先使用官网、投资者关系页、年报、政府公开信息和地图公开信息核验上海总部或主要办公地；当前生态样本中的公司均已形成独立租房指南。
 						</p>
 					</div>
 					<div className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
