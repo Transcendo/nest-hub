@@ -25,6 +25,19 @@ const collectedCompanies = [
 	{ name: "BOSS直聘", href: "/docs/beijing/boss-zhipin-renting-guide" },
 	{ name: "58同城", href: "/docs/beijing/58-renting-guide" },
 	{ name: "陌陌 / Hello Group", href: "/docs/beijing/hello-group-renting-guide" },
+	{ name: "贝壳", href: "/docs/beijing/beike-renting-guide" },
+	{ name: "第四范式", href: "/docs/beijing/4paradigm-renting-guide" },
+	{ name: "金山办公", href: "/docs/beijing/kingsoft-office-renting-guide" },
+	{ name: "地平线", href: "/docs/beijing/horizon-robotics-renting-guide" },
+	{ name: "用友", href: "/docs/beijing/yonyou-renting-guide" },
+	{ name: "爱奇艺", href: "/docs/beijing/iqiyi-renting-guide" },
+	{ name: "360", href: "/docs/beijing/360-renting-guide" },
+	{ name: "完美世界", href: "/docs/beijing/perfect-world-renting-guide" },
+	{ name: "奇安信", href: "/docs/beijing/qianxin-renting-guide" },
+	{ name: "昆仑万维", href: "/docs/beijing/kunlun-tech-renting-guide" },
+	{ name: "掌阅科技", href: "/docs/beijing/ireader-renting-guide" },
+	{ name: "好未来", href: "/docs/beijing/tal-renting-guide" },
+	{ name: "理想汽车", href: "/docs/beijing/li-auto-renting-guide" },
 ];
 
 const ecosystemRows = [
@@ -200,119 +213,145 @@ const ecosystemRows = [
 	},
 	{
 		company: "爱奇艺",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "工体北路 / 朝阳",
 		track: "长视频、线上娱乐",
 		mapLogic: "东二环到朝阳核心区，租房更看地铁换乘和晚归便利。",
+
+		href: "/docs/beijing/iqiyi-renting-guide",
 		source: "https://ir.iqiyi.com/financial-information/investor-faqs/",
 	},
 	{
 		company: "贝壳",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "海淀创业路 / 东方电子科技大厦",
 		track: "房产交易、居住服务",
 		mapLogic: "海淀中北部通勤，适合和知春路、中关村、清河一起比较。",
+
+		href: "/docs/beijing/beike-renting-guide",
 		source: "https://www.sec.gov/Archives/edgar/data/1809587/000141057825000783/beke-20241231x20f.htm",
 	},
 	{
 		company: "好未来",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "昌平七辛中街 / TAL Building",
 		track: "教育科技、学习服务",
 		mapLogic: "昌平北部通勤，和海淀北部不同，要单独算地铁、公交和自驾。",
+
+		href: "/docs/beijing/tal-renting-guide",
 		source: "https://ir.100tal.com/Annual-General-Meeting",
 	},
 	{
 		company: "金山办公",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "西二旗 / 小米科技园",
 		track: "办公软件、AI 协作",
 		mapLogic: "西二旗中路通勤，和小米、百度一带共享清河/回龙观居住池。",
+
+		href: "/docs/beijing/kingsoft-office-renting-guide",
 		source: "https://ir.wps.cn/contact.html",
 	},
 	{
 		company: "用友",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "永丰 / 北清路",
 		track: "企业软件、SaaS",
 		mapLogic: "海淀永丰通勤，16 号线、自驾和园区接驳比市中心换乘更关键。",
+
+		href: "/docs/beijing/yonyou-renting-guide",
 		source: "https://www.yonyou.com/yy/contact.html",
 	},
 	{
 		company: "360",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京主要办公地",
 		area: "酒仙桥 / 电子城",
 		track: "网络安全、企业安全",
 		mapLogic: "望京和酒仙桥之间的办公带，适合和东北通勤圈联动判断。",
+
+		href: "/docs/beijing/360-renting-guide",
 		source: "https://www.360.cn/about/contactus.html",
 	},
 	{
 		company: "奇安信",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "西直门外 / 金融科技中心",
 		track: "网络安全、政企安全",
 		mapLogic: "西直门外通勤更依赖 2/4/13 号线换乘，居住选择可向海淀和西城分流。",
+
+		href: "/docs/beijing/qianxin-renting-guide",
 		source: "https://www.qianxin.com/investment/index",
 	},
 	{
 		company: "第四范式",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "上地西路 / 后厂村",
 		track: "企业 AI、决策智能",
 		mapLogic: "上地西路通勤，和快手后厂村接驳问题类似。",
+
+		href: "/docs/beijing/4paradigm-renting-guide",
 		source: "https://ir.4paradigm.com/en/upload/file/2025/0425/2025042500793.pdf",
 	},
 	{
 		company: "地平线",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "丰豪东路 / 永丰",
 		track: "智能驾驶计算、车载 AI",
 		mapLogic: "永丰片区通勤，16 号线、园区班车和自驾停车都要核。",
+
+		href: "/docs/beijing/horizon-robotics-renting-guide",
 		source: "https://en.horizon.auto/privacy-policy/",
 	},
 	{
 		company: "理想汽车",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "顺义文良街 / 研发总部",
 		track: "智能汽车、车载软件",
 		mapLogic: "顺义通勤独立成题，优先核自驾、班车和 15 号线/首都机场线接驳。",
+
+		href: "/docs/beijing/li-auto-renting-guide",
 		source: "https://ir.lixiang.com/investor-faqs",
 	},
 	{
 		company: "昆仑万维",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "东城西总布胡同 / 明阳国际中心",
 		track: "AI、内容娱乐、海外社交",
 		mapLogic: "东城核心区通勤，地铁密度高但租金和停车成本要单独看。",
+
+		href: "/docs/beijing/kunlun-tech-renting-guide",
 		source: "https://www.kunlun.com/investor/",
 	},
 	{
 		company: "完美世界",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "北苑路 / 来广营",
 		track: "游戏、影视内容",
 		mapLogic: "北苑到来广营通勤，可和望京、北苑、立水桥居住圈联动判断。",
+
+		href: "/docs/beijing/perfect-world-renting-guide",
 		source: "https://www.pwrd.com/mobile/zh/contactus.html",
 	},
 	{
 		company: "掌阅科技",
-		status: "待补充",
+		status: "已收录",
 		beijingRole: "北京总部",
 		area: "四惠东 / 四惠大厦",
 		track: "数字阅读、内容平台",
 		mapLogic: "东四环通勤，1 号线、八通线和朝阳东部居住圈相关。",
+
+		href: "/docs/beijing/ireader-renting-guide",
 		source: "https://big5.sse.com.cn/site/cht/www.sse.com.cn/disclosure/listedinfo/announcement/c/new/2025-04-19/603533_20250419_BGWM.pdf",
 	},
 ];
@@ -321,34 +360,35 @@ const mapMarkers = [
 	{ label: "百度", detail: "上地 / 西北旺", x: 24, y: 31, status: "已收录" },
 	{ label: "小米", detail: "安宁庄", x: 31, y: 29, status: "已收录" },
 	{ label: "快手", detail: "上地西路", x: 26, y: 37, status: "已收录" },
+	{ label: "第四范式", detail: "上地西路", x: 28, y: 38, status: "已收录" },
 	{ label: "腾讯", detail: "中关村软件园", x: 21, y: 34, status: "已收录" },
 	{ label: "滴滴", detail: "唐家岭", x: 19, y: 24, status: "已收录" },
-	{ label: "金山", detail: "西二旗", x: 30, y: 32, status: "待补充" },
-	{ label: "用友", detail: "永丰", x: 17, y: 16, status: "待补充" },
-	{ label: "地平线", detail: "丰豪东路", x: 20, y: 19, status: "待补充" },
+	{ label: "金山", detail: "西二旗", x: 30, y: 32, status: "已收录" },
+	{ label: "用友", detail: "永丰", x: 17, y: 16, status: "已收录" },
+	{ label: "地平线", detail: "丰豪东路", x: 20, y: 19, status: "已收录" },
 	{ label: "字节", detail: "大钟寺", x: 43, y: 49, status: "已收录" },
 	{ label: "知乎", detail: "学清路", x: 40, y: 37, status: "已收录" },
 	{ label: "搜狐", detail: "中关村", x: 37, y: 42, status: "已收录" },
 	{ label: "汽车之家", detail: "丹棱街", x: 35, y: 44, status: "已收录" },
-	{ label: "贝壳", detail: "海淀创业路", x: 38, y: 45, status: "待补充" },
+	{ label: "贝壳", detail: "海淀创业路", x: 38, y: 45, status: "已收录" },
 	{ label: "阿里", detail: "崔各庄 / 望京", x: 68, y: 38, status: "已收录" },
 	{ label: "美团", detail: "望京东", x: 66, y: 43, status: "已收录" },
 	{ label: "陌陌", detail: "望京 SOHO", x: 64, y: 44, status: "已收录" },
 	{ label: "BOSS", detail: "太阳宫", x: 57, y: 47, status: "已收录" },
 	{ label: "58同城", detail: "酒仙桥北路", x: 68, y: 49, status: "已收录" },
-	{ label: "360", detail: "酒仙桥", x: 66, y: 50, status: "待补充" },
-	{ label: "爱奇艺", detail: "工体北路", x: 62, y: 58, status: "待补充" },
+	{ label: "360", detail: "酒仙桥", x: 66, y: 50, status: "已收录" },
+	{ label: "爱奇艺", detail: "工体北路", x: 62, y: 58, status: "已收录" },
 	{ label: "微博", detail: "新源南路", x: 60, y: 55, status: "已收录" },
-	{ label: "奇安信", detail: "西直门外", x: 47, y: 49, status: "待补充" },
-	{ label: "昆仑", detail: "东城", x: 55, y: 58, status: "待补充" },
-	{ label: "完美", detail: "北苑路", x: 60, y: 34, status: "待补充" },
-	{ label: "掌阅", detail: "四惠东", x: 69, y: 61, status: "待补充" },
-	{ label: "好未来", detail: "昌平七辛中街", x: 31, y: 10, status: "待补充" },
-	{ label: "理想", detail: "顺义文良街", x: 84, y: 23, status: "待补充" },
+	{ label: "奇安信", detail: "西直门外", x: 47, y: 49, status: "已收录" },
+	{ label: "昆仑", detail: "东城", x: 55, y: 58, status: "已收录" },
+	{ label: "完美", detail: "北苑路", x: 60, y: 34, status: "已收录" },
+	{ label: "掌阅", detail: "四惠东", x: 69, y: 61, status: "已收录" },
+	{ label: "好未来", detail: "昌平七辛中街", x: 31, y: 10, status: "已收录" },
+	{ label: "理想", detail: "顺义文良街", x: 84, y: 23, status: "已收录" },
 	{ label: "京东", detail: "亦庄经海路", x: 72, y: 76, status: "已收录" },
 ];
 
-const sourceBackedDate = "2026-04-19";
+const sourceBackedDate = "2026-04-28";
 
 export function BeijingOverview() {
 	const collectedCount = ecosystemRows.filter(
@@ -564,7 +604,7 @@ export function BeijingOverview() {
 						当前已收录
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						已完成 {collectedCount} 个北京公司指南；生态样本先扩展为 {ecosystemRows.length} 家，待补充公司用于后续排租房指南优先级。
+						已完成 {collectedCount} 个北京公司指南；生态样本先扩展为 {ecosystemRows.length} 家，后续可继续按片区扩展更多公司指南。
 					</p>
 					<div className="mt-4 grid gap-2">
 						{collectedCompanies.map((company) => (
@@ -589,7 +629,7 @@ export function BeijingOverview() {
 							北京大厂生态信息表
 						</div>
 						<p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-							数据口径：以公开官网、投资者关系页和政府公开信息核验北京总部或主要办公地；租房页面只对“已收录”公司提供细化建议。
+							数据口径：以公开官网、投资者关系页和政府公开信息核验北京总部或主要办公地；租房页面已对当前生态样本中的公司提供细化建议。
 						</p>
 					</div>
 					<div className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
