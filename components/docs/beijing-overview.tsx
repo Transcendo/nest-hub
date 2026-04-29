@@ -8,52 +8,6 @@ import {
 import Link from "next/link";
 import { publicAsset } from "@/lib/public-asset";
 
-const companyIcons: Record<string, string> = {
-	"京东": publicAsset("/company-icons/jd.svg"),
-	"阿里巴巴": publicAsset("/company-icons/alibaba.svg"),
-	"字节跳动": publicAsset("/company-icons/bytedance.svg"),
-	"百度": publicAsset("/company-icons/baidu.svg"),
-	"小米": publicAsset("/company-icons/xiaomi.svg"),
-	"快手": publicAsset("/company-icons/kuaishou.svg"),
-	"美团": publicAsset("/company-icons/meituan.svg"),
-	"腾讯": publicAsset("/company-icons/tencent.svg"),
-	"滴滴": publicAsset("/company-icons/didi.svg"),
-	"微博": publicAsset("/company-icons/weibo.svg"),
-	"搜狐": publicAsset("/company-icons/sohu.svg"),
-	"汽车之家": publicAsset("/company-icons/autohome.svg"),
-	"知乎": publicAsset("/company-icons/zhihu.svg"),
-	"BOSS直聘": publicAsset("/company-icons/boss-zhipin.svg"),
-	"58同城": publicAsset("/company-icons/58.svg"),
-	"陌陌 / Hello Group": publicAsset("/company-icons/hello-group.svg"),
-	"贝壳": publicAsset("/company-icons/beike.svg"),
-	"第四范式": publicAsset("/company-icons/4paradigm.svg"),
-	"金山办公": publicAsset("/company-icons/kingsoft-office.svg"),
-	"地平线": publicAsset("/company-icons/horizon-robotics.svg"),
-	"用友": publicAsset("/company-icons/yonyou.svg"),
-	"爱奇艺": publicAsset("/company-icons/iqiyi.svg"),
-	"360": publicAsset("/company-icons/360.svg"),
-	"完美世界": publicAsset("/company-icons/perfect-world.svg"),
-	"奇安信": publicAsset("/company-icons/qianxin.svg"),
-	"昆仑万维": publicAsset("/company-icons/kunlun-tech.svg"),
-	"掌阅科技": publicAsset("/company-icons/ireader.svg"),
-	"好未来": publicAsset("/company-icons/tal.svg"),
-	"理想汽车": publicAsset("/company-icons/li-auto.svg"),
-};
-
-const iconForCompany = (name: string) => companyIcons[name];
-
-const CompanyIcon = ({ name }: { name: string }) => {
-	const icon = iconForCompany(name);
-	return icon ? (
-		<img
-			src={icon}
-			alt=""
-			aria-hidden="true"
-			className="size-7 shrink-0 rounded-md border border-zinc-200 bg-white object-contain p-1 dark:border-zinc-700 dark:bg-zinc-900"
-		/>
-	) : null;
-};
-
 const collectedCompanies = [
 	{ name: "京东", href: "/docs/beijing/jd-headquarters-renting-guide" },
 	{ name: "阿里巴巴", href: "/docs/beijing/alibaba-renting-guide" },
@@ -657,13 +611,10 @@ export function BeijingOverview() {
 							<Link
 								key={company.name}
 								href={company.href}
-								className="flex items-center justify-between gap-3 rounded-lg border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:border-teal-600 hover:text-teal-800 dark:border-zinc-800 dark:text-zinc-200 dark:hover:border-teal-300 dark:hover:text-teal-200"
+								className="flex items-center justify-between rounded-lg border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:border-teal-600 hover:text-teal-800 dark:border-zinc-800 dark:text-zinc-200 dark:hover:border-teal-300 dark:hover:text-teal-200"
 							>
-								<span className="flex min-w-0 items-center gap-2">
-									<CompanyIcon name={company.name} />
-									<span className="truncate">{company.name}</span>
-								</span>
-								<span className="shrink-0 text-xs text-zinc-500">进入指南</span>
+								<span>{company.name}</span>
+								<span className="text-xs text-zinc-500">进入指南</span>
 							</Link>
 						))}
 					</div>
