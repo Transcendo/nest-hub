@@ -6,6 +6,47 @@ import {
 	Route,
 } from "lucide-react";
 import Link from "next/link";
+import { publicAsset } from "@/lib/public-asset";
+
+const companyIcons: Record<string, string> = {
+	"阿里巴巴": publicAsset("/company-icons/alibaba.svg"),
+	"七牛云": publicAsset("/company-icons/qiniu.svg"),
+	"阅文集团": publicAsset("/company-icons/yuewen.svg"),
+	"哔哩哔哩": publicAsset("/company-icons/bilibili.svg"),
+	"得物": publicAsset("/company-icons/dewu.svg"),
+	"UCloud 优刻得": publicAsset("/company-icons/ucloud.svg"),
+	"字节跳动": publicAsset("/company-icons/bytedance.svg"),
+	"拼多多 / PDD": publicAsset("/company-icons/pdd.svg"),
+	"携程 / Trip.com Group": publicAsset("/company-icons/trip-com.svg"),
+	"腾讯": publicAsset("/company-icons/tencent.svg"),
+	"米哈游": publicAsset("/company-icons/mihoyo.svg"),
+	"商汤科技": publicAsset("/company-icons/sensetime.svg"),
+	"游族网络": publicAsset("/company-icons/yoozoo.svg"),
+	"小红书": publicAsset("/company-icons/xiaohongshu.svg"),
+	"喜马拉雅": publicAsset("/company-icons/ximalaya.svg"),
+	"巨人网络": publicAsset("/company-icons/giant-network.svg"),
+	"莉莉丝游戏": publicAsset("/company-icons/lilith-games.svg"),
+	"饿了么 / 拉扎斯": publicAsset("/company-icons/eleme.svg"),
+};
+
+const entryIcons: Record<string, string> = {
+	"复旦大学江湾校区": publicAsset("/branding/fdu-logo.svg"),
+	"阿里巴巴上海": publicAsset("/company-icons/alibaba.svg"),
+};
+
+const iconForCompany = (name: string) => companyIcons[name];
+
+const CompanyIcon = ({ name }: { name: string }) => {
+	const icon = iconForCompany(name);
+	return icon ? (
+		<img
+			src={icon}
+			alt=""
+			aria-hidden="true"
+			className="size-7 shrink-0 rounded-md border border-zinc-200 bg-white object-contain p-1 dark:border-zinc-700 dark:bg-zinc-900"
+		/>
+	) : null;
+};
 
 const collectedCompanies = [
 	{ name: "阿里巴巴", href: "/docs/shanghai/alibaba-renting-guide" },
@@ -450,10 +491,13 @@ export function ShanghaiOverview() {
 							<Link
 								key={company.name}
 								href={company.href}
-								className="flex items-center justify-between rounded-lg border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:border-teal-600 hover:text-teal-800 dark:border-zinc-800 dark:text-zinc-200 dark:hover:border-teal-300 dark:hover:text-teal-200"
+								className="flex items-center justify-between gap-3 rounded-lg border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:border-teal-600 hover:text-teal-800 dark:border-zinc-800 dark:text-zinc-200 dark:hover:border-teal-300 dark:hover:text-teal-200"
 							>
-								<span>{company.name}</span>
-								<span className="text-xs text-zinc-500">进入指南</span>
+								<span className="flex min-w-0 items-center gap-2">
+									<CompanyIcon name={company.name} />
+									<span className="truncate">{company.name}</span>
+								</span>
+								<span className="shrink-0 text-xs text-zinc-500">进入指南</span>
 							</Link>
 						))}
 					</div>
@@ -464,10 +508,20 @@ export function ShanghaiOverview() {
 								<Link
 									key={entry.name}
 									href={entry.href}
-									className="rounded-lg border border-zinc-200 px-3 py-2 transition-colors hover:border-teal-600 dark:border-zinc-800 dark:hover:border-teal-300"
+									className="flex gap-3 rounded-lg border border-zinc-200 px-3 py-2 transition-colors hover:border-teal-600 dark:border-zinc-800 dark:hover:border-teal-300"
 								>
-									<div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{entry.name}</div>
-									<div className="mt-1 text-xs leading-5 text-zinc-500">{entry.description}</div>
+									{entryIcons[entry.name] ? (
+										<img
+											src={entryIcons[entry.name]}
+											alt=""
+											aria-hidden="true"
+											className="size-7 shrink-0 rounded-md border border-zinc-200 bg-white object-contain p-1 dark:border-zinc-700 dark:bg-zinc-900"
+										/>
+									) : null}
+									<span className="min-w-0">
+										<div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{entry.name}</div>
+										<div className="mt-1 text-xs leading-5 text-zinc-500">{entry.description}</div>
+									</span>
 								</Link>
 							))}
 						</div>
