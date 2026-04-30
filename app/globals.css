@@ -245,7 +245,8 @@
 }
 
 .company-marquee-track {
-	animation: logo-marquee 16s linear infinite;
+	/* 47 companies replaced the earlier 6-card loop; scale duration to keep the old visual speed. */
+	animation: logo-marquee 125s linear infinite;
 	will-change: transform;
 }
 
