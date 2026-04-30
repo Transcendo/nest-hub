@@ -9,6 +9,13 @@ import {
 	ShieldCheck,
 } from "lucide-react";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
+import {
+	cityCompanyGuideCounts,
+	companyGuideCount,
+	companyGuides,
+	companyLogoPaths,
+	uniqueCompanyCount,
+} from "@/lib/company-guides";
 import { publicAsset } from "@/lib/public-asset";
 import { docsLayoutProps } from "@/lib/site-config";
 import { repositoryUrl } from "@/lib/site-constants";
@@ -18,8 +25,8 @@ const cityRows = [
 		rank: "01",
 		title: "北京",
 		href: "/docs/beijing",
-		summary: "海淀北部、北三环、望京 / 来广营、亦庄四条通勤带已成体系。",
-		metric: "6 篇公司指南",
+		summary: "海淀北部、北三环、望京 / 来广营、亦庄等通勤带已成体系。",
+		metric: `${cityCompanyGuideCounts.beijing} 篇公司指南`,
 		tags: ["百度", "字节跳动", "京东", "阿里", "小米", "快手"],
 		color: "border-l-[#10b981]",
 	},
@@ -27,9 +34,9 @@ const cityRows = [
 		rank: "02",
 		title: "上海",
 		href: "/docs/shanghai",
-		summary: "先围绕张江方向建立判断，再扩展到更多办公区和生活圈。",
-		metric: "张江方向",
-		tags: ["阿里", "地铁通勤", "班车覆盖"],
+		summary: "张江、杨浦、长宁、徐汇和市中心办公区已经展开。",
+		metric: `${cityCompanyGuideCounts.shanghai} 篇公司指南`,
+		tags: ["阿里", "B站", "PDD", "小红书", "米哈游", "得物"],
 		color: "border-l-[#ef4444]",
 	},
 	{
@@ -49,45 +56,6 @@ const cityRows = [
 		metric: "待扩展",
 		tags: ["南山", "坂田", "腾讯生态"],
 		color: "border-l-[#38bdf8]",
-	},
-];
-
-const companyGuides = [
-	{
-		name: "京东",
-		href: "/docs/beijing/jd-headquarters-renting-guide",
-		icon: publicAsset("/company-icons/jd.png"),
-		area: "亦庄 / 经海路",
-	},
-	{
-		name: "百度",
-		href: "/docs/beijing/baidu-renting-guide",
-		icon: publicAsset("/company-icons/baidu.svg"),
-		area: "上地 / 西二旗",
-	},
-	{
-		name: "字节跳动",
-		href: "/docs/beijing/bytedance-renting-guide",
-		icon: publicAsset("/company-icons/bytedance.svg"),
-		area: "大钟寺 / 知春路",
-	},
-	{
-		name: "阿里巴巴",
-		href: "/docs/beijing/alibaba-renting-guide",
-		icon: publicAsset("/company-icons/alibabadotcom.svg"),
-		area: "望京 / 来广营",
-	},
-	{
-		name: "小米",
-		href: "/docs/beijing/xiaomi-renting-guide",
-		icon: publicAsset("/company-icons/xiaomi.svg"),
-		area: "安宁庄 / 清河",
-	},
-	{
-		name: "快手",
-		href: "/docs/beijing/kuaishou-renting-guide",
-		icon: publicAsset("/company-icons/kuaishou.svg"),
-		area: "后厂村 / 西二旗",
 	},
 ];
 
@@ -226,11 +194,11 @@ function NestHubSignalVisual() {
 					<text x="48" y="132" fill="#b8c7bf" fontSize="16">
 						通勤、预算、签约和片区经验汇聚成一个住处坐标。
 					</text>
-					<text x="492" y="92" fill="#facc15" fontSize="42" fontWeight="800">
-						6
+					<text x="486" y="92" fill="#facc15" fontSize="42" fontWeight="800">
+						{companyGuideCount}
 					</text>
-					<text x="526" y="92" fill="#ffffff" fontSize="15" fontWeight="700">
-						家公司指南
+					<text x="544" y="92" fill="#ffffff" fontSize="15" fontWeight="700">
+						篇公司指南
 					</text>
 				</g>
 			</svg>
@@ -301,8 +269,13 @@ export default function HomePage() {
 				</section>
 
 				<section className="border-y border-[#101615]/12 py-6 dark:border-white/12">
-					<div className="grid gap-4 lg:grid-cols-[8rem_1fr] lg:items-center">
-						<p className="text-sm font-semibold text-[#101615] dark:text-[#f5fff8]">已收录企业</p>
+					<div className="grid gap-4 lg:grid-cols-[10rem_1fr] lg:items-center">
+						<p className="text-sm font-semibold text-[#101615] dark:text-[#f5fff8]">
+							已收录企业
+							<span className="mt-1 block text-xs font-medium text-[#617069] dark:text-[#9eaea6]">
+								{uniqueCompanyCount} 家 / {companyGuideCount} 篇指南
+							</span>
+						</p>
 						<div className="company-marquee relative overflow-hidden">
 							<div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#f6fbf8] to-transparent dark:from-[#090d0c]" />
 							<div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#f6fbf8] to-transparent dark:from-[#090d0c]" />
@@ -311,13 +284,13 @@ export default function HomePage() {
 									<div key={repeatIndex} className="flex shrink-0 gap-4 pr-4">
 										{companyGuides.map((company) => (
 											<Link
-												key={`${company.name}-${repeatIndex}`}
+												key={`${company.href}-${repeatIndex}`}
 												href={company.href}
 												className="inline-flex min-w-[174px] items-center gap-3 rounded-[8px] border border-[#101615]/10 bg-white px-3 py-2 transition hover:border-[#101615]/30 hover:bg-[#fbfefc] dark:border-white/12 dark:bg-[#101615] dark:hover:border-white/30"
 											>
 												<span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-[#101615]/10 bg-white p-1.5 dark:border-white/15 dark:bg-[#edf7f1]">
 													<img
-														src={company.icon}
+														src={publicAsset(companyLogoPaths[company.logoKey])}
 														alt={`${company.name} logo`}
 														className="h-full w-full object-contain"
 													/>

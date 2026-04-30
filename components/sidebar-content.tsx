@@ -16,6 +16,7 @@ import {
 	Waves,
 } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
+import { companyLogoPaths, type CompanyLogoKey } from "@/lib/company-guides";
 import { publicAsset } from "@/lib/public-asset";
 import { cn } from "@/lib/utils";
 
@@ -125,55 +126,6 @@ function CompanyLogoIcon({
 		</span>
 	);
 }
-
-const companyLogoPaths = {
-	"360": "/company-icons/360.svg",
-	"4paradigm": "/company-icons/4paradigm.svg",
-	"58": "/company-icons/58.svg",
-	alibaba: "/company-icons/alibaba.svg",
-	autohome: "/company-icons/autohome.svg",
-	baidu: "/company-icons/baidu.svg",
-	beike: "/company-icons/beike.svg",
-	bilibili: "/company-icons/bilibili.svg",
-	"boss-zhipin": "/company-icons/boss-zhipin.svg",
-	bytedance: "/company-icons/bytedance.svg",
-	didi: "/company-icons/didi.svg",
-	dewu: "/company-icons/dewu.svg",
-	eleme: "/company-icons/eleme.svg",
-	"giant-network": "/company-icons/giant-network.svg",
-	"hello-group": "/company-icons/hello-group.svg",
-	"horizon-robotics": "/company-icons/horizon-robotics.svg",
-	iqiyi: "/company-icons/iqiyi.svg",
-	ireader: "/company-icons/ireader.svg",
-	jd: "/company-icons/jd.svg",
-	"kingsoft-office": "/company-icons/kingsoft-office.svg",
-	kuaishou: "/company-icons/kuaishou.svg",
-	"kunlun-tech": "/company-icons/kunlun-tech.svg",
-	"li-auto": "/company-icons/li-auto.svg",
-	"lilith-games": "/company-icons/lilith-games.svg",
-	meituan: "/company-icons/meituan.svg",
-	mihoyo: "/company-icons/mihoyo.svg",
-	pdd: "/company-icons/pdd.svg",
-	"perfect-world": "/company-icons/perfect-world.svg",
-	qianxin: "/company-icons/qianxin.svg",
-	qiniu: "/company-icons/qiniu.svg",
-	sensetime: "/company-icons/sensetime.svg",
-	sohu: "/company-icons/sohu.svg",
-	tal: "/company-icons/tal.svg",
-	tencent: "/company-icons/tencent.svg",
-	"trip-com": "/company-icons/trip-com.svg",
-	ucloud: "/company-icons/ucloud.svg",
-	weibo: "/company-icons/weibo.svg",
-	xiaohongshu: "/company-icons/xiaohongshu.svg",
-	xiaomi: "/company-icons/xiaomi.svg",
-	ximalaya: "/company-icons/ximalaya.svg",
-	yonyou: "/company-icons/yonyou.svg",
-	yoozoo: "/company-icons/yoozoo.svg",
-	yuewen: "/company-icons/yuewen.svg",
-	zhihu: "/company-icons/zhihu.svg",
-} as const;
-
-type CompanyLogoKey = keyof typeof companyLogoPaths;
 
 function createCompanyLogo(key: CompanyLogoKey) {
 	return (props?: SVGProps<any>) => (
