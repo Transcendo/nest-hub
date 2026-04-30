@@ -126,26 +126,64 @@ function CompanyLogoIcon({
 	);
 }
 
-const companyIcons = {
-	jd: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/jd.png")} />
-	),
-	alibaba: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/alibabadotcom.svg")} />
-	),
-	bytedance: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/bytedance.svg")} />
-	),
-	baidu: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/baidu.svg")} />
-	),
-	xiaomi: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/xiaomi.svg")} />
-	),
-	kuaishou: (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset("/company-icons/kuaishou.svg")} />
-	),
-};
+const companyLogoPaths = {
+	"360": "/company-icons/360.svg",
+	"4paradigm": "/company-icons/4paradigm.svg",
+	"58": "/company-icons/58.svg",
+	alibaba: "/company-icons/alibaba.svg",
+	autohome: "/company-icons/autohome.svg",
+	baidu: "/company-icons/baidu.svg",
+	beike: "/company-icons/beike.svg",
+	bilibili: "/company-icons/bilibili.svg",
+	"boss-zhipin": "/company-icons/boss-zhipin.svg",
+	bytedance: "/company-icons/bytedance.svg",
+	didi: "/company-icons/didi.svg",
+	dewu: "/company-icons/dewu.svg",
+	eleme: "/company-icons/eleme.svg",
+	"giant-network": "/company-icons/giant-network.svg",
+	"hello-group": "/company-icons/hello-group.svg",
+	"horizon-robotics": "/company-icons/horizon-robotics.svg",
+	iqiyi: "/company-icons/iqiyi.svg",
+	ireader: "/company-icons/ireader.svg",
+	jd: "/company-icons/jd.svg",
+	"kingsoft-office": "/company-icons/kingsoft-office.svg",
+	kuaishou: "/company-icons/kuaishou.svg",
+	"kunlun-tech": "/company-icons/kunlun-tech.svg",
+	"li-auto": "/company-icons/li-auto.svg",
+	"lilith-games": "/company-icons/lilith-games.svg",
+	meituan: "/company-icons/meituan.svg",
+	mihoyo: "/company-icons/mihoyo.svg",
+	pdd: "/company-icons/pdd.svg",
+	"perfect-world": "/company-icons/perfect-world.svg",
+	qianxin: "/company-icons/qianxin.svg",
+	qiniu: "/company-icons/qiniu.svg",
+	sensetime: "/company-icons/sensetime.svg",
+	sohu: "/company-icons/sohu.svg",
+	tal: "/company-icons/tal.svg",
+	tencent: "/company-icons/tencent.svg",
+	"trip-com": "/company-icons/trip-com.svg",
+	ucloud: "/company-icons/ucloud.svg",
+	weibo: "/company-icons/weibo.svg",
+	xiaohongshu: "/company-icons/xiaohongshu.svg",
+	xiaomi: "/company-icons/xiaomi.svg",
+	ximalaya: "/company-icons/ximalaya.svg",
+	yonyou: "/company-icons/yonyou.svg",
+	yoozoo: "/company-icons/yoozoo.svg",
+	yuewen: "/company-icons/yuewen.svg",
+	zhihu: "/company-icons/zhihu.svg",
+} as const;
+
+type CompanyLogoKey = keyof typeof companyLogoPaths;
+
+function createCompanyLogo(key: CompanyLogoKey) {
+	return (props?: SVGProps<any>) => (
+		<CompanyLogoIcon {...props} src={publicAsset(companyLogoPaths[key])} />
+	);
+}
+
+const companyIcons = Object.fromEntries(
+	(Object.keys(companyLogoPaths) as CompanyLogoKey[]).map((key) => [key, createCompanyLogo(key)]),
+) as Record<CompanyLogoKey, (props?: SVGProps<any>) => ReactNode>;
 
 export function getPageTree(): Root {
 	return {
@@ -228,29 +266,29 @@ export const contents: Content[] = [
 			{ title: "百度北京租房指南", href: "/docs/beijing/baidu-renting-guide", icon: companyIcons.baidu },
 			{ title: "小米北京租房指南", href: "/docs/beijing/xiaomi-renting-guide", icon: companyIcons.xiaomi },
 			{ title: "快手北京租房指南", href: "/docs/beijing/kuaishou-renting-guide", icon: companyIcons.kuaishou },
-			{ title: "美团北京租房指南", href: "/docs/beijing/meituan-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "腾讯北京租房指南", href: "/docs/beijing/tencent-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "滴滴北京租房指南", href: "/docs/beijing/didi-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "微博北京租房指南", href: "/docs/beijing/weibo-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "搜狐北京租房指南", href: "/docs/beijing/sohu-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "汽车之家北京租房指南", href: "/docs/beijing/autohome-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "知乎北京租房指南", href: "/docs/beijing/zhihu-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "BOSS直聘北京租房指南", href: "/docs/beijing/boss-zhipin-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "58同城北京租房指南", href: "/docs/beijing/58-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "陌陌 / Hello Group 北京租房指南", href: "/docs/beijing/hello-group-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "贝壳北京租房指南", href: "/docs/beijing/beike-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "第四范式北京租房指南", href: "/docs/beijing/4paradigm-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "金山办公北京租房指南", href: "/docs/beijing/kingsoft-office-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "地平线北京租房指南", href: "/docs/beijing/horizon-robotics-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "用友北京租房指南", href: "/docs/beijing/yonyou-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "爱奇艺北京租房指南", href: "/docs/beijing/iqiyi-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "360 北京租房指南", href: "/docs/beijing/360-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "完美世界北京租房指南", href: "/docs/beijing/perfect-world-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "奇安信北京租房指南", href: "/docs/beijing/qianxin-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "昆仑万维北京租房指南", href: "/docs/beijing/kunlun-tech-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "掌阅科技北京租房指南", href: "/docs/beijing/ireader-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "好未来北京租房指南", href: "/docs/beijing/tal-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "理想汽车北京租房指南", href: "/docs/beijing/li-auto-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			{ title: "美团北京租房指南", href: "/docs/beijing/meituan-renting-guide", icon: companyIcons.meituan },
+			{ title: "腾讯北京租房指南", href: "/docs/beijing/tencent-renting-guide", icon: companyIcons.tencent },
+			{ title: "滴滴北京租房指南", href: "/docs/beijing/didi-renting-guide", icon: companyIcons.didi },
+			{ title: "微博北京租房指南", href: "/docs/beijing/weibo-renting-guide", icon: companyIcons.weibo },
+			{ title: "搜狐北京租房指南", href: "/docs/beijing/sohu-renting-guide", icon: companyIcons.sohu },
+			{ title: "汽车之家北京租房指南", href: "/docs/beijing/autohome-renting-guide", icon: companyIcons.autohome },
+			{ title: "知乎北京租房指南", href: "/docs/beijing/zhihu-renting-guide", icon: companyIcons.zhihu },
+			{ title: "BOSS直聘北京租房指南", href: "/docs/beijing/boss-zhipin-renting-guide", icon: companyIcons["boss-zhipin"] },
+			{ title: "58同城北京租房指南", href: "/docs/beijing/58-renting-guide", icon: companyIcons["58"] },
+			{ title: "陌陌 / Hello Group 北京租房指南", href: "/docs/beijing/hello-group-renting-guide", icon: companyIcons["hello-group"] },
+			{ title: "贝壳北京租房指南", href: "/docs/beijing/beike-renting-guide", icon: companyIcons.beike },
+			{ title: "第四范式北京租房指南", href: "/docs/beijing/4paradigm-renting-guide", icon: companyIcons["4paradigm"] },
+			{ title: "金山办公北京租房指南", href: "/docs/beijing/kingsoft-office-renting-guide", icon: companyIcons["kingsoft-office"] },
+			{ title: "地平线北京租房指南", href: "/docs/beijing/horizon-robotics-renting-guide", icon: companyIcons["horizon-robotics"] },
+			{ title: "用友北京租房指南", href: "/docs/beijing/yonyou-renting-guide", icon: companyIcons.yonyou },
+			{ title: "爱奇艺北京租房指南", href: "/docs/beijing/iqiyi-renting-guide", icon: companyIcons.iqiyi },
+			{ title: "360 北京租房指南", href: "/docs/beijing/360-renting-guide", icon: companyIcons["360"] },
+			{ title: "完美世界北京租房指南", href: "/docs/beijing/perfect-world-renting-guide", icon: companyIcons["perfect-world"] },
+			{ title: "奇安信北京租房指南", href: "/docs/beijing/qianxin-renting-guide", icon: companyIcons.qianxin },
+			{ title: "昆仑万维北京租房指南", href: "/docs/beijing/kunlun-tech-renting-guide", icon: companyIcons["kunlun-tech"] },
+			{ title: "掌阅科技北京租房指南", href: "/docs/beijing/ireader-renting-guide", icon: companyIcons.ireader },
+			{ title: "好未来北京租房指南", href: "/docs/beijing/tal-renting-guide", icon: companyIcons.tal },
+			{ title: "理想汽车北京租房指南", href: "/docs/beijing/li-auto-renting-guide", icon: companyIcons["li-auto"] },
 		],
 	},
 	{
@@ -266,23 +304,23 @@ export const contents: Content[] = [
 			{ title: "总览", href: "/docs/shanghai", icon: () => <Waves className="w-4 h-4 text-current" /> },
 			{ title: "复旦大学江湾校区研究生租房指南", href: "/docs/shanghai/fudan-jiangwan-campus-renting-guide", icon: () => <House className="w-4 h-4 text-current" /> },
 			{ title: "阿里巴巴上海租房指南", href: "/docs/shanghai/alibaba-renting-guide", icon: companyIcons.alibaba },
-			{ title: "七牛云上海租房指南", href: "/docs/shanghai/qiniu-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "阅文集团上海租房指南", href: "/docs/shanghai/yuewen-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "哔哩哔哩上海租房指南", href: "/docs/shanghai/bilibili-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "得物上海租房指南", href: "/docs/shanghai/dewu-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "UCloud 优刻得上海租房指南", href: "/docs/shanghai/ucloud-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			{ title: "七牛云上海租房指南", href: "/docs/shanghai/qiniu-renting-guide", icon: companyIcons.qiniu },
+			{ title: "阅文集团上海租房指南", href: "/docs/shanghai/yuewen-renting-guide", icon: companyIcons.yuewen },
+			{ title: "哔哩哔哩上海租房指南", href: "/docs/shanghai/bilibili-renting-guide", icon: companyIcons.bilibili },
+			{ title: "得物上海租房指南", href: "/docs/shanghai/dewu-renting-guide", icon: companyIcons.dewu },
+			{ title: "UCloud 优刻得上海租房指南", href: "/docs/shanghai/ucloud-renting-guide", icon: companyIcons.ucloud },
 			{ title: "字节跳动上海租房指南", href: "/docs/shanghai/bytedance-renting-guide", icon: companyIcons.bytedance },
-			{ title: "拼多多上海租房指南", href: "/docs/shanghai/pdd-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "携程上海租房指南", href: "/docs/shanghai/trip-com-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "腾讯上海租房指南", href: "/docs/shanghai/tencent-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "米哈游上海租房指南", href: "/docs/shanghai/mihoyo-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "商汤科技上海租房指南", href: "/docs/shanghai/sensetime-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "游族网络上海租房指南", href: "/docs/shanghai/yoozoo-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "小红书上海租房指南", href: "/docs/shanghai/xiaohongshu-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "喜马拉雅上海租房指南", href: "/docs/shanghai/ximalaya-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "巨人网络上海租房指南", href: "/docs/shanghai/giant-network-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "莉莉丝游戏上海租房指南", href: "/docs/shanghai/lilith-games-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
-			{ title: "饿了么上海租房指南", href: "/docs/shanghai/eleme-renting-guide", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			{ title: "拼多多上海租房指南", href: "/docs/shanghai/pdd-renting-guide", icon: companyIcons.pdd },
+			{ title: "携程上海租房指南", href: "/docs/shanghai/trip-com-renting-guide", icon: companyIcons["trip-com"] },
+			{ title: "腾讯上海租房指南", href: "/docs/shanghai/tencent-renting-guide", icon: companyIcons.tencent },
+			{ title: "米哈游上海租房指南", href: "/docs/shanghai/mihoyo-renting-guide", icon: companyIcons.mihoyo },
+			{ title: "商汤科技上海租房指南", href: "/docs/shanghai/sensetime-renting-guide", icon: companyIcons.sensetime },
+			{ title: "游族网络上海租房指南", href: "/docs/shanghai/yoozoo-renting-guide", icon: companyIcons.yoozoo },
+			{ title: "小红书上海租房指南", href: "/docs/shanghai/xiaohongshu-renting-guide", icon: companyIcons.xiaohongshu },
+			{ title: "喜马拉雅上海租房指南", href: "/docs/shanghai/ximalaya-renting-guide", icon: companyIcons.ximalaya },
+			{ title: "巨人网络上海租房指南", href: "/docs/shanghai/giant-network-renting-guide", icon: companyIcons["giant-network"] },
+			{ title: "莉莉丝游戏上海租房指南", href: "/docs/shanghai/lilith-games-renting-guide", icon: companyIcons["lilith-games"] },
+			{ title: "饿了么上海租房指南", href: "/docs/shanghai/eleme-renting-guide", icon: companyIcons.eleme },
 		],
 	},
 	{
