@@ -23,6 +23,7 @@ import {
 	ViewingGuidePage,
 } from "@/components/docs/avoid-pitfalls-pages";
 import { BeijingOverview } from "@/components/docs/beijing-overview";
+import { HangzhouOverview } from "@/components/docs/hangzhou-overview";
 import { ShanghaiOverview } from "@/components/docs/shanghai-overview";
 import { Features } from "@/components/docs/features";
 import {
@@ -99,6 +100,7 @@ export default async function Page({
 						TrapsGuidePage,
 						ViewingGuidePage,
 						BeijingOverview,
+						HangzhouOverview,
 						ShanghaiOverview,
 						DatabaseTable,
 						ForkButton,
