@@ -2,7 +2,6 @@ import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { Suspense } from "react";
 import { DocsSidebar } from "@/components/docs/docs-sidebar";
-import { LegalDisclaimer } from "@/components/legal-disclaimer";
 import { docsLayoutProps } from "@/lib/site-config";
 import { source } from "@/lib/source";
 import type { PageEntry } from "./provider";
@@ -28,7 +27,6 @@ export default function Layout({ children }: { children: ReactNode }) {
 				}}
 			>
 				{children}
-				<LegalDisclaimer />
 			</DocsLayout>
 		</DocsProvider>
 	);
