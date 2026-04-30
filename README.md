@@ -21,6 +21,7 @@ NestHub 当前是一个基于 **Next.js + Fumadocs** 的静态内容站，用来
 - **先避坑**：把租前准备、实地看房、签约谈判、入住生活、常见陷阱和维权路径整理成通用流程。
 - **按城市进入**：北京、上海、杭州、深圳作为一级城市入口，方便后续持续扩展。
 - **按办公区落地**：已收录的公司指南会围绕通勤、地铁、班车、小区和签约风险组织内容。
+- **安全合规**：公司标识默认使用文字 badge；真实 logo 只登记官方可信来源，不从搜索图片、素材站、不明 CDN、Wikimedia、Logopedia 或二次上传资源获取。
 
 当前内容以北京和通用避坑指南为主，上海已有张江方向入口，杭州和深圳保留稳定城市入口用于后续扩展。
 
@@ -107,12 +108,13 @@ lib/
 ├─ site-config.tsx        # 站点名称、顶栏导航、布局配置
 ├─ source.ts              # Fumadocs 内容源
 ├─ metadata.ts            # SEO、OG、favicon 配置
-└─ public-asset.ts        # 静态资源路径处理
+├─ public-asset.ts        # 静态资源路径处理
+├─ company-guides.ts      # 公司指南与文字 badge 数据
+└─ company-logo-sources.ts # 公司 logo 官方来源、风险等级与使用说明
 
 public/
 ├─ branding/              # NestHub Logo 与历史品牌资源
 ├─ city-guides/           # 城市内容配图
-├─ company-icons/         # 公司图标
 └─ favicon/               # favicon 与 web manifest
 ```
 
@@ -127,6 +129,14 @@ public/
 3. 如果是新的一级栏目，更新 `content/docs/meta.json`。
 4. 如果需要出现在顶部导航，更新 `lib/site-config.tsx`。
 5. 使用可信来源，区分事实、推断和建议，避免没有依据的租金或推荐结论。
+
+## 公司标识与商标说明
+
+NestHub 是非官方租房信息整理项目，与页面中提及的企业不存在隶属、赞助、认证或合作关系。企业名称、商标、Logo 及相关标识归各自权利人所有，仅用于识别公司与地理位置导览。
+
+仓库内默认不批量提交第三方公司 logo 文件。公司展示使用 `lib/company-guides.ts` 中的文字 badge；`lib/company-logo-sources.ts` 只登记官方品牌中心、官方媒体资源、官方 IR 或官网页面等可信来源，并按 `trusted`、`official-page-only`、`needs-review`、`blocked` 分级。未确认官方来源或授权前，不从第三方站点获取或分发 logo。
+
+如权利人认为相关企业名称或标识使用不当，可通过 GitHub Issue 联系我们移除或调整。
 
 ## 部署
 

@@ -12,11 +12,11 @@ import { HomeLayout } from "fumadocs-ui/layouts/home";
 import {
 	cityCompanyGuideCounts,
 	companyGuideCount,
+	companyBadges,
 	companyGuides,
-	companyLogoPaths,
 	uniqueCompanyCount,
 } from "@/lib/company-guides";
-import { publicAsset } from "@/lib/public-asset";
+import { LegalDisclaimer } from "@/components/legal-disclaimer";
 import { docsLayoutProps } from "@/lib/site-config";
 import { repositoryUrl } from "@/lib/site-constants";
 
@@ -288,13 +288,12 @@ export default function HomePage() {
 												href={company.href}
 												className="inline-flex min-w-[174px] items-center gap-3 rounded-[8px] border border-[#101615]/10 bg-white px-3 py-2 transition hover:border-[#101615]/30 hover:bg-[#fbfefc] dark:border-white/12 dark:bg-[#101615] dark:hover:border-white/30"
 											>
-												<span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-[#101615]/10 bg-white p-1.5 dark:border-white/15 dark:bg-[#edf7f1]">
-													<img
-														src={publicAsset(companyLogoPaths[company.logoKey])}
-														alt={`${company.name} logo`}
-														className="h-full w-full object-contain"
-													/>
-												</span>
+								<span
+									aria-hidden="true"
+									className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-[#101615]/10 bg-[#edf7f1] px-1 text-center text-[11px] font-bold leading-tight text-[#101615] dark:border-white/15 dark:bg-[#edf7f1]"
+								>
+									{companyBadges[company.companyKey]}
+								</span>
 												<span>
 													<span className="block text-sm font-semibold text-[#101615] dark:text-[#f5fff8]">
 														{company.name}
@@ -406,6 +405,7 @@ export default function HomePage() {
 					</div>
 				</section>
 			</main>
+			<LegalDisclaimer />
 		</HomeLayout>
 	);
 }

@@ -16,8 +16,7 @@ import {
 	Waves,
 } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
-import { companyLogoPaths, type CompanyLogoKey } from "@/lib/company-guides";
-import { publicAsset } from "@/lib/public-asset";
+import { companyBadges, type CompanyKey } from "@/lib/company-guides";
 import { cn } from "@/lib/utils";
 
 export interface SubpageItem {
@@ -106,36 +105,32 @@ function contentToPageTree(content: Content): Folder {
 	};
 }
 
-function CompanyLogoIcon({
+function CompanyBadgeIcon({
 	className,
-	src,
-}: SVGProps<any> & { src: string }) {
+	label,
+}: SVGProps<any> & { label: string }) {
 	return (
 		<span
+			aria-hidden="true"
 			className={cn(
-				"inline-flex size-4 shrink-0 items-center justify-center overflow-hidden rounded-[3px]",
+				"inline-flex size-4 shrink-0 items-center justify-center rounded-[3px] bg-foreground/8 px-0.5 text-[8px] font-bold leading-none text-foreground/70 ring-1 ring-foreground/10",
 				className,
 			)}
 		>
-			<img
-				src={src}
-				alt=""
-				aria-hidden="true"
-				className="block size-full object-contain"
-			/>
+			{label}
 		</span>
 	);
 }
 
-function createCompanyLogo(key: CompanyLogoKey) {
+function createCompanyBadge(key: CompanyKey) {
 	return (props?: SVGProps<any>) => (
-		<CompanyLogoIcon {...props} src={publicAsset(companyLogoPaths[key])} />
+		<CompanyBadgeIcon {...props} label={companyBadges[key]} />
 	);
 }
 
 const companyIcons = Object.fromEntries(
-	(Object.keys(companyLogoPaths) as CompanyLogoKey[]).map((key) => [key, createCompanyLogo(key)]),
-) as Record<CompanyLogoKey, (props?: SVGProps<any>) => ReactNode>;
+	(Object.keys(companyBadges) as CompanyKey[]).map((key) => [key, createCompanyBadge(key)]),
+) as Record<CompanyKey, (props?: SVGProps<any>) => ReactNode>;
 
 export function getPageTree(): Root {
 	return {
