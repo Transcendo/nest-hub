@@ -43,9 +43,9 @@ const cityRows = [
 		rank: "03",
 		title: "杭州",
 		href: "/docs/hangzhou",
-		summary: "城市入口已建好，适合继续补充滨江、未来科技城等片区。",
-		metric: "待扩展",
-		tags: ["滨江", "未来科技城", "阿里生态"],
+		summary: "未来科技城、滨江、西湖、余杭五常等通勤带已展开。",
+		metric: `${cityCompanyGuideCounts.hangzhou} 篇公司指南`,
+		tags: ["阿里", "蚂蚁", "网易", "海康", "DeepSeek", "宇树"],
 		color: "border-l-[#facc15]",
 	},
 	{
@@ -289,11 +289,15 @@ export default function HomePage() {
 												className="inline-flex min-w-[174px] items-center gap-3 rounded-[8px] border border-[#101615]/10 bg-white px-3 py-2 transition hover:border-[#101615]/30 hover:bg-[#fbfefc] dark:border-white/12 dark:bg-[#101615] dark:hover:border-white/30"
 											>
 												<span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-[#101615]/10 bg-white p-1.5 dark:border-white/15 dark:bg-[#edf7f1]">
-													<img
-														src={publicAsset(companyLogoPaths[company.logoKey])}
-														alt={`${company.name} logo`}
-														className="h-full w-full object-contain"
-													/>
+													{company.logoKey ? (
+														<img
+															src={publicAsset(companyLogoPaths[company.logoKey])}
+															alt={`${company.name} logo`}
+															className="h-full w-full object-contain"
+														/>
+													) : (
+														<Building2 className="h-5 w-5 text-[#617069]" aria-hidden="true" />
+													)}
 												</span>
 												<span>
 													<span className="block text-sm font-semibold text-[#101615] dark:text-[#f5fff8]">

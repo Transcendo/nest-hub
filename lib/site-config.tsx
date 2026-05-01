@@ -68,7 +68,7 @@ export const cityCards = [
 	},
 	{
 		title: "杭州",
-		description: "城市入口已准备好，后续可持续补充阿里、滨江等片区经验。",
+		description: "已收录 20 家杭州公司，覆盖未来科技城、滨江、西湖、余杭等通勤带。",
 		href: "/docs/hangzhou",
 	},
 	{

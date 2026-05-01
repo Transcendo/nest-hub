@@ -47,7 +47,15 @@ export const companyLogoPaths = {
 
 export type CompanyLogoKey = keyof typeof companyLogoPaths;
 
-export const companyGuides = [
+export type CompanyGuide = {
+	name: string;
+	href: string;
+	logoKey?: CompanyLogoKey;
+	area: string;
+	city: "beijing" | "shanghai" | "hangzhou";
+};
+
+export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "京东", href: "/docs/beijing/jd-headquarters-renting-guide", logoKey: "jd", area: "北京 · 亦庄经海路", city: "beijing" },
 	{ name: "阿里巴巴", href: "/docs/beijing/alibaba-renting-guide", logoKey: "alibaba", area: "北京 · 崔各庄 / 望京", city: "beijing" },
 	{ name: "字节跳动", href: "/docs/beijing/bytedance-renting-guide", logoKey: "bytedance", area: "北京 · 大钟寺 / 知春路", city: "beijing" },
@@ -95,19 +103,35 @@ export const companyGuides = [
 	{ name: "巨人网络", href: "/docs/shanghai/giant-network-renting-guide", logoKey: "giant-network", area: "上海 · 松江新城", city: "shanghai" },
 	{ name: "莉莉丝游戏", href: "/docs/shanghai/lilith-games-renting-guide", logoKey: "lilith-games", area: "上海 · 南翔", city: "shanghai" },
 	{ name: "饿了么", href: "/docs/shanghai/eleme-renting-guide", logoKey: "eleme", area: "上海 · 普陀", city: "shanghai" },
-] as const satisfies readonly {
-	name: string;
-	href: string;
-	logoKey: CompanyLogoKey;
-	area: string;
-	city: "beijing" | "shanghai";
-}[];
+
+	{ name: "阿里巴巴", href: "/docs/hangzhou/alibaba-renting-guide", logoKey: "alibaba", area: "杭州 · 未来科技城", city: "hangzhou" },
+	{ name: "蚂蚁集团", href: "/docs/hangzhou/ant-group-renting-guide", area: "杭州 · 西溪 / 之江", city: "hangzhou" },
+	{ name: "菜鸟", href: "/docs/hangzhou/cainiao-renting-guide", area: "杭州 · 未来科技城", city: "hangzhou" },
+	{ name: "钉钉", href: "/docs/hangzhou/dingtalk-renting-guide", area: "杭州 · 未来科技城", city: "hangzhou" },
+	{ name: "网易", href: "/docs/hangzhou/netease-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "字节跳动", href: "/docs/hangzhou/bytedance-renting-guide", logoKey: "bytedance", area: "杭州 · 余杭 / 西湖", city: "hangzhou" },
+	{ name: "快手", href: "/docs/hangzhou/kuaishou-renting-guide", logoKey: "kuaishou", area: "杭州 · 余杭", city: "hangzhou" },
+	{ name: "海康威视", href: "/docs/hangzhou/hikvision-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "大华股份", href: "/docs/hangzhou/dahua-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "新华三", href: "/docs/hangzhou/h3c-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "同花顺", href: "/docs/hangzhou/tonghuashun-renting-guide", area: "杭州 · 余杭五常", city: "hangzhou" },
+	{ name: "有赞", href: "/docs/hangzhou/youzan-renting-guide", area: "杭州 · 西湖 / 黄龙", city: "hangzhou" },
+	{ name: "微医", href: "/docs/hangzhou/wedoctor-renting-guide", area: "杭州 · 西湖 / 滨江", city: "hangzhou" },
+	{ name: "遥望科技", href: "/docs/hangzhou/yaowang-renting-guide", area: "杭州 · 余杭", city: "hangzhou" },
+	{ name: "DeepSeek", href: "/docs/hangzhou/deepseek-renting-guide", area: "杭州 · 西湖", city: "hangzhou" },
+	{ name: "宇树科技", href: "/docs/hangzhou/unitree-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "OPPO", href: "/docs/hangzhou/oppo-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "vivo", href: "/docs/hangzhou/vivo-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
+	{ name: "群核科技", href: "/docs/hangzhou/manycore-renting-guide", area: "杭州 · 西湖", city: "hangzhou" },
+	{ name: "游戏科学", href: "/docs/hangzhou/game-science-renting-guide", area: "杭州 · 西湖", city: "hangzhou" },
+];
 
 export const companyGuideCount = companyGuides.length;
 
-export const uniqueCompanyCount = new Set(companyGuides.map((company) => company.logoKey)).size;
+export const uniqueCompanyCount = new Set(companyGuides.map((company) => company.name)).size;
 
 export const cityCompanyGuideCounts = {
 	beijing: companyGuides.filter((company) => company.city === "beijing").length,
 	shanghai: companyGuides.filter((company) => company.city === "shanghai").length,
+	hangzhou: companyGuides.filter((company) => company.city === "hangzhou").length,
 } as const;
