@@ -73,7 +73,7 @@ export const cityCards = [
 	},
 	{
 		title: "深圳",
-		description: "城市入口已准备好，后续可持续补充南山、坂田等典型通勤片区内容。",
+		description: "已整理 21 家深圳公司样本，覆盖南山科技园、西丽留仙洞、坂田、福田、前海和产业外圈。",
 		href: "/docs/shenzhen",
 	},
 ];

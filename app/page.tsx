@@ -52,9 +52,9 @@ const cityRows = [
 		rank: "04",
 		title: "深圳",
 		href: "/docs/shenzhen",
-		summary: "城市入口已建好，后续可补南山、坂田、留仙洞等通勤判断。",
-		metric: "待扩展",
-		tags: ["南山", "坂田", "腾讯生态"],
+		summary: "已整理 21 家深圳公司样本，覆盖南山、西丽、坂田、福田、前海和产业外圈。",
+		metric: "21 个样本",
+		tags: ["南山", "西丽", "坂田"],
 		color: "border-l-[#38bdf8]",
 	},
 ];
@@ -362,7 +362,7 @@ export default function HomePage() {
 					<div>
 						<p className="text-sm font-semibold text-[#10b981]">城市内容成熟度</p>
 						<h2 className="mt-3 max-w-md text-3xl font-semibold leading-tight tracking-normal text-[#101615] dark:text-[#f5fff8]">
-							把最完整的城市放前面，也让待补充城市一眼可见。
+							把最完整的城市放前面，也让新城市入口一眼可见。
 						</h2>
 						<p className="mt-4 max-w-md text-sm leading-7 text-[#4f6159] dark:text-[#b8c7bf]">
 							借鉴开源趋势站的榜单结构，但排名依据换成当前内容密度和可直接使用程度。
