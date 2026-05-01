@@ -16,14 +16,42 @@ type ContentEntry = LinkEntry & {
 	description: string;
 };
 
-const collectedCompanies: LinkEntry[] = [];
+const collectedCompanies: LinkEntry[] = [
+	{ name: "阿里巴巴", href: "/docs/hangzhou/alibaba-renting-guide" },
+	{ name: "蚂蚁集团", href: "/docs/hangzhou/ant-group-renting-guide" },
+	{ name: "菜鸟", href: "/docs/hangzhou/cainiao-renting-guide" },
+	{ name: "钉钉", href: "/docs/hangzhou/dingtalk-renting-guide" },
+	{ name: "网易", href: "/docs/hangzhou/netease-renting-guide" },
+	{ name: "字节跳动", href: "/docs/hangzhou/bytedance-renting-guide" },
+	{ name: "快手", href: "/docs/hangzhou/kuaishou-renting-guide" },
+	{ name: "海康威视", href: "/docs/hangzhou/hikvision-renting-guide" },
+	{ name: "大华股份", href: "/docs/hangzhou/dahua-renting-guide" },
+	{ name: "新华三 H3C", href: "/docs/hangzhou/h3c-renting-guide" },
+	{ name: "同花顺", href: "/docs/hangzhou/tonghuashun-renting-guide" },
+	{ name: "有赞", href: "/docs/hangzhou/youzan-renting-guide" },
+	{ name: "微医", href: "/docs/hangzhou/wedoctor-renting-guide" },
+	{ name: "遥望科技", href: "/docs/hangzhou/yaowang-renting-guide" },
+	{ name: "DeepSeek / 深度求索", href: "/docs/hangzhou/deepseek-renting-guide" },
+	{ name: "宇树科技", href: "/docs/hangzhou/unitree-renting-guide" },
+	{ name: "OPPO", href: "/docs/hangzhou/oppo-renting-guide" },
+	{ name: "vivo", href: "/docs/hangzhou/vivo-renting-guide" },
+	{ name: "群核科技 / Manycore", href: "/docs/hangzhou/manycore-renting-guide" },
+	{ name: "游戏科学", href: "/docs/hangzhou/game-science-renting-guide" },
+];
 
-const contentEntries: ContentEntry[] = [];
+const contentEntries: ContentEntry[] = [
+	{ name: "城西未来科技城租房入口", href: "/docs/hangzhou/alibaba-renting-guide", description: "阿里、菜鸟、钉钉、字节、快手、同花顺、OPPO、vivo、遥望等城西样本已拆分。" },
+	{ name: "滨江高新区租房入口", href: "/docs/hangzhou/netease-renting-guide", description: "网易、海康、大华、新华三、宇树等滨江样本已拆分。" },
+	{ name: "西湖黄龙 / 西溪路入口", href: "/docs/hangzhou/ant-group-renting-guide", description: "蚂蚁、有赞等西湖办公带样本已拆分。" },
+	{ name: "拱墅大运河入口", href: "/docs/hangzhou/deepseek-renting-guide", description: "DeepSeek / 深度求索样本已拆分。" },
+	{ name: "萧山信息港入口", href: "/docs/hangzhou/wedoctor-renting-guide", description: "微医与萧山信息港通勤判断已拆分。" },
+];
 
 const ecosystemRows = [
 	{
 		company: "阿里巴巴",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/alibaba-renting-guide",
 		hangzhouRole: "杭州全球总部 / 阿里生态核心",
 		area: "余杭未来科技城 / 西溪园区",
 		track: "电商、云计算、AI、企业服务",
@@ -32,7 +60,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "蚂蚁集团",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/ant-group-renting-guide",
 		hangzhouRole: "金融科技总部 / 阿里生态核心",
 		area: "西湖黄龙 / 西溪路一带",
 		track: "支付、金融科技、数字化服务",
@@ -41,7 +70,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "菜鸟",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/cainiao-renting-guide",
 		hangzhouRole: "智能物流总部 / 阿里生态公司",
 		area: "余杭凤新路 / 未来科技城",
 		track: "物流科技、供应链、跨境履约",
@@ -50,7 +80,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "钉钉",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/dingtalk-renting-guide",
 		hangzhouRole: "杭州独角兽 / 阿里系协同办公产品",
 		area: "杭州城西 / 阿里生态带",
 		track: "企业协同、办公 SaaS、AI 助理",
@@ -59,7 +90,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "网易",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/netease-renting-guide",
 		hangzhouRole: "杭州重要研发 / 游戏与内容业务办公区",
 		area: "滨江网商路 / 长河一带",
 		track: "游戏、音乐、教育、内容、AI",
@@ -68,7 +100,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "字节跳动",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/bytedance-renting-guide",
 		hangzhouRole: "华东中心 / 余杭重点平台项目",
 		area: "余杭未来科技城",
 		track: "内容平台、电商、本地生活、AI",
@@ -77,7 +110,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "快手",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/kuaishou-renting-guide",
 		hangzhouRole: "浙江中心 / 电商平台办公点",
 		area: "余杭未来科技城",
 		track: "短视频、直播、电商、本地生活",
@@ -86,7 +120,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "海康威视",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/hikvision-renting-guide",
 		hangzhouRole: "杭州总部 / 智能物联龙头",
 		area: "滨江阡陌路 / 物联网街区",
 		track: "智能物联、视频技术、AIoT",
@@ -95,7 +130,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "大华股份",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/dahua-renting-guide",
 		hangzhouRole: "杭州总部 / 视频物联与安防龙头",
 		area: "滨江滨安路 / 长河街道",
 		track: "视频物联、智慧城市、AIoT",
@@ -104,7 +140,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "新华三 H3C",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/h3c-renting-guide",
 		hangzhouRole: "杭州总部 / 企业级 ICT 厂商",
 		area: "滨江长河 / 高新产业园",
 		track: "网络设备、云、服务器、企业 IT",
@@ -113,16 +150,18 @@ const ecosystemRows = [
 	},
 	{
 		company: "同花顺",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/tonghuashun-renting-guide",
 		hangzhouRole: "杭州总部 / 互联网金融数据公司",
-		area: "西湖翠柏路 / 教工路一带",
+		area: "余杭五常 / 同顺街一带",
 		track: "证券行情、金融数据、投资工具",
-		mapLogic: "西湖文教区通勤，优先看翠苑、文三、古荡、黄龙；通勤和学区/老小区租赁混在一起。",
-		source: "https://kaihu.10jqka.com.cn/activity/html/2021/Privacy/index.html",
+		mapLogic: "余杭五常通勤，和未来科技城、西溪、仓前租房圈更接近；不要再按老西湖文教区口径直接判断。",
+		source: "https://www.10jqka.com.cn/hexin_contact.htm",
 	},
 	{
 		company: "有赞",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/youzan-renting-guide",
 		hangzhouRole: "杭州总部 / 商家服务 SaaS",
 		area: "西湖西溪路 / 华泰创业园",
 		track: "电商 SaaS、私域经营、商家工具",
@@ -131,7 +170,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "微医",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/wedoctor-renting-guide",
 		hangzhouRole: "杭州总部 / 互联网医疗平台",
 		area: "萧山杭州湾信息港",
 		track: "互联网医院、数字健康、医疗服务",
@@ -140,7 +180,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "遥望科技",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/yaowang-renting-guide",
 		hangzhouRole: "杭州总部 / 直播电商与内容电商公司",
 		area: "余杭五常 / 融谷巷",
 		track: "直播电商、MCN、新消费服务",
@@ -149,7 +190,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "DeepSeek / 深度求索",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/deepseek-renting-guide",
 		hangzhouRole: "杭州本土 AI 大模型公司",
 		area: "拱墅汇金国际商务社区",
 		track: "基础大模型、开源模型、AI 基础技术",
@@ -158,7 +200,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "宇树科技",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/unitree-renting-guide",
 		hangzhouRole: "杭州本土机器人公司 / 六小龙代表",
 		area: "滨江东流路 / 峰达创意园",
 		track: "四足机器人、人形机器人、运动控制",
@@ -167,7 +210,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "OPPO",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/oppo-renting-guide",
 		hangzhouRole: "全球移动端研发总部项目",
 		area: "余杭未来科技城",
 		track: "移动终端、系统软件、AI 终端",
@@ -176,7 +220,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "vivo",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/vivo-renting-guide",
 		hangzhouRole: "全球 AI 研发中心项目",
 		area: "余杭未来科技城",
 		track: "手机 AI、终端智能、算法研发",
@@ -185,7 +230,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "群核科技 / Manycore",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/manycore-renting-guide",
 		hangzhouRole: "杭州六小龙之一 / 空间设计云平台",
 		area: "杭州城西科创带",
 		track: "云设计、空间智能、产业软件",
@@ -194,7 +240,8 @@ const ecosystemRows = [
 	},
 	{
 		company: "游戏科学",
-		status: "待补充",
+		status: "已收录",
+		guideHref: "/docs/hangzhou/game-science-renting-guide",
 		hangzhouRole: "杭州六小龙之一 / 游戏研发公司",
 		area: "杭州城西科创带",
 		track: "游戏研发、内容科技、3A 游戏",
@@ -206,7 +253,7 @@ const ecosystemRows = [
 const commuteBelts = [
 	{
 		name: "余杭未来科技城 / 西溪",
-		companies: "阿里巴巴、菜鸟、钉钉、字节跳动、快手、OPPO、vivo、遥望科技",
+		companies: "阿里巴巴、菜鸟、钉钉、字节跳动、快手、同花顺、OPPO、vivo、遥望科技",
 		areas: "未来科技城、五常、仓前、良睦路、蒋村、留下、文一西路沿线",
 		warning: "城西公司密度最高，但楼栋分散，文一西路早晚高峰很硬；先确认具体园区门，再看地铁距离。",
 	},
@@ -218,7 +265,7 @@ const commuteBelts = [
 	},
 	{
 		name: "西湖黄龙 / 文教区 / 西溪路",
-		companies: "蚂蚁集团、同花顺、有赞",
+		companies: "蚂蚁集团、有赞",
 		areas: "黄龙、古荡、翠苑、文三、文新、蒋村、留下",
 		warning: "西湖区房源老小区多、租金不低，适合接受生活便利和通勤稳定优先的人。",
 	},
@@ -243,16 +290,16 @@ const commuteBelts = [
 ];
 
 const mapMarkers = [
-	{ label: "阿里 / 菜鸟 / 字节 / 快手", detail: "未来科技城 / 西溪", x: 26, y: 30, status: "待补充" },
-	{ label: "OPPO / vivo", detail: "未来科技城研发带", x: 20, y: 38, status: "待补充" },
-	{ label: "遥望科技", detail: "余杭五常", x: 31, y: 42, status: "待补充" },
-	{ label: "蚂蚁 / 同花顺 / 有赞", detail: "西湖黄龙 / 西溪路", x: 45, y: 45, status: "待补充" },
-	{ label: "DeepSeek", detail: "拱墅汇金国际", x: 56, y: 35, status: "待补充" },
-	{ label: "网易 / 海康 / 大华 / H3C", detail: "滨江高新区", x: 62, y: 70, status: "待补充" },
-	{ label: "微医", detail: "萧山信息港", x: 74, y: 77, status: "待补充" },
+	{ label: "阿里 / 菜鸟 / 字节 / 快手", detail: "未来科技城 / 西溪", x: 26, y: 30, status: "已收录" },
+	{ label: "OPPO / vivo", detail: "未来科技城研发带", x: 20, y: 38, status: "已收录" },
+	{ label: "同花顺 / 遥望科技", detail: "余杭五常", x: 31, y: 42, status: "已收录" },
+	{ label: "蚂蚁 / 有赞", detail: "西湖黄龙 / 西溪路", x: 45, y: 45, status: "已收录" },
+	{ label: "DeepSeek", detail: "拱墅汇金国际", x: 56, y: 35, status: "已收录" },
+	{ label: "网易 / 海康 / 大华 / H3C", detail: "滨江高新区", x: 62, y: 70, status: "已收录" },
+	{ label: "微医", detail: "萧山信息港", x: 74, y: 77, status: "已收录" },
 ];
 
-const sourceBackedDate = "2026-04-30";
+const sourceBackedDate = "2026-05-01";
 
 export function HangzhouOverview() {
 	const collectedCount = ecosystemRows.filter(
@@ -410,7 +457,7 @@ export function HangzhouOverview() {
 							))
 						) : (
 							<div className="rounded-lg border border-dashed border-zinc-200 px-3 py-2 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-								杭州先建立总览入口，具体公司指南待下一步拆分。
+								杭州公司指南已上线，后续继续按办公点和租赁市场变化校准。
 							</div>
 						)}
 					</div>
@@ -472,7 +519,7 @@ export function HangzhouOverview() {
 							杭州互联网公司生态信息表
 						</div>
 						<p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-							数据口径：只使用公司官网、投资者关系页、政府公开信息等官方可信来源；暂不从第三方地图采集，也不使用来源不明的抓取数据。当前总览先建立样本池，后续再拆公司租房指南。
+							数据口径：只使用公司官网、投资者关系页、政府公开信息等官方可信来源；暂不从第三方地图采集，也不使用来源不明的抓取数据。当前总览已建立样本池并拆出公司租房指南，后续继续按真实办公点、通勤反馈和租赁市场变化校准。
 						</p>
 					</div>
 					<div className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
@@ -497,7 +544,16 @@ export function HangzhouOverview() {
 							{ecosystemRows.map((row) => (
 								<tr key={row.company} className="border-b border-zinc-100 align-top dark:border-zinc-800">
 									<td className="px-3 py-3 font-semibold text-zinc-950 dark:text-zinc-50">
-										{row.company}
+										{row.guideHref ? (
+											<Link
+												href={row.guideHref}
+												className="text-teal-800 underline-offset-4 hover:underline dark:text-teal-200"
+											>
+												{row.company}
+											</Link>
+										) : (
+											row.company
+										)}
 									</td>
 									<td className="px-3 py-3">
 										<span
