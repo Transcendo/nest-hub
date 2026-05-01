@@ -52,7 +52,7 @@ export type CompanyGuide = {
 	href: string;
 	logoKey?: CompanyLogoKey;
 	area: string;
-	city: "beijing" | "shanghai" | "hangzhou";
+	city: "beijing" | "shanghai" | "hangzhou" | "shenzhen";
 };
 
 export const companyGuides: readonly CompanyGuide[] = [
@@ -124,6 +124,28 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "vivo", href: "/docs/hangzhou/vivo-renting-guide", area: "杭州 · 滨江", city: "hangzhou" },
 	{ name: "群核科技", href: "/docs/hangzhou/manycore-renting-guide", area: "杭州 · 西湖", city: "hangzhou" },
 	{ name: "游戏科学", href: "/docs/hangzhou/game-science-renting-guide", area: "杭州 · 西湖", city: "hangzhou" },
+
+	{ name: "腾讯", href: "/docs/shenzhen/tencent-renting-guide", logoKey: "tencent", area: "深圳 · 南山科技园 / 深圳湾总部基地", city: "shenzhen" },
+	{ name: "华为", href: "/docs/shenzhen/huawei-renting-guide", area: "深圳 · 龙岗坂田 / 华为基地", city: "shenzhen" },
+	{ name: "大疆 DJI", href: "/docs/shenzhen/dji-renting-guide", area: "深圳 · 南山西丽 / 大疆天空之城", city: "shenzhen" },
+	{ name: "比亚迪 BYD", href: "/docs/shenzhen/byd-renting-guide", area: "深圳 · 坪山 / 比亚迪园区及实际基地", city: "shenzhen" },
+	{ name: "中兴通讯 ZTE", href: "/docs/shenzhen/zte-renting-guide", area: "深圳 · 南山科技园 / 科技南路中兴通讯大厦", city: "shenzhen" },
+	{ name: "迈瑞医疗", href: "/docs/shenzhen/mindray-renting-guide", area: "深圳 · 南山高新区 / 科技十二路迈瑞大厦", city: "shenzhen" },
+	{ name: "顺丰控股", href: "/docs/shenzhen/sf-express-renting-guide", area: "深圳 · 南山科技园 / 总部办公点，宝安福永等物流基地另核", city: "shenzhen" },
+	{ name: "金蝶", href: "/docs/shenzhen/kingdee-renting-guide", area: "深圳 · 南山科技园 / 金蝶软件园", city: "shenzhen" },
+	{ name: "深信服", href: "/docs/shenzhen/sangfor-renting-guide", area: "深圳 · 南山西丽 / 仙洞路深信服科技大厦", city: "shenzhen" },
+	{ name: "传音控股", href: "/docs/shenzhen/transsion-renting-guide", area: "深圳 · 南山留仙洞总部基地 / T33 大厦", city: "shenzhen" },
+	{ name: "影石 Insta360", href: "/docs/shenzhen/insta360-renting-guide", area: "深圳 · 前海 / 恒裕前海金融中心", city: "shenzhen" },
+	{ name: "优必选 UBTECH", href: "/docs/shenzhen/ubtech-renting-guide", area: "深圳 · 南山智园 / 西丽大学城片区", city: "shenzhen" },
+	{ name: "速腾聚创 RoboSense", href: "/docs/shenzhen/robosense-renting-guide", area: "深圳 · 南山桃源 / 留仙大道红花岭工业区", city: "shenzhen" },
+	{ name: "荣耀 HONOR", href: "/docs/shenzhen/honor-renting-guide", area: "深圳 · 具体办公点按团队楼栋复核", city: "shenzhen" },
+	{ name: "微众银行 WeBank", href: "/docs/shenzhen/webank-renting-guide", area: "深圳 · 深圳湾科技生态园 / 南山沙河西路", city: "shenzhen" },
+	{ name: "平安集团", href: "/docs/shenzhen/pingan-renting-guide", area: "深圳 · 福田 CBD / 平安金融中心", city: "shenzhen" },
+	{ name: "招商银行", href: "/docs/shenzhen/cmb-renting-guide", area: "深圳 · 福田车公庙 / 招商银行大厦", city: "shenzhen" },
+	{ name: "华大基因 BGI", href: "/docs/shenzhen/bgi-renting-guide", area: "深圳 · 盐田 / 华大基因中心", city: "shenzhen" },
+	{ name: "欣旺达", href: "/docs/shenzhen/sunwoda-renting-guide", area: "深圳 · 宝安石岩 / 欣旺达总部工业园", city: "shenzhen" },
+	{ name: "万科", href: "/docs/shenzhen/vanke-renting-guide", area: "深圳 · 盐田大梅沙注册总部 / 福田梅林办公点", city: "shenzhen" },
+	{ name: "创维 Skyworth", href: "/docs/shenzhen/skyworth-renting-guide", area: "深圳 · 南山高新区 / 科技园办公点", city: "shenzhen" },
 ];
 
 export const companyGuideCount = companyGuides.length;
@@ -134,4 +156,5 @@ export const cityCompanyGuideCounts = {
 	beijing: companyGuides.filter((company) => company.city === "beijing").length,
 	shanghai: companyGuides.filter((company) => company.city === "shanghai").length,
 	hangzhou: companyGuides.filter((company) => company.city === "hangzhou").length,
+	shenzhen: companyGuides.filter((company) => company.city === "shenzhen").length,
 } as const;

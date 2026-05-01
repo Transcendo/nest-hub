@@ -1,6 +1,27 @@
 {
   "title": "深圳",
   "pages": [
-    "index"
+    "index",
+    "tencent-renting-guide",
+    "huawei-renting-guide",
+    "dji-renting-guide",
+    "byd-renting-guide",
+    "zte-renting-guide",
+    "mindray-renting-guide",
+    "sf-express-renting-guide",
+    "kingdee-renting-guide",
+    "sangfor-renting-guide",
+    "transsion-renting-guide",
+    "insta360-renting-guide",
+    "ubtech-renting-guide",
+    "robosense-renting-guide",
+    "honor-renting-guide",
+    "webank-renting-guide",
+    "pingan-renting-guide",
+    "cmb-renting-guide",
+    "bgi-renting-guide",
+    "sunwoda-renting-guide",
+    "vanke-renting-guide",
+    "skyworth-renting-guide"
   ]
 }
