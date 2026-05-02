@@ -16,7 +16,12 @@ import {
 	Waves,
 } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
-import { companyLogoPaths, type CompanyLogoKey } from "@/lib/company-guides";
+import {
+	companyGuides,
+	companyLogoPaths,
+	type CompanyGuide,
+	type CompanyLogoKey,
+} from "@/lib/company-guides";
 import { publicAsset } from "@/lib/public-asset";
 import { cn } from "@/lib/utils";
 
@@ -136,6 +141,24 @@ function createCompanyLogo(key: CompanyLogoKey) {
 const companyIcons = Object.fromEntries(
 	(Object.keys(companyLogoPaths) as CompanyLogoKey[]).map((key) => [key, createCompanyLogo(key)]),
 ) as Record<CompanyLogoKey, (props?: SVGProps<any>) => ReactNode>;
+
+function createCityCompanyGuideItems({
+	city,
+	cityLabel,
+	fallbackIcon,
+}: {
+	city: CompanyGuide["city"];
+	cityLabel: string;
+	fallbackIcon: ListItem["icon"];
+}): ListItem[] {
+	return companyGuides
+		.filter((company) => company.city === city)
+		.map((company) => ({
+			title: `${company.name}${cityLabel}租房指南`,
+			href: company.href,
+			icon: company.logoKey ? companyIcons[company.logoKey] : fallbackIcon,
+		}));
+}
 
 export function getPageTree(): Root {
 	return {
@@ -284,7 +307,14 @@ export const contents: Content[] = [
 				<Mountain />
 			</ModuleLogo>
 		),
-		list: [{ title: "总览", href: "/docs/hangzhou", icon: () => <Mountain className="w-4 h-4 text-current" /> }],
+		list: [
+			{ title: "总览", href: "/docs/hangzhou", icon: () => <Mountain className="w-4 h-4 text-current" /> },
+			...createCityCompanyGuideItems({
+				city: "hangzhou",
+				cityLabel: "杭州",
+				fallbackIcon: () => <Mountain className="w-4 h-4 text-current" />,
+			}),
+		],
 	},
 	{
 		title: "深圳",
@@ -295,7 +325,14 @@ export const contents: Content[] = [
 				<Factory />
 			</ModuleLogo>
 		),
-		list: [{ title: "总览", href: "/docs/shenzhen", icon: () => <Factory className="w-4 h-4 text-current" /> }],
+		list: [
+			{ title: "总览", href: "/docs/shenzhen", icon: () => <Factory className="w-4 h-4 text-current" /> },
+			...createCityCompanyGuideItems({
+				city: "shenzhen",
+				cityLabel: "深圳",
+				fallbackIcon: () => <Factory className="w-4 h-4 text-current" />,
+			}),
+		],
 	},
 ];
 
