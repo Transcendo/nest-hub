@@ -23,6 +23,7 @@ import {
 	ViewingGuidePage,
 } from "@/components/docs/avoid-pitfalls-pages";
 import { BeijingOverview } from "@/components/docs/beijing-overview";
+import { GuangzhouOverview } from "@/components/docs/guangzhou-overview";
 import { HangzhouOverview } from "@/components/docs/hangzhou-overview";
 import { ShanghaiOverview } from "@/components/docs/shanghai-overview";
 import { ShenzhenOverview } from "@/components/docs/shenzhen-overview";
@@ -101,6 +102,7 @@ export default async function Page({
 						TrapsGuidePage,
 						ViewingGuidePage,
 						BeijingOverview,
+						GuangzhouOverview,
 						HangzhouOverview,
 						ShanghaiOverview,
 						ShenzhenOverview,

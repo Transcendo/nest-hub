@@ -52,7 +52,7 @@ export type CompanyGuide = {
 	href: string;
 	logoKey?: CompanyLogoKey;
 	area: string;
-	city: "beijing" | "shanghai" | "hangzhou" | "shenzhen";
+	city: "beijing" | "shanghai" | "guangzhou" | "hangzhou" | "shenzhen";
 };
 
 export const companyGuides: readonly CompanyGuide[] = [
@@ -103,6 +103,25 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "巨人网络", href: "/docs/shanghai/giant-network-renting-guide", logoKey: "giant-network", area: "上海 · 松江新城", city: "shanghai" },
 	{ name: "莉莉丝游戏", href: "/docs/shanghai/lilith-games-renting-guide", logoKey: "lilith-games", area: "上海 · 南翔", city: "shanghai" },
 	{ name: "饿了么", href: "/docs/shanghai/eleme-renting-guide", logoKey: "eleme", area: "上海 · 普陀", city: "shanghai" },
+
+	{ name: "腾讯 / 微信", href: "/docs/guangzhou/tencent-wechat-renting-guide", logoKey: "tencent", area: "广州 · 海珠琶洲 / T.I.T 周边", city: "guangzhou" },
+	{ name: "网易游戏", href: "/docs/guangzhou/netease-games-renting-guide", area: "广州 · 天河科韵路 / 智慧城", city: "guangzhou" },
+	{ name: "唯品会", href: "/docs/guangzhou/vipshop-renting-guide", area: "广州 · 荔湾 / 海珠西侧", city: "guangzhou" },
+	{ name: "小鹏汽车", href: "/docs/guangzhou/xpeng-renting-guide", area: "广州 · 天河 / 黄埔 / 番禺按团队确认", city: "guangzhou" },
+	{ name: "广汽埃安", href: "/docs/guangzhou/gac-aion-renting-guide", area: "广州 · 番禺 / 黄埔产业园", city: "guangzhou" },
+	{ name: "广汽集团", href: "/docs/guangzhou/gac-group-renting-guide", area: "广州 · 珠江新城 / 番禺 / 黄埔按岗位确认", city: "guangzhou" },
+	{ name: "文远知行", href: "/docs/guangzhou/weride-renting-guide", area: "广州 · 黄埔 / 生物岛 / 科学城", city: "guangzhou" },
+	{ name: "小马智行", href: "/docs/guangzhou/pony-ai-renting-guide", area: "广州 · 南沙 / 黄埔按团队确认", city: "guangzhou" },
+	{ name: "亿航智能", href: "/docs/guangzhou/ehang-renting-guide", area: "广州 · 黄埔科学城 / 广州开发区", city: "guangzhou" },
+	{ name: "三七互娱", href: "/docs/guangzhou/37games-renting-guide", area: "广州 · 广州办公点按团队核验", city: "guangzhou" },
+	{ name: "多益网络", href: "/docs/guangzhou/duoyi-renting-guide", area: "广州 · 黄埔 / 科学城按楼栋复核", city: "guangzhou" },
+	{ name: "欢聚集团", href: "/docs/guangzhou/joyy-renting-guide", area: "广州 · 番禺 / 广州办公点按团队确认", city: "guangzhou" },
+	{ name: "酷狗音乐", href: "/docs/guangzhou/kugou-renting-guide", area: "广州 · 广州办公点按团队确认", city: "guangzhou" },
+	{ name: "SHEIN", href: "/docs/guangzhou/shein-renting-guide", area: "广州 · 番禺 / 海珠 / 供应链办公点", city: "guangzhou" },
+	{ name: "CVTE / 希沃", href: "/docs/guangzhou/cvte-seewo-renting-guide", area: "广州 · 黄埔科学城 / 广州开发区", city: "guangzhou" },
+	{ name: "汇量科技", href: "/docs/guangzhou/mobvista-renting-guide", area: "广州 · 广州办公点按团队楼栋确认", city: "guangzhou" },
+	{ name: "金域医学", href: "/docs/guangzhou/kingmed-renting-guide", area: "广州 · 黄埔 / 科学城 / 医疗检验基地", city: "guangzhou" },
+	{ name: "海大集团", href: "/docs/guangzhou/haid-renting-guide", area: "广州 · 番禺 / 南村 / 产业总部", city: "guangzhou" },
 
 	{ name: "阿里巴巴", href: "/docs/hangzhou/alibaba-renting-guide", logoKey: "alibaba", area: "杭州 · 未来科技城", city: "hangzhou" },
 	{ name: "蚂蚁集团", href: "/docs/hangzhou/ant-group-renting-guide", area: "杭州 · 西溪 / 之江", city: "hangzhou" },
@@ -155,6 +174,7 @@ export const uniqueCompanyCount = new Set(companyGuides.map((company) => company
 export const cityCompanyGuideCounts = {
 	beijing: companyGuides.filter((company) => company.city === "beijing").length,
 	shanghai: companyGuides.filter((company) => company.city === "shanghai").length,
+	guangzhou: companyGuides.filter((company) => company.city === "guangzhou").length,
 	hangzhou: companyGuides.filter((company) => company.city === "hangzhou").length,
 	shenzhen: companyGuides.filter((company) => company.city === "shenzhen").length,
 } as const;

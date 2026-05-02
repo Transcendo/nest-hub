@@ -41,6 +41,15 @@ const cityRows = [
 	},
 	{
 		rank: "03",
+		title: "广州",
+		href: "/docs/guangzhou",
+		summary: "琶洲/海珠、天河、黄埔科学城、番禺、南沙等通勤带已拆成公司指南。",
+		metric: `${cityCompanyGuideCounts.guangzhou} 篇公司指南`,
+		tags: ["腾讯/微信", "网易游戏", "小鹏", "SHEIN", "CVTE"],
+		color: "border-l-[#f97316]",
+	},
+	{
+		rank: "04",
 		title: "杭州",
 		href: "/docs/hangzhou",
 		summary: "未来科技城、滨江、西湖、余杭五常等通勤带已展开。",
@@ -49,7 +58,7 @@ const cityRows = [
 		color: "border-l-[#facc15]",
 	},
 	{
-		rank: "04",
+		rank: "05",
 		title: "深圳",
 		href: "/docs/shenzhen",
 		summary: "已完成 21 篇深圳企业租房指南，覆盖南山、西丽、坂田、福田、前海和产业外圈。",

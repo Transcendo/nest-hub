@@ -59,6 +59,8 @@ const moduleLogoStyles = {
 		"bg-red-50 text-red-700 ring-red-200 dark:bg-red-950/35 dark:text-red-300 dark:ring-red-800/60",
 	shanghai:
 		"bg-sky-50 text-sky-700 ring-sky-200 dark:bg-sky-950/35 dark:text-sky-300 dark:ring-sky-800/60",
+	guangzhou:
+		"bg-orange-50 text-orange-700 ring-orange-200 dark:bg-orange-950/35 dark:text-orange-300 dark:ring-orange-800/60",
 	hangzhou:
 		"bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950/35 dark:text-emerald-300 dark:ring-emerald-800/60",
 	shenzhen:
@@ -296,6 +298,24 @@ export const contents: Content[] = [
 			{ title: "巨人网络上海租房指南", href: "/docs/shanghai/giant-network-renting-guide", icon: companyIcons["giant-network"] },
 			{ title: "莉莉丝游戏上海租房指南", href: "/docs/shanghai/lilith-games-renting-guide", icon: companyIcons["lilith-games"] },
 			{ title: "饿了么上海租房指南", href: "/docs/shanghai/eleme-renting-guide", icon: companyIcons.eleme },
+		],
+	},
+	{
+		title: "广州",
+		href: "/docs/guangzhou",
+		expandSectionForPathPrefix: "/docs/guangzhou",
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="guangzhou">
+				<MapPinned />
+			</ModuleLogo>
+		),
+		list: [
+			{ title: "总览", href: "/docs/guangzhou", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			...createCityCompanyGuideItems({
+				city: "guangzhou",
+				cityLabel: "广州",
+				fallbackIcon: () => <MapPinned className="w-4 h-4 text-current" />,
+			}),
 		],
 	},
 	{
