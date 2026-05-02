@@ -464,8 +464,8 @@ export function BeijingOverview() {
 								已收录
 							</span>
 							<span className="inline-flex items-center gap-1.5">
-								<span className="size-2.5 rounded-full bg-amber-500" />
-								待补充
+								<span className="size-2.5 rounded-full bg-slate-400" />
+								样本校准
 							</span>
 						</div>
 					</div>
