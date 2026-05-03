@@ -221,6 +221,7 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "创维 Skyworth", href: "/docs/shenzhen/skyworth-renting-guide", logoKey: "skyworth", area: "深圳 · 南山高新区 / 科技园办公点", city: "shenzhen" },
 
 	{ name: "满帮 / 运满满", href: "/docs/nanjing/manbang-yunmanman-renting-guide", area: "南京 · 雨花台凤信路", city: "nanjing" },
+	{ name: "诚迈科技", href: "/docs/nanjing/archermind-renting-guide", area: "南京 · 雨花台宁双路", city: "nanjing" },
 ];
 
 export const companyGuideCount = companyGuides.length;

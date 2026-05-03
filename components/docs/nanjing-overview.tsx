@@ -30,12 +30,13 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 	{
 		company: "诚迈科技",
-		status: "观察样本",
+		status: "已收录",
 		nanjingRole: "南京操作系统与信创软件公司样本，办公点落在雨花台软件产业带",
 		area: "雨花台区宁双路 19 号云密城 B 幢",
 		track: "操作系统、信创、软件外包、智能终端",
 		mapLogic: "诚迈科技适合和软件大道、宁双路、安德门、小行、铁心桥一起看。不要只按“南京软件公司”泛写，楼栋到地铁口和园区门的最后一公里很关键。",
 		source: "https://www.archermind.com/about-us",
+		guideHref: "/docs/nanjing/archermind-renting-guide",
 	},
 	{
 		company: "润和软件",
@@ -151,7 +152,7 @@ const commuteBelts = [
 ];
 
 const mapMarkers = [
-	{ label: "雨花软件谷", detail: "满帮已收录 / 诚迈 / 润和", x: 43, y: 62, status: "已收录" },
+	{ label: "雨花软件谷", detail: "满帮 / 诚迈已收录 / 润和", x: 43, y: 62, status: "已收录" },
 	{ label: "江北研创园", detail: "研创园 / 江北核心区", x: 28, y: 36, status: "片区样本" },
 	{ label: "南京高新区", detail: "浦口 / 高新区", x: 20, y: 31, status: "片区样本" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地", x: 60, y: 76, status: "观察样本" },
