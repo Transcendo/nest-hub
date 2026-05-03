@@ -10,6 +10,7 @@ import {
 	Landmark,
 	MapPinned,
 	Mountain,
+	Route,
 	Scale,
 	ShieldAlert,
 	TriangleAlert,
@@ -340,6 +341,11 @@ export const contents: Content[] = [
 				title: "江北新区 / 研创园 / 高新区租房指南",
 				href: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
 				icon: () => <MapPinned className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "河西 / 南京南站换乘租房指南",
+				href: "/docs/nanjing/hexi-south-station-renting-guide",
+				icon: () => <Route className="w-4 h-4 text-current" />,
 			},
 			...createCityCompanyGuideItems({
 				city: "nanjing",

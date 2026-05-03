@@ -125,7 +125,15 @@ const bigFactoryLeads: BigFactoryLead[] = [
 	},
 ];
 
-const commuteBelts = [
+type CommuteBelt = {
+	name: string;
+	companies: string;
+	areas: string;
+	warning: string;
+	guideHref?: string;
+};
+
+const commuteBelts: CommuteBelt[] = [
 	{
 		name: "雨花台 / 软件谷南侧",
 		companies: "满帮 / 运满满、诚迈科技、润和软件等",
@@ -149,6 +157,7 @@ const commuteBelts = [
 		companies: "总部职能、金融科技、销售运营和跨片区通勤人群",
 		areas: "河西、奥体、元通、应天大街、中华门、南京南站、雨花门、卡子门",
 		warning: "河西和南京南站适合作为均衡换乘方案，但成本和通勤稳定性要实测。别为了“住得体面”牺牲通勤和现金流。",
+		guideHref: "/docs/nanjing/hexi-south-station-renting-guide",
 	},
 	{
 		name: "玄武 / 徐庄 / 仙林 / 麒麟扩展带",
@@ -163,7 +172,7 @@ const mapMarkers = [
 	{ label: "江北研创园", detail: "焦点科技 / 研创园 / 江北核心区已拆分", x: 28, y: 36, status: "已收录" },
 	{ label: "南京高新区", detail: "浦口 / 高新区已拆分", x: 20, y: 31, status: "已拆分" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
-	{ label: "河西 / 南站", detail: "跨片区换乘与均衡居住", x: 48, y: 49, status: "通勤带" },
+	{ label: "河西 / 南站", detail: "换乘专题已收录", x: 48, y: 49, status: "已收录" },
 	{ label: "徐庄 / 仙林", detail: "后续扩展科技办公带", x: 70, y: 37, status: "扩展带" },
 ];
 
@@ -189,6 +198,7 @@ export function NanjingOverview() {
 	const collectedGuideCount = new Set([
 		...ecosystemRows.flatMap((row) => (row.guideHref ? [row.guideHref] : [])),
 		...bigFactoryLeads.flatMap((row) => (row.guideHref ? [row.guideHref] : [])),
+		...commuteBelts.flatMap((row) => (row.guideHref ? [row.guideHref] : [])),
 	]).size;
 	const stats = [
 		{ label: "可信样本", value: String(observedCount) },
@@ -320,7 +330,7 @@ export function NanjingOverview() {
 						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并已开始拆分公司/offer 租房指南。页面只链接实际存在的指南，也不写未经核验的租金。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-						下一步继续从江北研创园/高新区、河西/南站换乘、徐庄/仙林扩展带中选择有可信办公锚点或明确片区决策价值的对象。
+						下一步继续从徐庄/仙林扩展带和仍需楼栋核验的大厂南京团队中，选择有可信办公锚点或明确片区决策价值的对象。
 					</div>
 				</div>
 			</section>
@@ -371,7 +381,13 @@ export function NanjingOverview() {
 				<div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
 					{commuteBelts.map((belt) => (
 						<div key={belt.name} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{belt.name}</div>
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">
+								{belt.guideHref ? (
+									<a href={belt.guideHref} className="underline-offset-4 hover:underline">{belt.name}</a>
+								) : (
+									belt.name
+								)}
+							</div>
 							<div className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
 								<strong className="text-zinc-800 dark:text-zinc-200">样本：</strong>{belt.companies}
 							</div>
