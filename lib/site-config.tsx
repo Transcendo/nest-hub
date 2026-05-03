@@ -78,7 +78,7 @@ export const cityCards = [
 	},
 	{
 		title: "南京",
-		description: "从城市总览进入公司页拆分，先覆盖雨花台软件谷南侧的满帮 / 运满满通勤决策。",
+		description: "已收录南京公司样本，覆盖雨花台软件谷、江北新区、江宁滨江、徐庄 / 仙林等通勤带。",
 		href: "/docs/nanjing",
 	},
 ];

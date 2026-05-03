@@ -70,9 +70,9 @@ const cityRows = [
 		rank: "06",
 		title: "南京",
 		href: "/docs/nanjing",
-		summary: "已从城市总览进入公司页拆分，先覆盖雨花台 / 软件谷南侧的满帮与运满满通勤题。",
+		summary: "已覆盖雨花台 / 软件谷南侧、江北新区、江宁滨江和徐庄 / 仙林等南京科技通勤题。",
 		metric: `${cityCompanyGuideCounts.nanjing} 篇公司指南`,
-		tags: ["雨花台", "软件谷", "江北", "江宁滨江"],
+		tags: ["雨花台", "江北", "江宁滨江", "徐庄/仙林"],
 		color: "border-l-[#8b5cf6]",
 	},
 ];
