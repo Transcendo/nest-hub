@@ -238,6 +238,21 @@ const mapMarkers = [
 	{ label: "小马智行", detail: "南沙 / 自动驾驶", x: 61, y: 82, status: "已收录" },
 ];
 
+const viewingRhythm = [
+	{
+		phase: "先分办公区和生活圈",
+		detail: "琶洲/海珠、天河、黄埔科学城、番禺、南沙通勤逻辑不同；先定地铁、通勤方向和下班后生活半径。",
+	},
+	{
+		phase: "问清中介费和押金规则",
+		detail: "广州不同片区、不同房源形态收费差异明显，签前要确认中介费、押几付几、水电、维修和提前退租。",
+	},
+	{
+		phase: "把天气和高峰算进去",
+		detail: "雨季、地铁拥挤、城中村步行路段和夜间回家路线会改变真实体验，热门房源不要只看白天。",
+	},
+];
+
 const sourceBackedDate = "2026-05-02";
 
 export function GuangzhouOverview() {
@@ -400,6 +415,30 @@ export function GuangzhouOverview() {
 							</div>
 							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
 								{belt.warning}
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="mb-4 flex items-start justify-between gap-3">
+					<div>
+						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+							<Route className="size-4 text-orange-700 dark:text-orange-300" />
+							广州城市看房节奏
+						</div>
+						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+							广州看房要按琶洲、天河、黄埔、番禺、南沙拆开。老小区、城中村、公寓和产业园房源混在一起时，规则比图片更重要。
+						</p>
+					</div>
+				</div>
+				<div className="grid gap-3 md:grid-cols-3">
+					{viewingRhythm.map((item) => (
+						<div key={item.phase} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.phase}</div>
+							<div className="mt-3 rounded-md bg-orange-50 text-orange-900 dark:bg-orange-950 dark:text-orange-100 px-3 py-2 text-sm leading-6">
+								{item.detail}
 							</div>
 						</div>
 					))}

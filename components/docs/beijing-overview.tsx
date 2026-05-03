@@ -388,6 +388,21 @@ const mapMarkers = [
 	{ label: "京东", detail: "亦庄经海路", x: 72, y: 76, status: "已收录" },
 ];
 
+const viewingRhythm = [
+	{
+		phase: "先锁办公楼栋",
+		detail: "同一家公司可能跨海淀北部、北三环、望京、亦庄、昌平或顺义；先问具体楼、入口、每周到岗和房补范围。",
+	},
+	{
+		phase: "按通勤带约房",
+		detail: "海淀优先测 13/16 号线和骑行，望京看 14/15 号线，亦庄看亦庄线和班车；不要把北京全城排成一条路线。",
+	},
+	{
+		phase: "晚上复看再谈",
+		detail: "北京老小区多，晚归路线、楼道照明、供暖、噪音、最后一公里比白天照片更能决定能不能住。",
+	},
+];
+
 const sourceBackedDate = "2026-04-28";
 
 export function BeijingOverview() {
@@ -618,6 +633,30 @@ export function BeijingOverview() {
 							</Link>
 						))}
 					</div>
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="mb-4 flex items-start justify-between gap-3">
+					<div>
+						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+							<Route className="size-4 text-teal-700 dark:text-teal-300" />
+							北京城市看房节奏
+						</div>
+						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+							北京不要照搬一个 3 天模板。更稳的是先按办公楼栋和通勤带分组，再决定近场、地铁沿线、班车外扩还是短租过渡。
+						</p>
+					</div>
+				</div>
+				<div className="grid gap-3 md:grid-cols-3">
+					{viewingRhythm.map((item) => (
+						<div key={item.phase} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.phase}</div>
+							<div className="mt-3 rounded-md bg-teal-50 text-teal-900 dark:bg-teal-950 dark:text-teal-100 px-3 py-2 text-sm leading-6">
+								{item.detail}
+							</div>
+						</div>
+					))}
 				</div>
 			</section>
 

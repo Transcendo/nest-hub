@@ -301,6 +301,21 @@ const commuteBelts = [
 	},
 ];
 
+const viewingRhythm = [
+	{
+		phase: "先定跨区边界",
+		detail: "张江和漕河泾不是“都坐地铁就行”，跨江、换乘和 2 号线高峰会显著改变体感。",
+	},
+	{
+		phase: "把品牌公寓和老小区分开看",
+		detail: "市中心和办公区周边公寓多但服务费、商水商电、退租规则要算清；老小区重点看楼龄、隔音和物业响应。",
+	},
+	{
+		phase: "按线路稳定性复盘",
+		detail: "同样 40 分钟，直达、少换乘、少步行和高峰不爆站的路线更值得加预算。",
+	},
+];
+
 const sourceBackedDate = "2026-04-28";
 
 export function ShanghaiOverview() {
@@ -499,6 +514,30 @@ export function ShanghaiOverview() {
 							</div>
 							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
 								{belt.warning}
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="mb-4 flex items-start justify-between gap-3">
+					<div>
+						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+							<Route className="size-4 text-teal-700 dark:text-teal-300" />
+							上海城市看房节奏
+						</div>
+						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+							上海看房先分浦东、浦西和外圈园区。张江、五角场、长宁、漕河泾、松江/嘉定的房源节奏不同，不能用同一套日程硬跑。
+						</p>
+					</div>
+				</div>
+				<div className="grid gap-3 md:grid-cols-3">
+					{viewingRhythm.map((item) => (
+						<div key={item.phase} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.phase}</div>
+							<div className="mt-3 rounded-md bg-teal-50 text-teal-900 dark:bg-teal-950 dark:text-teal-100 px-3 py-2 text-sm leading-6">
+								{item.detail}
 							</div>
 						</div>
 					))}

@@ -270,6 +270,21 @@ const mapMarkers = [
 	{ label: "华大基因 / 万科", detail: "盐田", x: 74, y: 58, status: "已拆分" },
 ];
 
+const viewingRhythm = [
+	{
+		phase: "先确认楼栋和班车",
+		detail: "坂田、坪山、宝安北部和产业园岗位尤其要先问班车、园区入口和上下班时间，别用南山价格做参照。",
+	},
+	{
+		phase: "分清房源类型",
+		detail: "城中村、公寓、小区房、农民房的押金、水电、隔音、消防和转租规则差异很大，低价房默认先核风险。",
+	},
+	{
+		phase: "把夜归路线加入决策",
+		detail: "深圳雨季、坡路、最后一公里和晚高峰很影响体感；白天看完，至少对最优候选做一次晚间复看。",
+	},
+];
+
 const sourceBackedDate = "2026-05-02";
 
 export function ShenzhenOverview() {
@@ -432,6 +447,30 @@ export function ShenzhenOverview() {
 							</div>
 							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
 								{belt.warning}
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="mb-4 flex items-start justify-between gap-3">
+					<div>
+						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+							<Route className="size-4 text-sky-700 dark:text-sky-300" />
+							深圳城市看房节奏
+						</div>
+						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+							深圳看房最忌把全市当南山。南山、坂田、福田、前海、坪山、盐田、宝安北部是不同租房市场，房源形态和中介打法都不同。
+						</p>
+					</div>
+				</div>
+				<div className="grid gap-3 md:grid-cols-3">
+					{viewingRhythm.map((item) => (
+						<div key={item.phase} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.phase}</div>
+							<div className="mt-3 rounded-md bg-sky-50 text-sky-900 dark:bg-sky-950 dark:text-sky-100 px-3 py-2 text-sm leading-6">
+								{item.detail}
 							</div>
 						</div>
 					))}

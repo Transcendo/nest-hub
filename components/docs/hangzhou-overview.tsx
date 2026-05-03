@@ -299,6 +299,21 @@ const mapMarkers = [
 	{ label: "微医", detail: "萧山信息港", x: 74, y: 77, status: "已收录" },
 ];
 
+const viewingRhythm = [
+	{
+		phase: "城西先核园区门",
+		detail: "未来科技城楼栋分散，文一西路和园区入口会放大通勤差异；先定门，再看仓前、五常、蒋村和留下。",
+	},
+	{
+		phase: "滨江看接驳和生活半径",
+		detail: "江南大道、滨安路、物联网街区不是一个点；地铁、电动车、园区班车和晚饭生活圈要一起算。",
+	},
+	{
+		phase: "跨区只当备选",
+		detail: "西湖、拱墅、萧山各有生活优势，但跨江和高峰成本要实测，别用地图直线距离安慰自己。",
+	},
+];
+
 const sourceBackedDate = "2026-05-01";
 
 export function HangzhouOverview() {
@@ -505,6 +520,30 @@ export function HangzhouOverview() {
 							</div>
 							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
 								{belt.warning}
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="mb-4 flex items-start justify-between gap-3">
+					<div>
+						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+							<Route className="size-4 text-teal-700 dark:text-teal-300" />
+							杭州城市看房节奏
+						</div>
+						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+							杭州要按城西、滨江、西湖黄龙、拱墅、萧山分别安排。园区门、地铁口、电动车接驳和跨江/跨区，比“离公司几公里”更关键。
+						</p>
+					</div>
+				</div>
+				<div className="grid gap-3 md:grid-cols-3">
+					{viewingRhythm.map((item) => (
+						<div key={item.phase} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.phase}</div>
+							<div className="mt-3 rounded-md bg-teal-50 text-teal-900 dark:bg-teal-950 dark:text-teal-100 px-3 py-2 text-sm leading-6">
+								{item.detail}
 							</div>
 						</div>
 					))}
