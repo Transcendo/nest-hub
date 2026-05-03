@@ -336,6 +336,11 @@ export const contents: Content[] = [
 				href: "/docs/nanjing/bigtech-offer-renting-guide",
 				icon: () => <ClipboardCheck className="w-4 h-4 text-current" />,
 			},
+			{
+				title: "江北新区 / 研创园 / 高新区租房指南",
+				href: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
+				icon: () => <MapPinned className="w-4 h-4 text-current" />,
+			},
 			...createCityCompanyGuideItems({
 				city: "nanjing",
 				cityLabel: "南京",
