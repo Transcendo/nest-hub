@@ -80,12 +80,13 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 	{
 		company: "焦点科技 / 中国制造网",
-		status: "观察样本",
-		nanjingRole: "南京 B2B 电商与外贸数字化公司样本，官方站可核验公司与旗下品牌信息",
-		area: "南京办公楼栋需入职前向 HR 或团队复核",
+		status: "已收录",
+		nanjingRole: "南京 B2B 电商与外贸数字化公司样本，官方联系页可核验焦点科技大厦地址",
+		area: "江北新区丽景路 7 号焦点科技大厦",
 		track: "B2B 电商、外贸服务、SaaS、金融科技",
-		mapLogic: "焦点科技适合后续单独拆页，但当前不写死楼栋。拿到 offer 后先问实际打卡地址，再决定是江宁、雨花、河西还是其他片区的租房题。",
-		source: "https://www.focuschina.com/",
+		mapLogic: "焦点科技 / 中国制造网租房要按江北新区丽景路处理。先确认是否在焦点科技大厦打卡，再比较江北近场、浦口地铁沿线和主城过江兜底。",
+		source: "https://www.focuschina.com/contactus.html",
+		guideHref: "/docs/nanjing/focuschina-renting-guide",
 	},
 	{
 		company: "途牛旅游网",
@@ -133,8 +134,8 @@ const commuteBelts = [
 	},
 	{
 		name: "江北新区 / 研创园 / 高新区",
-		companies: "江北新区产业技术研创园、南京高新区相关科技企业",
-		areas: "研创园、江北核心区、浦口万汇城、泰山新村、柳洲东路、龙华路、桥北外扩",
+		companies: "焦点科技 / 中国制造网、江北新区产业技术研创园、南京高新区相关科技企业",
+		areas: "丽景路、研创园、江北核心区、浦口万汇城、泰山新村、柳洲东路、龙华路、桥北外扩",
 		warning: "江北租房不要先问便宜不便宜，先问每天是否过江。过江通勤、地铁拥挤、天气和晚归路线会直接改变居住体验。",
 	},
 	{
@@ -159,7 +160,7 @@ const commuteBelts = [
 
 const mapMarkers = [
 	{ label: "雨花软件谷", detail: "满帮 / 诚迈 / 润和已收录", x: 43, y: 62, status: "已收录" },
-	{ label: "江北研创园", detail: "研创园 / 江北核心区已拆分", x: 28, y: 36, status: "已拆分" },
+	{ label: "江北研创园", detail: "焦点科技 / 研创园 / 江北核心区已拆分", x: 28, y: 36, status: "已收录" },
 	{ label: "南京高新区", detail: "浦口 / 高新区已拆分", x: 20, y: 31, status: "已拆分" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
 	{ label: "河西 / 南站", detail: "跨片区换乘与均衡居住", x: 48, y: 49, status: "通勤带" },
