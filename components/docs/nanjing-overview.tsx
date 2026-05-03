@@ -92,6 +92,30 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 ];
 
+type BigFactoryLead = {
+	name: string;
+	role: string;
+	verification: string;
+};
+
+const bigFactoryLeads: BigFactoryLead[] = [
+	{
+		name: "华为 / 阿里 / 京东 / 字节 / 美团 / 腾讯 / 网易等南京团队",
+		role: "南京当然有互联网大厂，但很多不是“总部型互联网城市”的单点办公逻辑，而是研发分部、区域中心、云业务/销售、本地生活运营、供应链或交付团队混在一起。",
+		verification: "不要只凭公司名租房。拿到 offer 后先问 HR：实际打卡楼栋、是否驻场客户、是否混合办公、有没有班车、晚上几点下班，再把它归到雨花台、河西、江北、江宁或徐庄/仙林。",
+	},
+	{
+		name: "大厂口径不等于租房锚点",
+		role: "“南京有岗位/有分公司/有区域办公室”和“能指导租房的稳定楼栋”是两回事。NestHub 不能把招聘城市、工商注册地、旧新闻或服务商驻场混成一个地址。",
+		verification: "后续拆公司页时，大厂会单独做“已核验办公点 / 待核验团队 / 不建议直接用于租房”的分层，不再把它们藏在普通科技公司样本后面。",
+	},
+	{
+		name: "现阶段页面处理方式",
+		role: "当前信息表只放已经能找到官网、IR、园区或公司公开页支撑的样本；大厂南京团队先作为单独核验队列，避免误导新人按错片区租房。",
+		verification: "如果 offer 来自大厂南京团队，优先把具体楼栋发给 NestHub 或自己用地图实测门到门，不要按“南京市区”“河西”“软件谷”这种粗标签做决定。",
+	},
+];
+
 const commuteBelts = [
 	{
 		name: "雨花台 / 软件谷南侧",
@@ -174,7 +198,7 @@ export function NanjingOverview() {
 									先分清雨花台、江北、江宁滨江和主城换乘
 								</h2>
 								<p className="max-w-xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-									南京科技岗位不是都在新街口或河西。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；江北新区和南京高新区要单独看过江通勤；中兴滨江基地则是江宁滨江产业园逻辑。先确认楼栋、园区门和班车，再决定住近场、换乘带还是外扩。
+									南京当然有互联网大厂，但不能只按公司名租房。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；江北新区和南京高新区要单独看过江通勤；中兴滨江基地则是江宁滨江产业园逻辑；华为、阿里、京东、字节、美团、腾讯、网易等南京团队还要先核实际打卡楼栋。
 								</p>
 							</div>
 						</div>
@@ -285,6 +309,31 @@ export function NanjingOverview() {
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
 						下一步如果拆公司页，优先从雨花台软件谷南侧、江北研创园/高新区、江宁滨江三个差异最大的通勤题开始。
 					</div>
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="mb-4 flex items-start justify-between gap-3">
+					<div>
+						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+							<Building2 className="size-4 text-indigo-700 dark:text-indigo-300" />
+							南京有没有互联网大厂？有，但要单独分层
+						</div>
+						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+							南京不是没有大厂，而是不适合把“大厂南京岗位”直接等同于一个稳定租房锚点。真正影响租房的是你在哪栋楼打卡、是否驻场、是否有班车、晚上几点走，以及它属于雨花台、河西、江北、江宁还是徐庄/仙林。
+						</p>
+					</div>
+				</div>
+				<div className="grid gap-3 md:grid-cols-3">
+					{bigFactoryLeads.map((item) => (
+						<div key={item.name} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.name}</div>
+							<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{item.role}</p>
+							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
+								{item.verification}
+							</div>
+						</div>
+					))}
 				</div>
 			</section>
 
