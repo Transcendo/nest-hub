@@ -90,12 +90,13 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 	{
 		company: "途牛旅游网",
-		status: "观察样本",
-		nanjingRole: "在线休闲旅游平台样本，官方 IR 页可核验业务定位；具体南京办公点需入职前复核",
-		area: "南京办公点需按岗位与团队确认",
+		status: "已收录",
+		nanjingRole: "在线休闲旅游平台样本，20-F 文件可核验玄武大道 / 聚慧园公司级办公锚点",
+		area: "玄武大道 108 号聚慧园 6-A 楼",
 		track: "在线旅游、休闲度假、交易平台、运营服务",
-		mapLogic: "途牛这类平台公司不能只看企业注册地或旧新闻。租房前必须确认团队当前办公楼栋、是否混合办公、晚归频率和真实门到门通勤。",
-		source: "https://ir.tuniu.com/corporate-profile",
+		mapLogic: "途牛租房先按徐庄 / 玄武大道处理，再确认团队实际打卡楼栋、是否混合办公、晚归频率和真实门到门通勤。不要直接套新街口或河西租房逻辑。",
+		source: "https://app.quotemedia.com/data/downloadFiling?webmasterId=101533&ref=319963000&type=HTML&symbol=TOUR&cdn=e87aa767e22321ea5ef0fa150eacc06c&companyName=Tuniu+Corporation&formType=20-F&dateFiled=2026-04-20",
+		guideHref: "/docs/nanjing/tuniu-renting-guide",
 	},
 ];
 
@@ -161,9 +162,10 @@ const commuteBelts: CommuteBelt[] = [
 	},
 	{
 		name: "玄武 / 徐庄 / 仙林 / 麒麟扩展带",
-		companies: "后续适合核验软件、科研、芯片、游戏与高校周边科技样本",
+		companies: "途牛旅游网，以及后续适合核验的软件、科研、芯片、游戏与高校周边科技样本",
 		areas: "徐庄软件园、玄武大道、仙林、马群、麒麟、孝陵卫、钟灵街",
-		warning: "这条带目前先作为扩展方向，不把未核验公司写进表。后续公司页必须用官方地址重新校准。",
+		warning: "途牛已按官方 20-F 锚点拆页；这条带的其他公司仍需用官方地址重新校准，不把未核验楼栋写进表。",
+		guideHref: "/docs/nanjing/tuniu-renting-guide",
 	},
 ];
 
@@ -173,7 +175,7 @@ const mapMarkers = [
 	{ label: "南京高新区", detail: "浦口 / 高新区已拆分", x: 20, y: 31, status: "已拆分" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
 	{ label: "河西 / 南站", detail: "换乘专题已收录", x: 48, y: 49, status: "已收录" },
-	{ label: "徐庄 / 仙林", detail: "后续扩展科技办公带", x: 70, y: 37, status: "扩展带" },
+	{ label: "徐庄 / 仙林", detail: "途牛已收录，其他样本继续核验", x: 70, y: 37, status: "已收录" },
 ];
 
 const viewingRhythm = [
@@ -221,7 +223,7 @@ export function NanjingOverview() {
 									先分清雨花台、江北、江宁滨江和主城换乘
 								</h2>
 								<p className="max-w-xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-									南京当然有互联网大厂，但不能只按公司名租房。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；中兴滨江基地是江宁滨江产业园逻辑；江北新区和南京高新区要单独看过江通勤；华为、阿里、京东、字节、美团、腾讯、网易等南京团队还要先核实际打卡楼栋。
+									南京当然有互联网大厂，但不能只按公司名租房。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；中兴滨江基地是江宁滨江产业园逻辑；途牛要按徐庄 / 玄武大道处理；江北新区和南京高新区要单独看过江通勤；华为、阿里、京东、字节、美团、腾讯、网易等南京团队还要先核实际打卡楼栋。
 								</p>
 							</div>
 						</div>

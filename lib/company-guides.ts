@@ -225,6 +225,7 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "诚迈科技", href: "/docs/nanjing/archermind-renting-guide", area: "南京 · 雨花台宁双路", city: "nanjing" },
 	{ name: "润和软件", href: "/docs/nanjing/hoperun-renting-guide", area: "南京 · 雨花台软件大道", city: "nanjing" },
 	{ name: "中兴通讯 ZTE", href: "/docs/nanjing/zte-binjiang-renting-guide", logoKey: "zte", area: "南京 · 江宁滨江牧龙中路", city: "nanjing" },
+	{ name: "途牛旅游网", href: "/docs/nanjing/tuniu-renting-guide", area: "南京 · 玄武大道 / 徐庄", city: "nanjing" },
 ];
 
 export const companyGuideCount = companyGuides.length;
