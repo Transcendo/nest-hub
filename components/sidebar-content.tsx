@@ -338,6 +338,11 @@ export const contents: Content[] = [
 				icon: () => <ClipboardCheck className="w-4 h-4 text-current" />,
 			},
 			{
+				title: "雨花台 / 软件谷南侧租房指南",
+				href: "/docs/nanjing/yuhuatai-software-valley-renting-guide",
+				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
+			{
 				title: "江北新区 / 研创园 / 高新区租房指南",
 				href: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
 				icon: () => <MapPinned className="w-4 h-4 text-current" />,

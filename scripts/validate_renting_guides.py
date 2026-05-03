@@ -214,6 +214,7 @@ def check_nanjing_company_directory(findings: list[Finding]) -> None:
 
     excluded_non_company_slugs = {
         "bigtech-offer-renting-guide",
+        "yuhuatai-software-valley-renting-guide",
         "jiangbei-yanchuangyuan-renting-guide",
         "hexi-south-station-renting-guide",
         "xuzhuang-xianlin-renting-guide",
