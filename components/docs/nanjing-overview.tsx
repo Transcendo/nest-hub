@@ -50,12 +50,13 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 	{
 		company: "中兴通讯南京滨江产研基地",
-		status: "观察样本",
+		status: "已收录",
 		nanjingRole: "江宁滨江产业基地样本，和主城 CBD 租房完全不是一套逻辑",
 		area: "江宁区牧龙中路 1 号",
 		track: "通信设备、5G、智能制造、工业互联网",
 		mapLogic: "中兴滨江基地要先确认班车、通勤车、生产/研发园区入口和下班时间。住主城可能每天被通勤吞掉，江宁滨江与江宁主城要分开评估。",
 		source: "https://www.zte.com.cn/china/enterprise/exhibition_hall/exhibition_nj_bj.html",
+		guideHref: "/docs/nanjing/zte-binjiang-renting-guide",
 	},
 	{
 		company: "江北新区产业技术研创园",
@@ -156,7 +157,7 @@ const mapMarkers = [
 	{ label: "雨花软件谷", detail: "满帮 / 诚迈 / 润和已收录", x: 43, y: 62, status: "已收录" },
 	{ label: "江北研创园", detail: "研创园 / 江北核心区", x: 28, y: 36, status: "片区样本" },
 	{ label: "南京高新区", detail: "浦口 / 高新区", x: 20, y: 31, status: "片区样本" },
-	{ label: "江宁滨江", detail: "中兴滨江产研基地", x: 60, y: 76, status: "观察样本" },
+	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
 	{ label: "河西 / 南站", detail: "跨片区换乘与均衡居住", x: 48, y: 49, status: "通勤带" },
 	{ label: "徐庄 / 仙林", detail: "后续扩展科技办公带", x: 70, y: 37, status: "扩展带" },
 ];
@@ -202,7 +203,7 @@ export function NanjingOverview() {
 									先分清雨花台、江北、江宁滨江和主城换乘
 								</h2>
 								<p className="max-w-xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-									南京当然有互联网大厂，但不能只按公司名租房。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；江北新区和南京高新区要单独看过江通勤；中兴滨江基地则是江宁滨江产业园逻辑；华为、阿里、京东、字节、美团、腾讯、网易等南京团队还要先核实际打卡楼栋。
+									南京当然有互联网大厂，但不能只按公司名租房。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；中兴滨江基地是江宁滨江产业园逻辑；江北新区和南京高新区要单独看过江通勤；华为、阿里、京东、字节、美团、腾讯、网易等南京团队还要先核实际打卡楼栋。
 								</p>
 							</div>
 						</div>
