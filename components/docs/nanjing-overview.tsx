@@ -40,12 +40,13 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 	{
 		company: "润和软件",
-		status: "观察样本",
+		status: "已收录",
 		nanjingRole: "南京本地软件与行业数字化公司样本，官方页脚显示创智中心联系地址",
 		area: "雨花台区软件大道 168 号润和创智中心",
 		track: "金融科技、电力能源、行业软件、AI 智能体",
 		mapLogic: "润和软件与软件大道沿线强相关，适合把天隆寺、安德门、小行、铁心桥、南京南站外扩作为候选圈。重点核园区进出、晚归路线和合租房源质量。",
 		source: "https://www.hoperun.com/",
+		guideHref: "/docs/nanjing/hoperun-renting-guide",
 	},
 	{
 		company: "中兴通讯南京滨江产研基地",
@@ -152,7 +153,7 @@ const commuteBelts = [
 ];
 
 const mapMarkers = [
-	{ label: "雨花软件谷", detail: "满帮 / 诚迈已收录 / 润和", x: 43, y: 62, status: "已收录" },
+	{ label: "雨花软件谷", detail: "满帮 / 诚迈 / 润和已收录", x: 43, y: 62, status: "已收录" },
 	{ label: "江北研创园", detail: "研创园 / 江北核心区", x: 28, y: 36, status: "片区样本" },
 	{ label: "南京高新区", detail: "浦口 / 高新区", x: 20, y: 31, status: "片区样本" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地", x: 60, y: 76, status: "观察样本" },
