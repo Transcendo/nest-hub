@@ -147,6 +147,50 @@ def check_links(findings: list[Finding]) -> None:
                 findings.append(Finding("ERROR", rel(path), f"broken internal docs link: {route}"))
 
 
+def check_nanjing_exposure(findings: list[Finding]) -> None:
+    """Nanjing cron guard: every shipped guide must be visible from index and overview.
+
+    This is intentionally scoped to Nanjing so older city corpora with different
+    index patterns do not block the current scheduled content-debt run.
+    """
+    city = "nanjing"
+    city_dir = CONTENT / city
+    meta = city_dir / "meta.json"
+    index = city_dir / "index.mdx"
+    overview = REPO / "components" / "docs" / "nanjing-overview.tsx"
+
+    required = [meta, index, overview]
+    if not all(path.exists() for path in required):
+        for path in required:
+            if not path.exists():
+                findings.append(Finding("ERROR", rel(path), "required Nanjing exposure file is missing"))
+        return
+
+    pages = json.loads(read_text(meta)).get("pages", [])
+    guide_slugs = [
+        page
+        for page in pages
+        if isinstance(page, str)
+        and page != "index"
+        and (city_dir / f"{page}.mdx").exists()
+        and page.endswith("-renting-guide")
+    ]
+    index_text = read_text(index)
+    overview_text = read_text(overview)
+
+    for slug in guide_slugs:
+        route = f"/docs/{city}/{slug}"
+        if route not in index_text:
+            findings.append(Finding("ERROR", rel(index), f"Nanjing guide missing from city index Cards/copy: {route}"))
+        if route not in overview_text:
+            findings.append(Finding("ERROR", rel(overview), f"Nanjing guide missing from overview exposure: {route}"))
+
+    hrefs = re.findall(r"/docs/nanjing/[a-z0-9-]+-renting-guide", index_text + "\n" + overview_text)
+    missing_files = sorted({href.removeprefix("/docs/nanjing/") for href in hrefs if not (city_dir / f"{href.removeprefix('/docs/nanjing/')}.mdx").exists()})
+    for slug in missing_files:
+        findings.append(Finding("ERROR", f"content/docs/{city}/{slug}.mdx", "Nanjing exposure points to a missing guide file"))
+
+
 def main() -> int:
     findings: list[Finding] = []
 
@@ -158,6 +202,7 @@ def main() -> int:
     for guide in guides:
         check_guide(guide, findings)
     check_links(findings)
+    check_nanjing_exposure(findings)
 
     errors = [f for f in findings if f.level == "ERROR"]
     warnings = [f for f in findings if f.level == "WARN"]
