@@ -331,6 +331,11 @@ export const contents: Content[] = [
 		),
 		list: [
 			{ title: "总览", href: "/docs/nanjing", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			{
+				title: "南京大厂 Offer 租房指南",
+				href: "/docs/nanjing/bigtech-offer-renting-guide",
+				icon: () => <ClipboardCheck className="w-4 h-4 text-current" />,
+			},
 			...createCityCompanyGuideItems({
 				city: "nanjing",
 				cityLabel: "南京",

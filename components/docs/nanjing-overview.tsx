@@ -100,6 +100,7 @@ type BigFactoryLead = {
 	name: string;
 	role: string;
 	verification: string;
+	guideHref?: string;
 };
 
 const bigFactoryLeads: BigFactoryLead[] = [
@@ -107,11 +108,12 @@ const bigFactoryLeads: BigFactoryLead[] = [
 		name: "华为 / 阿里 / 京东 / 字节 / 美团 / 腾讯 / 网易等南京团队",
 		role: "南京当然有互联网大厂，但很多不是“总部型互联网城市”的单点办公逻辑，而是研发分部、区域中心、云业务/销售、本地生活运营、供应链或交付团队混在一起。",
 		verification: "不要只凭公司名租房。拿到 offer 后先问 HR：实际打卡楼栋、是否驻场客户、是否混合办公、有没有班车、晚上几点下班，再把它归到雨花台、河西、江北、江宁或徐庄/仙林。",
+		guideHref: "/docs/nanjing/bigtech-offer-renting-guide",
 	},
 	{
 		name: "大厂口径不等于租房锚点",
 		role: "“南京有岗位/有分公司/有区域办公室”和“能指导租房的稳定楼栋”是两回事。NestHub 不能把招聘城市、工商注册地、旧新闻或服务商驻场混成一个地址。",
-		verification: "后续拆公司页时，大厂会单独做“已核验办公点 / 待核验团队 / 不建议直接用于租房”的分层，不再把它们藏在普通科技公司样本后面。",
+		verification: "大厂 offer 先走“已核验办公点 / 需继续核验团队 / 不建议直接用于租房”的分层，再决定是否值得拆成独立公司页。",
 	},
 	{
 		name: "现阶段页面处理方式",
@@ -181,11 +183,11 @@ const sourceBackedDate = "2026-05-03";
 
 export function NanjingOverview() {
 	const observedCount = ecosystemRows.length;
-	const collectedGuideCount = ecosystemRows.filter((row) => row.guideHref).length;
+	const collectedGuideCount = ecosystemRows.filter((row) => row.guideHref).length + bigFactoryLeads.filter((row) => row.guideHref).length;
 	const stats = [
 		{ label: "可信样本", value: String(observedCount) },
 		{ label: "核心通勤带", value: String(commuteBelts.length) },
-		{ label: "公司指南", value: String(collectedGuideCount) },
+		{ label: "已收录指南", value: String(collectedGuideCount) },
 	];
 
 	return (
@@ -309,10 +311,10 @@ export function NanjingOverview() {
 						当前状态
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并已开始拆分公司租房指南。页面只链接实际存在的公司页，也不写未经核验的租金。
+						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并已开始拆分公司/offer 租房指南。页面只链接实际存在的指南，也不写未经核验的租金。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-						下一步继续从雨花台软件谷南侧、江北研创园/高新区、江宁滨江三个差异最大的通勤题中选择有可信办公锚点的对象。
+						下一步继续从江北研创园/高新区、河西/南站换乘、徐庄/仙林扩展带中选择有可信办公锚点或明确片区决策价值的对象。
 					</div>
 				</div>
 			</section>
@@ -332,7 +334,13 @@ export function NanjingOverview() {
 				<div className="grid gap-3 md:grid-cols-3">
 					{bigFactoryLeads.map((item) => (
 						<div key={item.name} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-							<div className="font-semibold text-zinc-950 dark:text-zinc-50">{item.name}</div>
+							<div className="font-semibold text-zinc-950 dark:text-zinc-50">
+								{item.guideHref ? (
+									<a href={item.guideHref} className="underline-offset-4 hover:underline">{item.name}</a>
+								) : (
+									item.name
+								)}
+							</div>
 							<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{item.role}</p>
 							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
 								{item.verification}
