@@ -147,6 +147,23 @@ def check_links(findings: list[Finding]) -> None:
                 findings.append(Finding("ERROR", rel(path), f"broken internal docs link: {route}"))
 
 
+def get_nanjing_guide_slugs() -> list[str]:
+    city = "nanjing"
+    city_dir = CONTENT / city
+    meta = city_dir / "meta.json"
+    if not meta.exists():
+        return []
+    pages = json.loads(read_text(meta)).get("pages", [])
+    return [
+        page
+        for page in pages
+        if isinstance(page, str)
+        and page != "index"
+        and (city_dir / f"{page}.mdx").exists()
+        and page.endswith("-renting-guide")
+    ]
+
+
 def check_nanjing_exposure(findings: list[Finding]) -> None:
     """Nanjing cron guard: every shipped guide must be visible from index and overview.
 
@@ -166,15 +183,7 @@ def check_nanjing_exposure(findings: list[Finding]) -> None:
                 findings.append(Finding("ERROR", rel(path), "required Nanjing exposure file is missing"))
         return
 
-    pages = json.loads(read_text(meta)).get("pages", [])
-    guide_slugs = [
-        page
-        for page in pages
-        if isinstance(page, str)
-        and page != "index"
-        and (city_dir / f"{page}.mdx").exists()
-        and page.endswith("-renting-guide")
-    ]
+    guide_slugs = get_nanjing_guide_slugs()
     index_text = read_text(index)
     overview_text = read_text(overview)
 
@@ -191,6 +200,62 @@ def check_nanjing_exposure(findings: list[Finding]) -> None:
         findings.append(Finding("ERROR", f"content/docs/{city}/{slug}.mdx", "Nanjing exposure points to a missing guide file"))
 
 
+def check_nanjing_company_directory(findings: list[Finding]) -> None:
+    """Assert Nanjing company pages are also exposed through shared aggregators.
+
+    The city index and overview can link every page while homepage/sidebar company
+    surfaces still miss newly shipped company guides. Area/offer pages are
+    intentionally excluded from the company directory.
+    """
+    city = "nanjing"
+    company_guides = REPO / "lib" / "company-guides.ts"
+    sidebar = REPO / "components" / "sidebar-content.tsx"
+    homepage = REPO / "app" / "page.tsx"
+
+    excluded_non_company_slugs = {
+        "bigtech-offer-renting-guide",
+        "jiangbei-yanchuangyuan-renting-guide",
+        "hexi-south-station-renting-guide",
+        "xuzhuang-xianlin-renting-guide",
+    }
+    expected_company_hrefs = {
+        f"/docs/{city}/{slug}"
+        for slug in get_nanjing_guide_slugs()
+        if slug not in excluded_non_company_slugs
+    }
+    if not expected_company_hrefs:
+        return
+
+    required = [company_guides, sidebar, homepage]
+    for path in required:
+        if not path.exists():
+            findings.append(Finding("ERROR", rel(path), "required Nanjing directory exposure file is missing"))
+    if not all(path.exists() for path in required):
+        return
+
+    company_text = read_text(company_guides)
+    sidebar_text = read_text(sidebar)
+    homepage_text = read_text(homepage)
+    company_dir_hrefs = set(
+        re.findall(
+            r"\{[^{}]*href: [\"'](/docs/nanjing/[a-z0-9-]+-renting-guide)[\"'][^{}]*city: [\"']nanjing[\"'][^{}]*\}",
+            company_text,
+        )
+    )
+
+    missing_from_company_dir = sorted(expected_company_hrefs - company_dir_hrefs)
+    extra_company_dir = sorted(company_dir_hrefs - expected_company_hrefs)
+    for href in missing_from_company_dir:
+        findings.append(Finding("ERROR", rel(company_guides), f"Nanjing company guide missing from shared company directory: {href}"))
+    for href in extra_company_dir:
+        findings.append(Finding("ERROR", rel(company_guides), f"Nanjing company directory points to missing or non-company guide: {href}"))
+
+    if 'city: "nanjing"' not in sidebar_text or 'cityLabel: "南京"' not in sidebar_text:
+        findings.append(Finding("ERROR", rel(sidebar), "sidebar does not derive Nanjing company guide items from shared company directory"))
+    if "cityCompanyGuideCounts.nanjing" not in homepage_text:
+        findings.append(Finding("ERROR", rel(homepage), "homepage city card does not use shared Nanjing company guide count"))
+
+
 def main() -> int:
     findings: list[Finding] = []
 
@@ -203,6 +268,7 @@ def main() -> int:
         check_guide(guide, findings)
     check_links(findings)
     check_nanjing_exposure(findings)
+    check_nanjing_company_directory(findings)
 
     errors = [f for f in findings if f.level == "ERROR"]
     warnings = [f for f in findings if f.level == "WARN"]
