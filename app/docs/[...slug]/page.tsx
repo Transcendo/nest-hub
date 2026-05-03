@@ -25,6 +25,7 @@ import {
 import { BeijingOverview } from "@/components/docs/beijing-overview";
 import { GuangzhouOverview } from "@/components/docs/guangzhou-overview";
 import { HangzhouOverview } from "@/components/docs/hangzhou-overview";
+import { NanjingOverview } from "@/components/docs/nanjing-overview";
 import { ShanghaiOverview } from "@/components/docs/shanghai-overview";
 import { ShenzhenOverview } from "@/components/docs/shenzhen-overview";
 import { Features } from "@/components/docs/features";
@@ -104,6 +105,7 @@ export default async function Page({
 						BeijingOverview,
 						GuangzhouOverview,
 						HangzhouOverview,
+						NanjingOverview,
 						ShanghaiOverview,
 						ShenzhenOverview,
 						DatabaseTable,
