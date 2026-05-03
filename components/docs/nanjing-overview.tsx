@@ -20,12 +20,13 @@ type EcosystemRow = {
 const ecosystemRows: EcosystemRow[] = [
 	{
 		company: "满帮 / 运满满",
-		status: "观察样本",
+		status: "已收录",
 		nanjingRole: "智慧物流平台南京总部样本，适合代表雨花台 / 软件谷南侧的互联网平台通勤题",
 		area: "雨花台区凤信路 20 号 A 栋运满满大楼",
 		track: "智慧物流、货运平台、大数据、AI 调度",
 		mapLogic: "满帮/运满满租房要按雨花台南侧处理。看房时先问清是总部楼栋、研发团队还是业务团队，再比较软件大道、宁双路、铁心桥、西善桥和油坊桥换乘。",
 		source: "http://ymm56.com/about.html",
+		guideHref: "/docs/nanjing/manbang-yunmanman-renting-guide",
 	},
 	{
 		company: "诚迈科技",
@@ -150,7 +151,7 @@ const commuteBelts = [
 ];
 
 const mapMarkers = [
-	{ label: "雨花软件谷", detail: "满帮 / 诚迈 / 润和", x: 43, y: 62, status: "观察样本" },
+	{ label: "雨花软件谷", detail: "满帮已收录 / 诚迈 / 润和", x: 43, y: 62, status: "已收录" },
 	{ label: "江北研创园", detail: "研创园 / 江北核心区", x: 28, y: 36, status: "片区样本" },
 	{ label: "南京高新区", detail: "浦口 / 高新区", x: 20, y: 31, status: "片区样本" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地", x: 60, y: 76, status: "观察样本" },
@@ -177,10 +178,11 @@ const sourceBackedDate = "2026-05-03";
 
 export function NanjingOverview() {
 	const observedCount = ecosystemRows.length;
+	const collectedGuideCount = ecosystemRows.filter((row) => row.guideHref).length;
 	const stats = [
 		{ label: "可信样本", value: String(observedCount) },
 		{ label: "核心通勤带", value: String(commuteBelts.length) },
-		{ label: "公司指南", value: "0" },
+		{ label: "公司指南", value: String(collectedGuideCount) },
 	];
 
 	return (
@@ -304,10 +306,10 @@ export function NanjingOverview() {
 						当前状态
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带。当前阶段只做城市级地图与通勤判断，不挂不存在的公司页，也不写未经核验的租金。
+						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并已开始拆分公司租房指南。页面只链接实际存在的公司页，也不写未经核验的租金。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-						下一步如果拆公司页，优先从雨花台软件谷南侧、江北研创园/高新区、江宁滨江三个差异最大的通勤题开始。
+						下一步继续从雨花台软件谷南侧、江北研创园/高新区、江宁滨江三个差异最大的通勤题中选择有可信办公锚点的对象。
 					</div>
 				</div>
 			</section>

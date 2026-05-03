@@ -76,6 +76,11 @@ export const cityCards = [
 		description: "已整理 21 家深圳公司样本，覆盖南山科技园、西丽留仙洞、坂田、福田、前海和产业外圈。",
 		href: "/docs/shenzhen",
 	},
+	{
+		title: "南京",
+		description: "从城市总览进入公司页拆分，先覆盖雨花台软件谷南侧的满帮 / 运满满通勤决策。",
+		href: "/docs/nanjing",
+	},
 ];
 
 export const valueProps = [

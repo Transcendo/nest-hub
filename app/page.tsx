@@ -66,6 +66,15 @@ const cityRows = [
 		tags: ["南山", "西丽", "坂田"],
 		color: "border-l-[#38bdf8]",
 	},
+	{
+		rank: "06",
+		title: "南京",
+		href: "/docs/nanjing",
+		summary: "已从城市总览进入公司页拆分，先覆盖雨花台 / 软件谷南侧的满帮与运满满通勤题。",
+		metric: `${cityCompanyGuideCounts.nanjing} 篇公司指南`,
+		tags: ["雨花台", "软件谷", "江北", "江宁滨江"],
+		color: "border-l-[#8b5cf6]",
+	},
 ];
 
 const readingPath = [
