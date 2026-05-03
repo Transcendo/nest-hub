@@ -140,6 +140,7 @@ const commuteBelts: CommuteBelt[] = [
 		companies: "满帮 / 运满满、诚迈科技、润和软件等",
 		areas: "软件大道、宁双路、凤信路、安德门、小行、天隆寺、铁心桥、西善桥、油坊桥、南京南站外扩",
 		warning: "南京科技公司新人最容易把“软件谷”看成一个点。实际要按软件大道、宁双路、凤信路分楼栋，最后一公里和合租房源质量差异很大。",
+		guideHref: "/docs/nanjing/yuhuatai-software-valley-renting-guide",
 	},
 	{
 		name: "江北新区 / 研创园 / 高新区",
@@ -170,7 +171,7 @@ const commuteBelts: CommuteBelt[] = [
 ];
 
 const mapMarkers = [
-	{ label: "雨花软件谷", detail: "满帮 / 诚迈 / 润和已收录", x: 43, y: 62, status: "已收录" },
+	{ label: "雨花软件谷", detail: "片区指南、满帮 / 诚迈 / 润和已收录", x: 43, y: 62, status: "已收录" },
 	{ label: "江北研创园", detail: "焦点科技 / 研创园 / 江北核心区已拆分", x: 28, y: 36, status: "已收录" },
 	{ label: "南京高新区", detail: "浦口 / 高新区已拆分", x: 20, y: 31, status: "已拆分" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
@@ -332,7 +333,7 @@ export function NanjingOverview() {
 						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并已开始拆分公司/offer 租房指南。页面只链接实际存在的指南，也不写未经核验的租金。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-						下一步继续从徐庄/仙林扩展带和仍需楼栋核验的大厂南京团队中，选择有可信办公锚点或明确片区决策价值的对象。
+						下一步继续从徐庄/仙林扩展带和仍需楼栋核验的大厂南京团队中，选择有可信办公锚点或明确片区决策价值的对象；没有稳定楼栋的公司名仍不强行拆页。
 					</div>
 				</div>
 			</section>

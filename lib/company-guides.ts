@@ -220,6 +220,7 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "万科", href: "/docs/shenzhen/vanke-renting-guide", logoKey: "vanke", area: "深圳 · 盐田大梅沙注册总部 / 福田梅林办公点", city: "shenzhen" },
 	{ name: "创维 Skyworth", href: "/docs/shenzhen/skyworth-renting-guide", logoKey: "skyworth", area: "深圳 · 南山高新区 / 科技园办公点", city: "shenzhen" },
 
+	{ name: "南京雨花台 / 软件谷南侧", href: "/docs/nanjing/yuhuatai-software-valley-renting-guide", area: "南京 · 软件大道 / 宁双路 / 凤信路", city: "nanjing" },
 	{ name: "焦点科技 / 中国制造网", href: "/docs/nanjing/focuschina-renting-guide", area: "南京 · 江北新区丽景路", city: "nanjing" },
 	{ name: "满帮 / 运满满", href: "/docs/nanjing/manbang-yunmanman-renting-guide", area: "南京 · 雨花台凤信路", city: "nanjing" },
 	{ name: "诚迈科技", href: "/docs/nanjing/archermind-renting-guide", area: "南京 · 雨花台宁双路", city: "nanjing" },
