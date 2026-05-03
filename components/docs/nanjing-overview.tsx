@@ -164,8 +164,8 @@ const commuteBelts: CommuteBelt[] = [
 		name: "玄武 / 徐庄 / 仙林 / 麒麟扩展带",
 		companies: "途牛旅游网，以及后续适合核验的软件、科研、芯片、游戏与高校周边科技样本",
 		areas: "徐庄软件园、玄武大道、仙林、马群、麒麟、孝陵卫、钟灵街",
-		warning: "途牛已按官方 20-F 锚点拆页；这条带的其他公司仍需用官方地址重新校准，不把未核验楼栋写进表。",
-		guideHref: "/docs/nanjing/tuniu-renting-guide",
+		warning: "片区指南已拆出，途牛也已按官方 20-F 锚点拆页；这条带的其他公司仍需用官方地址重新校准，不把未核验楼栋写进表。",
+		guideHref: "/docs/nanjing/xuzhuang-xianlin-renting-guide",
 	},
 ];
 
@@ -175,7 +175,7 @@ const mapMarkers = [
 	{ label: "南京高新区", detail: "浦口 / 高新区已拆分", x: 20, y: 31, status: "已拆分" },
 	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
 	{ label: "河西 / 南站", detail: "换乘专题已收录", x: 48, y: 49, status: "已收录" },
-	{ label: "徐庄 / 仙林", detail: "途牛已收录，其他样本继续核验", x: 70, y: 37, status: "已收录" },
+	{ label: "徐庄 / 仙林", detail: "片区指南和途牛指南已收录，其他样本继续核验", x: 70, y: 37, status: "已收录" },
 ];
 
 const viewingRhythm = [

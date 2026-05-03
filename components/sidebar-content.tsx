@@ -347,6 +347,11 @@ export const contents: Content[] = [
 				href: "/docs/nanjing/hexi-south-station-renting-guide",
 				icon: () => <Route className="w-4 h-4 text-current" />,
 			},
+			{
+				title: "徐庄 / 仙林 / 麒麟片区租房指南",
+				href: "/docs/nanjing/xuzhuang-xianlin-renting-guide",
+				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
 			...createCityCompanyGuideItems({
 				city: "nanjing",
 				cityLabel: "南京",
