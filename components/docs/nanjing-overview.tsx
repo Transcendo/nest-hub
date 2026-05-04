@@ -147,12 +147,14 @@ const commuteBelts: CommuteBelt[] = [
 		companies: "焦点科技 / 中国制造网、江北新区产业技术研创园、南京高新区相关科技企业",
 		areas: "丽景路、研创园、江北核心区、浦口万汇城、泰山新村、柳洲东路、龙华路、桥北外扩",
 		warning: "江北租房不要先问便宜不便宜，先问每天是否过江。过江通勤、地铁拥挤、天气和晚归路线会直接改变居住体验。",
+		guideHref: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
 	},
 	{
 		name: "江宁滨江 / 产业基地",
 		companies: "中兴通讯南京滨江产研基地、通信与智能制造相关岗位",
 		areas: "江宁滨江、牧龙中路、铜井、滨江开发区、江宁主城、百家湖 / 小龙湾外扩",
 		warning: "江宁滨江不是江宁主城。先确认班车和园区出入口，再决定住基地附近、江宁主城还是南京南站周边。",
+		guideHref: "/docs/nanjing/zte-binjiang-renting-guide",
 	},
 	{
 		name: "河西 / 建邺 / 南京南站换乘带",
@@ -330,10 +332,10 @@ export function NanjingOverview() {
 						当前状态
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						南京总览先建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并已开始拆分公司/offer 租房指南。页面只链接实际存在的指南，也不写未经核验的租金。
+						南京总览已建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并把当前 11 个南京公司、片区和 offer 指南全部接入总览与侧边栏。页面只链接实际存在的指南，也不写未经核验的租金。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-						下一步继续从徐庄/仙林扩展带和仍需楼栋核验的大厂南京团队中，选择有可信办公锚点或明确片区决策价值的对象；没有稳定楼栋的公司名仍不强行拆页。
+						当前南京任务的完成口径是：11 个页面均有入口，公司页进入公司指南目录，片区 / offer 页走非公司入口；后续只在出现可信办公锚点或明确片区决策价值时再新增页面，没有稳定楼栋的公司名仍不强行拆页。
 					</div>
 				</div>
 			</section>
