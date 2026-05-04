@@ -228,6 +228,8 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "途牛旅游网", href: "/docs/nanjing/tuniu-renting-guide", area: "南京 · 玄武大道 / 徐庄", city: "nanjing" },
 
 	{ name: "字节跳动", href: "/docs/chengdu/bytedance-renting-guide", logoKey: "bytedance", area: "成都 · 高新南区 / 新经济活力区", city: "chengdu" },
+	{ name: "腾讯", href: "/docs/chengdu/tencent-renting-guide", logoKey: "tencent", area: "成都 · 高新区 / 高新南区方向", city: "chengdu" },
+	{ name: "网易", href: "/docs/chengdu/netease-renting-guide", logoKey: "netease", area: "成都 · 高新区 / 数字产业项目方向", city: "chengdu" },
 	{ name: "Tap4Fun / 创人所爱", href: "/docs/chengdu/tap4fun-renting-guide", area: "成都 · 天府软件园 A 区 A3 栋", city: "chengdu" },
 	{ name: "华为", href: "/docs/chengdu/huawei-renting-guide", logoKey: "huawei", area: "成都 · 人民南路二段 / 仁恒置地广场", city: "chengdu" },
 ];

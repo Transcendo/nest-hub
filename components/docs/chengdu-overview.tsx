@@ -33,6 +33,24 @@ const officeAnchors = [
 		source: "https://www.yicai.com/news/100748329.html",
 	},
 	{
+		name: "腾讯成都",
+		role: "成都高新区头部互联网项目与招聘样本",
+		area: "成都高新区 / 高新南区方向，具体楼栋以团队通知为准",
+		track: "企业微信、云服务、数字文创、商业化与研发岗位",
+		commuteLogic: "先确认腾讯成都实际打卡楼栋和是否驻场，再在天府三街、大源、新川、火车南站之间做通勤取舍。",
+		guideHref: "/docs/chengdu/tencent-renting-guide",
+		source: "https://careers.tencent.com/",
+	},
+	{
+		name: "网易成都",
+		role: "成都高新区数字产业项目与招聘样本",
+		area: "成都高新区 / 高新南区方向，具体楼栋以团队通知为准",
+		track: "网易有道、网易云音乐、数字产业、内容与职能岗位",
+		commuteLogic: "先区分固定成都办公室、产品线办公、客户现场或跨园区协作，再决定近场、换乘带或外扩区。",
+		guideHref: "/docs/chengdu/netease-renting-guide",
+		source: "https://hr.163.com/",
+	},
+	{
 		name: "Tap4Fun / 创人所爱",
 		role: "成都本土游戏出海公司样本",
 		area: "高新区 / 天府软件园 A 区 A3 栋",
@@ -63,7 +81,7 @@ const officeAnchors = [
 const commuteBelts = [
 	{
 		name: "高新南区 / 天府软件园",
-		anchors: "天府软件园、Tap4Fun / 创人所爱、字节跳动创新业务中心、高新区新经济项目",
+		anchors: "天府软件园、Tap4Fun / 创人所爱、字节跳动创新业务中心、腾讯成都、网易成都、高新区新经济项目",
 		areas: "天府三街、天府五街、世纪城、大源、锦城湖、益州大道、南湖外扩",
 		warning: "这是成都互联网 offer 最常见的判断起点，但楼栋、园区门、地铁口和骑行路线差别很大。",
 	},
@@ -97,6 +115,8 @@ const mapMarkers = [
 	{ label: "天府软件园", detail: "高新南区核心", x: 63, y: 61 },
 	{ label: "Tap4Fun", detail: "天府软件园 A 区", x: 61, y: 59 },
 	{ label: "字节 / 新经济", detail: "高新区南部", x: 67, y: 66 },
+	{ label: "腾讯成都", detail: "高新区项目", x: 65, y: 64 },
+	{ label: "网易成都", detail: "数字产业项目", x: 69, y: 63 },
 	{ label: "新川", detail: "南侧外扩", x: 76, y: 71 },
 	{ label: "金融城", detail: "交子大道 / 孵化园", x: 57, y: 50 },
 	{ label: "火车南站", detail: "换乘兜底", x: 48, y: 45 },
