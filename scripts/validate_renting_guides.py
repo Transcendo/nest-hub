@@ -147,8 +147,7 @@ def check_links(findings: list[Finding]) -> None:
                 findings.append(Finding("ERROR", rel(path), f"broken internal docs link: {route}"))
 
 
-def get_nanjing_guide_slugs() -> list[str]:
-    city = "nanjing"
+def get_city_guide_slugs(city: str) -> list[str]:
     city_dir = CONTENT / city
     meta = city_dir / "meta.json"
     if not meta.exists():
@@ -164,64 +163,57 @@ def get_nanjing_guide_slugs() -> list[str]:
     ]
 
 
-def check_nanjing_exposure(findings: list[Finding]) -> None:
-    """Nanjing cron guard: every shipped guide must be visible from index and overview.
-
-    This is intentionally scoped to Nanjing so older city corpora with different
-    index patterns do not block the current scheduled content-debt run.
-    """
-    city = "nanjing"
+def check_city_exposure(city: str, city_label: str, findings: list[Finding]) -> None:
+    """Guard newly shipped city corpora: guides must be visible from index and overview."""
     city_dir = CONTENT / city
     meta = city_dir / "meta.json"
     index = city_dir / "index.mdx"
-    overview = REPO / "components" / "docs" / "nanjing-overview.tsx"
+    overview = REPO / "components" / "docs" / f"{city}-overview.tsx"
 
     required = [meta, index, overview]
     if not all(path.exists() for path in required):
         for path in required:
             if not path.exists():
-                findings.append(Finding("ERROR", rel(path), "required Nanjing exposure file is missing"))
+                findings.append(Finding("ERROR", rel(path), f"required {city_label} exposure file is missing"))
         return
 
-    guide_slugs = get_nanjing_guide_slugs()
+    guide_slugs = get_city_guide_slugs(city)
     index_text = read_text(index)
     overview_text = read_text(overview)
 
     for slug in guide_slugs:
         route = f"/docs/{city}/{slug}"
         if route not in index_text:
-            findings.append(Finding("ERROR", rel(index), f"Nanjing guide missing from city index Cards/copy: {route}"))
+            findings.append(Finding("ERROR", rel(index), f"{city_label} guide missing from city index Cards/copy: {route}"))
         if route not in overview_text:
-            findings.append(Finding("ERROR", rel(overview), f"Nanjing guide missing from overview exposure: {route}"))
+            findings.append(Finding("ERROR", rel(overview), f"{city_label} guide missing from overview exposure: {route}"))
 
-    hrefs = re.findall(r"/docs/nanjing/[a-z0-9-]+-renting-guide", index_text + "\n" + overview_text)
-    missing_files = sorted({href.removeprefix("/docs/nanjing/") for href in hrefs if not (city_dir / f"{href.removeprefix('/docs/nanjing/')}.mdx").exists()})
-    for slug in missing_files:
-        findings.append(Finding("ERROR", f"content/docs/{city}/{slug}.mdx", "Nanjing exposure points to a missing guide file"))
+    href_re = rf"/docs/{city}/[a-z0-9-]+-renting-guide"
+    hrefs = re.findall(href_re, index_text + "\n" + overview_text)
+    missing_files: list[str] = []
+    for href in hrefs:
+        slug = href.removeprefix(f"/docs/{city}/")
+        if not (city_dir / f"{slug}.mdx").exists():
+            missing_files.append(slug)
+    for slug in sorted(set(missing_files)):
+        findings.append(Finding("ERROR", f"content/docs/{city}/{slug}.mdx", f"{city_label} exposure points to a missing guide file"))
 
 
-def check_nanjing_company_directory(findings: list[Finding]) -> None:
-    """Assert Nanjing company pages are also exposed through shared aggregators.
-
-    The city index and overview can link every page while homepage/sidebar company
-    surfaces still miss newly shipped company guides. Area/offer pages are
-    intentionally excluded from the company directory.
-    """
-    city = "nanjing"
+def check_city_company_directory(
+    city: str,
+    city_label: str,
+    findings: list[Finding],
+    excluded_non_company_slugs: set[str] | None = None,
+) -> None:
+    """Assert shipped company pages are also exposed through shared aggregators."""
     company_guides = REPO / "lib" / "company-guides.ts"
     sidebar = REPO / "components" / "sidebar-content.tsx"
     homepage = REPO / "app" / "page.tsx"
 
-    excluded_non_company_slugs = {
-        "bigtech-offer-renting-guide",
-        "yuhuatai-software-valley-renting-guide",
-        "jiangbei-yanchuangyuan-renting-guide",
-        "hexi-south-station-renting-guide",
-        "xuzhuang-xianlin-renting-guide",
-    }
+    excluded_non_company_slugs = excluded_non_company_slugs or set()
     expected_company_hrefs = {
         f"/docs/{city}/{slug}"
-        for slug in get_nanjing_guide_slugs()
+        for slug in get_city_guide_slugs(city)
         if slug not in excluded_non_company_slugs
     }
     if not expected_company_hrefs:
@@ -230,7 +222,7 @@ def check_nanjing_company_directory(findings: list[Finding]) -> None:
     required = [company_guides, sidebar, homepage]
     for path in required:
         if not path.exists():
-            findings.append(Finding("ERROR", rel(path), "required Nanjing directory exposure file is missing"))
+            findings.append(Finding("ERROR", rel(path), f"required {city_label} directory exposure file is missing"))
     if not all(path.exists() for path in required):
         return
 
@@ -239,7 +231,7 @@ def check_nanjing_company_directory(findings: list[Finding]) -> None:
     homepage_text = read_text(homepage)
     company_dir_hrefs = set(
         re.findall(
-            r"\{[^{}]*href: [\"'](/docs/nanjing/[a-z0-9-]+-renting-guide)[\"'][^{}]*city: [\"']nanjing[\"'][^{}]*\}",
+            rf"\{{[^{{}}]*href: [\"'](/docs/{city}/[a-z0-9-]+-renting-guide)[\"'][^{{}}]*city: [\"']{city}[\"'][^{{}}]*\}}",
             company_text,
         )
     )
@@ -247,14 +239,37 @@ def check_nanjing_company_directory(findings: list[Finding]) -> None:
     missing_from_company_dir = sorted(expected_company_hrefs - company_dir_hrefs)
     extra_company_dir = sorted(company_dir_hrefs - expected_company_hrefs)
     for href in missing_from_company_dir:
-        findings.append(Finding("ERROR", rel(company_guides), f"Nanjing company guide missing from shared company directory: {href}"))
+        findings.append(Finding("ERROR", rel(company_guides), f"{city_label} company guide missing from shared company directory: {href}"))
     for href in extra_company_dir:
-        findings.append(Finding("ERROR", rel(company_guides), f"Nanjing company directory points to missing or non-company guide: {href}"))
+        findings.append(Finding("ERROR", rel(company_guides), f"{city_label} company directory points to missing or non-company guide: {href}"))
 
-    if 'city: "nanjing"' not in sidebar_text or 'cityLabel: "南京"' not in sidebar_text:
-        findings.append(Finding("ERROR", rel(sidebar), "sidebar does not derive Nanjing company guide items from shared company directory"))
-    if "cityCompanyGuideCounts.nanjing" not in homepage_text:
-        findings.append(Finding("ERROR", rel(homepage), "homepage city card does not use shared Nanjing company guide count"))
+    if f'city: "{city}"' not in sidebar_text or f'cityLabel: "{city_label}"' not in sidebar_text:
+        findings.append(Finding("ERROR", rel(sidebar), f"sidebar does not derive {city_label} company guide items from shared company directory"))
+    if f"cityCompanyGuideCounts.{city}" not in homepage_text:
+        findings.append(Finding("ERROR", rel(homepage), f"homepage city card does not use shared {city_label} company guide count"))
+
+
+def check_nanjing_exposure(findings: list[Finding]) -> None:
+    check_city_exposure("nanjing", "南京", findings)
+
+
+def check_nanjing_company_directory(findings: list[Finding]) -> None:
+    excluded_non_company_slugs = {
+        "bigtech-offer-renting-guide",
+        "yuhuatai-software-valley-renting-guide",
+        "jiangbei-yanchuangyuan-renting-guide",
+        "hexi-south-station-renting-guide",
+        "xuzhuang-xianlin-renting-guide",
+    }
+    check_city_company_directory("nanjing", "南京", findings, excluded_non_company_slugs)
+
+
+def check_chengdu_exposure(findings: list[Finding]) -> None:
+    check_city_exposure("chengdu", "成都", findings)
+
+
+def check_chengdu_company_directory(findings: list[Finding]) -> None:
+    check_city_company_directory("chengdu", "成都", findings)
 
 
 def main() -> int:
@@ -270,6 +285,8 @@ def main() -> int:
     check_links(findings)
     check_nanjing_exposure(findings)
     check_nanjing_company_directory(findings)
+    check_chengdu_exposure(findings)
+    check_chengdu_company_directory(findings)
 
     errors = [f for f in findings if f.level == "ERROR"]
     warnings = [f for f in findings if f.level == "WARN"]
