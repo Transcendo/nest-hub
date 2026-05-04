@@ -35,10 +35,11 @@ const officeAnchors = [
 	{
 		name: "Tap4Fun / 创人所爱",
 		role: "成都本土游戏出海公司样本",
-		area: "成都高新区 / 游戏与数字文创办公带",
+		area: "高新区 / 天府软件园 A 区 A3 栋",
 		track: "游戏研发、海外发行、互动娱乐",
-		commuteLogic: "游戏公司常见加班和晚归，租房要把夜间打车点、楼下便利店和小区门禁一起看。",
-		source: "http://tap4fun.com/record",
+		commuteLogic: "优先按天府三街、世纪城、大源和天府五街看房，晚归多时把打车点、楼下便利店和小区门禁一起看。",
+		guideHref: "/docs/chengdu/tap4fun-renting-guide",
+		source: "https://www.tap4fun.com/join-us",
 	},
 	{
 		name: "华为企业业务四川成都办公点",
@@ -62,7 +63,7 @@ const officeAnchors = [
 const commuteBelts = [
 	{
 		name: "高新南区 / 天府软件园",
-		anchors: "天府软件园、字节跳动创新业务中心、高新区新经济项目",
+		anchors: "天府软件园、Tap4Fun / 创人所爱、字节跳动创新业务中心、高新区新经济项目",
 		areas: "天府三街、天府五街、世纪城、大源、锦城湖、益州大道、南湖外扩",
 		warning: "这是成都互联网 offer 最常见的判断起点，但楼栋、园区门、地铁口和骑行路线差别很大。",
 	},
@@ -94,6 +95,7 @@ const commuteBelts = [
 
 const mapMarkers = [
 	{ label: "天府软件园", detail: "高新南区核心", x: 63, y: 61 },
+	{ label: "Tap4Fun", detail: "天府软件园 A 区", x: 61, y: 59 },
 	{ label: "字节 / 新经济", detail: "高新区南部", x: 67, y: 66 },
 	{ label: "新川", detail: "南侧外扩", x: 76, y: 71 },
 	{ label: "金融城", detail: "交子大道 / 孵化园", x: 57, y: 50 },
