@@ -1,6 +1,7 @@
 import type { Folder, Root } from "fumadocs-core/page-tree";
 import type { LucideIcon } from "lucide-react";
 import {
+	Building2,
 	ClipboardCheck,
 	Eye,
 	Factory,
@@ -333,6 +334,11 @@ export const contents: Content[] = [
 		list: [
 			{ title: "总览", href: "/docs/nanjing", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
 			{
+				title: "Offer / 片区入口",
+				separator: true,
+				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
+			{
 				title: "南京大厂 Offer 租房指南",
 				href: "/docs/nanjing/bigtech-offer-renting-guide",
 				icon: () => <ClipboardCheck className="w-4 h-4 text-current" />,
@@ -356,6 +362,11 @@ export const contents: Content[] = [
 				title: "徐庄 / 仙林 / 麒麟片区租房指南",
 				href: "/docs/nanjing/xuzhuang-xianlin-renting-guide",
 				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "公司指南",
+				separator: true,
+				icon: () => <Building2 className="w-4 h-4 text-current" />,
 			},
 			...createCityCompanyGuideItems({
 				city: "nanjing",
