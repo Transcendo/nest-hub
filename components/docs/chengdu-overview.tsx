@@ -14,6 +14,7 @@ const collectedCompanies = [
 	{ name: "快手", href: "/docs/chengdu/kuaishou-renting-guide" },
 	{ name: "腾讯", href: "/docs/chengdu/tencent-renting-guide" },
 	{ name: "网易", href: "/docs/chengdu/netease-renting-guide" },
+	{ name: "爱奇艺", href: "/docs/chengdu/iqiyi-renting-guide" },
 	{ name: "Tap4Fun / 创人所爱", href: "/docs/chengdu/tap4fun-renting-guide" },
 	{ name: "华为", href: "/docs/chengdu/huawei-renting-guide" },
 ];
@@ -64,11 +65,20 @@ const officeAnchors = [
 		source: "https://zhaopin.kuaishou.cn/recruit/e/#/official/social",
 	},
 	{
+		name: "爱奇艺成都",
+		role: "成都高新区网络视听与新经济项目样本",
+		area: "成都高新区 / 高新南区方向，具体楼栋以团队通知为准",
+		track: "网络视听、内容运营、商业化、技术支持",
+		commuteLogic: "先确认实际打卡楼栋、晚班频率和是否跨园区协作，再决定近场、换乘带或短租过渡。",
+		guideHref: "/docs/chengdu/iqiyi-renting-guide",
+		source: "https://careers.iqiyi.com/",
+	},
+	{
 		name: "高新区新经济项目样本",
 		role: "成都互联网与新经济公司集中落地区",
 		area: "成都高新区南部园区 / 新经济活力区 / 新川创新科技园",
 		track: "互联网平台、AI、网络视听、数字文创、大数据、网络安全",
-		commuteLogic: "公开报道还提到爱奇艺等项目；拿到 offer 后必须确认团队楼栋、驻场形态和班车。",
+		commuteLogic: "公开报道还提到网络视听、内容平台等项目；拿到 offer 后必须确认团队楼栋、驻场形态和班车。",
 		source: "https://www.yicai.com/news/100748329.html",
 	},
 	{
@@ -120,7 +130,7 @@ const officeAnchors = [
 const commuteBelts = [
 	{
 		name: "高新南区 / 天府软件园",
-		anchors: "天府软件园、Tap4Fun / 创人所爱、字节跳动创新业务中心、阿里巴巴成都、百度成都、快手成都、腾讯成都、网易成都",
+		anchors: "天府软件园、Tap4Fun / 创人所爱、字节跳动创新业务中心、阿里巴巴成都、百度成都、快手成都、腾讯成都、网易成都、爱奇艺成都",
 		areas: "天府三街、天府五街、世纪城、大源、锦城湖、益州大道、南湖外扩",
 		warning: "这是成都互联网 offer 最常见的判断起点，但楼栋、园区门、地铁口和骑行路线差别很大。",
 	},
@@ -159,6 +169,7 @@ const mapMarkers = [
 	{ label: "快手成都", detail: "内容平台项目", x: 66, y: 65 },
 	{ label: "腾讯成都", detail: "高新区项目", x: 65, y: 64 },
 	{ label: "网易成都", detail: "数字产业项目", x: 69, y: 63 },
+	{ label: "爱奇艺成都", detail: "网络视听项目", x: 70, y: 65 },
 	{ label: "新川", detail: "南侧外扩", x: 76, y: 71 },
 	{ label: "金融城", detail: "交子大道 / 孵化园", x: 57, y: 50 },
 	{ label: "火车南站", detail: "换乘兜底", x: 48, y: 45 },
