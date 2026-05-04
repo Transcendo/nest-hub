@@ -18,6 +18,29 @@ REPO = Path(__file__).resolve().parents[1]
 CONTENT = REPO / "content" / "docs"
 SCAN_LINK_DIRS = ["content/docs", "components", "app", "lib"]
 PLACEHOLDERS = ["TODO", "待补充", "待拆分", "后续补充", "暂未形成独立", "还未开独立"]
+CHENGDU_PUBLIC_BANNED_TERMS = [
+    "我们讨论",
+    "完成口径",
+    "当前口径",
+    "后续核验",
+    "当前任务",
+    "当前状态",
+    "暂不强拆",
+    "可信样本",
+    "核验队列",
+    "source audit",
+    "cron",
+]
+CHENGDU_REQUIRED_SECTIONS = {
+    "audience": ["## 这篇指南适合谁"],
+    "office confirmation": ["## 第一步：先确认", "## 第一步：确认", "## 第一步：先核"],
+    "commute rings": ["## 第二步：按通勤圈层选区域", "## 第二步：按通勤圈层"],
+    "budget framing": ["## 第三步：预算", "## 按预算快速决策"],
+    "channels": ["## 渠道怎么用", "## 从哪些渠道找房"],
+    "city viewing rhythm": ["## 城市看房节奏"],
+    "viewing checklist": ["## 看房核验清单"],
+    "decision templates": ["## 常见决策模板"],
+}
 MIN_GUIDE_BYTES = 7_500
 MIN_SOURCE_LINKS = 2
 
@@ -272,6 +295,30 @@ def check_chengdu_company_directory(findings: list[Finding]) -> None:
     check_city_company_directory("chengdu", "成都", findings)
 
 
+def check_chengdu_public_quality(findings: list[Finding]) -> None:
+    """Keep the Chengdu corpus aligned with the full company-guide contract."""
+    chengdu_dir = CONTENT / "chengdu"
+    public_paths = [
+        chengdu_dir / "index.mdx",
+        REPO / "components" / "docs" / "chengdu-overview.tsx",
+        *sorted(chengdu_dir.glob("*-renting-guide.mdx")),
+    ]
+
+    for path in public_paths:
+        if not path.exists():
+            continue
+        text = read_text(path)
+        for token in CHENGDU_PUBLIC_BANNED_TERMS:
+            if token in text:
+                findings.append(Finding("ERROR", rel(path), f"internal maintenance term remains: {token}"))
+
+    for guide in sorted(chengdu_dir.glob("*-renting-guide.mdx")):
+        text = read_text(guide)
+        for section, alternatives in CHENGDU_REQUIRED_SECTIONS.items():
+            if not any(marker in text for marker in alternatives):
+                findings.append(Finding("ERROR", rel(guide), f"missing Chengdu required section: {section}"))
+
+
 def main() -> int:
     findings: list[Finding] = []
 
@@ -287,6 +334,7 @@ def main() -> int:
     check_nanjing_company_directory(findings)
     check_chengdu_exposure(findings)
     check_chengdu_company_directory(findings)
+    check_chengdu_public_quality(findings)
 
     errors = [f for f in findings if f.level == "ERROR"]
     warnings = [f for f in findings if f.level == "WARN"]
