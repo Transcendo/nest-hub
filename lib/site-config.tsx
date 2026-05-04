@@ -81,6 +81,11 @@ export const cityCards = [
 		description: "已收录南京公司样本，覆盖雨花台软件谷、江北新区、江宁滨江、徐庄 / 仙林等通勤带。",
 		href: "/docs/nanjing",
 	},
+	{
+		title: "成都",
+		description: "覆盖高新南区、天府软件园、金融城、新川、市中心和火车南站换乘带，先确认楼栋再选居住圈。",
+		href: "/docs/chengdu",
+	},
 ];
 
 export const valueProps = [

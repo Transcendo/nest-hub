@@ -69,6 +69,8 @@ const moduleLogoStyles = {
 		"bg-amber-50 text-amber-700 ring-amber-200 dark:bg-amber-950/35 dark:text-amber-300 dark:ring-amber-800/60",
 	nanjing:
 		"bg-violet-50 text-violet-700 ring-violet-200 dark:bg-violet-950/35 dark:text-violet-300 dark:ring-violet-800/60",
+	chengdu:
+		"bg-amber-50 text-amber-700 ring-amber-200 dark:bg-amber-950/35 dark:text-amber-300 dark:ring-amber-800/60",
 };
 
 function ModuleLogo({
@@ -373,6 +375,19 @@ export const contents: Content[] = [
 				cityLabel: "南京",
 				fallbackIcon: () => <MapPinned className="w-4 h-4 text-current" />,
 			}),
+		],
+	},
+	{
+		title: "成都",
+		href: "/docs/chengdu",
+		expandSectionForPathPrefix: "/docs/chengdu",
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="chengdu">
+				<MapPinned />
+			</ModuleLogo>
+		),
+		list: [
+			{ title: "总览", href: "/docs/chengdu", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
 		],
 	},
 	{

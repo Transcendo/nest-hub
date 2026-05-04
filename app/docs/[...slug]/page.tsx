@@ -23,6 +23,7 @@ import {
 	ViewingGuidePage,
 } from "@/components/docs/avoid-pitfalls-pages";
 import { BeijingOverview } from "@/components/docs/beijing-overview";
+import { ChengduOverview } from "@/components/docs/chengdu-overview";
 import { GuangzhouOverview } from "@/components/docs/guangzhou-overview";
 import { HangzhouOverview } from "@/components/docs/hangzhou-overview";
 import { NanjingOverview } from "@/components/docs/nanjing-overview";
@@ -108,6 +109,7 @@ export default async function Page({
 						NanjingOverview,
 						ShanghaiOverview,
 						ShenzhenOverview,
+						ChengduOverview,
 						DatabaseTable,
 						ForkButton,
 						AddToCursor,
