@@ -25,7 +25,7 @@ const ecosystemRows: EcosystemRow[] = [
 		area: "雨花台区凤信路 20 号 A 栋运满满大楼",
 		track: "智慧物流、货运平台、大数据、AI 调度",
 		mapLogic: "满帮/运满满租房要按雨花台南侧处理。看房时先问清是总部楼栋、研发团队还是业务团队，再比较软件大道、宁双路、铁心桥、西善桥和油坊桥换乘。",
-		source: "http://ymm56.com/about.html",
+		source: "https://www.ymm56.com/about.html",
 		guideHref: "/docs/nanjing/manbang-yunmanman-renting-guide",
 	},
 	{
@@ -196,7 +196,7 @@ const viewingRhythm = [
 	},
 ];
 
-const sourceBackedDate = "2026-05-03";
+const sourceBackedDate = "2026-05-04";
 
 export function NanjingOverview() {
 	const observedCount = ecosystemRows.length;
