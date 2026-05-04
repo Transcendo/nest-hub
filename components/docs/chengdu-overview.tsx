@@ -5,6 +5,18 @@ import {
 	MapPinned,
 	Route,
 } from "lucide-react";
+import Link from "next/link";
+
+const collectedCompanies = [
+	{ name: "字节跳动", href: "/docs/chengdu/bytedance-renting-guide" },
+	{ name: "阿里巴巴", href: "/docs/chengdu/alibaba-renting-guide" },
+	{ name: "百度", href: "/docs/chengdu/baidu-renting-guide" },
+	{ name: "快手", href: "/docs/chengdu/kuaishou-renting-guide" },
+	{ name: "腾讯", href: "/docs/chengdu/tencent-renting-guide" },
+	{ name: "网易", href: "/docs/chengdu/netease-renting-guide" },
+	{ name: "Tap4Fun / 创人所爱", href: "/docs/chengdu/tap4fun-renting-guide" },
+	{ name: "华为", href: "/docs/chengdu/huawei-renting-guide" },
+];
 
 const officeAnchors = [
 	{
@@ -171,11 +183,11 @@ const viewingRhythm = [
 const sourceDate = "2026-05-04";
 
 export function ChengduOverview() {
-	const guideCount = officeAnchors.filter((anchor) => "guideHref" in anchor).length;
+	const guideCount = collectedCompanies.length;
 	const stats = [
+		{ label: "已收录指南", value: String(guideCount) },
 		{ label: "办公锚点", value: String(officeAnchors.length) },
 		{ label: "核心通勤带", value: String(commuteBelts.length) },
-		{ label: "已收录指南", value: String(guideCount) },
 	];
 
 	return (
@@ -350,6 +362,28 @@ export function ChengduOverview() {
 								{item.detail}
 							</div>
 						</div>
+					))}
+				</div>
+			</section>
+
+			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+				<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
+					<Building2 className="size-4 text-amber-700 dark:text-amber-300" />
+					当前已收录公司指南
+				</div>
+				<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+					已完成 {guideCount} 个成都公司指南；园区和片区样本保留在办公锚点表里，用来帮助还没拿到具体楼栋的人先判断通勤方向。
+				</p>
+				<div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+					{collectedCompanies.map((company) => (
+						<Link
+							key={company.href}
+							href={company.href}
+							className="flex items-center justify-between rounded-lg border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:border-amber-600 hover:text-amber-800 dark:border-zinc-800 dark:text-zinc-200 dark:hover:border-amber-300 dark:hover:text-amber-200"
+						>
+							<span>{company.name}</span>
+							<span className="text-xs text-zinc-500">进入指南</span>
+						</Link>
 					))}
 				</div>
 			</section>
