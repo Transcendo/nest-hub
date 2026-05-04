@@ -380,10 +380,10 @@ export function GuangzhouOverview() {
 				<div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
 					<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
 						<Building2 className="size-4 text-orange-700 dark:text-orange-300" />
-						当前状态
+						总览范围
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						广州总览已建立 {observedCount} 家公司观察样本和 {commuteBelts.length} 条核心通勤带，并把腾讯 / 微信、网易游戏、唯品会、小鹏、广汽埃安、文远知行等高搜索需求样本拆成公司级租房指南。
+						广州总览已覆盖 {observedCount} 家公司观察样本和 {commuteBelts.length} 条核心通勤带，并把腾讯 / 微信、网易游戏、唯品会、小鹏、广汽埃安、文远知行等高搜索需求样本拆成公司级租房指南。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
 						本页和公司页都不写未经核验的房源、价格和中介渠道；只做官方来源支撑的公司样本与通勤方向判断。

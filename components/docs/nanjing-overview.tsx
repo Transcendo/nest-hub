@@ -5,6 +5,7 @@ import {
 	MapPinned,
 	Route,
 } from "lucide-react";
+import Link from "next/link";
 
 type EcosystemRow = {
 	company: string;
@@ -17,112 +18,100 @@ type EcosystemRow = {
 	guideHref?: string;
 };
 
+const collectedGuides = [
+	{ name: "南京大厂 Offer", href: "/docs/nanjing/bigtech-offer-renting-guide" },
+	{ name: "雨花台 / 软件谷南侧", href: "/docs/nanjing/yuhuatai-software-valley-renting-guide" },
+	{ name: "江北新区 / 研创园 / 高新区", href: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide" },
+	{ name: "河西 / 南京南站换乘", href: "/docs/nanjing/hexi-south-station-renting-guide" },
+	{ name: "徐庄 / 仙林 / 麒麟", href: "/docs/nanjing/xuzhuang-xianlin-renting-guide" },
+	{ name: "焦点科技 / 中国制造网", href: "/docs/nanjing/focuschina-renting-guide" },
+	{ name: "满帮 / 运满满", href: "/docs/nanjing/manbang-yunmanman-renting-guide" },
+	{ name: "诚迈科技", href: "/docs/nanjing/archermind-renting-guide" },
+	{ name: "润和软件", href: "/docs/nanjing/hoperun-renting-guide" },
+	{ name: "中兴通讯南京滨江", href: "/docs/nanjing/zte-binjiang-renting-guide" },
+	{ name: "途牛旅游网", href: "/docs/nanjing/tuniu-renting-guide" },
+];
+
 const ecosystemRows: EcosystemRow[] = [
 	{
 		company: "满帮 / 运满满",
 		status: "已收录",
-		nanjingRole: "智慧物流平台南京总部样本，适合代表雨花台 / 软件谷南侧的互联网平台通勤题",
+		nanjingRole: "南京智慧物流平台办公锚点",
 		area: "雨花台区凤信路 20 号 A 栋运满满大楼",
 		track: "智慧物流、货运平台、大数据、AI 调度",
-		mapLogic: "满帮/运满满租房要按雨花台南侧处理。看房时先问清是总部楼栋、研发团队还是业务团队，再比较软件大道、宁双路、铁心桥、西善桥和油坊桥换乘。",
+		mapLogic: "按雨花台 / 软件谷南侧处理，重点比较软件大道、宁双路、铁心桥、西善桥、油坊桥和南京南站外扩。",
 		source: "https://www.ymm56.com/about.html",
 		guideHref: "/docs/nanjing/manbang-yunmanman-renting-guide",
 	},
 	{
 		company: "诚迈科技",
 		status: "已收录",
-		nanjingRole: "南京操作系统与信创软件公司样本，办公点落在雨花台软件产业带",
+		nanjingRole: "南京操作系统与信创软件公司办公锚点",
 		area: "雨花台区宁双路 19 号云密城 B 幢",
 		track: "操作系统、信创、软件外包、智能终端",
-		mapLogic: "诚迈科技适合和软件大道、宁双路、安德门、小行、铁心桥一起看。不要只按“南京软件公司”泛写，楼栋到地铁口和园区门的最后一公里很关键。",
+		mapLogic: "按宁双路 / 软件谷南侧处理，先核楼栋到地铁口、园区门和晚归路线，再看安德门、小行、铁心桥。",
 		source: "https://www.archermind.com/about-us",
 		guideHref: "/docs/nanjing/archermind-renting-guide",
 	},
 	{
 		company: "润和软件",
 		status: "已收录",
-		nanjingRole: "南京本地软件与行业数字化公司样本，官方页脚显示创智中心联系地址",
+		nanjingRole: "南京本地软件与行业数字化公司办公锚点",
 		area: "雨花台区软件大道 168 号润和创智中心",
 		track: "金融科技、电力能源、行业软件、AI 智能体",
-		mapLogic: "润和软件与软件大道沿线强相关，适合把天隆寺、安德门、小行、铁心桥、南京南站外扩作为候选圈。重点核园区进出、晚归路线和合租房源质量。",
+		mapLogic: "按软件大道沿线处理，天隆寺、安德门、小行、铁心桥、南京南站外扩都可以作为候选圈。",
 		source: "https://www.hoperun.com/",
 		guideHref: "/docs/nanjing/hoperun-renting-guide",
 	},
 	{
 		company: "中兴通讯南京滨江产研基地",
 		status: "已收录",
-		nanjingRole: "江宁滨江产业基地样本，和主城 CBD 租房完全不是一套逻辑",
+		nanjingRole: "江宁滨江产业基地办公锚点",
 		area: "江宁区牧龙中路 1 号",
 		track: "通信设备、5G、智能制造、工业互联网",
-		mapLogic: "中兴滨江基地要先确认班车、通勤车、生产/研发园区入口和下班时间。住主城可能每天被通勤吞掉，江宁滨江与江宁主城要分开评估。",
+		mapLogic: "先确认班车、园区入口和下班时间；江宁滨江、江宁主城和南京主城不能按同一套通勤半径判断。",
 		source: "https://www.zte.com.cn/china/enterprise/exhibition_hall/exhibition_nj_bj.html",
 		guideHref: "/docs/nanjing/zte-binjiang-renting-guide",
 	},
 	{
-		company: "江北新区产业技术研创园",
-		status: "已拆分",
-		nanjingRole: "江北新区科技办公片区样本，适合覆盖研发机构、创新平台和科技企业聚集的过江通勤题",
-		area: "南京江北新区 / 研创园片区",
-		track: "研发平台、软件信息、生命健康、集成电路与新兴产业",
-		mapLogic: "江北新区租房先判断是否真的需要每天过江。办公点在研创园时，江北近场、浦口沿线和主城过江方案的生活体验差距非常大。",
-		source: "https://corp.njitrip.com/doing",
-		guideHref: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
-	},
-	{
-		company: "南京高新区",
-		status: "已拆分",
-		nanjingRole: "南京北部 / 江北科技园区样本，可作为浦口、高新区和江北办公带的官方片区锚点",
-		area: "南京高新技术产业开发区",
-		track: "高新技术产业、软件信息、生命健康、先进制造",
-		mapLogic: "南京高新区相关 offer 不适合直接套河西或新街口租房逻辑。候选区域要围绕园区入口、地铁接驳、过江频率和夜间交通重新算。",
-		source: "https://www.njgxq.org.cn/",
-		guideHref: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
-	},
-	{
 		company: "焦点科技 / 中国制造网",
 		status: "已收录",
-		nanjingRole: "南京 B2B 电商与外贸数字化公司样本，官方联系页可核验焦点科技大厦地址",
+		nanjingRole: "南京 B2B 电商与外贸数字化公司办公锚点",
 		area: "江北新区丽景路 7 号焦点科技大厦",
 		track: "B2B 电商、外贸服务、SaaS、金融科技",
-		mapLogic: "焦点科技 / 中国制造网租房要按江北新区丽景路处理。先确认是否在焦点科技大厦打卡，再比较江北近场、浦口地铁沿线和主城过江兜底。",
+		mapLogic: "按江北新区丽景路处理，优先比较江北近场、浦口地铁沿线和主城过江兜底。",
 		source: "https://www.focuschina.com/contactus.html",
 		guideHref: "/docs/nanjing/focuschina-renting-guide",
 	},
 	{
 		company: "途牛旅游网",
 		status: "已收录",
-		nanjingRole: "在线休闲旅游平台样本，20-F 文件可核验玄武大道 / 聚慧园公司级办公锚点",
+		nanjingRole: "在线旅游平台南京办公锚点",
 		area: "玄武大道 108 号聚慧园 6-A 楼",
 		track: "在线旅游、休闲度假、交易平台、运营服务",
-		mapLogic: "途牛租房先按徐庄 / 玄武大道处理，再确认团队实际打卡楼栋、是否混合办公、晚归频率和真实门到门通勤。不要直接套新街口或河西租房逻辑。",
+		mapLogic: "按徐庄 / 玄武大道处理，再比较徐庄近场、仙林 / 马群、孝陵卫 / 钟灵街和主城换乘。",
 		source: "https://app.quotemedia.com/data/downloadFiling?webmasterId=101533&ref=319963000&type=HTML&symbol=TOUR&cdn=e87aa767e22321ea5ef0fa150eacc06c&companyName=Tuniu+Corporation&formType=20-F&dateFiled=2026-04-20",
 		guideHref: "/docs/nanjing/tuniu-renting-guide",
 	},
-];
-
-type BigFactoryLead = {
-	name: string;
-	role: string;
-	verification: string;
-	guideHref?: string;
-};
-
-const bigFactoryLeads: BigFactoryLead[] = [
 	{
-		name: "华为 / 阿里 / 京东 / 字节 / 美团 / 腾讯 / 网易等南京团队",
-		role: "南京当然有互联网大厂，但很多不是“总部型互联网城市”的单点办公逻辑，而是研发分部、区域中心、云业务/销售、本地生活运营、供应链或交付团队混在一起。",
-		verification: "不要只凭公司名租房。拿到 offer 后先问 HR：实际打卡楼栋、是否驻场客户、是否混合办公、有没有班车、晚上几点下班，再把它归到雨花台、河西、江北、江宁或徐庄/仙林。",
-		guideHref: "/docs/nanjing/bigtech-offer-renting-guide",
+		company: "江北新区产业技术研创园",
+		status: "片区入口",
+		nanjingRole: "江北新区科技办公片区",
+		area: "南京江北新区 / 研创园片区",
+		track: "研发平台、软件信息、生命健康、集成电路与新兴产业",
+		mapLogic: "办公点在研创园时，江北近场、浦口沿线和主城过江方案要分开评估。",
+		source: "https://corp.njitrip.com/doing",
+		guideHref: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
 	},
 	{
-		name: "大厂口径不等于租房锚点",
-		role: "“南京有岗位/有分公司/有区域办公室”和“能指导租房的稳定楼栋”是两回事。NestHub 不能把招聘城市、工商注册地、旧新闻或服务商驻场混成一个地址。",
-		verification: "大厂 offer 先走“已核验办公点 / 需继续核验团队 / 不建议直接用于租房”的分层，再决定是否值得拆成独立公司页。",
-	},
-	{
-		name: "现阶段页面处理方式",
-		role: "当前信息表只放已经能找到官网、IR、园区或公司公开页支撑的样本；大厂南京团队先作为单独核验队列，避免误导新人按错片区租房。",
-		verification: "如果 offer 来自大厂南京团队，优先把具体楼栋发给 NestHub 或自己用地图实测门到门，不要按“南京市区”“河西”“软件谷”这种粗标签做决定。",
+		company: "南京高新区",
+		status: "片区入口",
+		nanjingRole: "南京北部 / 江北科技园区",
+		area: "南京高新技术产业开发区",
+		track: "高新技术产业、软件信息、生命健康、先进制造",
+		mapLogic: "相关 offer 先围绕园区入口、地铁接驳、过江频率和夜间交通重算，不直接套河西或新街口逻辑。",
+		source: "https://www.njgxq.org.cn/",
+		guideHref: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
 	},
 ];
 
@@ -139,76 +128,70 @@ const commuteBelts: CommuteBelt[] = [
 		name: "雨花台 / 软件谷南侧",
 		companies: "满帮 / 运满满、诚迈科技、润和软件等",
 		areas: "软件大道、宁双路、凤信路、安德门、小行、天隆寺、铁心桥、西善桥、油坊桥、南京南站外扩",
-		warning: "南京科技公司新人最容易把“软件谷”看成一个点。实际要按软件大道、宁双路、凤信路分楼栋，最后一公里和合租房源质量差异很大。",
+		warning: "软件谷不是一个点，要按软件大道、宁双路、凤信路分别算楼栋、园区门和最后一公里。",
 		guideHref: "/docs/nanjing/yuhuatai-software-valley-renting-guide",
 	},
 	{
 		name: "江北新区 / 研创园 / 高新区",
 		companies: "焦点科技 / 中国制造网、江北新区产业技术研创园、南京高新区相关科技企业",
 		areas: "丽景路、研创园、江北核心区、浦口万汇城、泰山新村、柳洲东路、龙华路、桥北外扩",
-		warning: "江北租房不要先问便宜不便宜，先问每天是否过江。过江通勤、地铁拥挤、天气和晚归路线会直接改变居住体验。",
+		warning: "先判断是否每天过江，再决定住江北近场、浦口沿线还是主城换乘。",
 		guideHref: "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
 	},
 	{
 		name: "江宁滨江 / 产业基地",
 		companies: "中兴通讯南京滨江产研基地、通信与智能制造相关岗位",
 		areas: "江宁滨江、牧龙中路、铜井、滨江开发区、江宁主城、百家湖 / 小龙湾外扩",
-		warning: "江宁滨江不是江宁主城。先确认班车和园区出入口，再决定住基地附近、江宁主城还是南京南站周边。",
+		warning: "江宁滨江不是江宁主城，班车、园区出入口和晚归路线比直线距离更关键。",
 		guideHref: "/docs/nanjing/zte-binjiang-renting-guide",
 	},
 	{
 		name: "河西 / 建邺 / 南京南站换乘带",
 		companies: "总部职能、金融科技、销售运营和跨片区通勤人群",
 		areas: "河西、奥体、元通、应天大街、中华门、南京南站、雨花门、卡子门",
-		warning: "河西和南京南站适合作为均衡换乘方案，但成本和通勤稳定性要实测。别为了“住得体面”牺牲通勤和现金流。",
+		warning: "适合作为均衡换乘方案，但要把租金、通勤稳定性和晚归成本一起算。",
 		guideHref: "/docs/nanjing/hexi-south-station-renting-guide",
 	},
 	{
 		name: "玄武 / 徐庄 / 仙林 / 麒麟扩展带",
-		companies: "途牛旅游网，以及后续适合核验的软件、科研、芯片、游戏与高校周边科技样本",
+		companies: "途牛旅游网，以及徐庄、玄武大道、仙林、麒麟方向科技岗位",
 		areas: "徐庄软件园、玄武大道、仙林、马群、麒麟、孝陵卫、钟灵街",
-		warning: "片区指南已拆出，途牛也已按官方 20-F 锚点拆页；这条带的其他公司仍需用官方地址重新校准，不把未核验楼栋写进表。",
+		warning: "先核实际楼栋，再比较徐庄近场、仙林/马群、孝陵卫/钟灵街和主城换乘。",
 		guideHref: "/docs/nanjing/xuzhuang-xianlin-renting-guide",
 	},
 ];
 
 const mapMarkers = [
-	{ label: "雨花软件谷", detail: "片区指南、满帮 / 诚迈 / 润和已收录", x: 43, y: 62, status: "已收录" },
-	{ label: "江北研创园", detail: "焦点科技 / 研创园 / 江北核心区已拆分", x: 28, y: 36, status: "已收录" },
-	{ label: "南京高新区", detail: "浦口 / 高新区已拆分", x: 20, y: 31, status: "已拆分" },
-	{ label: "江宁滨江", detail: "中兴滨江产研基地已收录", x: 60, y: 76, status: "已收录" },
-	{ label: "河西 / 南站", detail: "换乘专题已收录", x: 48, y: 49, status: "已收录" },
-	{ label: "徐庄 / 仙林", detail: "片区指南和途牛指南已收录，其他样本继续核验", x: 70, y: 37, status: "已收录" },
+	{ label: "雨花软件谷", detail: "满帮 / 诚迈 / 润和", x: 43, y: 62 },
+	{ label: "江北研创园", detail: "焦点科技 / 研创园", x: 28, y: 36 },
+	{ label: "南京高新区", detail: "浦口 / 高新区", x: 20, y: 31 },
+	{ label: "江宁滨江", detail: "中兴滨江产研基地", x: 60, y: 76 },
+	{ label: "河西 / 南站", detail: "换乘专题", x: 48, y: 49 },
+	{ label: "徐庄 / 仙林", detail: "途牛 / 玄武大道", x: 70, y: 37 },
 ];
 
 const viewingRhythm = [
 	{
 		phase: "先问清打卡楼栋",
-		detail: "南京很多科技岗位不是一个 CBD 问题。雨花台、江北、江宁滨江、徐庄/仙林的通勤完全不同，先拿到楼栋、园区门、班车和上下班时间。",
+		detail: "南京科技岗位分布在雨花台、江北、江宁滨江、徐庄/仙林等方向，先拿到楼栋、园区门、班车和上下班时间。",
 	},
 	{
 		phase: "把过江和最后一公里单独算",
-		detail: "江北与主城、江宁滨江与江宁主城、软件谷内部楼栋之间都可能被最后一公里放大。看房当天要实测门到门，而不是只看地铁站名。",
+		detail: "江北与主城、江宁滨江与江宁主城、软件谷内部楼栋之间都可能被最后一公里放大。",
 	},
 	{
 		phase: "签前拆清费用和房源形态",
-		detail: "南京常见老小区合租、公寓、园区周边房和转租混在一起。签前确认中介费、押付、民水民电、隔断、转租授权和提前退租规则。",
+		detail: "南京常见老小区合租、公寓、园区周边房和转租混在一起，签前确认中介费、押付、民水民电、隔断和退租规则。",
 	},
 ];
 
 const sourceBackedDate = "2026-05-04";
 
 export function NanjingOverview() {
-	const observedCount = ecosystemRows.length;
-	const collectedGuideCount = new Set([
-		...ecosystemRows.flatMap((row) => (row.guideHref ? [row.guideHref] : [])),
-		...bigFactoryLeads.flatMap((row) => (row.guideHref ? [row.guideHref] : [])),
-		...commuteBelts.flatMap((row) => (row.guideHref ? [row.guideHref] : [])),
-	]).size;
 	const stats = [
-		{ label: "可信样本", value: String(observedCount) },
+		{ label: "已收录指南", value: String(collectedGuides.length) },
+		{ label: "观察样本", value: String(ecosystemRows.length) },
 		{ label: "核心通勤带", value: String(commuteBelts.length) },
-		{ label: "已收录指南", value: String(collectedGuideCount) },
 	];
 
 	return (
@@ -219,14 +202,14 @@ export function NanjingOverview() {
 						<div className="space-y-4">
 							<div className="inline-flex items-center gap-2 rounded-md border border-indigo-700/20 bg-white px-3 py-1 text-xs font-semibold text-indigo-800 dark:border-indigo-400/30 dark:bg-zinc-900 dark:text-indigo-200">
 								<MapPinned className="size-3.5" />
-								南京科技公司与办公片区入口
+								南京科技公司与租房地图入口
 							</div>
 							<div className="space-y-3">
 								<h2 className="text-3xl font-semibold leading-tight tracking-normal sm:text-4xl">
-									先分清雨花台、江北、江宁滨江和主城换乘
+									先看城市格局，再进入公司和片区指南
 								</h2>
 								<p className="max-w-xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-									南京当然有互联网大厂，但不能只按公司名租房。满帮、诚迈、润和一类样本更贴近雨花台 / 软件谷南侧；中兴滨江基地是江宁滨江产业园逻辑；途牛要按徐庄 / 玄武大道处理；江北新区和南京高新区要单独看过江通勤；华为、阿里、京东、字节、美团、腾讯、网易等南京团队还要先核实际打卡楼栋。
+									南京科技公司和产业办公区分布在雨花台 / 软件谷、江北新区、江宁滨江、河西 / 南站、徐庄 / 仙林等方向。租房前先判断 offer 属于哪条通勤带，再按实际楼栋、地铁接驳、班车、晚归路线和预算筛选小区。
 								</p>
 							</div>
 						</div>
@@ -251,17 +234,17 @@ export function NanjingOverview() {
 						<div className="absolute inset-0 bg-[radial-gradient(circle_at_43%_62%,rgba(99,102,241,0.22),transparent_30%),radial-gradient(circle_at_28%_36%,rgba(14,165,233,0.16),transparent_28%),radial-gradient(circle_at_60%_76%,rgba(34,197,94,0.15),transparent_28%)]" />
 						<div className="relative flex h-full min-h-[300px] flex-col justify-between p-6">
 							<div className="grid grid-cols-2 gap-3 text-xs font-medium text-zinc-600 dark:text-zinc-300">
-								<span className="rounded-full bg-white/80 px-3 py-1 shadow-sm dark:bg-zinc-950/70">雨花台 / 软件谷南</span>
+								<span className="rounded-full bg-white/80 px-3 py-1 shadow-sm dark:bg-zinc-950/70">雨花台 / 软件谷南侧</span>
 								<span className="rounded-full bg-white/80 px-3 py-1 shadow-sm dark:bg-zinc-950/70">江北新区 / 高新区</span>
 								<span className="rounded-full bg-white/80 px-3 py-1 shadow-sm dark:bg-zinc-950/70">江宁滨江 / 产业基地</span>
 								<span className="rounded-full bg-white/80 px-3 py-1 shadow-sm dark:bg-zinc-950/70">河西 / 南站换乘</span>
 							</div>
 							<div className="rounded-xl border border-zinc-200 bg-white/85 p-4 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/75">
 								<div className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-									南京租房的核心是“别把园区 offer 当主城 offer”
+									南京租房先按办公区分层
 								</div>
 								<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-									雨花台、江北、江宁滨江、河西换乘和仙林/徐庄不是同一种租房题。先把通勤方向分清，比看一堆低价房源更重要。
+									雨花台、江北、江宁滨江、河西换乘和仙林 / 徐庄不是同一种租房题。先分清通勤方向，再看房源。
 								</p>
 							</div>
 						</div>
@@ -284,7 +267,7 @@ export function NanjingOverview() {
 						<div className="flex items-center gap-3 text-xs text-zinc-600 dark:text-zinc-400">
 							<span className="inline-flex items-center gap-1.5">
 								<span className="size-2.5 rounded-full bg-indigo-500" />
-								官方/可信来源样本
+								已收录
 							</span>
 						</div>
 					</div>
@@ -306,8 +289,8 @@ export function NanjingOverview() {
 							<text x="43" y="59" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">雨花</text>
 							<text x="28" y="33" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">江北</text>
 							<text x="60" y="73" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">江宁滨江</text>
-							<text x="48" y="47" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">河西/南站</text>
-							<text x="70" y="34" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">仙林/徐庄</text>
+							<text x="48" y="47" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">河西 / 南站</text>
+							<text x="70" y="34" textAnchor="middle" className="fill-indigo-700 text-[2.4px] font-semibold dark:fill-indigo-300">仙林 / 徐庄</text>
 						</svg>
 						{mapMarkers.map((marker) => (
 							<div
@@ -329,45 +312,23 @@ export function NanjingOverview() {
 				<div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
 					<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
 						<Building2 className="size-4 text-indigo-700 dark:text-indigo-300" />
-						当前状态
+						当前已收录
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						南京总览已建立 {observedCount} 个官方/可信来源样本和 {commuteBelts.length} 条核心通勤带，并把当前 11 个南京公司、片区和 offer 指南全部接入总览与侧边栏。页面只链接实际存在的指南，也不写未经核验的租金。
+						已完成 {collectedGuides.length} 个南京公司、片区和 offer 指南；先按总览判断通勤带，再进入对应页面看具体租房建议。
 					</p>
-					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-						当前南京任务的完成口径是：11 个页面均有入口，公司页进入公司指南目录，片区 / offer 页走非公司入口；后续只在出现可信办公锚点或明确片区决策价值时再新增页面，没有稳定楼栋的公司名仍不强行拆页。
+					<div className="mt-4 grid gap-2">
+						{collectedGuides.map((guide) => (
+							<Link
+								key={guide.name}
+								href={guide.href}
+								className="flex items-center justify-between rounded-lg border border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:border-indigo-600 hover:text-indigo-800 dark:border-zinc-800 dark:text-zinc-200 dark:hover:border-indigo-300 dark:hover:text-indigo-200"
+							>
+								<span>{guide.name}</span>
+								<span className="text-xs text-zinc-500">进入指南</span>
+							</Link>
+						))}
 					</div>
-				</div>
-			</section>
-
-			<section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-				<div className="mb-4 flex items-start justify-between gap-3">
-					<div>
-						<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-							<Building2 className="size-4 text-indigo-700 dark:text-indigo-300" />
-							南京有没有互联网大厂？有，但要单独分层
-						</div>
-						<p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-							南京不是没有大厂，而是不适合把“大厂南京岗位”直接等同于一个稳定租房锚点。真正影响租房的是你在哪栋楼打卡、是否驻场、是否有班车、晚上几点走，以及它属于雨花台、河西、江北、江宁还是徐庄/仙林。
-						</p>
-					</div>
-				</div>
-				<div className="grid gap-3 md:grid-cols-3">
-					{bigFactoryLeads.map((item) => (
-						<div key={item.name} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-							<div className="font-semibold text-zinc-950 dark:text-zinc-50">
-								{item.guideHref ? (
-									<a href={item.guideHref} className="underline-offset-4 hover:underline">{item.name}</a>
-								) : (
-									item.name
-								)}
-							</div>
-							<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{item.role}</p>
-							<div className="mt-3 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900 dark:bg-amber-950 dark:text-amber-100">
-								{item.verification}
-							</div>
-						</div>
-					))}
 				</div>
 			</section>
 
@@ -379,7 +340,7 @@ export function NanjingOverview() {
 							南京核心通勤带
 						</div>
 						<p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-							南京租房先按办公区分层：雨花台软件谷南侧、江北新区、江宁滨江、河西/南站换乘、徐庄/仙林扩展带的预算、房龄和通勤方式差异很大。
+							南京租房先按办公区分层：雨花台软件谷南侧、江北新区、江宁滨江、河西 / 南站换乘、徐庄 / 仙林扩展带的预算、房龄和通勤方式差异很大。
 						</p>
 					</div>
 				</div>
@@ -388,7 +349,7 @@ export function NanjingOverview() {
 						<div key={belt.name} className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
 							<div className="font-semibold text-zinc-950 dark:text-zinc-50">
 								{belt.guideHref ? (
-									<a href={belt.guideHref} className="underline-offset-4 hover:underline">{belt.name}</a>
+									<Link href={belt.guideHref} className="underline-offset-4 hover:underline">{belt.name}</Link>
 								) : (
 									belt.name
 								)}
@@ -439,7 +400,7 @@ export function NanjingOverview() {
 							南京科技公司与办公片区信息表
 						</div>
 						<p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-							数据口径：优先使用公司官网、投资者关系页、政府/园区公开信息等可信来源；当前只建立公司样本、片区样本和通勤方向，不使用来源不明接口或未经核验的租金数据。
+							数据口径：以公司官网、投资者关系页、政府 / 园区公开信息核验办公锚点；租房建议按南京通勤带单独维护。
 						</p>
 					</div>
 					<div className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
@@ -452,7 +413,7 @@ export function NanjingOverview() {
 						<thead>
 							<tr className="border-y border-zinc-200 bg-zinc-50 text-left text-xs font-semibold uppercase text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
 								<th className="px-3 py-3">样本</th>
-								<th className="px-3 py-3">状态</th>
+								<th className="px-3 py-3">收录</th>
 								<th className="px-3 py-3">南京定位</th>
 								<th className="px-3 py-3">地图片区</th>
 								<th className="px-3 py-3">赛道</th>
@@ -465,7 +426,7 @@ export function NanjingOverview() {
 								<tr key={row.company} className="border-b border-zinc-100 align-top dark:border-zinc-800">
 									<td className="px-3 py-3 font-semibold text-zinc-950 dark:text-zinc-50">
 										{row.guideHref ? (
-											<a href={row.guideHref} className="underline-offset-4 hover:underline">{row.company}</a>
+											<Link href={row.guideHref} className="underline-offset-4 hover:underline">{row.company}</Link>
 										) : (
 											row.company
 										)}

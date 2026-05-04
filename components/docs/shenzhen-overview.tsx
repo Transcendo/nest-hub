@@ -412,10 +412,10 @@ export function ShenzhenOverview() {
 				<div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
 					<div className="flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-zinc-50">
 						<Building2 className="size-4 text-sky-700 dark:text-sky-300" />
-						当前状态
+						总览范围
 					</div>
 					<p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-						深圳总览已建立 {observedCount} 家公司观察样本和 {commuteBelts.length} 条核心通勤带，并已拆成独立企业租房指南。后续继续按真实办公楼栋和现场反馈校准。
+						深圳总览已覆盖 {observedCount} 家公司观察样本和 {commuteBelts.length} 条核心通勤带，并已拆成独立企业租房指南。看房前仍要按自己的团队楼栋、班车和到岗频率复核。
 					</p>
 					<div className="mt-4 rounded-lg border border-dashed border-zinc-200 px-3 py-3 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
 						本页不写未经核验的房源、价格和中介渠道；只做官方来源支撑的公司样本与通勤方向判断。
