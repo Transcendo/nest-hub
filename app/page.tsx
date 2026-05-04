@@ -75,6 +75,15 @@ const cityRows = [
 		tags: ["雨花台", "江北", "江宁滨江", "徐庄/仙林"],
 		color: "border-l-[#8b5cf6]",
 	},
+	{
+		rank: "07",
+		title: "成都",
+		href: "/docs/chengdu",
+		summary: "从高新南区 / 天府软件园到人民南路市中心，先按实际打卡楼栋拆通勤圈。",
+		metric: `${cityCompanyGuideCounts.chengdu} 篇公司指南`,
+		tags: ["字节跳动", "华为", "高新南区", "人民南路"],
+		color: "border-l-[#f59e0b]",
+	},
 ];
 
 const readingPath = [

@@ -21,6 +21,7 @@ const officeAnchors = [
 		area: "成都高新南区 / 新经济活力区方向",
 		track: "内容平台、办公系统、教育科技、新兴业务",
 		commuteLogic: "先问清实际打卡楼栋和业务团队，再在大源、天府三街、天府五街、世纪城之间选房。",
+		guideHref: "/docs/chengdu/bytedance-renting-guide",
 		source: "https://web.chinamshare.com/cdgxqrmt_html/APP/fglm/60743031.shtml",
 	},
 	{
@@ -45,6 +46,7 @@ const officeAnchors = [
 		area: "锦江 / 人民南路二段 / 仁恒置地广场",
 		track: "企业业务、政企服务、ICT 解决方案",
 		commuteLogic: "市中心办公点更适合按地铁换乘和生活半径选房，不要直接套高新区大源逻辑。",
+		guideHref: "/docs/chengdu/huawei-renting-guide",
 		source: "https://e.huawei.com/cn/about/china-branch-office",
 	},
 	{
@@ -117,10 +119,11 @@ const viewingRhythm = [
 const sourceDate = "2026-05-04";
 
 export function ChengduOverview() {
+	const guideCount = officeAnchors.filter((anchor) => "guideHref" in anchor).length;
 	const stats = [
 		{ label: "办公锚点", value: String(officeAnchors.length) },
 		{ label: "核心通勤带", value: String(commuteBelts.length) },
-		{ label: "信息日期", value: sourceDate },
+		{ label: "已收录指南", value: String(guideCount) },
 	];
 
 	return (
@@ -330,7 +333,15 @@ export function ChengduOverview() {
 						<tbody>
 							{officeAnchors.map((row) => (
 								<tr key={row.name} className="border-b border-zinc-100 align-top dark:border-zinc-800">
-									<td className="px-3 py-3 font-medium text-zinc-950 dark:text-zinc-50">{row.name}</td>
+									<td className="px-3 py-3 font-medium text-zinc-950 dark:text-zinc-50">
+										{"guideHref" in row ? (
+											<a href={row.guideHref} className="text-amber-700 underline-offset-4 hover:underline dark:text-amber-300">
+												{row.name}
+											</a>
+										) : (
+											row.name
+										)}
+									</td>
 									<td className="px-3 py-3 text-zinc-600 dark:text-zinc-400">{row.role}</td>
 									<td className="px-3 py-3 text-zinc-600 dark:text-zinc-400">{row.area}</td>
 									<td className="px-3 py-3 text-zinc-600 dark:text-zinc-400">{row.track}</td>

@@ -106,7 +106,7 @@ export type CompanyGuide = {
 	href: string;
 	logoKey?: CompanyLogoKey;
 	area: string;
-	city: "beijing" | "shanghai" | "guangzhou" | "hangzhou" | "shenzhen" | "nanjing";
+	city: "beijing" | "shanghai" | "guangzhou" | "hangzhou" | "shenzhen" | "nanjing" | "chengdu";
 };
 
 export const companyGuides: readonly CompanyGuide[] = [
@@ -226,6 +226,9 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "润和软件", href: "/docs/nanjing/hoperun-renting-guide", area: "南京 · 雨花台软件大道", city: "nanjing" },
 	{ name: "中兴通讯 ZTE", href: "/docs/nanjing/zte-binjiang-renting-guide", logoKey: "zte", area: "南京 · 江宁滨江牧龙中路", city: "nanjing" },
 	{ name: "途牛旅游网", href: "/docs/nanjing/tuniu-renting-guide", area: "南京 · 玄武大道 / 徐庄", city: "nanjing" },
+
+	{ name: "字节跳动", href: "/docs/chengdu/bytedance-renting-guide", logoKey: "bytedance", area: "成都 · 高新南区 / 新经济活力区", city: "chengdu" },
+	{ name: "华为", href: "/docs/chengdu/huawei-renting-guide", logoKey: "huawei", area: "成都 · 人民南路二段 / 仁恒置地广场", city: "chengdu" },
 ];
 
 export const companyGuideCount = companyGuides.length;
@@ -239,4 +242,5 @@ export const cityCompanyGuideCounts = {
 	hangzhou: companyGuides.filter((company) => company.city === "hangzhou").length,
 	shenzhen: companyGuides.filter((company) => company.city === "shenzhen").length,
 	nanjing: companyGuides.filter((company) => company.city === "nanjing").length,
+	chengdu: companyGuides.filter((company) => company.city === "chengdu").length,
 } as const;

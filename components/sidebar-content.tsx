@@ -388,6 +388,11 @@ export const contents: Content[] = [
 		),
 		list: [
 			{ title: "总览", href: "/docs/chengdu", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			...createCityCompanyGuideItems({
+				city: "chengdu",
+				cityLabel: "成都",
+				fallbackIcon: () => <MapPinned className="w-4 h-4 text-current" />,
+			}),
 		],
 	},
 	{
