@@ -36,6 +36,15 @@ const ecosystemRows: EcosystemRow[] = [
 		guideHref: "/docs/wuhan/future-tech-city-renting-guide",
 	},
 	{
+		name: "华为武汉",
+		area: "江岸区三阳路8号天悦外滩金融中心A座",
+		track: "ICT、云、政企、交付与研发协作团队",
+		commute: "官网公开联系地址在三阳路；租房先按汉口近场和地铁换乘拆圈，若团队实际在光谷 / 驻场则切换到对应楼栋判断。",
+		status: "已收录",
+		source: "https://www.huawei.com/cn/contact-us",
+		guideHref: "/docs/wuhan/huawei-renting-guide",
+	},
+	{
 		name: "斗鱼",
 		area: "洪山区关山大道新发展国际中心A座",
 		track: "直播、内容平台、游戏社区",
@@ -87,6 +96,12 @@ const commuteBelts = [
 		risk: "早晚高峰挤、换乘时间被低估；要实测小区门到地铁口。",
 	},
 	{
+		label: "汉口三阳路 / 江岸办公带",
+		who: "公开办公锚点在三阳路、江汉路、大智路、黄浦路一线，或需要频繁见客户的人。",
+		areas: "三阳路、大智路、循礼门、江汉路、黄浦路、香港路",
+		risk: "老房质量、楼梯房、晚归街巷和过江通勤；不要把公开联系地址直接等同于所有团队打卡点。",
+	},
+	{
 		label: "高新大道 / 未来科技城东向带",
 		who: "办公点在未来科技城、东湖科学城、半导体和硬科技园区的人。",
 		areas: "光谷六路、光谷七路、未来一路、左岭外扩",
@@ -105,6 +120,7 @@ const mapMarkers = [
 	{ label: "光谷软件园 / 关山大道", x: "55%", y: "52%", type: "已收录" },
 	{ label: "未来科技城", x: "82%", y: "48%", type: "已收录" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
+	{ label: "华为武汉 / 三阳路", x: "18%", y: "36%", type: "已收录" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
 	{ label: "华科 / 武大高校带", x: "37%", y: "61%", type: "已收录" },
 	{ label: "斗鱼 / 关山大道", x: "57%", y: "57%", type: "已收录" },
@@ -118,6 +134,7 @@ const sourceRows = [
 	{ label: "武汉市人民政府光谷未来产业报道", href: "https://www.wuhan.gov.cn/sy/whyw/202410/t20241018_2470641.shtml" },
 	{ label: "中电光谷产业资源共享平台", href: "https://www.ovuni.com/" },
 	{ label: "贝壳武汉租房", href: "https://wh.zu.ke.com/zufang/" },
+	{ label: "华为官网联系我们", href: "https://www.huawei.com/cn/contact-us" },
 	{ label: "斗鱼官网联系我们", href: "https://www.douyu.com/cms/about/contact.html" },
 	{ label: "斗鱼官网关于我们", href: "https://www.douyu.com/cms/about/about_us.html" },
 	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
@@ -135,7 +152,7 @@ export function WuhanOverview() {
 						<p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-300">Wuhan renting map</p>
 						<h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#101615] dark:text-white">先把“光谷”拆开，再谈住哪</h2>
 						<p className="mt-3 max-w-3xl text-sm leading-7 text-[#101615]/70 dark:text-white/70">
-							武汉科技 offer 的租房判断核心不是行政区，而是实际打卡楼栋落在关山大道、光谷软件园、高新大道、未来科技城，还是武昌高校 / 换乘带。先建立城市总览和片区入口，正式公司页只在办公锚点足够清楚后逐步拆分。
+							武汉科技 offer 的租房判断核心不是行政区，而是实际打卡楼栋落在关山大道、光谷软件园、高新大道、未来科技城、汉口三阳路，还是武昌高校 / 换乘带。先建立城市总览和片区入口，正式公司页只在办公锚点足够清楚后逐步拆分。
 						</p>
 					</div>
 					<div className="grid grid-cols-3 gap-2 text-center text-xs">
