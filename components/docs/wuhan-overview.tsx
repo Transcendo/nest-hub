@@ -1,4 +1,14 @@
-const ecosystemRows = [
+type EcosystemRow = {
+	name: string;
+	area: string;
+	track: string;
+	commute: string;
+	status: string;
+	source: string;
+	guideHref?: string;
+};
+
+const ecosystemRows: EcosystemRow[] = [
 	{
 		name: "武汉东湖新技术开发区 / 光谷",
 		area: "高新大道、关山大道、光谷大道、未来科技城一带",
@@ -33,11 +43,12 @@ const ecosystemRows = [
 	},
 	{
 		name: "长江存储",
-		area: "东湖高新区 / 存储器基地相关片区",
+		area: "东湖高新区 / 未来三路88号",
 		track: "半导体、先进制造、硬科技研发",
-		commute: "通勤更依赖园区班车、倒班节奏和东向距离，租房前必须确认门岗、班次和夜间交通。",
-		status: "观察样本",
-		source: "https://www.ymtc.com/",
+		commute: "官网公开总部地址在未来三路88号，租房优先按未来三路、光谷东、高新大道和班车 / 夜间通勤核验。",
+		status: "已收录",
+		source: "https://www.ymtc.com/cn/contact.html",
+		guideHref: "/docs/wuhan/ymtc-renting-guide",
 	},
 	{
 		name: "烽火通信 / 光通信产业链",
@@ -90,13 +101,13 @@ const mapMarkers = [
 	{ label: "未来科技城", x: "82%", y: "48%", type: "园区" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
-	{ label: "长江存储方向", x: "86%", y: "58%", type: "硬科技" },
+	{ label: "长江存储 / 未来三路", x: "86%", y: "58%", type: "已收录" },
 ];
 
 const sourceRows = [
 	{ label: "武汉东湖新技术开发区政务网", href: "https://www.wehdz.gov.cn/" },
 	{ label: "斗鱼官网关于我们", href: "https://www.douyu.com/cms/about/about_us.html" },
-	{ label: "长江存储官网", href: "https://www.ymtc.com/" },
+	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
 	{ label: "烽火通信官网", href: "https://www.fiberhome.com/" },
 	{ label: "华中科技大学官网", href: "https://www.hust.edu.cn/" },
 ];
@@ -123,8 +134,8 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">0</div>
-							<div className="text-[#101615]/60 dark:text-white/60">已拆公司页</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">1</div>
+							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
 				</div>
@@ -163,8 +174,8 @@ export function WuhanOverview() {
 
 			<section className="overflow-hidden rounded-[10px] border border-[#101615]/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
 				<div className="border-b border-[#101615]/10 p-4 dark:border-white/10">
-					<h3 className="text-base font-semibold text-[#101615] dark:text-white">可信样本公司 / 园区表</h3>
-					<p className="mt-2 text-sm leading-6 text-[#101615]/65 dark:text-white/65">表格先保留能被官方或可信公开页面支撑的锚点；公司指南会在下一轮开始逐个补充，不提前放死链。</p>
+					<h3 className="text-base font-semibold text-[#101615] dark:text-white">公开样本公司 / 园区表</h3>
+					<p className="mt-2 text-sm leading-6 text-[#101615]/65 dark:text-white/65">表格只保留能被官方或可信公开页面支撑的锚点；已经成型的指南会直接露出，未成型对象不提前放死链。</p>
 				</div>
 				<div className="overflow-x-auto">
 					<table className="w-full min-w-[900px] text-left text-sm">
@@ -181,7 +192,7 @@ export function WuhanOverview() {
 							{ecosystemRows.map((row) => (
 								<tr key={row.name}>
 									<td className="px-4 py-3 font-medium text-[#101615] dark:text-white">
-										<a className="underline decoration-[#101615]/20 underline-offset-4 hover:decoration-emerald-500 dark:decoration-white/20" href={row.source}>
+										<a className="underline decoration-[#101615]/20 underline-offset-4 hover:decoration-emerald-500 dark:decoration-white/20" href={row.guideHref ?? row.source}>
 											{row.name}
 										</a>
 									</td>
@@ -198,10 +209,10 @@ export function WuhanOverview() {
 
 			<section className="grid gap-4 md:grid-cols-2">
 				<div className="rounded-[10px] border border-[#101615]/10 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
-					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 后续扩展</h3>
+					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 扩展方向</h3>
 					<ul className="mt-3 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
 						<li>武汉入口先以城市总览和片区判断为主，帮助 offer / 实习人群在确认楼栋前建立租房边界。</li>
-						<li>正式公司页只在办公锚点足够清楚后拆分；斗鱼、长江存储、烽火通信、光谷软件园 / 未来科技城会优先作为公开来源核验对象。</li>
+						<li>长江存储已拆成正式指南；斗鱼、烽火通信、光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
 						<li>价格口径会放在具体指南里作为公开平台样本或预算带，不在城市总览里伪装成实时行情。</li>
 					</ul>
 				</div>
