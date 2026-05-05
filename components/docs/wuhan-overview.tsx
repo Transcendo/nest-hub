@@ -52,12 +52,13 @@ const ecosystemRows: EcosystemRow[] = [
 		guideHref: "/docs/wuhan/ymtc-renting-guide",
 	},
 	{
-		name: "烽火通信 / 光通信产业链",
-		area: "武汉光谷通信产业带",
+		name: "烽火通信",
+		area: "东湖高新区 / 高新四路6号",
 		track: "通信设备、光网络、政企数字化",
-		commute: "先按实际厂区 / 研发楼确认，不要用公司名直接推断居住区。",
-		status: "观察样本",
-		source: "https://www.fiberhome.com/",
+		commute: "官网公开总部通讯地址在高新四路6号，租房优先按高新四路、光谷大道、关山大道和班车 / 夜间通勤核验。",
+		status: "已收录",
+		source: "https://www.fiberhome.com/contactus.html",
+		guideHref: "/docs/wuhan/fiberhome-renting-guide",
 	},
 	{
 		name: "华中科技大学 / 武汉大学周边科研人群",
@@ -103,6 +104,7 @@ const mapMarkers = [
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
 	{ label: "斗鱼 / 关山大道", x: "57%", y: "57%", type: "已收录" },
+	{ label: "烽火通信 / 高新四路", x: "65%", y: "62%", type: "已收录" },
 	{ label: "长江存储 / 未来三路", x: "86%", y: "58%", type: "已收录" },
 ];
 
@@ -111,7 +113,7 @@ const sourceRows = [
 	{ label: "斗鱼官网联系我们", href: "https://www.douyu.com/cms/about/contact.html" },
 	{ label: "斗鱼官网关于我们", href: "https://www.douyu.com/cms/about/about_us.html" },
 	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
-	{ label: "烽火通信官网", href: "https://www.fiberhome.com/" },
+	{ label: "烽火通信官网联系我们", href: "https://www.fiberhome.com/contactus.html" },
 	{ label: "华中科技大学官网", href: "https://www.hust.edu.cn/" },
 ];
 
@@ -137,7 +139,7 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">2</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">3</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
@@ -215,7 +217,7 @@ export function WuhanOverview() {
 					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 扩展方向</h3>
 					<ul className="mt-3 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
 						<li>武汉入口先以城市总览和片区判断为主，帮助 offer / 实习人群在确认楼栋前建立租房边界。</li>
-						<li>斗鱼和长江存储已拆成正式指南；烽火通信、光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
+						<li>斗鱼、长江存储和烽火通信已拆成正式指南；光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
 						<li>价格口径会放在具体指南里作为公开平台样本或预算带，不在城市总览里伪装成实时行情。</li>
 					</ul>
 				</div>
