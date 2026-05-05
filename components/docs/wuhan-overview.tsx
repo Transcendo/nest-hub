@@ -64,6 +64,15 @@ const ecosystemRows: EcosystemRow[] = [
 		guideHref: "/docs/wuhan/xiaomi-renting-guide",
 	},
 	{
+		name: "金山软件武汉",
+		area: "光谷中心城 / 光谷四路、南新街、金培路与光谷金融港",
+		track: "办公软件、游戏、云服务、研发与运营团队",
+		commute: "金山官网加入我们页面公开介绍武汉园区东侧紧临光谷四路、南部靠近南新街、西侧靠近金培路；东湖高新区政务网也曾提到金山武汉总部入驻光谷金融港，租房要先核当前楼栋再分圈。",
+		status: "已收录",
+		source: "https://www.kingsoft.com/joinus",
+		guideHref: "/docs/wuhan/kingsoft-renting-guide",
+	},
+	{
 		name: "华为武汉",
 		area: "江岸区三阳路8号天悦外滩金融中心A座",
 		track: "ICT、云、政企、交付与研发协作团队",
@@ -163,6 +172,7 @@ const mapMarkers = [
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "光谷生物城", x: "73%", y: "56%", type: "已收录" },
 	{ label: "小米武汉 / 光谷五路", x: "78%", y: "44%", type: "已收录" },
+	{ label: "金山软件 / 光谷四路", x: "76%", y: "47%", type: "已收录" },
 	{ label: "华为武汉 / 三阳路", x: "18%", y: "36%", type: "已收录" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
 	{ label: "华科 / 武大高校带", x: "37%", y: "61%", type: "已收录" },
@@ -179,6 +189,7 @@ const sourceRows = [
 	{ label: "武汉市人民政府光谷未来产业报道", href: "https://www.wuhan.gov.cn/sy/whyw/202410/t20241018_2470641.shtml" },
 	{ label: "中电光谷产业资源共享平台", href: "https://www.ovuni.com/" },
 	{ label: "东湖高新区政务网小米武汉总部报道", href: "https://www.wehdz.gov.cn/2022/zmq_75779/xwdt_75782/202210/t20221027_2072179.shtml" },
+	{ label: "金山官网加入我们", href: "https://www.kingsoft.com/joinus" },
 	{ label: "贝壳武汉租房", href: "https://wh.zu.ke.com/zufang/" },
 	{ label: "链家武汉租房", href: "https://wh.lianjia.com/zufang/" },
 	{ label: "华为官网联系我们", href: "https://www.huawei.com/cn/contact-us" },
@@ -208,11 +219,11 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">通勤带</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-cyan-700 dark:text-cyan-300">11</div>
+							<div className="text-lg font-semibold text-cyan-700 dark:text-cyan-300">12</div>
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">11</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">12</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
@@ -290,7 +301,7 @@ export function WuhanOverview() {
 					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 扩展方向</h3>
 					<ul className="mt-3 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
 						<li>武汉入口先以城市总览和片区判断为主，帮助 offer / 实习人群在确认楼栋前建立租房边界。</li>
-						<li>东湖高新区 / 光谷科技公司入口、光谷软件园、未来科技城、光谷生物城、小米武汉、斗鱼、长江存储、烽火通信、华为武汉和华科 / 武大高校带已拆成正式指南；其他公司锚点会继续按公开来源成熟度推进。</li>
+						<li>东湖高新区 / 光谷科技公司入口、光谷软件园、未来科技城、光谷生物城、小米武汉、金山软件武汉、斗鱼、长江存储、烽火通信、华为武汉和华科 / 武大高校带已拆成正式指南；其他公司锚点会继续按公开来源成熟度推进。</li>
 						<li>价格口径会放在具体指南里作为公开平台样本或预算带，不在城市总览里伪装成实时行情。</li>
 					</ul>
 				</div>
