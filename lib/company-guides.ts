@@ -238,6 +238,7 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "华为", href: "/docs/chengdu/huawei-renting-guide", logoKey: "huawei", area: "成都 · 人民南路二段 / 仁恒置地广场", city: "chengdu" },
 
 	{ name: "华为", href: "/docs/wuhan/huawei-renting-guide", logoKey: "huawei", area: "武汉 · 江岸三阳路 / 天悦外滩金融中心", city: "wuhan" },
+	{ name: "阿里巴巴", href: "/docs/wuhan/alibaba-renting-guide", logoKey: "alibaba", area: "武汉 · 徐东大街与友谊大道 / 武汉阿里中心", city: "wuhan" },
 	{ name: "小米", href: "/docs/wuhan/xiaomi-renting-guide", logoKey: "xiaomi", area: "武汉 · 光谷中心城 / 高新大道与花山大道", city: "wuhan" },
 	{ name: "金山软件", href: "/docs/wuhan/kingsoft-renting-guide", area: "武汉 · 光谷四路 / 南新街 / 金培路", city: "wuhan" },
 	{ name: "斗鱼", href: "/docs/wuhan/douyu-renting-guide", area: "武汉 · 洪山区关山大道新发展国际中心A座", city: "wuhan" },
