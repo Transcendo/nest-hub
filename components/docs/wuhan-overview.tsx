@@ -21,9 +21,10 @@ const ecosystemRows: EcosystemRow[] = [
 		name: "光谷软件园",
 		area: "关山大道 / 软件园中路周边",
 		track: "软件、游戏、互联网外包、研发团队",
-		commute: "适合优先比较关山大道、软件园路、民族大道、杨家湾和光谷广场换乘带。",
-		status: "园区样本",
-		source: "https://www.wehdz.gov.cn/",
+		commute: "适合优先比较关山大道、软件园路、民族大道、杨家湾和光谷广场换乘带；签约前先确认楼栋和园区入口。",
+		status: "已收录",
+		source: "https://www.ovuni.com/",
+		guideHref: "/docs/wuhan/guanggu-software-park-renting-guide",
 	},
 	{
 		name: "光谷未来科技城",
@@ -100,7 +101,7 @@ const commuteBelts = [
 
 const mapMarkers = [
 	{ label: "东湖高新区管委会", x: "70%", y: "42%", type: "城市锚点" },
-	{ label: "光谷软件园", x: "55%", y: "52%", type: "园区" },
+	{ label: "光谷软件园 / 关山大道", x: "55%", y: "52%", type: "已收录" },
 	{ label: "未来科技城", x: "82%", y: "48%", type: "园区" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
@@ -112,6 +113,8 @@ const mapMarkers = [
 
 const sourceRows = [
 	{ label: "武汉东湖新技术开发区政务网", href: "https://www.wehdz.gov.cn/" },
+	{ label: "中电光谷产业资源共享平台", href: "https://www.ovuni.com/" },
+	{ label: "贝壳武汉租房", href: "https://wh.zu.ke.com/zufang/" },
 	{ label: "斗鱼官网联系我们", href: "https://www.douyu.com/cms/about/contact.html" },
 	{ label: "斗鱼官网关于我们", href: "https://www.douyu.com/cms/about/about_us.html" },
 	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
@@ -142,7 +145,7 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">4</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">5</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>

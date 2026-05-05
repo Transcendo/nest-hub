@@ -409,6 +409,11 @@ export const contents: Content[] = [
 		list: [
 			{ title: "总览", href: "/docs/wuhan", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
 			{
+				title: "光谷软件园租房指南",
+				href: "/docs/wuhan/guanggu-software-park-renting-guide",
+				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
+			{
 				title: "华科 / 武大高校带",
 				href: "/docs/wuhan/hust-whu-campus-renting-guide",
 				icon: () => <Landmark className="w-4 h-4 text-current" />,
