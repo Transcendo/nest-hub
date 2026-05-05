@@ -30,9 +30,10 @@ const ecosystemRows: EcosystemRow[] = [
 		name: "光谷未来科技城",
 		area: "高新大道东段、未来一路 / 未来三路方向",
 		track: "硬科技、AI、半导体、科研平台",
-		commute: "更像园区通勤题：先确认楼栋、班车、晚归线路，再决定是否住近场或 11 号线换乘。",
-		status: "园区样本",
-		source: "https://www.wehdz.gov.cn/",
+		commute: "园区尺度大，先按楼栋、门岗、11 号线、班车和晚归路线拆圈，再决定住近场还是退回成熟生活圈。",
+		status: "已收录",
+		source: "https://www.wehdz.gov.cn/2022/ztzl_75799/zsyz_75806/zsdt/202210/t20221023_2065135.shtml",
+		guideHref: "/docs/wuhan/future-tech-city-renting-guide",
 	},
 	{
 		name: "斗鱼",
@@ -102,7 +103,7 @@ const commuteBelts = [
 const mapMarkers = [
 	{ label: "东湖高新区管委会", x: "70%", y: "42%", type: "城市锚点" },
 	{ label: "光谷软件园 / 关山大道", x: "55%", y: "52%", type: "已收录" },
-	{ label: "未来科技城", x: "82%", y: "48%", type: "园区" },
+	{ label: "未来科技城", x: "82%", y: "48%", type: "已收录" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
 	{ label: "华科 / 武大高校带", x: "37%", y: "61%", type: "已收录" },
@@ -113,6 +114,8 @@ const mapMarkers = [
 
 const sourceRows = [
 	{ label: "武汉东湖新技术开发区政务网", href: "https://www.wehdz.gov.cn/" },
+	{ label: "东湖高新区政务网光谷未来科技城", href: "https://www.wehdz.gov.cn/2022/ztzl_75799/zsyz_75806/zsdt/202210/t20221023_2065135.shtml" },
+	{ label: "武汉市人民政府光谷未来产业报道", href: "https://www.wuhan.gov.cn/sy/whyw/202410/t20241018_2470641.shtml" },
 	{ label: "中电光谷产业资源共享平台", href: "https://www.ovuni.com/" },
 	{ label: "贝壳武汉租房", href: "https://wh.zu.ke.com/zufang/" },
 	{ label: "斗鱼官网联系我们", href: "https://www.douyu.com/cms/about/contact.html" },
@@ -145,7 +148,7 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">5</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">6</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
@@ -223,7 +226,7 @@ export function WuhanOverview() {
 					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 扩展方向</h3>
 					<ul className="mt-3 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
 						<li>武汉入口先以城市总览和片区判断为主，帮助 offer / 实习人群在确认楼栋前建立租房边界。</li>
-						<li>斗鱼、长江存储、烽火通信和华科 / 武大高校带已拆成正式指南；光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
+						<li>光谷软件园、未来科技城、斗鱼、长江存储、烽火通信和华科 / 武大高校带已拆成正式指南；其他公司锚点会继续按公开来源成熟度推进。</li>
 						<li>价格口径会放在具体指南里作为公开平台样本或预算带，不在城市总览里伪装成实时行情。</li>
 					</ul>
 				</div>
