@@ -424,6 +424,11 @@ export const contents: Content[] = [
 				icon: () => <Route className="w-4 h-4 text-current" />,
 			},
 			{
+				title: "光谷生物城租房指南",
+				href: "/docs/wuhan/biolake-renting-guide",
+				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
+			{
 				title: "华科 / 武大高校带",
 				href: "/docs/wuhan/hust-whu-campus-renting-guide",
 				icon: () => <Landmark className="w-4 h-4 text-current" />,
