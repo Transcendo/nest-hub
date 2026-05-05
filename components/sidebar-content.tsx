@@ -424,6 +424,11 @@ export const contents: Content[] = [
 				icon: () => <Route className="w-4 h-4 text-current" />,
 			},
 			{
+				title: "光谷智能制造产业园",
+				href: "/docs/wuhan/guanggu-intelligent-manufacturing-park-renting-guide",
+				icon: () => <Route className="w-4 h-4 text-current" />,
+			},
+			{
 				title: "光谷生物城租房指南",
 				href: "/docs/wuhan/biolake-renting-guide",
 				icon: () => <Route className="w-4 h-4 text-current" />,

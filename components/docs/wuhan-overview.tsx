@@ -37,6 +37,15 @@ const ecosystemRows: EcosystemRow[] = [
 		guideHref: "/docs/wuhan/future-tech-city-renting-guide",
 	},
 	{
+		name: "光谷智能制造产业园",
+		area: "光谷东、左岭、东湖科学城东向组团",
+		track: "集成电路、新型显示、智能终端、新能源汽车、工业互联网",
+		commute: "政务网招商地图公开介绍其位于光谷之东、长江以南；租房先核实际楼栋、门岗、班车、倒班和夜间回家路线，再在左岭近场、高新大道、未来科技城和关山大道之间取舍。",
+		status: "已收录",
+		source: "https://www.wehdz.gov.cn/2022/ztzl_75799/zsyz_75806/zsdt/202210/t20221023_2065131.shtml",
+		guideHref: "/docs/wuhan/guanggu-intelligent-manufacturing-park-renting-guide",
+	},
+	{
 		name: "光谷生物城",
 		area: "东湖高新区 / 生命健康园区组团",
 		track: "生物医药、医疗器械、智慧医疗、园区运营",
@@ -127,6 +136,12 @@ const commuteBelts = [
 		risk: "生活配套密度、夜间交通和班车依赖度；新房多不等于适合刚入职。",
 	},
 	{
+		label: "左岭 / 光谷智能制造近场",
+		who: "办公点在光谷东、左岭、智能制造园区或需要倒班 / 晚归的硬科技新人。",
+		areas: "左岭、光谷东近场、高新大道东段、园区班车点周边",
+		risk: "园区大且最后一公里强，必须核楼栋、门岗、班车、夜间打车和商业水电；不要只按低月租签长约。",
+	},
+	{
 		label: "光谷生物城 / 生命健康近场",
 		who: "办公点在生物创新园、生物医药园、医疗器械园、医学健康园或智慧健康园的人。",
 		areas: "高新二路、高新大道、光谷三路至光谷六路、光谷东成熟过渡圈",
@@ -144,6 +159,7 @@ const mapMarkers = [
 	{ label: "东湖高新区 / 光谷", x: "70%", y: "42%", type: "已收录" },
 	{ label: "光谷软件园 / 关山大道", x: "55%", y: "52%", type: "已收录" },
 	{ label: "未来科技城", x: "82%", y: "48%", type: "已收录" },
+	{ label: "光谷智能制造 / 左岭", x: "90%", y: "53%", type: "已收录" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "光谷生物城", x: "73%", y: "56%", type: "已收录" },
 	{ label: "小米武汉 / 光谷五路", x: "78%", y: "44%", type: "已收录" },
@@ -158,6 +174,7 @@ const mapMarkers = [
 const sourceRows = [
 	{ label: "武汉东湖新技术开发区政务网", href: "https://www.wehdz.gov.cn/" },
 	{ label: "东湖高新区政务网光谷未来科技城", href: "https://www.wehdz.gov.cn/2022/ztzl_75799/zsyz_75806/zsdt/202210/t20221023_2065135.shtml" },
+	{ label: "东湖高新区政务网光谷智能制造产业园", href: "https://www.wehdz.gov.cn/2022/ztzl_75799/zsyz_75806/zsdt/202210/t20221023_2065131.shtml" },
 	{ label: "东湖高新区政务网光谷生物城", href: "https://www.wehdz.gov.cn/2022/ztzl_75799/zsyz_75806/zsdt/202210/t20221023_2065132.shtml" },
 	{ label: "武汉市人民政府光谷未来产业报道", href: "https://www.wuhan.gov.cn/sy/whyw/202410/t20241018_2470641.shtml" },
 	{ label: "中电光谷产业资源共享平台", href: "https://www.ovuni.com/" },
@@ -187,15 +204,15 @@ export function WuhanOverview() {
 					</div>
 					<div className="grid grid-cols-3 gap-2 text-center text-xs">
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">6</div>
+							<div className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">7</div>
 							<div className="text-[#101615]/60 dark:text-white/60">通勤带</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-cyan-700 dark:text-cyan-300">10</div>
+							<div className="text-lg font-semibold text-cyan-700 dark:text-cyan-300">11</div>
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">10</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">11</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
