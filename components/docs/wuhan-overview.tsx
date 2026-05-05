@@ -35,11 +35,12 @@ const ecosystemRows: EcosystemRow[] = [
 	},
 	{
 		name: "斗鱼",
-		area: "武汉总部 / 光谷互联网圈层",
+		area: "洪山区关山大道新发展国际中心A座",
 		track: "直播、内容平台、游戏社区",
-		commute: "适合后续拆成公司页；本轮只用官方关于斗鱼武汉主体的公开信息做观察样本。",
-		status: "观察样本",
-		source: "https://www.douyu.com/cms/about/about_us.html",
+		commute: "官网公开联系方式显示关山大道办公锚点，租房优先按关山大道、光谷软件园、杨家湾和 2 号线换乘带核验。",
+		status: "已收录",
+		source: "https://www.douyu.com/cms/about/contact.html",
+		guideHref: "/docs/wuhan/douyu-renting-guide",
 	},
 	{
 		name: "长江存储",
@@ -101,11 +102,13 @@ const mapMarkers = [
 	{ label: "未来科技城", x: "82%", y: "48%", type: "园区" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
+	{ label: "斗鱼 / 关山大道", x: "57%", y: "57%", type: "已收录" },
 	{ label: "长江存储 / 未来三路", x: "86%", y: "58%", type: "已收录" },
 ];
 
 const sourceRows = [
 	{ label: "武汉东湖新技术开发区政务网", href: "https://www.wehdz.gov.cn/" },
+	{ label: "斗鱼官网联系我们", href: "https://www.douyu.com/cms/about/contact.html" },
 	{ label: "斗鱼官网关于我们", href: "https://www.douyu.com/cms/about/about_us.html" },
 	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
 	{ label: "烽火通信官网", href: "https://www.fiberhome.com/" },
@@ -134,7 +137,7 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">1</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">2</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
@@ -212,7 +215,7 @@ export function WuhanOverview() {
 					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 扩展方向</h3>
 					<ul className="mt-3 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
 						<li>武汉入口先以城市总览和片区判断为主，帮助 offer / 实习人群在确认楼栋前建立租房边界。</li>
-						<li>长江存储已拆成正式指南；斗鱼、烽火通信、光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
+						<li>斗鱼和长江存储已拆成正式指南；烽火通信、光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
 						<li>价格口径会放在具体指南里作为公开平台样本或预算带，不在城市总览里伪装成实时行情。</li>
 					</ul>
 				</div>
