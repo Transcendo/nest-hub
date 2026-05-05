@@ -408,6 +408,11 @@ export const contents: Content[] = [
 		),
 		list: [
 			{ title: "总览", href: "/docs/wuhan", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			{
+				title: "华科 / 武大高校带",
+				href: "/docs/wuhan/hust-whu-campus-renting-guide",
+				icon: () => <Landmark className="w-4 h-4 text-current" />,
+			},
 			...createCityCompanyGuideItems({
 				city: "wuhan",
 				cityLabel: "武汉",

@@ -64,9 +64,10 @@ const ecosystemRows: EcosystemRow[] = [
 		name: "华中科技大学 / 武汉大学周边科研人群",
 		area: "珞喻路、鲁巷、光谷广场、东湖周边",
 		track: "高校、科研、实习、联合培养",
-		commute: "适合短租、合租和预算敏感人群，但要分清校区、实验室楼栋和企业实习地点。",
-		status: "校园样本",
+		commute: "华科官网公开地址在珞喻路1037号，武大官网公开地址在八一路299号；租房优先按校门 / 实验室、2 号线换乘和光谷实习路线核验。",
+		status: "已收录",
 		source: "https://www.hust.edu.cn/",
+		guideHref: "/docs/wuhan/hust-whu-campus-renting-guide",
 	},
 ];
 
@@ -103,6 +104,7 @@ const mapMarkers = [
 	{ label: "未来科技城", x: "82%", y: "48%", type: "园区" },
 	{ label: "光谷广场 / 2号线", x: "46%", y: "60%", type: "换乘" },
 	{ label: "街道口 / 高校带", x: "32%", y: "58%", type: "过渡" },
+	{ label: "华科 / 武大高校带", x: "37%", y: "61%", type: "已收录" },
 	{ label: "斗鱼 / 关山大道", x: "57%", y: "57%", type: "已收录" },
 	{ label: "烽火通信 / 高新四路", x: "65%", y: "62%", type: "已收录" },
 	{ label: "长江存储 / 未来三路", x: "86%", y: "58%", type: "已收录" },
@@ -115,6 +117,7 @@ const sourceRows = [
 	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
 	{ label: "烽火通信官网联系我们", href: "https://www.fiberhome.com/contactus.html" },
 	{ label: "华中科技大学官网", href: "https://www.hust.edu.cn/" },
+	{ label: "武汉大学官网", href: "https://www.whu.edu.cn/" },
 ];
 
 export function WuhanOverview() {
@@ -139,7 +142,7 @@ export function WuhanOverview() {
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">3</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">4</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>
@@ -217,7 +220,7 @@ export function WuhanOverview() {
 					<h3 className="text-base font-semibold text-[#101615] dark:text-white">当前收录 / 扩展方向</h3>
 					<ul className="mt-3 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
 						<li>武汉入口先以城市总览和片区判断为主，帮助 offer / 实习人群在确认楼栋前建立租房边界。</li>
-						<li>斗鱼、长江存储和烽火通信已拆成正式指南；光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
+						<li>斗鱼、长江存储、烽火通信和华科 / 武大高校带已拆成正式指南；光谷软件园 / 未来科技城会继续按公开来源成熟度推进。</li>
 						<li>价格口径会放在具体指南里作为公开平台样本或预算带，不在城市总览里伪装成实时行情。</li>
 					</ul>
 				</div>
