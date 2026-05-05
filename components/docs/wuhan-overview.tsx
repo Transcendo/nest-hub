@@ -179,6 +179,34 @@ const commuteBelts = [
 	},
 ];
 
+const viewingRhythm = [
+	{
+		step: "到城前 24 小时",
+		action: "让 HR / 主管把实际楼栋、园区入口、班车点、上下班时间和是否驻场说清楚；只拿到“光谷 / 武汉研发中心”时，先不要约远端房源。",
+	},
+	{
+		step: "第一天白天",
+		action: "先从办公点反推 2-3 个候选圈：近场步行 / 公交换乘、地铁换乘、成熟生活圈；同一条线路至少看一个合租、一个整租或公寓样本。",
+	},
+	{
+		step: "第一天晚高峰",
+		action: "实测园区门岗到小区门的门到门时间，特别是关山大道堵点、11 号线末班、光谷东夜间打车和跨江回汉口 / 武昌的成本。",
+	},
+	{
+		step: "第二天签前",
+		action: "带着预算上限复看 1-2 套候选房，逐项核验民水民电、服务费 / 中介费、押付、转租授权、退租违约金和维修责任；还没确认楼栋就先短租过渡。",
+	},
+];
+
+const signingRedLines = [
+	"房源离“公司名”很近，但离实际园区门岗 / 工位很远。",
+	"只给总价不拆服务费、中介费、物业费、水电费和网络费。",
+	"二房东、转租或合租房无法提供业主授权、原合同或清晰收款主体。",
+	"光谷东 / 左岭 / 未来科技城房源夜间回家强依赖打车，但中介只带白天看房。",
+	"老小区房龄、漏水、隔断、噪音、采光和电梯情况没有现场确认。",
+	"合同里提前退租、押金扣除、维修责任和转租规则含糊。",
+];
+
 const mapMarkers = [
 	{ label: "东湖高新区 / 光谷", x: "70%", y: "42%", type: "已收录" },
 	{ label: "光谷软件园 / 关山大道", x: "55%", y: "52%", type: "已收录" },
@@ -311,6 +339,32 @@ export function WuhanOverview() {
 							))}
 						</tbody>
 					</table>
+				</div>
+			</section>
+
+			<section className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+				<div className="rounded-[10px] border border-[#101615]/10 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
+					<h3 className="text-base font-semibold text-[#101615] dark:text-white">到武汉后 48 小时看房节奏</h3>
+					<div className="mt-4 space-y-3">
+						{viewingRhythm.map((item) => (
+							<div key={item.step} className="rounded-[8px] border border-[#101615]/10 bg-[#f8faf9] p-3 dark:border-white/10 dark:bg-white/[0.03]">
+								<div className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{item.step}</div>
+								<p className="mt-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">{item.action}</p>
+							</div>
+						))}
+					</div>
+				</div>
+				<div className="rounded-[10px] border border-amber-200 bg-amber-50/70 p-4 shadow-sm dark:border-amber-400/20 dark:bg-amber-950/20">
+					<h3 className="text-base font-semibold text-[#101615] dark:text-white">签约红线：这些没核清就别交钱</h3>
+					<ul className="mt-4 space-y-2 text-sm leading-6 text-[#101615]/70 dark:text-white/70">
+						{signingRedLines.map((item) => (
+							<li key={item} className="flex gap-2">
+								<span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+					<p className="mt-3 text-xs leading-5 text-[#101615]/55 dark:text-white/55">武汉公司页会继续按具体楼栋拆分；城市总览只负责帮你先排除明显错误的通勤线和合同风险。</p>
 				</div>
 			</section>
 
