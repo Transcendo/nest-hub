@@ -29,6 +29,7 @@ import { HangzhouOverview } from "@/components/docs/hangzhou-overview";
 import { NanjingOverview } from "@/components/docs/nanjing-overview";
 import { ShanghaiOverview } from "@/components/docs/shanghai-overview";
 import { ShenzhenOverview } from "@/components/docs/shenzhen-overview";
+import { WuhanOverview } from "@/components/docs/wuhan-overview";
 import { Features } from "@/components/docs/features";
 import {
 	AddToCursor,
@@ -110,6 +111,7 @@ export default async function Page({
 						ShanghaiOverview,
 						ShenzhenOverview,
 						ChengduOverview,
+						WuhanOverview,
 						DatabaseTable,
 						ForkButton,
 						AddToCursor,

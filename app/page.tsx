@@ -84,6 +84,15 @@ const cityRows = [
 		tags: ["字节跳动", "华为", "高新南区", "人民南路"],
 		color: "border-l-[#f59e0b]",
 	},
+	{
+		rank: "08",
+		title: "武汉",
+		href: "/docs/wuhan",
+		summary: "先按光谷软件园、关山大道、高新大道、未来科技城和武昌高校换乘带拆通勤圈。",
+		metric: `${cityCompanyGuideCounts.wuhan} 篇公司指南`,
+		tags: ["光谷", "关山大道", "未来科技城", "武昌高校带"],
+		color: "border-l-[#14b8a6]",
+	},
 ];
 
 const readingPath = [

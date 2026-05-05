@@ -71,6 +71,8 @@ const moduleLogoStyles = {
 		"bg-violet-50 text-violet-700 ring-violet-200 dark:bg-violet-950/35 dark:text-violet-300 dark:ring-violet-800/60",
 	chengdu:
 		"bg-amber-50 text-amber-700 ring-amber-200 dark:bg-amber-950/35 dark:text-amber-300 dark:ring-amber-800/60",
+	wuhan:
+		"bg-teal-50 text-teal-700 ring-teal-200 dark:bg-teal-950/35 dark:text-teal-300 dark:ring-teal-800/60",
 };
 
 function ModuleLogo({
@@ -391,6 +393,24 @@ export const contents: Content[] = [
 			...createCityCompanyGuideItems({
 				city: "chengdu",
 				cityLabel: "成都",
+				fallbackIcon: () => <MapPinned className="w-4 h-4 text-current" />,
+			}),
+		],
+	},
+	{
+		title: "武汉",
+		href: "/docs/wuhan",
+		expandSectionForPathPrefix: "/docs/wuhan",
+		Icon: ({ className }: SVGProps<any> = {}) => (
+			<ModuleLogo className={className} variant="wuhan">
+				<MapPinned />
+			</ModuleLogo>
+		),
+		list: [
+			{ title: "总览", href: "/docs/wuhan", icon: () => <MapPinned className="w-4 h-4 text-current" /> },
+			...createCityCompanyGuideItems({
+				city: "wuhan",
+				cityLabel: "武汉",
 				fallbackIcon: () => <MapPinned className="w-4 h-4 text-current" />,
 			}),
 		],

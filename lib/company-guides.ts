@@ -106,7 +106,7 @@ export type CompanyGuide = {
 	href: string;
 	logoKey?: CompanyLogoKey;
 	area: string;
-	city: "beijing" | "shanghai" | "guangzhou" | "hangzhou" | "shenzhen" | "nanjing" | "chengdu";
+	city: "beijing" | "shanghai" | "guangzhou" | "hangzhou" | "shenzhen" | "nanjing" | "chengdu" | "wuhan";
 };
 
 export const companyGuides: readonly CompanyGuide[] = [
@@ -250,4 +250,5 @@ export const cityCompanyGuideCounts = {
 	shenzhen: companyGuides.filter((company) => company.city === "shenzhen").length,
 	nanjing: companyGuides.filter((company) => company.city === "nanjing").length,
 	chengdu: companyGuides.filter((company) => company.city === "chengdu").length,
+	wuhan: companyGuides.filter((company) => company.city === "wuhan").length,
 } as const;

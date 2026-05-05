@@ -86,6 +86,11 @@ export const cityCards = [
 		description: "覆盖高新南区、天府软件园、金融城、新川、市中心和火车南站换乘带，先确认楼栋再选居住圈。",
 		href: "/docs/chengdu",
 	},
+	{
+		title: "武汉",
+		description: "光谷、关山大道、高新大道、未来科技城与武昌高校换乘带。",
+		href: "/docs/wuhan",
+	},
 ];
 
 export const valueProps = [
