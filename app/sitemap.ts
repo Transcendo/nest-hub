@@ -12,12 +12,19 @@ type LoadablePageData = {
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+	const now = new Date();
 	const basePages: MetadataRoute.Sitemap = [
 		{
 			url: BASE_URL,
-			lastModified: new Date(),
+			lastModified: now,
 			changeFrequency: "daily",
 			priority: 1.0,
+		},
+		{
+			url: `${BASE_URL}/docs`,
+			lastModified: now,
+			changeFrequency: "daily",
+			priority: 0.9,
 		},
 	];
 
