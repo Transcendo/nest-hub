@@ -40,6 +40,11 @@ SECTION_ORDER = [
     "wuhan",
 ]
 
+SEO_EXCLUDED_ROUTES = {
+    "/docs/mandatory-read",
+    "/docs/mandatory-read/renting-pitfalls",
+}
+
 
 def extract_frontmatter(text: str) -> dict[str, str]:
     if not text.startswith("---\n"):
@@ -94,10 +99,13 @@ def section_for(path: Path) -> str:
 def collect_pages() -> dict[str, list[tuple[str, str, str]]]:
     grouped: dict[str, list[tuple[str, str, str]]] = defaultdict(list)
     for path in sorted(CONTENT.rglob("*.mdx")):
+        route = route_for(path)
+        if route in SEO_EXCLUDED_ROUTES:
+            continue
         frontmatter = extract_frontmatter(path.read_text(encoding="utf-8"))
-        title = frontmatter.get("title") or route_for(path).rsplit("/", 1)[-1]
+        title = frontmatter.get("title") or route.rsplit("/", 1)[-1]
         description = frontmatter.get("description", "").replace("\n", " ").strip()
-        url = f"{PRODUCTION_URL}{route_for(path)}"
+        url = f"{PRODUCTION_URL}{route}"
         grouped[section_for(path)].append((title, url, description))
     return grouped
 

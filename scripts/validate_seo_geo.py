@@ -31,6 +31,11 @@ PRIVATE_ONLY_MARKERS = [
     "关键词机会",
 ]
 
+SEO_EXCLUDED_ROUTES = {
+    "/docs/mandatory-read",
+    "/docs/mandatory-read/renting-pitfalls",
+}
+
 
 @dataclass
 class Finding:
@@ -129,7 +134,7 @@ def check_sitemap(findings: list[Finding]) -> None:
         return
 
     text = read_text(sitemap)
-    for token in ["MetadataRoute.Sitemap", "source.getPages", "productionSiteUrl", "changeFrequency", "`${BASE_URL}/docs`"]:
+    for token in ["MetadataRoute.Sitemap", ".getPages()", "productionSiteUrl", "changeFrequency", "`${BASE_URL}/docs`"]:
         if token not in text:
             findings.append(Finding("ERROR", rel(sitemap), f"sitemap.ts missing token: {token}"))
 
@@ -222,7 +227,11 @@ def check_llms_full(findings: list[Finding]) -> None:
             findings.append(Finding("ERROR", rel(llms_full), f"llms-full.txt missing token: {token}"))
 
     docs_links = re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", text)
-    mdx_paths = list(CONTENT.rglob("*.mdx"))
+    mdx_paths = [
+        path
+        for path in CONTENT.rglob("*.mdx")
+        if route_for_doc(path) not in SEO_EXCLUDED_ROUTES
+    ]
     mdx_count = len(mdx_paths)
     if len(docs_links) < mdx_count:
         findings.append(

@@ -16,6 +16,11 @@ const CITY_HUB_PATHS = new Set([
 	"/docs/wuhan",
 ]);
 
+const SEO_EXCLUDED_DOC_PATHS = new Set([
+	"/docs/mandatory-read",
+	"/docs/mandatory-read/renting-pitfalls",
+]);
+
 type LoadablePageData = {
 	load: () => Promise<{
 		lastModified?: string | Date;
@@ -71,15 +76,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	];
 
 	const docPages: MetadataRoute.Sitemap = await Promise.all(
-		source.getPages().map(async (page) => {
-			const loadableData = page.data as typeof page.data & LoadablePageData;
-			const { lastModified } = await loadableData.load();
-			return {
-				url: `${BASE_URL}${page.url}`,
-				lastModified: lastModified ? new Date(lastModified) : new Date(),
-				...getDocSitemapSignals(page.url),
-			};
-		}),
+		source
+			.getPages()
+			.filter((page) => !SEO_EXCLUDED_DOC_PATHS.has(page.url))
+			.map(async (page) => {
+				const loadableData = page.data as typeof page.data & LoadablePageData;
+				const { lastModified } = await loadableData.load();
+				return {
+					url: `${BASE_URL}${page.url}`,
+					lastModified: lastModified ? new Date(lastModified) : new Date(),
+					...getDocSitemapSignals(page.url),
+				};
+			}),
 	);
 
 	return [...basePages, ...docPages];

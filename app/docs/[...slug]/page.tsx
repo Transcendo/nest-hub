@@ -67,6 +67,11 @@ const segmentLabels: Record<string, string> = {
 	wuhan: "武汉租房指南",
 };
 
+const legacyDocCanonicals: Record<string, string> = {
+	"/docs/mandatory-read": "/docs/avoid-pitfalls",
+	"/docs/mandatory-read/renting-pitfalls": "/docs/avoid-pitfalls/traps",
+};
+
 function formatSchemaDate(value?: string | Date) {
 	if (!value) return undefined;
 	const date = new Date(value);
@@ -161,12 +166,15 @@ export default async function Page({
 	const loadableData = page.data as typeof page.data & LoadableDocData;
 	const { body: MDX, toc, lastModified } = await loadableData.load();
 	const title = page.data.title ?? page.url;
-	const jsonLd = buildDocPageJsonLd({
-		pageUrl: page.url,
-		title,
-		description: page.data.description,
-		lastModified,
-	});
+	const isLegacyDoc = page.url in legacyDocCanonicals;
+	const jsonLd = isLegacyDoc
+		? []
+		: buildDocPageJsonLd({
+				pageUrl: page.url,
+				title,
+				description: page.data.description,
+				lastModified,
+			});
 
 	return (
 		<DocsPage
@@ -177,10 +185,12 @@ export default async function Page({
 			}}
 			breadcrumb={{ enabled: false }}
 		>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-			/>
+			{jsonLd.length > 0 && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+				/>
+			)}
 			<DocsTitle>{title}</DocsTitle>
 			{page.data.description && (
 				<DocsDescription>{page.data.description}</DocsDescription>
@@ -275,14 +285,26 @@ export async function generateMetadata({
 	const page = source.getPage(slug);
 	if (!page) return notFound();
 	const title = page.data.title ?? page.url;
-	const absoluteUrl = new URL(page.url, baseUrl).toString();
+	const canonicalPath = legacyDocCanonicals[page.url] ?? page.url;
+	const absoluteUrl = new URL(canonicalPath, baseUrl).toString();
+	const isLegacyDoc = page.url in legacyDocCanonicals;
 
 	return createMetadata({
 		title,
 		description: page.data.description,
 		alternates: {
-			canonical: page.url,
+			canonical: canonicalPath,
 		},
+		robots: isLegacyDoc
+			? {
+					index: false,
+					follow: true,
+					googleBot: {
+						index: false,
+						follow: true,
+					},
+				}
+			: undefined,
 		openGraph: {
 			title,
 			description: page.data.description,
