@@ -125,6 +125,25 @@ def check_metadata(findings: list[Finding]) -> None:
                 findings.append(Finding("ERROR", rel(docs_page), f"docs page metadata missing token: {token}"))
 
 
+def check_structured_data(findings: list[Finding]) -> None:
+    docs_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
+    if not require_file(docs_page, findings):
+        return
+
+    text = read_text(docs_page)
+    required_tokens = [
+        'type="application/ld+json"',
+        "Article",
+        "BreadcrumbList",
+        "mainEntityOfPage",
+        "itemListElement",
+        "serializeJsonLd",
+    ]
+    for token in required_tokens:
+        if token not in text:
+            findings.append(Finding("ERROR", rel(docs_page), f"docs page structured data missing token: {token}"))
+
+
 def check_mdx_autolinks(findings: list[Finding]) -> None:
     bad_pattern = re.compile(r"<https?://[^>]+>")
     for path in sorted(CONTENT.rglob("*.mdx")):
@@ -146,6 +165,7 @@ def main() -> int:
     check_sitemap(findings)
     check_llms(findings)
     check_metadata(findings)
+    check_structured_data(findings)
     check_mdx_autolinks(findings)
 
     errors = [finding for finding in findings if finding.level == "ERROR"]

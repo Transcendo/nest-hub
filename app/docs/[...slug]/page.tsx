@@ -53,6 +53,99 @@ type LoadableDocData = {
 	}>;
 };
 
+type JsonLd = Record<string, unknown>;
+
+const segmentLabels: Record<string, string> = {
+	docs: "租房指南",
+	beijing: "北京租房指南",
+	chengdu: "成都租房指南",
+	guangzhou: "广州租房指南",
+	hangzhou: "杭州租房指南",
+	nanjing: "南京租房指南",
+	shanghai: "上海租房指南",
+	shenzhen: "深圳租房指南",
+	wuhan: "武汉租房指南",
+};
+
+function formatSchemaDate(value?: string | Date) {
+	if (!value) return undefined;
+	const date = new Date(value);
+	return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
+}
+
+function getBreadcrumbItems(pageUrl: string, title: string) {
+	const segments = pageUrl.split("/").filter(Boolean);
+	let currentPath = "";
+
+	return [
+		{
+			"@type": "ListItem",
+			position: 1,
+			name: "NestHub",
+			item: baseUrl.toString(),
+		},
+		...segments.map((segment, index) => {
+			currentPath += `/${segment}`;
+			const isCurrentPage = index === segments.length - 1;
+
+			return {
+				"@type": "ListItem",
+				position: index + 2,
+				name: isCurrentPage ? title : (segmentLabels[segment] ?? segment),
+				item: new URL(currentPath, baseUrl).toString(),
+			};
+		}),
+	];
+}
+
+function buildDocPageJsonLd({
+	pageUrl,
+	title,
+	description,
+	lastModified,
+}: {
+	pageUrl: string;
+	title: string;
+	description?: string;
+	lastModified?: string | Date;
+}): JsonLd[] {
+	const absoluteUrl = new URL(pageUrl, baseUrl).toString();
+	const dateModified = formatSchemaDate(lastModified);
+	const organization = {
+		"@type": "Organization",
+		name: "NestHub",
+		url: baseUrl.toString(),
+	};
+	const article: JsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: title,
+		description,
+		inLanguage: "zh-CN",
+		mainEntityOfPage: absoluteUrl,
+		url: absoluteUrl,
+		author: organization,
+		publisher: organization,
+	};
+
+	if (dateModified) {
+		article.dateModified = dateModified;
+	}
+
+	return [
+		article,
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			itemListElement: getBreadcrumbItems(pageUrl, title),
+		},
+	];
+}
+
+function serializeJsonLd(jsonLd: JsonLd[]) {
+	return JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+}
+
 export default async function Page({
 	params,
 }: {
@@ -66,8 +159,14 @@ export default async function Page({
 	}
 
 	const loadableData = page.data as typeof page.data & LoadableDocData;
-	const { body: MDX, toc } = await loadableData.load();
+	const { body: MDX, toc, lastModified } = await loadableData.load();
 	const title = page.data.title ?? page.url;
+	const jsonLd = buildDocPageJsonLd({
+		pageUrl: page.url,
+		title,
+		description: page.data.description,
+		lastModified,
+	});
 
 	return (
 		<DocsPage
@@ -78,6 +177,10 @@ export default async function Page({
 			}}
 			breadcrumb={{ enabled: false }}
 		>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+			/>
 			<DocsTitle>{title}</DocsTitle>
 			{page.data.description && (
 				<DocsDescription>{page.data.description}</DocsDescription>
