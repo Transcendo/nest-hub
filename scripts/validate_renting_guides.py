@@ -295,6 +295,22 @@ def check_chengdu_company_directory(findings: list[Finding]) -> None:
     check_city_company_directory("chengdu", "成都", findings)
 
 
+def check_wuhan_exposure(findings: list[Finding]) -> None:
+    check_city_exposure("wuhan", "武汉", findings)
+
+
+def check_wuhan_company_directory(findings: list[Finding]) -> None:
+    excluded_non_company_slugs = {
+        "donghu-high-tech-zone-renting-guide",
+        "guanggu-software-park-renting-guide",
+        "future-tech-city-renting-guide",
+        "guanggu-intelligent-manufacturing-park-renting-guide",
+        "biolake-renting-guide",
+        "hust-whu-campus-renting-guide",
+    }
+    check_city_company_directory("wuhan", "武汉", findings, excluded_non_company_slugs)
+
+
 def check_chengdu_public_quality(findings: list[Finding]) -> None:
     """Keep the Chengdu corpus aligned with the full company-guide contract."""
     chengdu_dir = CONTENT / "chengdu"
@@ -334,6 +350,8 @@ def main() -> int:
     check_nanjing_company_directory(findings)
     check_chengdu_exposure(findings)
     check_chengdu_company_directory(findings)
+    check_wuhan_exposure(findings)
+    check_wuhan_company_directory(findings)
     check_chengdu_public_quality(findings)
 
     errors = [f for f in findings if f.level == "ERROR"]

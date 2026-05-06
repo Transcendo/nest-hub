@@ -118,6 +118,15 @@ const ecosystemRows: EcosystemRow[] = [
 		guideHref: "/docs/wuhan/fiberhome-renting-guide",
 	},
 	{
+		name: "中信科移动",
+		area: "江夏区藏龙岛潭湖二路1号",
+		track: "移动通信、5G / 6G、无线网络研发与产业化",
+		commute: "官网公开武汉地址在藏龙岛潭湖二路1号，租房要从江夏藏龙岛、2 号线南延线、光谷南和班车 / 夜间通勤拆圈，不要直接套用高新四路或关山大道模型。",
+		status: "已收录",
+		source: "https://www.cictmobile.com/about/contact.html",
+		guideHref: "/docs/wuhan/cict-mobile-renting-guide",
+	},
+	{
 		name: "华中科技大学 / 武汉大学周边科研人群",
 		area: "珞喻路、鲁巷、光谷广场、东湖周边",
 		track: "高校、科研、实习、联合培养",
@@ -172,6 +181,12 @@ const commuteBelts = [
 		risk: "园区组团大，必须确认具体楼栋、门岗、班车和晚归路线；不要把园区名当成单一地址。",
 	},
 	{
+		label: "江夏藏龙岛 / 光谷南",
+		who: "办公点在潭湖二路、藏龙岛、江夏光谷南或 2 号线南延线附近，且需要兼顾近场和换乘的人。",
+		areas: "藏龙岛、潭湖二路、佛祖岭、藏龙东街、光谷南、金融港南侧",
+		risk: "最后一公里、班车点、夜间打车和生活配套差异大；不要把江夏近场和关山大道成熟圈混成一个通勤半径。",
+	},
+	{
 		label: "武昌高校 / 科研过渡带",
 		who: "研究生、实习生、双通勤情侣，或先在高校 / 企业之间过渡的人。",
 		areas: "街道口、广埠屯、珞狮路、东湖、鲁磨路",
@@ -222,6 +237,7 @@ const mapMarkers = [
 	{ label: "华科 / 武大高校带", x: "37%", y: "61%", type: "已收录" },
 	{ label: "斗鱼 / 关山大道", x: "57%", y: "57%", type: "已收录" },
 	{ label: "烽火通信 / 高新四路", x: "65%", y: "62%", type: "已收录" },
+	{ label: "中信科移动 / 藏龙岛", x: "53%", y: "72%", type: "已收录" },
 	{ label: "长江存储 / 未来三路", x: "86%", y: "58%", type: "已收录" },
 ];
 
@@ -243,6 +259,8 @@ const sourceRows = [
 	{ label: "斗鱼官网关于我们", href: "https://www.douyu.com/cms/about/about_us.html" },
 	{ label: "长江存储官网联系方式", href: "https://www.ymtc.com/cn/contact.html" },
 	{ label: "烽火通信官网联系我们", href: "https://www.fiberhome.com/contactus.html" },
+	{ label: "中信科移动官网联系我们", href: "https://www.cictmobile.com/about/contact.html" },
+	{ label: "中信科移动官网公司简介", href: "https://www.cictmobile.com/about/profile.html" },
 	{ label: "华中科技大学官网", href: "https://www.hust.edu.cn/" },
 	{ label: "武汉大学官网", href: "https://www.whu.edu.cn/" },
 ];
@@ -256,20 +274,20 @@ export function WuhanOverview() {
 						<p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-300">Wuhan renting map</p>
 						<h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#101615] dark:text-white">先把“光谷”拆开，再谈住哪</h2>
 						<p className="mt-3 max-w-3xl text-sm leading-7 text-[#101615]/70 dark:text-white/70">
-							武汉科技 offer 的租房判断核心不是行政区，而是实际打卡楼栋落在关山大道、光谷软件园、高新大道、未来科技城、汉口三阳路、武昌徐东友谊大道，还是武昌高校 / 换乘带。先建立城市总览和片区入口，正式公司页只在办公锚点足够清楚后逐步拆分。
+							武汉科技 offer 的租房判断核心不是行政区，而是实际打卡楼栋落在关山大道、光谷软件园、高新大道、未来科技城、江夏藏龙岛、汉口三阳路、武昌徐东友谊大道，还是武昌高校 / 换乘带。先建立城市总览和片区入口，正式公司页只在办公锚点足够清楚后逐步拆分。
 						</p>
 					</div>
 					<div className="grid grid-cols-3 gap-2 text-center text-xs">
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">8</div>
+							<div className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">9</div>
 							<div className="text-[#101615]/60 dark:text-white/60">通勤带</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-cyan-700 dark:text-cyan-300">13</div>
+							<div className="text-lg font-semibold text-cyan-700 dark:text-cyan-300">14</div>
 							<div className="text-[#101615]/60 dark:text-white/60">样本锚点</div>
 						</div>
 						<div className="rounded-[8px] border border-white/70 bg-white/75 p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">13</div>
+							<div className="text-lg font-semibold text-amber-700 dark:text-amber-300">14</div>
 							<div className="text-[#101615]/60 dark:text-white/60">已收录指南</div>
 						</div>
 					</div>

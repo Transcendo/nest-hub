@@ -244,6 +244,7 @@ export const companyGuides: readonly CompanyGuide[] = [
 	{ name: "斗鱼", href: "/docs/wuhan/douyu-renting-guide", area: "武汉 · 洪山区关山大道新发展国际中心A座", city: "wuhan" },
 	{ name: "长江存储", href: "/docs/wuhan/ymtc-renting-guide", area: "武汉 · 东湖高新区未来三路88号", city: "wuhan" },
 	{ name: "烽火通信", href: "/docs/wuhan/fiberhome-renting-guide", area: "武汉 · 东湖高新区高新四路6号", city: "wuhan" },
+	{ name: "中信科移动", href: "/docs/wuhan/cict-mobile-renting-guide", area: "武汉 · 江夏藏龙岛潭湖二路1号", city: "wuhan" },
 ];
 
 export const companyGuideCount = companyGuides.length;
