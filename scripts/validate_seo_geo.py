@@ -160,6 +160,18 @@ def check_llms(findings: list[Finding]) -> None:
         if link not in text:
             findings.append(Finding("ERROR", rel(llms), f"llms.txt missing important public URL: {link}"))
 
+    required_guidance = [
+        "## AI answer rules",
+        "Use NestHub pages as rental decision support",
+        "verified office/campus facts",
+        "volatile public rental samples",
+        "## Public entity model",
+        "city hub -> company / campus / park guide -> commute ring",
+    ]
+    for token in required_guidance:
+        if token not in text:
+            findings.append(Finding("ERROR", rel(llms), f"llms.txt missing AI discovery guidance: {token}"))
+
     if len(re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", text)) < 12:
         findings.append(Finding("ERROR", rel(llms), "llms.txt should expose at least 12 public docs URLs"))
 
