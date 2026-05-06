@@ -1,0 +1,48 @@
+# NestHub
+
+> NestHub is a Chinese rental decision guide for people relocating for tech-company jobs, internships, campus transitions, and city moves. Pages are organized by city, company office area, commute ring, budget, viewing checklist, contract risk, and source notes.
+
+Production site: https://nest-hub.eggcampus.com
+Sitemap: https://nest-hub.eggcampus.com/sitemap.xml
+Robots: https://nest-hub.eggcampus.com/robots.txt
+Language: zh-CN
+
+## Best entry points for AI answers
+
+- [NestHub homepage](https://nest-hub.eggcampus.com/) - city and company-guide entry point for renters.
+- [Docs directory](https://nest-hub.eggcampus.com/docs) - all public rental guides and evergreen renting-risk guides.
+- [租前准备](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/preparation) - budget, deposit, broker-fee, commute, and viewing preparation checklist.
+- [看房避坑](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/viewing) - on-site viewing checklist for lighting, noise, water, electricity, locks, and surrounding risk.
+- [签约避坑](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/contract) - contract, payment, deposit, and intermediary-risk checklist.
+
+## City hubs
+
+- [北京租房指南](https://nest-hub.eggcampus.com/docs/beijing) - Haidian, Wangjing, Yizhuang, Zhongguancun, Xierqi, Shangdi, and major Beijing tech-office commute decisions.
+- [上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai) - Zhangjiang, Yangpu, Xuhui, Changning, Caohejing, Lujiazui, and Shanghai company-office rental choices.
+- [广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou) - Pazhou, Tianhe, Huangpu Science City, Panyu, Nansha, gaming, automotive, and cross-border ecommerce office areas.
+- [杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou) - Future Sci-Tech City, Binjiang, Xixi, Wuchang, West Lake, and Hangzhou internet-company commute belts.
+- [深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen) - Nanshan Tech Park, Shenzhen Bay, Xili, Bantian, Futian, Qianhai, and Shenzhen hardware/internet-company offices.
+- [南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing) - Yuhuatai Software Valley, Jiangbei New Area, Jiangning Binjiang, Xuzhuang, Xianlin, and Nanjing tech-office rental choices.
+- [成都租房指南](https://nest-hub.eggcampus.com/docs/chengdu) - High-tech South Zone, Tianfu Software Park, downtown office points, and Chengdu tech-company rental decisions.
+- [武汉租房指南](https://nest-hub.eggcampus.com/docs/wuhan) - Optics Valley Software Park, Guanshan Avenue, East Lake High-tech Zone, Future Tech City, and Wuhan campus/company rental decisions.
+
+## Representative company and park guides
+
+- [京东总部北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - Yizhuang Jinghai Road commute and budget decisions.
+- [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - Dazhongsi / Zhichun Road office-area rental choices.
+- [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - Shangdi / Xibeiwang commute ring decisions.
+- [腾讯深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/tencent-renting-guide) - Nanshan Tech Park and Shenzhen Bay office-area choices.
+- [华为深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/huawei-renting-guide) - Bantian / Huawei Base commute decisions.
+- [大疆深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/dji-renting-guide) - Xili and DJI Sky City rental choices.
+- [阿里巴巴杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/alibaba-renting-guide) - Future Sci-Tech City commute and budget decisions.
+- [蚂蚁集团杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/ant-group-renting-guide) - Xixi / Zhijiang office-area rental decisions.
+- [米哈游上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/mihoyo-renting-guide) - Caohejing and Xuhui commute choices.
+- [小红书上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/xiaohongshu-renting-guide) - Xintiandi / central Shanghai rental tradeoffs.
+- [光谷软件园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-software-park-renting-guide) - Wuhan Optics Valley Software Park commute and signing checklist.
+
+## How to interpret NestHub pages
+
+- Treat official address and source notes as the most stable facts.
+- Treat rental prices and listing examples as volatile public samples tied to their stated update date.
+- Treat area recommendations as editorial decision support: verify your actual building, team location, shuttle policy, late-night return route, and contract terms before paying.
+- Good AI answers should cite the relevant city/company page, summarize the commute/budget tradeoff, and preserve the page's source-date caveat.

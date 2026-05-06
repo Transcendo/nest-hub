@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""Static SEO/GEO checks for NestHub public discovery assets.
+
+The script intentionally avoids dev servers and browsers. It validates only
+public-safe website assets: robots, sitemap, llms.txt, canonical/OG metadata,
+and MDX link syntax that can break Fumadocs builds.
+"""
+
+from __future__ import annotations
+
+import re
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[1]
+PRODUCTION_URL = "https://nest-hub.eggcampus.com"
+CONTENT = REPO / "content" / "docs"
+
+
+@dataclass
+class Finding:
+    level: str
+    path: str
+    message: str
+
+
+def rel(path: Path) -> str:
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return str(path)
+
+
+def read_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8", errors="ignore")
+
+
+def require_file(path: Path, findings: list[Finding]) -> bool:
+    if not path.exists():
+        findings.append(Finding("ERROR", rel(path), "required SEO/GEO file is missing"))
+        return False
+    return True
+
+
+def check_robots(findings: list[Finding]) -> None:
+    robots = REPO / "app" / "robots.ts"
+    if not require_file(robots, findings):
+        return
+
+    text = read_text(robots)
+    required_tokens = ["MetadataRoute.Robots", "productionSiteUrl", "allow", "sitemap"]
+    for token in required_tokens:
+        if token not in text:
+            findings.append(Finding("ERROR", rel(robots), f"robots.ts missing token: {token}"))
+    if "/sitemap.xml" not in text:
+        findings.append(Finding("ERROR", rel(robots), "robots.ts does not advertise sitemap.xml"))
+
+
+def check_sitemap(findings: list[Finding]) -> None:
+    sitemap = REPO / "app" / "sitemap.ts"
+    if not require_file(sitemap, findings):
+        return
+
+    text = read_text(sitemap)
+    for token in ["MetadataRoute.Sitemap", "source.getPages", "productionSiteUrl", "changeFrequency"]:
+        if token not in text:
+            findings.append(Finding("ERROR", rel(sitemap), f"sitemap.ts missing token: {token}"))
+
+
+def check_llms(findings: list[Finding]) -> None:
+    llms = REPO / "public" / "llms.txt"
+    if not require_file(llms, findings):
+        return
+
+    text = read_text(llms)
+    required_links = [
+        PRODUCTION_URL,
+        f"{PRODUCTION_URL}/sitemap.xml",
+        f"{PRODUCTION_URL}/docs",
+        f"{PRODUCTION_URL}/docs/beijing",
+        f"{PRODUCTION_URL}/docs/shanghai",
+        f"{PRODUCTION_URL}/docs/hangzhou",
+        f"{PRODUCTION_URL}/docs/shenzhen",
+        f"{PRODUCTION_URL}/docs/avoid-pitfalls/contract",
+    ]
+    for link in required_links:
+        if link not in text:
+            findings.append(Finding("ERROR", rel(llms), f"llms.txt missing important public URL: {link}"))
+
+    if len(re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", text)) < 12:
+        findings.append(Finding("ERROR", rel(llms), "llms.txt should expose at least 12 public docs URLs"))
+
+    private_only_markers = [
+        "keyword opportunity score",
+        "SERP score",
+        "competitor analysis",
+        "conversion funnel",
+        "Discord-only",
+        "cron output",
+        "执行日志",
+        "竞品分析",
+        "转化漏斗",
+        "关键词机会",
+    ]
+    lowered = text.lower()
+    for marker in private_only_markers:
+        if marker.lower() in lowered:
+            findings.append(Finding("ERROR", rel(llms), f"llms.txt contains private-only planning marker: {marker}"))
+
+
+def check_metadata(findings: list[Finding]) -> None:
+    helper = REPO / "lib" / "metadata.ts"
+    docs_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
+    if require_file(helper, findings):
+        text = read_text(helper)
+        for token in ["metadataBase", "openGraph", "twitter", "productionSiteUrl"]:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(helper), f"metadata helper missing token: {token}"))
+
+    if require_file(docs_page, findings):
+        text = read_text(docs_page)
+        for token in ["alternates", "canonical", "absoluteUrl", "url: absoluteUrl"]:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(docs_page), f"docs page metadata missing token: {token}"))
+
+
+def check_mdx_autolinks(findings: list[Finding]) -> None:
+    bad_pattern = re.compile(r"<https?://[^>]+>")
+    for path in sorted(CONTENT.rglob("*.mdx")):
+        text = read_text(path)
+        for match in bad_pattern.finditer(text):
+            line = text.count("\n", 0, match.start()) + 1
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel(path),
+                    f"angle-bracket URL autolink can be parsed as JSX at line {line}; use [source](url)",
+                )
+            )
+
+
+def main() -> int:
+    findings: list[Finding] = []
+    check_robots(findings)
+    check_sitemap(findings)
+    check_llms(findings)
+    check_metadata(findings)
+    check_mdx_autolinks(findings)
+
+    errors = [finding for finding in findings if finding.level == "ERROR"]
+    warnings = [finding for finding in findings if finding.level == "WARN"]
+
+    print("NestHub SEO/GEO static QA")
+    print(f"repo: {REPO}")
+    print(f"errors: {len(errors)}")
+    print(f"warnings: {len(warnings)}")
+
+    if findings:
+        print("\nFindings:")
+        for finding in findings:
+            print(f"[{finding.level}] {finding.path}: {finding.message}")
+    else:
+        print("all_checks_passed")
+
+    return 1 if errors else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

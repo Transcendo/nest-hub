@@ -41,7 +41,7 @@ import {
 	GenerateSecret,
 } from "@/components/docs/mdx-components";
 import { Callout } from "@/components/ui/callout";
-import { createMetadata } from "@/lib/metadata";
+import { baseUrl, createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
@@ -172,14 +172,19 @@ export async function generateMetadata({
 	const page = source.getPage(slug);
 	if (!page) return notFound();
 	const title = page.data.title ?? page.url;
+	const absoluteUrl = new URL(page.url, baseUrl).toString();
 
 	return createMetadata({
 		title,
 		description: page.data.description,
+		alternates: {
+			canonical: page.url,
+		},
 		openGraph: {
 			title,
 			description: page.data.description,
 			type: "article",
+			url: absoluteUrl,
 		},
 		twitter: {
 			card: "summary_large_image",
