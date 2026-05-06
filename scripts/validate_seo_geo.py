@@ -8,6 +8,7 @@ and MDX link syntax that can break Fumadocs builds.
 
 from __future__ import annotations
 
+import importlib.util
 import re
 import sys
 from dataclasses import dataclass
@@ -115,14 +116,53 @@ def check_llms(findings: list[Finding]) -> None:
     check_private_markers(llms, text, findings)
 
 
+def render_llms_full_from_generator(generator: Path, findings: list[Finding]) -> str | None:
+    try:
+        spec = importlib.util.spec_from_file_location("nesthub_generate_llms_full", generator)
+        if spec is None or spec.loader is None:
+            findings.append(Finding("ERROR", rel(generator), "could not load llms-full generator module"))
+            return None
+        module = importlib.util.module_from_spec(spec)
+        previous_write_bytecode = sys.dont_write_bytecode
+        sys.dont_write_bytecode = True
+        try:
+            spec.loader.exec_module(module)
+        finally:
+            sys.dont_write_bytecode = previous_write_bytecode
+        render = getattr(module, "render", None)
+        if not callable(render):
+            findings.append(Finding("ERROR", rel(generator), "llms-full generator does not expose render()"))
+            return None
+        rendered = render()
+    except Exception as exc:  # pragma: no cover - QA script should report exact failure text.
+        findings.append(Finding("ERROR", rel(generator), f"llms-full generator failed: {exc}"))
+        return None
+
+    if not isinstance(rendered, str) or not rendered.strip():
+        findings.append(Finding("ERROR", rel(generator), "llms-full generator produced empty or non-string output"))
+        return None
+    return rendered
+
+
 def check_llms_full(findings: list[Finding]) -> None:
     llms_full = REPO / "public" / "llms-full.txt"
     generator = REPO / "scripts" / "generate_llms_full.py"
     if not require_file(llms_full, findings):
         return
-    require_file(generator, findings)
+    generator_exists = require_file(generator, findings)
 
     text = read_text(llms_full)
+    if generator_exists:
+        rendered = render_llms_full_from_generator(generator, findings)
+        if rendered is not None and rendered != text:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel(llms_full),
+                    "llms-full.txt is stale; run python3 scripts/generate_llms_full.py and commit the regenerated public index",
+                )
+            )
+
     required_tokens = [
         "# NestHub full public docs index",
         "AI-readable index generated from public MDX frontmatter",
