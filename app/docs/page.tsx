@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
-import { createMetadata } from "@/lib/metadata";
+import { baseUrl, createMetadata } from "@/lib/metadata";
 import { cityCards } from "@/lib/site-config";
+
+const docsTitle = "NestHub 文档目录";
+const docsDescription =
+	"NestHub 按避坑指南和北京、上海、广州、杭州、深圳、南京、成都、武汉城市入口组织租房决策内容，适合新入职、实习和搬家人群快速找到办公区、通勤与签约检查清单。";
+const docsUrl = new URL("/docs", baseUrl).toString();
 
 const sections = [
 	{
@@ -11,10 +16,64 @@ const sections = [
 	},
 ];
 
+const docsJsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		name: docsTitle,
+		description: docsDescription,
+		url: docsUrl,
+		inLanguage: "zh-CN",
+		isPartOf: {
+			"@type": "WebSite",
+			name: "NestHub",
+			url: baseUrl.toString(),
+		},
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: [
+			{
+				"@type": "ListItem",
+				position: 1,
+				name: "NestHub",
+				item: baseUrl.toString(),
+			},
+			{
+				"@type": "ListItem",
+				position: 2,
+				name: docsTitle,
+				item: docsUrl,
+			},
+		],
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: "NestHub 租房指南公开入口",
+		itemListElement: [...sections, ...cityCards].map((item, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: item.title,
+			url: new URL(item.href, baseUrl).toString(),
+			description: item.description,
+		})),
+	},
+];
+
+function serializeJsonLd(jsonLd: unknown) {
+	return JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+}
+
 export default function DocsIndexPage() {
 	return (
 		<DocsPage breadcrumb={{ enabled: false }}>
-			<DocsTitle>NestHub 文档目录</DocsTitle>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: serializeJsonLd(docsJsonLd) }}
+			/>
+			<DocsTitle>{docsTitle}</DocsTitle>
 			<DocsDescription>
 				先看避坑指南，再按城市进入对应的办公区和通勤带页面。
 			</DocsDescription>
@@ -68,6 +127,20 @@ export default function DocsIndexPage() {
 }
 
 export const metadata = createMetadata({
-	title: "文档目录",
-	description: "NestHub 的避坑指南与北京、上海、杭州、深圳城市租房目录。",
+	title: docsTitle,
+	description: docsDescription,
+	alternates: {
+		canonical: "/docs",
+	},
+	openGraph: {
+		title: docsTitle,
+		description: docsDescription,
+		type: "website",
+		url: docsUrl,
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: docsTitle,
+		description: docsDescription,
+	},
 });
