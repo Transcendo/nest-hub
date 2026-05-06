@@ -50,6 +50,51 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
 
 
+def route_for_doc(path: Path) -> str:
+    relative = path.relative_to(CONTENT).with_suffix("")
+    parts = list(relative.parts)
+    if parts[-1] == "index":
+        parts = parts[:-1]
+    return "/docs" + ("/" + "/".join(parts) if parts else "")
+
+
+def extract_frontmatter(text: str) -> dict[str, str]:
+    if not text.startswith("---\n"):
+        return {}
+
+    try:
+        _, raw, _ = text.split("---", 2)
+    except ValueError:
+        return {}
+
+    data: dict[str, str] = {}
+    current_key: str | None = None
+    current_value: list[str] = []
+
+    def flush() -> None:
+        nonlocal current_key, current_value
+        if current_key:
+            data[current_key] = " ".join(part.strip() for part in current_value).strip().strip('"')
+        current_key = None
+        current_value = []
+
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
+        if line.startswith((" ", "\t")) and current_key:
+            current_value.append(line.strip())
+            continue
+        if ":" not in line:
+            continue
+        flush()
+        key, value = line.split(":", 1)
+        current_key = key.strip()
+        current_value = [value.strip()]
+    flush()
+
+    return data
+
+
 def require_file(path: Path, findings: list[Finding]) -> bool:
     if not path.exists():
         findings.append(Finding("ERROR", rel(path), "required SEO/GEO file is missing"))
@@ -177,13 +222,45 @@ def check_llms_full(findings: list[Finding]) -> None:
             findings.append(Finding("ERROR", rel(llms_full), f"llms-full.txt missing token: {token}"))
 
     docs_links = re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", text)
-    mdx_count = len(list(CONTENT.rglob("*.mdx")))
+    mdx_paths = list(CONTENT.rglob("*.mdx"))
+    mdx_count = len(mdx_paths)
     if len(docs_links) < mdx_count:
         findings.append(
             Finding(
                 "ERROR",
                 rel(llms_full),
                 f"llms-full.txt indexes {len(docs_links)} docs URLs, fewer than {mdx_count} MDX docs",
+            )
+        )
+
+    duplicate_links = sorted({link for link in docs_links if docs_links.count(link) > 1})
+    if duplicate_links:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel(llms_full),
+                f"llms-full.txt contains duplicate docs URLs: {', '.join(duplicate_links[:5])}",
+            )
+        )
+
+    expected_links = {f"{PRODUCTION_URL}{route_for_doc(path)}" for path in mdx_paths}
+    indexed_links = set(docs_links)
+    missing_links = sorted(expected_links - indexed_links)
+    extra_links = sorted(indexed_links - expected_links)
+    if missing_links:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel(llms_full),
+                f"llms-full.txt is missing docs URLs generated from content/docs: {', '.join(missing_links[:5])}",
+            )
+        )
+    if extra_links:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel(llms_full),
+                f"llms-full.txt contains docs URLs without matching MDX files: {', '.join(extra_links[:5])}",
             )
         )
 
@@ -260,6 +337,18 @@ def check_mdx_autolinks(findings: list[Finding]) -> None:
             )
 
 
+def check_public_content_boundaries(findings: list[Finding]) -> None:
+    for path in sorted(CONTENT.rglob("*.mdx")):
+        text = read_text(path)
+        frontmatter = extract_frontmatter(text)
+
+        for key in ["title", "description"]:
+            if not frontmatter.get(key):
+                findings.append(Finding("ERROR", rel(path), f"MDX frontmatter missing public SEO field: {key}"))
+
+        check_private_markers(path, text, findings)
+
+
 def main() -> int:
     findings: list[Finding] = []
     check_robots(findings)
@@ -269,6 +358,7 @@ def main() -> int:
     check_metadata(findings)
     check_structured_data(findings)
     check_mdx_autolinks(findings)
+    check_public_content_boundaries(findings)
 
     errors = [finding for finding in findings if finding.level == "ERROR"]
     warnings = [finding for finding in findings if finding.level == "WARN"]
