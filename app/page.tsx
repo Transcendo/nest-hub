@@ -16,6 +16,7 @@ import {
 	companyLogoPaths,
 	uniqueCompanyCount,
 } from "@/lib/company-guides";
+import { baseUrl, createMetadata } from "@/lib/metadata";
 import { publicAsset } from "@/lib/public-asset";
 import { docsLayoutProps } from "@/lib/site-config";
 import { repositoryUrl } from "@/lib/site-constants";
@@ -122,6 +123,64 @@ const proofPoints = [
 	"把通勤和签约放在同一页判断",
 	"适合持续补充来源和案例",
 ];
+
+const homeTitle = "NestHub 城市与大厂租房决策指南";
+const homeDescription =
+	"NestHub 按城市、公司办公区、通勤圈、预算和租房避坑组织公开租房指南，帮助新入职、实习和搬家人群先判断住哪里、怎么通勤、签约前查什么。";
+const homeUrl = baseUrl.toString();
+const homeJsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		name: "NestHub",
+		alternateName: "巢聚租房指南",
+		url: homeUrl,
+		inLanguage: "zh-CN",
+		description: homeDescription,
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		name: "NestHub",
+		url: homeUrl,
+		description: homeDescription,
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: "NestHub 城市租房入口",
+		itemListElement: cityRows.map((city, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: `${city.title}租房指南`,
+			url: new URL(city.href, baseUrl).toString(),
+			description: city.summary,
+		})),
+	},
+];
+
+function serializeJsonLd(jsonLd: unknown) {
+	return JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+}
+
+export const metadata = createMetadata({
+	title: homeTitle,
+	description: homeDescription,
+	alternates: {
+		canonical: "/",
+	},
+	openGraph: {
+		title: homeTitle,
+		description: homeDescription,
+		type: "website",
+		url: homeUrl,
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: homeTitle,
+		description: homeDescription,
+	},
+});
 
 function NestHubSignalVisual() {
 	return (
@@ -248,6 +307,10 @@ export default function HomePage() {
 			{...docsLayoutProps}
 			className="min-h-dvh bg-[#f6fbf8] text-[#101615] dark:bg-[#090d0c] dark:text-[#edf7f1]"
 		>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeJsonLd) }}
+			/>
 			<main className="mx-auto flex w-full max-w-7xl flex-col px-4 pb-20 pt-8 sm:px-6 lg:px-8">
 				<section className="grid gap-8 py-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-center lg:py-12">
 					<div className="max-w-3xl">

@@ -112,6 +112,7 @@ def check_llms(findings: list[Finding]) -> None:
 def check_metadata(findings: list[Finding]) -> None:
     helper = REPO / "lib" / "metadata.ts"
     docs_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
+    home_page = REPO / "app" / "page.tsx"
     if require_file(helper, findings):
         text = read_text(helper)
         for token in ["metadataBase", "openGraph", "twitter", "productionSiteUrl"]:
@@ -124,24 +125,43 @@ def check_metadata(findings: list[Finding]) -> None:
             if token not in text:
                 findings.append(Finding("ERROR", rel(docs_page), f"docs page metadata missing token: {token}"))
 
+    if require_file(home_page, findings):
+        text = read_text(home_page)
+        for token in ["export const metadata", "homeDescription", "alternates", "canonical", "url: homeUrl"]:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(home_page), f"homepage metadata missing token: {token}"))
+
 
 def check_structured_data(findings: list[Finding]) -> None:
     docs_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
-    if not require_file(docs_page, findings):
-        return
+    home_page = REPO / "app" / "page.tsx"
+    if require_file(docs_page, findings):
+        text = read_text(docs_page)
+        required_tokens = [
+            'type="application/ld+json"',
+            "Article",
+            "BreadcrumbList",
+            "mainEntityOfPage",
+            "itemListElement",
+            "serializeJsonLd",
+        ]
+        for token in required_tokens:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(docs_page), f"docs page structured data missing token: {token}"))
 
-    text = read_text(docs_page)
-    required_tokens = [
-        'type="application/ld+json"',
-        "Article",
-        "BreadcrumbList",
-        "mainEntityOfPage",
-        "itemListElement",
-        "serializeJsonLd",
-    ]
-    for token in required_tokens:
-        if token not in text:
-            findings.append(Finding("ERROR", rel(docs_page), f"docs page structured data missing token: {token}"))
+    if require_file(home_page, findings):
+        text = read_text(home_page)
+        required_tokens = [
+            'type="application/ld+json"',
+            "WebSite",
+            "Organization",
+            "ItemList",
+            "itemListElement",
+            "homeJsonLd",
+        ]
+        for token in required_tokens:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(home_page), f"homepage structured data missing token: {token}"))
 
 
 def check_mdx_autolinks(findings: list[Finding]) -> None:
