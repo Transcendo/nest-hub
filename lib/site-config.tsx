@@ -21,6 +21,11 @@ export const topNavLinks: LinkItemType[] = [
 		active: "nested-url",
 	},
 	{
+		text: "广州",
+		url: "/docs/guangzhou",
+		active: "nested-url",
+	},
+	{
 		text: "杭州",
 		url: "/docs/hangzhou",
 		active: "nested-url",
@@ -28,6 +33,21 @@ export const topNavLinks: LinkItemType[] = [
 	{
 		text: "深圳",
 		url: "/docs/shenzhen",
+		active: "nested-url",
+	},
+	{
+		text: "南京",
+		url: "/docs/nanjing",
+		active: "nested-url",
+	},
+	{
+		text: "成都",
+		url: "/docs/chengdu",
+		active: "nested-url",
+	},
+	{
+		text: "武汉",
+		url: "/docs/wuhan",
 		active: "nested-url",
 	},
 	{
@@ -65,6 +85,11 @@ export const cityCards = [
 		title: "上海",
 		description: "围绕张江等办公区整理租房建议，先解决通勤半径，再筛选社区。",
 		href: "/docs/shanghai",
+	},
+	{
+		title: "广州",
+		description: "覆盖琶洲 / 海珠、天河、黄埔科学城、番禺、南沙等办公与产业通勤带。",
+		href: "/docs/guangzhou",
 	},
 	{
 		title: "杭州",
