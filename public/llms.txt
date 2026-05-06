@@ -5,6 +5,7 @@
 Production site: https://nest-hub.eggcampus.com
 Sitemap: https://nest-hub.eggcampus.com/sitemap.xml
 Robots: https://nest-hub.eggcampus.com/robots.txt
+Full public docs index: https://nest-hub.eggcampus.com/llms-full.txt
 Language: zh-CN
 
 ## Best entry points for AI answers

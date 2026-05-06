@@ -17,6 +17,19 @@ REPO = Path(__file__).resolve().parents[1]
 PRODUCTION_URL = "https://nest-hub.eggcampus.com"
 CONTENT = REPO / "content" / "docs"
 
+PRIVATE_ONLY_MARKERS = [
+    "keyword opportunity score",
+    "SERP score",
+    "competitor analysis",
+    "conversion funnel",
+    "Discord-only",
+    "cron output",
+    "执行日志",
+    "竞品分析",
+    "转化漏斗",
+    "关键词机会",
+]
+
 
 @dataclass
 class Finding:
@@ -41,6 +54,13 @@ def require_file(path: Path, findings: list[Finding]) -> bool:
         findings.append(Finding("ERROR", rel(path), "required SEO/GEO file is missing"))
         return False
     return True
+
+
+def check_private_markers(path: Path, text: str, findings: list[Finding]) -> None:
+    lowered = text.lower()
+    for marker in PRIVATE_ONLY_MARKERS:
+        if marker.lower() in lowered:
+            findings.append(Finding("ERROR", rel(path), f"contains private-only planning marker: {marker}"))
 
 
 def check_robots(findings: list[Finding]) -> None:
@@ -77,6 +97,7 @@ def check_llms(findings: list[Finding]) -> None:
     required_links = [
         PRODUCTION_URL,
         f"{PRODUCTION_URL}/sitemap.xml",
+        f"{PRODUCTION_URL}/llms-full.txt",
         f"{PRODUCTION_URL}/docs",
         f"{PRODUCTION_URL}/docs/beijing",
         f"{PRODUCTION_URL}/docs/shanghai",
@@ -91,22 +112,42 @@ def check_llms(findings: list[Finding]) -> None:
     if len(re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", text)) < 12:
         findings.append(Finding("ERROR", rel(llms), "llms.txt should expose at least 12 public docs URLs"))
 
-    private_only_markers = [
-        "keyword opportunity score",
-        "SERP score",
-        "competitor analysis",
-        "conversion funnel",
-        "Discord-only",
-        "cron output",
-        "执行日志",
-        "竞品分析",
-        "转化漏斗",
-        "关键词机会",
+    check_private_markers(llms, text, findings)
+
+
+def check_llms_full(findings: list[Finding]) -> None:
+    llms_full = REPO / "public" / "llms-full.txt"
+    generator = REPO / "scripts" / "generate_llms_full.py"
+    if not require_file(llms_full, findings):
+        return
+    require_file(generator, findings)
+
+    text = read_text(llms_full)
+    required_tokens = [
+        "# NestHub full public docs index",
+        "AI-readable index generated from public MDX frontmatter",
+        f"Production site: {PRODUCTION_URL}",
+        f"Sitemap: {PRODUCTION_URL}/sitemap.xml",
+        f"Short LLM index: {PRODUCTION_URL}/llms.txt",
+        "How AI systems should use NestHub",
+        "Public docs indexed:",
     ]
-    lowered = text.lower()
-    for marker in private_only_markers:
-        if marker.lower() in lowered:
-            findings.append(Finding("ERROR", rel(llms), f"llms.txt contains private-only planning marker: {marker}"))
+    for token in required_tokens:
+        if token not in text:
+            findings.append(Finding("ERROR", rel(llms_full), f"llms-full.txt missing token: {token}"))
+
+    docs_links = re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", text)
+    mdx_count = len(list(CONTENT.rglob("*.mdx")))
+    if len(docs_links) < mdx_count:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel(llms_full),
+                f"llms-full.txt indexes {len(docs_links)} docs URLs, fewer than {mdx_count} MDX docs",
+            )
+        )
+
+    check_private_markers(llms_full, text, findings)
 
 
 def check_metadata(findings: list[Finding]) -> None:
@@ -184,6 +225,7 @@ def main() -> int:
     check_robots(findings)
     check_sitemap(findings)
     check_llms(findings)
+    check_llms_full(findings)
     check_metadata(findings)
     check_structured_data(findings)
     check_mdx_autolinks(findings)
