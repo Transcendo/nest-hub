@@ -316,6 +316,20 @@ def check_structured_data(findings: list[Finding]) -> None:
             if token not in text:
                 findings.append(Finding("ERROR", rel(docs_page), f"docs page structured data missing token: {token}"))
 
+        breadcrumb_labels = [
+            "租房指南",
+            "租房避坑指南",
+            "租房合同审查",
+            "实地看房检查",
+            "北京租房指南",
+            "上海租房指南",
+            "杭州租房指南",
+            "深圳租房指南",
+        ]
+        for label in breadcrumb_labels:
+            if label not in text:
+                findings.append(Finding("ERROR", rel(docs_page), f"docs BreadcrumbList label missing: {label}"))
+
     if require_file(home_page, findings):
         text = read_text(home_page)
         required_tokens = [

@@ -57,6 +57,13 @@ type JsonLd = Record<string, unknown>;
 
 const segmentLabels: Record<string, string> = {
 	docs: "租房指南",
+	"avoid-pitfalls": "租房避坑指南",
+	contract: "租房合同审查",
+	living: "入住与居住检查",
+	preparation: "租房准备清单",
+	rights: "租客维权指南",
+	traps: "租房常见陷阱",
+	viewing: "实地看房检查",
 	beijing: "北京租房指南",
 	chengdu: "成都租房指南",
 	guangzhou: "广州租房指南",
