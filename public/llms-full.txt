@@ -20,13 +20,13 @@ City / topic sections indexed: 8
 
 ## 租房避坑 / 签约检查
 
-- [签约谈判](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/contract) - 谈判策略、合同条款审核要点、常见合同陷阱与费用保障建议。
-- [避坑指南](https://nest-hub.eggcampus.com/docs/avoid-pitfalls) - 所有城市都通用的租房避坑与签约检查入口，建议先读完再进入具体城市。
-- [入住生活](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/living) - 入住验收、合租相处、日常维护责任与常见问题处理流程。
-- [租前准备](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/preparation) - 掌握租房基础知识，制定合理预算，选择优质区域，识别靠谱房源渠道。
-- [维权指南](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/rights) - 投诉举报渠道、证据收集要点、常见纠纷的处理顺序与预防建议。
-- [常见陷阱](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/traps) - 中介套路、费用陷阱、房屋陷阱与典型防骗策略。
-- [实地看房](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/viewing) - 最佳看房时间安排、房屋质量检查清单、小区环境评估要点与对比方法。
+- [签约谈判](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/contract) - 签约前核对合同主体、押金退还、转租退租、维修责任、付款周期、中介费和所有口头承诺的落字方式。
+- [避坑指南](https://nest-hub.eggcampus.com/docs/avoid-pitfalls) - 所有城市通用的租房避坑入口，按租前准备、实地看房、签约谈判、入住生活、常见陷阱和维权路径整理检查清单。
+- [入住生活](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/living) - 入住当天留存照片视频、水电燃气读数、钥匙交接和问题清单，并提前约定合租规则、报修责任和退租交接口径。
+- [租前准备](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/preparation) - 租房前先确定预算、通勤红线、合租边界、看房资料和房源渠道，避免被低价照片、催促话术和模糊费用带偏。
+- [维权指南](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/rights) - 租房纠纷先整理合同、转账、聊天、照片视频、报修和交接证据，再按协商、调解投诉和法律路径逐级处理。
+- [常见陷阱](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/traps) - 识别租房里的低价引流、虚假房源、二房东、隔断房、甲醛房、隐形收费和催款话术，先核验再付款。
+- [实地看房](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/viewing) - 实地看房按白天与夜晚两次核验，检查采光、噪音、水电、门锁、公共空间、小区环境和夜归路线。
 
 ## 北京
 
@@ -162,7 +162,7 @@ City / topic sections indexed: 8
 - [焦点科技 / 中国制造网南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing/focuschina-renting-guide) - 面向入职焦点科技、中国制造网或南京江北新区焦点科技大厦相关团队的年轻租房者，围绕丽景路办公锚点、江北通勤圈层、预算形态和签约风险做租房决策。
 - [南京河西 / 南京南站换乘租房指南](https://nest-hub.eggcampus.com/docs/nanjing/hexi-south-station-renting-guide) - 面向在南京科技公司入职、但办公楼栋可能横跨雨花台、江北、江宁滨江或主城的年轻租房者，围绕河西、奥体、元通、南京南站、卡子门等换乘带做租房决策。
 - [润和软件南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing/hoperun-renting-guide) - 面向入职润和软件南京总部、雨花台软件大道与软件谷南侧团队的校招生、实习生与年轻员工，围绕润和创智中心办公锚点、通勤圈层、预算形态和签约风险做租房决策。
-- [南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing) - 南京科技公司、软件园区、产业基地和大厂 offer 入职租房总览。
+- [南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing) - 南京租房总览按雨花台软件谷、江北新区、江宁滨江、河西南站、徐庄仙林等办公通勤带拆解 offer 核验、片区选择和看房风险。
 - [南京江北新区 / 研创园 / 高新区租房指南](https://nest-hub.eggcampus.com/docs/nanjing/jiangbei-yanchuangyuan-renting-guide) - 面向拿到南京江北新区、产业技术研创园、南京高新区相关 offer 的年轻租房者，围绕过江通勤、江北近场、公寓合租、晚归和签约风险做租房决策。
 - [满帮 / 运满满南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing/manbang-yunmanman-renting-guide) - 面向入职满帮、运满满南京总部或雨花台软件谷南侧团队的年轻租房者，围绕凤信路办公锚点、通勤圈层、预算形态和签约风险做租房决策。
 - [途牛旅游网南京租房指南](https://nest-hub.eggcampus.com/docs/nanjing/tuniu-renting-guide) - 面向入职途牛旅游网、Tuniu Corporation 南京团队的年轻租房者，围绕玄武大道 108 号聚慧园办公锚点、徐庄/仙林通勤圈、预算形态和签约风险做租房决策。
