@@ -139,6 +139,25 @@ def check_sitemap(findings: list[Finding]) -> None:
             findings.append(Finding("ERROR", rel(sitemap), f"sitemap.ts missing token: {token}"))
 
 
+def check_nginx_llms_charset(findings: list[Finding]) -> None:
+    nginx_conf = REPO / "cicd" / "docker" / "default.conf"
+    if not require_file(nginx_conf, findings):
+        return
+
+    text = read_text(nginx_conf)
+    for route in ["/llms.txt", "/llms-full.txt"]:
+        marker = f"location = {route}"
+        start = text.find(marker)
+        if start == -1:
+            findings.append(Finding("ERROR", rel(nginx_conf), f"nginx missing exact UTF-8 text location for {route}"))
+            continue
+        next_location = text.find("\n  location ", start + len(marker))
+        section = text[start: next_location if next_location != -1 else len(text)].lower()
+        for token in ["default_type text/plain", "charset utf-8", "charset_types text/plain"]:
+            if token not in section:
+                findings.append(Finding("ERROR", rel(nginx_conf), f"nginx {route} location missing token: {token}"))
+
+
 def check_llms(findings: list[Finding]) -> None:
     llms = REPO / "public" / "llms.txt"
     if not require_file(llms, findings):
@@ -392,6 +411,7 @@ def main() -> int:
     findings: list[Finding] = []
     check_robots(findings)
     check_sitemap(findings)
+    check_nginx_llms_charset(findings)
     check_llms(findings)
     check_llms_full(findings)
     check_metadata(findings)
