@@ -52,7 +52,7 @@ City / topic sections indexed: 8
 - [快手北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/kuaishou-renting-guide) - 面向快手北京上地西路、后厂村和中关村软件园通勤圈的新员工、实习生和年轻租客，按办公点确认、通勤接驳、预算、渠道和看房核验整理租房决策。
 - [昆仑万维北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/kunlun-tech-renting-guide) - 面向昆仑万维北京东城西总布胡同/明阳国际中心办公的校招生、实习生和年轻员工，围绕东单、建国门、朝阳门、东四、崇文门和广渠门整理租房决策。
 - [理想汽车北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/li-auto-renting-guide) - 面向理想汽车北京顺义文良街/研发总部办公的校招生、实习生和年轻员工，围绕顺义、后沙峪、马坡、南法信、望京和通顺路整理租房决策。
-- [美团北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/meituan-renting-guide) - 面向刚入职美团北京的校招生、实习生和年轻员工，围绕望京东、恒基伟业大厦、望京、阜通、酒仙桥和来广营整理租房决策。
+- [美团北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/meituan-renting-guide) - 面向刚入职美团北京恒基伟业大厦 / 望京东通勤圈的校招生、实习生和年轻员工，按办公点确认、望京与酒仙桥圈层、预算、渠道、FAQ 和签约核验整理租房决策。
 - [完美世界北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/perfect-world-renting-guide) - 面向完美世界北京北苑路/来广营办公的校招生、实习生和年轻员工，围绕北苑、来广营、立水桥、望京、奥森和大屯路整理租房决策。
 - [奇安信北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/qianxin-renting-guide) - 面向奇安信北京西直门外/金融科技中心办公的校招生、实习生和年轻员工，围绕西直门、动物园、车公庄、白石桥、魏公村和大钟寺整理租房决策。
 - [搜狐北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/sohu-renting-guide) - 面向搜狐北京中关村/科学院南路办公的校招生、实习生和年轻员工，围绕中关村、知春路、海淀黄庄、五道口和学院路整理租房决策。
