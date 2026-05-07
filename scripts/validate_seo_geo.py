@@ -140,7 +140,16 @@ def check_sitemap(findings: list[Finding]) -> None:
         return
 
     text = read_text(sitemap)
-    for token in ["MetadataRoute.Sitemap", ".getPages()", "productionSiteUrl", "changeFrequency", "`${BASE_URL}/docs`"]:
+    for token in [
+        "MetadataRoute.Sitemap",
+        ".getPages()",
+        "productionSiteUrl",
+        "changeFrequency",
+        "`${BASE_URL}/docs`",
+        "PUBLIC_DISCOVERY_ASSET_PATHS",
+        '"/llms.txt"',
+        '"/llms-full.txt"',
+    ]:
         if token not in text:
             findings.append(Finding("ERROR", rel(sitemap), f"sitemap.ts missing token: {token}"))
 

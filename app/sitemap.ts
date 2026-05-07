@@ -16,6 +16,8 @@ const CITY_HUB_PATHS = new Set([
 	"/docs/wuhan",
 ]);
 
+const PUBLIC_DISCOVERY_ASSET_PATHS = ["/llms.txt", "/llms-full.txt"] as const;
+
 const SEO_EXCLUDED_DOC_PATHS = new Set([
 	"/docs/mandatory-read",
 	"/docs/mandatory-read/renting-pitfalls",
@@ -75,6 +77,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		},
 	];
 
+	const publicDiscoveryAssets: MetadataRoute.Sitemap = PUBLIC_DISCOVERY_ASSET_PATHS.map(
+		(path) => ({
+			url: `${BASE_URL}${path}`,
+			lastModified: now,
+			changeFrequency: "weekly",
+			priority: path === "/llms.txt" ? 0.88 : 0.86,
+		}),
+	);
+
 	const docPages: MetadataRoute.Sitemap = await Promise.all(
 		source
 			.getPages()
@@ -90,5 +101,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			}),
 	);
 
-	return [...basePages, ...docPages];
+	return [...basePages, ...publicDiscoveryAssets, ...docPages];
 }
