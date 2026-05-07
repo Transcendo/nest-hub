@@ -320,7 +320,8 @@ def check_llms_full(findings: list[Finding]) -> None:
 
 def check_metadata(findings: list[Finding]) -> None:
     helper = REPO / "lib" / "metadata.ts"
-    docs_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
+    docs_index_page = REPO / "app" / "docs" / "page.tsx"
+    doc_detail_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
     home_page = REPO / "app" / "page.tsx"
     if require_file(helper, findings):
         text = read_text(helper)
@@ -328,11 +329,17 @@ def check_metadata(findings: list[Finding]) -> None:
             if token not in text:
                 findings.append(Finding("ERROR", rel(helper), f"metadata helper missing token: {token}"))
 
-    if require_file(docs_page, findings):
-        text = read_text(docs_page)
+    if require_file(docs_index_page, findings):
+        text = read_text(docs_index_page)
+        for token in ["export const metadata", "docsDescription", "alternates", "canonical", "url: docsUrl"]:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(docs_index_page), f"docs index metadata missing token: {token}"))
+
+    if require_file(doc_detail_page, findings):
+        text = read_text(doc_detail_page)
         for token in ["alternates", "canonical", "absoluteUrl", "url: absoluteUrl"]:
             if token not in text:
-                findings.append(Finding("ERROR", rel(docs_page), f"docs page metadata missing token: {token}"))
+                findings.append(Finding("ERROR", rel(doc_detail_page), f"doc detail metadata missing token: {token}"))
 
     if require_file(home_page, findings):
         text = read_text(home_page)
@@ -342,10 +349,46 @@ def check_metadata(findings: list[Finding]) -> None:
 
 
 def check_structured_data(findings: list[Finding]) -> None:
-    docs_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
+    docs_index_page = REPO / "app" / "docs" / "page.tsx"
+    doc_detail_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
     home_page = REPO / "app" / "page.tsx"
-    if require_file(docs_page, findings):
-        text = read_text(docs_page)
+    if require_file(docs_index_page, findings):
+        text = read_text(docs_index_page)
+        required_tokens = [
+            'type="application/ld+json"',
+            "WebPage",
+            "BreadcrumbList",
+            "ItemList",
+            "docsJsonLd",
+            "itemListElement",
+            "cityCards",
+        ]
+        for token in required_tokens:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(docs_index_page), f"docs index structured data missing token: {token}"))
+
+        site_config = REPO / "lib" / "site-config.tsx"
+        route_text = text
+        if require_file(site_config, findings):
+            route_text += "\n" + read_text(site_config)
+
+        docs_index_routes = [
+            "/docs/avoid-pitfalls",
+            "/docs/beijing",
+            "/docs/shanghai",
+            "/docs/guangzhou",
+            "/docs/hangzhou",
+            "/docs/shenzhen",
+            "/docs/nanjing",
+            "/docs/chengdu",
+            "/docs/wuhan",
+        ]
+        for route in docs_index_routes:
+            if route not in route_text:
+                findings.append(Finding("ERROR", rel(docs_index_page), f"docs index or cityCards is missing public entry route: {route}"))
+
+    if require_file(doc_detail_page, findings):
+        text = read_text(doc_detail_page)
         required_tokens = [
             'type="application/ld+json"',
             "Article",
@@ -360,7 +403,7 @@ def check_structured_data(findings: list[Finding]) -> None:
         ]
         for token in required_tokens:
             if token not in text:
-                findings.append(Finding("ERROR", rel(docs_page), f"docs page structured data missing token: {token}"))
+                findings.append(Finding("ERROR", rel(doc_detail_page), f"doc detail structured data missing token: {token}"))
 
         breadcrumb_labels = [
             "租房指南",
@@ -374,7 +417,7 @@ def check_structured_data(findings: list[Finding]) -> None:
         ]
         for label in breadcrumb_labels:
             if label not in text:
-                findings.append(Finding("ERROR", rel(docs_page), f"docs BreadcrumbList label missing: {label}"))
+                findings.append(Finding("ERROR", rel(doc_detail_page), f"doc detail BreadcrumbList label missing: {label}"))
 
     if require_file(home_page, findings):
         text = read_text(home_page)
