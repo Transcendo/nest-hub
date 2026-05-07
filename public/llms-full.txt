@@ -115,7 +115,7 @@ City / topic sections indexed: 8
 - [字节跳动杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/bytedance-renting-guide) - 面向字节跳动杭州余杭未来科技城办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [菜鸟杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/cainiao-renting-guide) - 面向菜鸟杭州余杭凤新路 / 未来科技城办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [大华股份杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/dahua-renting-guide) - 面向大华股份杭州滨江滨安路 / 长河街道办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
-- [DeepSeek杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/deepseek-renting-guide) - 面向DeepSeek杭州拱墅汇金国际商务社区办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
+- [DeepSeek杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/deepseek-renting-guide) - 面向DeepSeek杭州拱墅汇金国际商务社区办公点，按用户需求、通勤圈、预算、答案卡、FAQ、渠道和签约核验整理租房决策。
 - [钉钉杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/dingtalk-renting-guide) - 面向钉钉杭州杭州城西 / 阿里生态带办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [游戏科学杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/game-science-renting-guide) - 面向游戏科学杭州杭州城西科创带办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [新华三 H3C杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/h3c-renting-guide) - 面向新华三 H3C杭州滨江长河 / 高新产业园办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
