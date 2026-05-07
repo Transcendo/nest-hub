@@ -9,6 +9,7 @@ and MDX link syntax that can break Fumadocs builds.
 from __future__ import annotations
 
 import importlib.util
+import json
 import re
 import sys
 from dataclasses import dataclass
@@ -485,6 +486,92 @@ def check_mdx_autolinks(findings: list[Finding]) -> None:
             )
 
 
+def is_excluded_route(route: str) -> bool:
+    return route in SEO_EXCLUDED_ROUTES or any(
+        route.startswith(f"{excluded}/") for excluded in SEO_EXCLUDED_ROUTES
+    )
+
+
+def route_for_meta_child(meta_dir: Path, child_name: str) -> str:
+    relative_dir = meta_dir.relative_to(CONTENT)
+    parts = list(relative_dir.parts)
+    if child_name != "index":
+        parts.append(child_name)
+    return "/docs" + ("/" + "/".join(parts) if parts else "")
+
+
+def read_meta_json(path: Path, findings: list[Finding]) -> dict[str, object] | None:
+    try:
+        data = json.loads(read_text(path))
+    except json.JSONDecodeError as exc:
+        findings.append(Finding("ERROR", rel(path), f"invalid meta.json: {exc}"))
+        return None
+    if not isinstance(data, dict):
+        findings.append(Finding("ERROR", rel(path), "meta.json root must be an object"))
+        return None
+    return data
+
+
+def check_meta_navigation_consistency(findings: list[Finding]) -> None:
+    """Keep public MDX routes discoverable through Fumadocs meta.json files."""
+    for meta_path in sorted(CONTENT.rglob("meta.json")):
+        meta_dir = meta_path.parent
+        index_route = route_for_meta_child(meta_dir, "index")
+        if is_excluded_route(index_route):
+            continue
+
+        data = read_meta_json(meta_path, findings)
+        if data is None:
+            continue
+
+        pages = data.get("pages")
+        if not isinstance(pages, list):
+            findings.append(Finding("ERROR", rel(meta_path), "meta.json missing pages array for sidebar discoverability"))
+            continue
+
+        string_pages = [entry for entry in pages if isinstance(entry, str)]
+        listed_pages = set(string_pages)
+        if len(listed_pages) != len(string_pages):
+            findings.append(Finding("ERROR", rel(meta_path), "meta.json pages array contains duplicate entries"))
+
+        expected_pages: set[str] = set()
+        for child in sorted(meta_dir.iterdir()):
+            if child.name == "meta.json" or child.name.startswith("."):
+                continue
+            if child.is_file() and child.suffix == ".mdx":
+                route = route_for_meta_child(meta_dir, child.stem)
+                if not is_excluded_route(route):
+                    expected_pages.add(child.stem)
+            elif child.is_dir() and (child / "meta.json").exists():
+                route = route_for_meta_child(meta_dir, child.name)
+                if not is_excluded_route(route):
+                    expected_pages.add(child.name)
+
+        missing_pages = sorted(expected_pages - listed_pages)
+        extra_pages = sorted(
+            page
+            for page in listed_pages - expected_pages
+            if not page.startswith(("http://", "https://")) and page != "..."
+        )
+
+        if missing_pages:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel(meta_path),
+                    f"meta.json pages is missing public docs entries: {', '.join(missing_pages[:8])}",
+                )
+            )
+        if extra_pages:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel(meta_path),
+                    f"meta.json pages references missing public docs entries: {', '.join(extra_pages[:8])}",
+                )
+            )
+
+
 def check_public_content_boundaries(findings: list[Finding]) -> None:
     for path in sorted(CONTENT.rglob("*.mdx")):
         text = read_text(path)
@@ -507,6 +594,7 @@ def main() -> int:
     check_metadata(findings)
     check_structured_data(findings)
     check_mdx_autolinks(findings)
+    check_meta_navigation_consistency(findings)
     check_public_content_boundaries(findings)
 
     errors = [finding for finding in findings if finding.level == "ERROR"]
