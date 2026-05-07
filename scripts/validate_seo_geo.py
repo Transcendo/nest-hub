@@ -411,13 +411,18 @@ def check_structured_data(findings: list[Finding]) -> None:
         text = read_text(doc_detail_page)
         required_tokens = [
             'type="application/ld+json"',
+            "WebPage",
+            "WebSite",
             "Article",
             "BreadcrumbList",
+            "@id",
             "articleSection",
             "keywords",
             "about",
             "isAccessibleForFree",
             "mainEntityOfPage",
+            "mainEntity",
+            "breadcrumb",
             "itemListElement",
             "serializeJsonLd",
         ]

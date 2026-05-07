@@ -179,14 +179,19 @@ function buildDocPageJsonLd({
 }): JsonLd[] {
 	const absoluteUrl = new URL(pageUrl, baseUrl).toString();
 	const dateModified = formatSchemaDate(lastModified);
+	const webPageId = `${absoluteUrl}#webpage`;
+	const articleId = `${absoluteUrl}#article`;
+	const breadcrumbId = `${absoluteUrl}#breadcrumb`;
 	const organization = {
 		"@type": "Organization",
+		"@id": new URL("/#organization", baseUrl).toString(),
 		name: "NestHub",
 		url: baseUrl.toString(),
 	};
 	const article: JsonLd = {
 		"@context": "https://schema.org",
 		"@type": "Article",
+		"@id": articleId,
 		headline: title,
 		description,
 		articleSection: pageUrl.startsWith("/docs/avoid-pitfalls")
@@ -196,7 +201,9 @@ function buildDocPageJsonLd({
 		about: buildArticleAbout(pageUrl, title),
 		inLanguage: "zh-CN",
 		isAccessibleForFree: true,
-		mainEntityOfPage: absoluteUrl,
+		mainEntityOfPage: {
+			"@id": webPageId,
+		},
 		url: absoluteUrl,
 		author: organization,
 		publisher: organization,
@@ -207,10 +214,32 @@ function buildDocPageJsonLd({
 	}
 
 	return [
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"@id": webPageId,
+			url: absoluteUrl,
+			name: title,
+			description,
+			inLanguage: "zh-CN",
+			isPartOf: {
+				"@type": "WebSite",
+				"@id": new URL("/#website", baseUrl).toString(),
+				name: "NestHub",
+				url: baseUrl.toString(),
+			},
+			mainEntity: {
+				"@id": articleId,
+			},
+			breadcrumb: {
+				"@id": breadcrumbId,
+			},
+		},
 		article,
 		{
 			"@context": "https://schema.org",
 			"@type": "BreadcrumbList",
+			"@id": breadcrumbId,
 			itemListElement: getBreadcrumbItems(pageUrl, title),
 		},
 	];
