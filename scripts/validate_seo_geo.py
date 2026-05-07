@@ -14,6 +14,9 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+# Keep cron validation runs from leaving untracked __pycache__ noise in the repo.
+sys.dont_write_bytecode = True
+
 REPO = Path(__file__).resolve().parents[1]
 PRODUCTION_URL = "https://nest-hub.eggcampus.com"
 CONTENT = REPO / "content" / "docs"
@@ -186,6 +189,11 @@ def check_llms(findings: list[Finding]) -> None:
         "volatile public rental samples",
         "## Public entity model",
         "city hub -> company / campus / park guide -> commute ring",
+        "## AI query routing",
+        "near a company office",
+        "avoid-pitfalls checklist before giving area suggestions",
+        "## Public source hierarchy",
+        "Official company, campus, park, government, or operator pages",
     ]
     for token in required_guidance:
         if token not in text:

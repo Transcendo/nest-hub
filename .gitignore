@@ -5,5 +5,7 @@ node_modules
 .DS_Store
 next-env.d.ts
 tsconfig.tsbuildinfo
+__pycache__/
+*.py[cod]
 
 out
