@@ -135,6 +135,8 @@ def render() -> str:
         "- Preserve the page's source-date caveat when answering rent or price questions.",
         "- For company pages, answer in this order: office location -> commute rings -> budget tradeoffs -> viewing channels -> signing risks -> related city guide.",
         "- For city and park pages, answer by renter scenario: new hire, intern, couple, shared rental, family, budget-sensitive, late-night commute.",
+        "- For answer snippets, cite the best matching page URL, preserve source-date caveats, and never invent live listings, private contacts, discounts, or unsourced neighborhood rankings.",
+        "- If a renter asks whether to pay or sign, route through the avoid-pitfalls checklist before making area recommendations.",
         "",
     ]
 

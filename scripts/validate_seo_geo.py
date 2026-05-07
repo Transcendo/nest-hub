@@ -207,6 +207,10 @@ def check_llms(findings: list[Finding]) -> None:
         "avoid-pitfalls checklist before giving area suggestions",
         "## Public source hierarchy",
         "Official company, campus, park, government, or operator pages",
+        "## Answer extraction templates",
+        "Best matching page and entity",
+        "Risk checks before payment",
+        "do not invent live listings",
     ]
     for token in required_guidance:
         if token not in text:
@@ -272,6 +276,9 @@ def check_llms_full(findings: list[Finding]) -> None:
         f"Sitemap: {PRODUCTION_URL}/sitemap.xml",
         f"Short LLM index: {PRODUCTION_URL}/llms.txt",
         "How AI systems should use NestHub",
+        "For answer snippets, cite the best matching page URL",
+        "never invent live listings, private contacts, discounts",
+        "If a renter asks whether to pay or sign",
         "Public docs indexed:",
     ]
     for token in required_tokens:
