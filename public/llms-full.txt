@@ -150,7 +150,7 @@ City / topic sections indexed: 8
 - [顺丰控股深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/sf-express-renting-guide) - 面向顺丰控股深圳办公的校招生、实习生和年轻员工，围绕南山科技园 / 总部办公点，宝安福永等物流基地另核、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
 - [创维 Skyworth 深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/skyworth-renting-guide) - 面向创维 Skyworth 深圳办公的校招生、实习生和年轻员工，围绕南山高新区 / 科技园办公点、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
 - [欣旺达深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/sunwoda-renting-guide) - 面向欣旺达深圳办公的校招生、实习生和年轻员工，围绕宝安石岩 / 欣旺达总部工业园、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
-- [腾讯深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/tencent-renting-guide) - 面向腾讯深圳办公的校招生、实习生和年轻员工，围绕南山科技园 / 深圳湾总部带、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
+- [腾讯深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/tencent-renting-guide) - 面向腾讯深圳滨海大厦 / 南山科技园 / 深圳湾总部带办公的新员工、实习生和年轻租客，按办公点确认、通勤圈层、预算、渠道、FAQ 和签约核验整理租房决策。
 - [传音控股深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/transsion-renting-guide) - 面向传音控股深圳办公的校招生、实习生和年轻员工，围绕南山留仙洞总部基地 / T33 大厦、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
 - [优必选 UBTECH 深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/ubtech-renting-guide) - 面向优必选 UBTECH 深圳办公的校招生、实习生和年轻员工，围绕南山智园 / 西丽大学城片区、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
 - [万科深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/vanke-renting-guide) - 面向万科深圳办公的校招生、实习生和年轻员工，围绕盐田大梅沙注册总部 / 福田梅林办公点、办公楼栋核验、通勤圈层、预算策略和签约风险整理租房判断。
