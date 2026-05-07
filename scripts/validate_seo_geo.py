@@ -382,6 +382,10 @@ def check_structured_data(findings: list[Finding]) -> None:
             "docsJsonLd",
             "itemListElement",
             "cityCards",
+            "publisher",
+            "logo",
+            "sameAs",
+            "repositoryUrl",
         ]
         for token in required_tokens:
             if token not in text:
@@ -424,6 +428,9 @@ def check_structured_data(findings: list[Finding]) -> None:
             "mainEntity",
             "breadcrumb",
             "itemListElement",
+            "logo",
+            "sameAs",
+            "repositoryUrl",
             "serializeJsonLd",
         ]
         for token in required_tokens:
@@ -453,6 +460,10 @@ def check_structured_data(findings: list[Finding]) -> None:
             "ItemList",
             "itemListElement",
             "homeJsonLd",
+            "publisher",
+            "logo",
+            "sameAs",
+            "repositoryUrl",
         ]
         for token in required_tokens:
             if token not in text:

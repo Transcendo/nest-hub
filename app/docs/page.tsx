@@ -2,11 +2,14 @@ import Link from "next/link";
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { cityCards } from "@/lib/site-config";
+import { repositoryUrl } from "@/lib/site-constants";
 
 const docsTitle = "NestHub 文档目录";
 const docsDescription =
 	"NestHub 按避坑指南和北京、上海、广州、杭州、深圳、南京、成都、武汉城市入口组织租房决策内容，适合新入职、实习和搬家人群快速找到办公区、通勤与签约检查清单。";
 const docsUrl = new URL("/docs", baseUrl).toString();
+const organizationId = new URL("/#organization", baseUrl).toString();
+const websiteId = new URL("/#website", baseUrl).toString();
 
 const sections = [
 	{
@@ -26,8 +29,20 @@ const docsJsonLd = [
 		inLanguage: "zh-CN",
 		isPartOf: {
 			"@type": "WebSite",
+			"@id": websiteId,
 			name: "NestHub",
 			url: baseUrl.toString(),
+			publisher: {
+				"@id": organizationId,
+			},
+		},
+		publisher: {
+			"@type": "Organization",
+			"@id": organizationId,
+			name: "NestHub",
+			url: baseUrl.toString(),
+			logo: new URL("/branding/nest-hub-logo.svg", baseUrl).toString(),
+			sameAs: [repositoryUrl],
 		},
 	},
 	{

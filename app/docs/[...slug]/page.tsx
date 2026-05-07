@@ -43,6 +43,7 @@ import {
 import { Callout } from "@/components/ui/callout";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
+import { repositoryUrl } from "@/lib/site-constants";
 import { cn } from "@/lib/utils";
 
 type LoadableDocData = {
@@ -187,6 +188,8 @@ function buildDocPageJsonLd({
 		"@id": new URL("/#organization", baseUrl).toString(),
 		name: "NestHub",
 		url: baseUrl.toString(),
+		logo: new URL("/branding/nest-hub-logo.svg", baseUrl).toString(),
+		sameAs: [repositoryUrl],
 	};
 	const article: JsonLd = {
 		"@context": "https://schema.org",

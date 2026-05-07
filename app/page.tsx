@@ -128,21 +128,30 @@ const homeTitle = "NestHub 城市与大厂租房决策指南";
 const homeDescription =
 	"NestHub 按城市、公司办公区、通勤圈、预算和租房避坑组织公开租房指南，帮助新入职、实习和搬家人群先判断住哪里、怎么通勤、签约前查什么。";
 const homeUrl = baseUrl.toString();
+const organizationId = new URL("/#organization", baseUrl).toString();
+const websiteId = new URL("/#website", baseUrl).toString();
 const homeJsonLd = [
 	{
 		"@context": "https://schema.org",
 		"@type": "WebSite",
+		"@id": websiteId,
 		name: "NestHub",
 		alternateName: "巢聚租房指南",
 		url: homeUrl,
 		inLanguage: "zh-CN",
 		description: homeDescription,
+		publisher: {
+			"@id": organizationId,
+		},
 	},
 	{
 		"@context": "https://schema.org",
 		"@type": "Organization",
+		"@id": organizationId,
 		name: "NestHub",
 		url: homeUrl,
+		logo: new URL("/branding/nest-hub-logo.svg", baseUrl).toString(),
+		sameAs: [repositoryUrl],
 		description: homeDescription,
 	},
 	{
