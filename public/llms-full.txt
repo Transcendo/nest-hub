@@ -40,7 +40,7 @@ City / topic sections indexed: 8
 - [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - 面向刚入职百度北京的校招生、实习生和年轻员工，围绕百度大厦、百度科技园、鹏寰办公区、上地、西二旗、西北旺、清河和回龙观整理租房决策。
 - [贝壳北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/beike-renting-guide) - 面向贝壳北京海淀创业路/东方电子科技大厦办公的校招生、实习生和年轻员工，围绕知春路、中关村、五道口、学院路、清河整理租房决策。
 - [BOSS直聘北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/boss-zhipin-renting-guide) - 面向 BOSS直聘北京太阳宫办公的校招生、实习生和年轻员工，围绕太阳宫、芍药居、西坝河、三元桥、望京西和和平里整理租房决策。
-- [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - 面向字节跳动北京大钟寺、知春路、方恒和中关村一带办公点，按用户需求、通勤圈、预算、平台渠道和看房核验整理租房决策。
+- [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - 面向字节跳动北京大钟寺、知春路、方恒和中关村一带办公点，按办公点确认、通勤圈层、预算、渠道、FAQ 和看房核验整理租房决策。
 - [滴滴北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/didi-renting-guide) - 面向滴滴北京唐家岭/东北旺办公的校招生、实习生和年轻员工，围绕唐家岭、西北旺、西二旗、上地、清河和回龙观整理租房决策。
 - [陌陌 / Hello Group 北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/hello-group-renting-guide) - 面向陌陌 / Hello Group 北京望京 SOHO 办公的校招生、实习生和年轻员工，围绕望京 SOHO、阜通、望京东、花家地和酒仙桥整理租房决策。
 - [地平线北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/horizon-robotics-renting-guide) - 面向地平线北京永丰/丰豪东路办公的校招生、实习生和年轻员工，围绕永丰、屯佃、西北旺、温泉、上地和清河整理租房决策。
