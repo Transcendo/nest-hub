@@ -47,7 +47,7 @@ City / topic sections indexed: 8
 - [北京](https://nest-hub.eggcampus.com/docs/beijing) - 北京城市总览，把公司生态、办公区地图、当前收录内容和通勤判断放在一个入口里。
 - [爱奇艺北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/iqiyi-renting-guide) - 面向爱奇艺北京工体北路/朝阳办公的校招生、实习生和年轻员工，围绕工体、东直门、三里屯、团结湖、朝阳门和东四十条整理租房决策。
 - [掌阅科技北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/ireader-renting-guide) - 面向掌阅科技北京四惠东/四惠大厦办公的校招生、实习生和年轻员工，围绕四惠东、四惠、百子湾、青年路、高碑店和通州北苑整理租房决策。
-- [京东总部租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - 面向京东北京亦庄总部、经海路、次渠、马驹桥和东石公园通勤圈的新员工、实习生和年轻租客，按办公点确认、通勤圈层、预算、渠道和看房核验整理租房决策。
+- [京东总部租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - 面向京东北京亦庄总部、经海路、次渠、马驹桥和东石公园通勤圈的新员工、实习生和年轻租客，按办公点确认、通勤圈层、预算、渠道、FAQ 和看房核验整理租房决策。
 - [金山办公北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/kingsoft-office-renting-guide) - 面向金山办公北京西二旗/小米科技园办公的校招生、实习生和年轻员工，围绕西二旗、安宁庄、上地、清河和回龙观整理租房决策。
 - [快手北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/kuaishou-renting-guide) - 面向快手北京上地西路、后厂村和中关村软件园通勤圈的新员工、实习生和年轻租客，按办公点确认、通勤接驳、预算、渠道和看房核验整理租房决策。
 - [昆仑万维北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/kunlun-tech-renting-guide) - 面向昆仑万维北京东城西总布胡同/明阳国际中心办公的校招生、实习生和年轻员工，围绕东单、建国门、朝阳门、东四、崇文门和广渠门整理租房决策。
