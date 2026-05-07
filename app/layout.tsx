@@ -26,6 +26,20 @@ export const metadata: Metadata = createMetadata({
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="zh-CN" suppressHydrationWarning data-scroll-behavior="smooth">
+			<head>
+				<link
+					rel="alternate"
+					type="text/plain"
+					title="NestHub LLM index"
+					href="/llms.txt"
+				/>
+				<link
+					rel="alternate"
+					type="text/plain"
+					title="NestHub full LLM index"
+					href="/llms-full.txt"
+				/>
+			</head>
 			<body
 				className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
 				suppressHydrationWarning

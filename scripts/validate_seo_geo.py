@@ -329,6 +329,7 @@ def check_llms_full(findings: list[Finding]) -> None:
 
 def check_metadata(findings: list[Finding]) -> None:
     helper = REPO / "lib" / "metadata.ts"
+    root_layout = REPO / "app" / "layout.tsx"
     docs_index_page = REPO / "app" / "docs" / "page.tsx"
     doc_detail_page = REPO / "app" / "docs" / "[...slug]" / "page.tsx"
     home_page = REPO / "app" / "page.tsx"
@@ -337,7 +338,17 @@ def check_metadata(findings: list[Finding]) -> None:
         for token in ["metadataBase", "openGraph", "twitter", "productionSiteUrl"]:
             if token not in text:
                 findings.append(Finding("ERROR", rel(helper), f"metadata helper missing token: {token}"))
-
+    if require_file(root_layout, findings):
+        text = read_text(root_layout)
+        for token in [
+            '<html lang="zh-CN"',
+            'rel="alternate"',
+            'type="text/plain"',
+            'href="/llms.txt"',
+            'href="/llms-full.txt"',
+        ]:
+            if token not in text:
+                findings.append(Finding("ERROR", rel(root_layout), f"root layout missing AI-readable discovery metadata token: {token}"))
     if require_file(docs_index_page, findings):
         text = read_text(docs_index_page)
         for token in ["export const metadata", "docsDescription", "alternates", "canonical", "url: docsUrl"]:
