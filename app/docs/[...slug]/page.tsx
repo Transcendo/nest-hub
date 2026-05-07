@@ -110,6 +110,62 @@ function getBreadcrumbItems(pageUrl: string, title: string) {
 	];
 }
 
+function isKnownSegmentLabel(value: string | undefined): value is string {
+	return Boolean(value);
+}
+
+function buildArticleKeywords(pageUrl: string, title: string) {
+	const segmentKeywords = pageUrl
+		.split("/")
+		.filter(Boolean)
+		.map((segment) => segmentLabels[segment])
+		.filter(isKnownSegmentLabel);
+
+	return Array.from(
+		new Set([
+			"租房指南",
+			"通勤选址",
+			"租金预算",
+			"看房避坑",
+			"合同风险",
+			title,
+			...segmentKeywords,
+		]),
+	).join(", ");
+}
+
+function buildArticleAbout(pageUrl: string, title: string): JsonLd[] {
+	const segmentEntities = pageUrl
+		.split("/")
+		.filter(Boolean)
+		.map((segment) => segmentLabels[segment])
+		.filter(isKnownSegmentLabel)
+		.map((name) => ({
+			"@type": "Thing",
+			name,
+		}));
+
+	return [
+		{
+			"@type": "Thing",
+			name: title,
+		},
+		{
+			"@type": "Thing",
+			name: "租房决策",
+		},
+		{
+			"@type": "Thing",
+			name: "通勤选址",
+		},
+		{
+			"@type": "Thing",
+			name: "租金预算",
+		},
+		...segmentEntities,
+	];
+}
+
 function buildDocPageJsonLd({
 	pageUrl,
 	title,
@@ -133,7 +189,13 @@ function buildDocPageJsonLd({
 		"@type": "Article",
 		headline: title,
 		description,
+		articleSection: pageUrl.startsWith("/docs/avoid-pitfalls")
+			? "租房避坑"
+			: "城市与公司租房指南",
+		keywords: buildArticleKeywords(pageUrl, title),
+		about: buildArticleAbout(pageUrl, title),
 		inLanguage: "zh-CN",
+		isAccessibleForFree: true,
 		mainEntityOfPage: absoluteUrl,
 		url: absoluteUrl,
 		author: organization,
