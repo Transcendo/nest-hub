@@ -40,7 +40,7 @@ const collectedCompanies: LinkEntry[] = [
 ];
 
 const contentEntries: ContentEntry[] = [
-	{ name: "城西未来科技城租房入口", href: "/docs/hangzhou/alibaba-renting-guide", description: "阿里、菜鸟、钉钉、字节、快手、同花顺、OPPO、vivo、遥望等城西样本已拆分。" },
+	{ name: "城西未来科技城租房入口", href: "/docs/hangzhou/future-tech-city-renting-guide", description: "先按未来科技城、五常、仓前、良睦路、蒋村、留下和闲林外扩拆通勤圈。" },
 	{ name: "滨江高新区租房入口", href: "/docs/hangzhou/netease-renting-guide", description: "网易、海康、大华、新华三、宇树等滨江样本已拆分。" },
 	{ name: "西湖黄龙 / 西溪路入口", href: "/docs/hangzhou/ant-group-renting-guide", description: "蚂蚁、有赞等西湖办公带样本已拆分。" },
 	{ name: "拱墅大运河入口", href: "/docs/hangzhou/deepseek-renting-guide", description: "DeepSeek / 深度求索样本已拆分。" },
@@ -56,7 +56,7 @@ const ecosystemRows = [
 		area: "余杭未来科技城 / 西溪园区",
 		track: "电商、云计算、AI、企业服务",
 		mapLogic: "城西通勤带，优先看未来科技城、五常、蒋村、良睦路、文一西路沿线。",
-		source: "https://www.yuhang.gov.cn/art/2024/5/11/art_1532128_59093067.html",
+		source: "https://www.alibabagroup.com/en-US/about-alibaba",
 	},
 	{
 		company: "蚂蚁集团",
