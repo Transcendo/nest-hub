@@ -78,7 +78,7 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 - [华为深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/huawei-renting-guide) - Bantian / Huawei Base commute decisions.
 - [大疆深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/dji-renting-guide) - Xili and DJI Sky City rental choices.
 - [阿里巴巴杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/alibaba-renting-guide) - Future Sci-Tech City commute and budget decisions.
-- [蚂蚁集团杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/ant-group-renting-guide) - Xixi / Zhijiang office-area rental decisions.
+- [蚂蚁集团杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/ant-group-renting-guide) - West Lake Huanglong / Xixi Road commute, old-community, and budget-control decisions.
 - [DeepSeek杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/deepseek-renting-guide) - Gongshu Huijin International Business Community commute, old-community, and budget-control decisions.
 - [米哈游上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/mihoyo-renting-guide) - Caohejing and Xuhui commute choices.
 - [小红书上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/xiaohongshu-renting-guide) - Xintiandi / central Shanghai rental tradeoffs.
