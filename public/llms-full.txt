@@ -123,7 +123,7 @@ City / topic sections indexed: 8
 - [杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou) - 杭州互联网公司、硬科技公司和核心办公区租房总览，覆盖未来科技城、滨江、西湖、拱墅、萧山等通勤带。
 - [快手杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/kuaishou-renting-guide) - 面向快手杭州余杭未来科技城办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [群核科技杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/manycore-renting-guide) - 面向群核科技杭州杭州城西科创带办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
-- [网易杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/netease-renting-guide) - 面向网易杭州滨江网商路 / 长河一带办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
+- [网易杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/netease-renting-guide) - 面向网易杭州滨江网商路 / 长河一带办公的新员工、实习生和年轻租客，按长河 / 西兴 / 浦沿通勤圈、预算、渠道、FAQ 和签约核验整理租房决策。
 - [OPPO杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/oppo-renting-guide) - 面向OPPO杭州余杭未来科技城办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [同花顺杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/tonghuashun-renting-guide) - 面向同花顺杭州余杭五常 / 同顺街一带办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [宇树科技杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/unitree-renting-guide) - 面向宇树科技杭州滨江东流路 / 峰达创意园办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
