@@ -75,6 +75,7 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 - [西二旗租房指南](https://nest-hub.eggcampus.com/docs/beijing/xierqi-renting-guide) - Beijing Xierqi / Shangdi / Houchangcun / Zhongguancun Software Park / Qinghe / Huilongguan rental decisions.
 - [张江租房指南](https://nest-hub.eggcampus.com/docs/shanghai/zhangjiang-renting-guide) - Shanghai Zhangjiang / Jinke Road / Zhangjiang Hi-Tech Park / Guanglan Road / Tangzhen commute and rental decisions.
 - [南山科技园租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/nanshan-tech-park-renting-guide) - Shenzhen Nanshan Tech Park / Yuehai / High-Tech Park / Shenzhen Bay commute and rental decisions.
+- [杭州滨江高新区租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/binjiang-renting-guide) - Hangzhou Binjiang High-Tech Zone / Changhe / Xixing / Jiangling Road / Puyan commute and rental decisions.
 - [京东总部北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - Yizhuang Jinghai Road, Jinghai Road / Ciqu / Majuqiao commute and budget decisions.
 - [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - Dazhongsi, Zhichun Road, Wudaokou, and North Third Ring rental choices.
 - [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - Baidu Mansion / Baidu Technology Park / Penghuan office-area commute ring decisions.

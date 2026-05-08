@@ -6,7 +6,7 @@ Production site: https://nest-hub.eggcampus.com
 Sitemap: https://nest-hub.eggcampus.com/sitemap.xml
 Short LLM index: https://nest-hub.eggcampus.com/llms.txt
 Language: zh-CN
-Public docs indexed: 162
+Public docs indexed: 163
 City / topic sections indexed: 8
 
 ## How AI systems should use NestHub
@@ -116,6 +116,7 @@ City / topic sections indexed: 8
 
 - [阿里巴巴杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/alibaba-renting-guide) - 面向阿里巴巴杭州未来科技城 / 西溪园区办公的新员工、实习生和年轻租客，按办公点确认、五常 / 仓前 / 蒋村 / 留下通勤圈、预算、渠道、FAQ 和签约核验整理租房决策。
 - [蚂蚁集团杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/ant-group-renting-guide) - 面向蚂蚁集团杭州西湖黄龙 / 西溪路一带办公点，按答案卡、通勤圈、预算、FAQ、渠道和签约核验整理租房决策。
+- [杭州滨江高新区租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/binjiang-renting-guide) - 面向在杭州滨江高新区、江南大道、长河、西兴、浦沿、物联网街区、网商路、滨安路一带办公的新员工、实习生和年轻租客，按办公点核验、通勤圈层、预算、渠道、FAQ 和签约风险整理租房决策。
 - [字节跳动杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/bytedance-renting-guide) - 面向字节跳动杭州余杭未来科技城办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [菜鸟杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/cainiao-renting-guide) - 面向菜鸟杭州余杭凤新路 / 未来科技城办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。
 - [大华股份杭州租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/dahua-renting-guide) - 面向大华股份杭州滨江滨安路 / 长河街道办公点，按用户需求、通勤圈、预算、渠道、到杭看房和签约核验整理租房决策。

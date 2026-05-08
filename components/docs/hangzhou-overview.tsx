@@ -41,7 +41,7 @@ const collectedCompanies: LinkEntry[] = [
 
 const contentEntries: ContentEntry[] = [
 	{ name: "城西未来科技城租房入口", href: "/docs/hangzhou/future-tech-city-renting-guide", description: "先按未来科技城、五常、仓前、良睦路、蒋村、留下和闲林外扩拆通勤圈。" },
-	{ name: "滨江高新区租房入口", href: "/docs/hangzhou/netease-renting-guide", description: "网易、海康、大华、新华三、宇树等滨江样本已拆分。" },
+	{ name: "滨江高新区租房入口", href: "/docs/hangzhou/binjiang-renting-guide", description: "先按长河、滨和路、西兴、江陵路、浦沿、白马湖和萧山北拆通勤圈。" },
 	{ name: "西湖黄龙 / 西溪路入口", href: "/docs/hangzhou/ant-group-renting-guide", description: "蚂蚁、有赞等西湖办公带样本已拆分。" },
 	{ name: "拱墅大运河入口", href: "/docs/hangzhou/deepseek-renting-guide", description: "DeepSeek / 深度求索样本已拆分。" },
 	{ name: "萧山信息港入口", href: "/docs/hangzhou/wedoctor-renting-guide", description: "微医与萧山信息港通勤判断已拆分。" },
