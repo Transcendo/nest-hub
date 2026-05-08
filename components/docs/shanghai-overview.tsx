@@ -30,6 +30,11 @@ const collectedCompanies = [
 
 const contentEntries = [
 	{
+		name: "张江租房指南",
+		href: "/docs/shanghai/zhangjiang-renting-guide",
+		description: "园区/片区租房入口：金科路、张江高科、广兰路、唐镇、御桥外扩。",
+	},
+	{
 		name: "复旦大学江湾校区",
 		href: "/docs/shanghai/fudan-jiangwan-campus-renting-guide",
 		description: "高校/研究生租房入口：新江湾城、三门路、五角场、中原。",

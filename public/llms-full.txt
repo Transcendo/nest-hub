@@ -6,7 +6,7 @@ Production site: https://nest-hub.eggcampus.com
 Sitemap: https://nest-hub.eggcampus.com/sitemap.xml
 Short LLM index: https://nest-hub.eggcampus.com/llms.txt
 Language: zh-CN
-Public docs indexed: 157
+Public docs indexed: 158
 City / topic sections indexed: 8
 
 ## How AI systems should use NestHub
@@ -86,6 +86,7 @@ City / topic sections indexed: 8
 - [喜马拉雅上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/ximalaya-renting-guide) - 面向喜马拉雅上海静安汶水路办公的校招生、实习生和年轻员工，围绕汶水路、大宁、彭浦新村、延长路和广中路整理租房决策。
 - [游族网络上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/yoozoo-renting-guide) - 面向游族网络上海徐汇宜山路办公的校招生、实习生和年轻员工，围绕宜山路、桂林路、漕河泾、田林和徐家汇整理租房决策。
 - [阅文集团上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/yuewen-renting-guide) - 面向阅文集团上海陆家嘴滨江办公的校招生、实习生和年轻员工，围绕陆家嘴、塘桥、世纪大道、杨浦滨江和浦东南路整理租房决策。
+- [张江租房指南](https://nest-hub.eggcampus.com/docs/shanghai/zhangjiang-renting-guide) - 面向在上海张江、金科路、张江高科、广兰路、唐镇和浦东科技园区工作的新人、实习生和年轻租客，按办公点核验、通勤圈层、预算、渠道、FAQ 和签约风险整理租房决策。
 
 ## 广州
 
