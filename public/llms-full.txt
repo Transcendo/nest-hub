@@ -6,7 +6,7 @@ Production site: https://nest-hub.eggcampus.com
 Sitemap: https://nest-hub.eggcampus.com/sitemap.xml
 Short LLM index: https://nest-hub.eggcampus.com/llms.txt
 Language: zh-CN
-Public docs indexed: 156
+Public docs indexed: 157
 City / topic sections indexed: 8
 
 ## How AI systems should use NestHub
@@ -60,6 +60,7 @@ City / topic sections indexed: 8
 - [腾讯北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/tencent-renting-guide) - 面向腾讯北京中关村软件园二期办公的校招生、实习生和年轻员工，围绕西北旺、软件园二期、西二旗、上地、清河、回龙观、预算、FAQ、通勤实测和签约核验整理租房决策。
 - [微博北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/weibo-renting-guide) - 面向微博北京新源南路/三元桥办公的校招生、实习生和年轻员工，围绕三元桥、东直门、亮马桥、太阳宫和西坝河整理租房决策。
 - [小米北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/xiaomi-renting-guide) - 面向小米北京小米科技园、安宁庄、西二旗和上地北侧通勤圈的新员工、实习生和年轻租客，按办公点确认、通勤圈层、预算、渠道和看房核验整理租房决策。
+- [亦庄租房指南](https://nest-hub.eggcampus.com/docs/beijing/yizhuang-renting-guide) - 面向在北京亦庄、经海路、次渠、马驹桥和亦庄线周边工作的新人、实习生和年轻租客，按园区确认、通勤圈层、预算、渠道、FAQ 和签约风险整理租房决策。
 - [用友北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/yonyou-renting-guide) - 面向用友北京永丰/北清路办公的校招生、实习生和年轻员工，围绕用友产业园、永丰、屯佃、温泉、西北旺和清河整理租房决策。
 - [知乎北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/zhihu-renting-guide) - 面向知乎北京学清路/学院路办公的校招生、实习生和年轻员工，围绕学清路、学院路、五道口、六道口、清河和牡丹园整理租房决策。
 

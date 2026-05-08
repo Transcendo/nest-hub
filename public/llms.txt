@@ -71,6 +71,7 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 
 ## Representative company and park guides
 
+- [亦庄租房指南](https://nest-hub.eggcampus.com/docs/beijing/yizhuang-renting-guide) - Beijing Yizhuang / Jinghai Road / Ciqu / Majuqiao rental decisions for tech-office renters.
 - [京东总部北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - Yizhuang Jinghai Road, Jinghai Road / Ciqu / Majuqiao commute and budget decisions.
 - [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - Dazhongsi, Zhichun Road, Wudaokou, and North Third Ring rental choices.
 - [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - Baidu Mansion / Baidu Technology Park / Penghuan office-area commute ring decisions.
