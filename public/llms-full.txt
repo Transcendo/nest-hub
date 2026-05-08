@@ -197,7 +197,7 @@ City / topic sections indexed: 8
 - [烽火通信武汉租房指南](https://nest-hub.eggcampus.com/docs/wuhan/fiberhome-renting-guide) - 面向即将入职、实习或调到烽火通信武汉总部 / 高新四路片区的人，按办公锚点、光谷通勤圈层、预算、渠道和看房核验整理租房决策。
 - [光谷未来科技城租房指南](https://nest-hub.eggcampus.com/docs/wuhan/future-tech-city-renting-guide) - 面向入职武汉光谷未来科技城、东湖科学城和高新大道东向硬科技园区的人，整理楼栋确认、通勤圈层、预算带、找房渠道和签约核验。
 - [光谷智能制造产业园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-intelligent-manufacturing-park-renting-guide) - 面向刚拿到武汉光谷智能制造产业园、左岭、光谷东硬科技 offer 或实习的人，围绕园区锚点、通勤圈层、预算渠道和签约风险整理租房决策。
-- [光谷软件园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-software-park-renting-guide) - 面向刚拿到武汉光谷软件园、关山大道周边 offer 或实习的人，围绕园区入口、通勤圈层、预算渠道和签约风险整理租房决策。
+- [光谷软件园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-software-park-renting-guide) - 面向刚拿到武汉光谷软件园、关山大道周边 offer 或实习的人，围绕园区入口、通勤圈层、预算渠道、FAQ 和签约风险整理租房决策。
 - [华为武汉租房指南](https://nest-hub.eggcampus.com/docs/wuhan/huawei-renting-guide) - 面向即将入职、实习或调到华为武汉公开办公锚点的人，围绕江岸三阳路、汉口核心区、光谷远端团队核验、预算、渠道和看房风险整理租房决策。
 - [华科 / 武大武汉高校租房指南](https://nest-hub.eggcampus.com/docs/wuhan/hust-whu-campus-renting-guide) - 面向到华中科技大学、武汉大学周边读研、实习、联合培养或在光谷企业过渡的人，按珞喻路、街道口、广埠屯、鲁巷和光谷换乘带整理租房决策。
 - [武汉租房指南](https://nest-hub.eggcampus.com/docs/wuhan) - 面向刚拿到武汉科技公司 offer、实习或入职的人，围绕光谷、关山大道、高新大道、未来科技城和武昌高校换乘带整理租房决策。
