@@ -71,9 +71,14 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 
 ## Representative company and park guides
 
-- [京东总部北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - Yizhuang Jinghai Road commute and budget decisions.
-- [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - Dazhongsi / Zhichun Road office-area rental choices.
-- [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - Shangdi / Xibeiwang commute ring decisions.
+- [京东总部北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - Yizhuang Jinghai Road, Jinghai Road / Ciqu / Majuqiao commute and budget decisions.
+- [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - Dazhongsi, Zhichun Road, Wudaokou, and North Third Ring rental choices.
+- [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - Baidu Mansion / Baidu Technology Park / Penghuan office-area commute ring decisions.
+- [腾讯北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/tencent-renting-guide) - Zhongguancun Software Park Phase II, Xibeiwang, Xierqi, Shangdi, and Huilongguan tradeoffs.
+- [小米北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/xiaomi-renting-guide) - Xiaomi Science and Technology Park, Anningzhuang, Xierqi, Qinghe, and Huilongguan decisions.
+- [快手北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/kuaishou-renting-guide) - Shangdi West Road / Houchangcun last-mile commute and Xierqi / Qinghe budget tradeoffs.
+- [美团北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/meituan-renting-guide) - Wangjing East, Futong, Jiuxianqiao, Laiguangying, and late-night commute decisions.
+- [阿里巴巴北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/alibaba-renting-guide) - Wangjing / Chaoyang office-area commute, budget, and signing checks.
 - [腾讯深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/tencent-renting-guide) - Nanshan Tech Park and Shenzhen Bay office-area choices.
 - [华为深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/huawei-renting-guide) - Bantian / Huawei Base commute decisions.
 - [大疆深圳租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/dji-renting-guide) - Xili and DJI Sky City rental choices.
