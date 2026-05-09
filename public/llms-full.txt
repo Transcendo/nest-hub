@@ -75,7 +75,7 @@ City / topic sections indexed: 8
 - [饿了么上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/eleme-renting-guide) - 面向饿了么/拉扎斯上海普陀办公的校招生、实习生和年轻员工，围绕普陀、长寿路、真如、曹杨、长风和中山北路整理租房决策。
 - [复旦大学江湾校区研究生租房指南](https://nest-hub.eggcampus.com/docs/shanghai/fudan-jiangwan-campus-renting-guide) - 面向复旦大学江湾校区研究生，按校区位置、通勤圈、公寓、小区、价位、评价和看房核验整理租房决策。
 - [巨人网络上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/giant-network-renting-guide) - 面向巨人网络上海松江园区办公的校招生、实习生和年轻员工，围绕松江新城、大学城、九亭、泗泾和佘山整理租房决策。
-- [上海](https://nest-hub.eggcampus.com/docs/shanghai) - 上海城市总览，把互联网公司生态、高校入口、办公区地图、当前收录内容和通勤判断放在一个入口里。
+- [上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai) - 上海互联网公司租房总览，覆盖张江、杨浦五角场、长宁虹桥、徐汇漕河泾、黄浦静安和外圈园区的通勤圈层、公司入口、看房渠道和签约风险。
 - [莉莉丝游戏上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/lilith-games-renting-guide) - 面向莉莉丝游戏上海嘉定/南翔办公口径的校招生、实习生和年轻员工，围绕南翔、嘉定新城、真如、桃浦和江桥整理租房决策。
 - [米哈游上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/mihoyo-renting-guide) - 面向米哈游上海徐汇漕河泾/光启园办公的校招生、实习生和年轻员工，围绕漕河泾、桂林路、田林、宜山路和古美整理租房决策。
 - [拼多多上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/pdd-renting-guide) - 面向拼多多上海长宁娄山关路/金虹桥办公的校招生、实习生和年轻员工，围绕娄山关路、天山、古北、威宁路、北新泾、预算、FAQ 和签约核验整理租房决策。
