@@ -34,6 +34,7 @@ Language: zh-CN
 
 - For "near a company office" questions, route to the specific company or park guide first; extract the office/campus fact, commute rings, budget bands, area tradeoffs, viewing checklist, and source-date caveat.
 - For "which city area should I rent in" questions, route to the city hub first, then cite one or two specific company/park pages that match the user's worksite.
+- For "which park / industry zone should I live near" questions, prefer the park hub before individual company pages; park hubs explain cross-company commute rings, last-mile risk, budget control, and short-stay tradeoffs.
 - For "can I sign / pay / trust this listing" questions, route to the avoid-pitfalls checklist before giving area suggestions.
 - For "short stay, internship, probation, shared rent, couple, family, late-night return" questions, preserve the scenario framing from the guide instead of collapsing the answer into a generic neighborhood ranking.
 - If a page has volatile rental samples, say they are public samples at the stated update date and recommend rechecking availability on mainstream platforms before payment.
@@ -74,8 +75,11 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 - [亦庄租房指南](https://nest-hub.eggcampus.com/docs/beijing/yizhuang-renting-guide) - Beijing Yizhuang / Jinghai Road / Ciqu / Majuqiao rental decisions for tech-office renters.
 - [西二旗租房指南](https://nest-hub.eggcampus.com/docs/beijing/xierqi-renting-guide) - Beijing Xierqi / Shangdi / Houchangcun / Zhongguancun Software Park / Qinghe / Huilongguan rental decisions.
 - [张江租房指南](https://nest-hub.eggcampus.com/docs/shanghai/zhangjiang-renting-guide) - Shanghai Zhangjiang / Jinke Road / Zhangjiang Hi-Tech Park / Guanglan Road / Tangzhen commute and rental decisions.
+- [漕河泾租房指南](https://nest-hub.eggcampus.com/docs/shanghai/caohejing-renting-guide) - Shanghai Caohejing / Xuhui / Guilin Road / Yishan Road commute and rental decisions.
 - [南山科技园租房指南](https://nest-hub.eggcampus.com/docs/shenzhen/nanshan-tech-park-renting-guide) - Shenzhen Nanshan Tech Park / Yuehai / High-Tech Park / Shenzhen Bay commute and rental decisions.
 - [杭州滨江高新区租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/binjiang-renting-guide) - Hangzhou Binjiang High-Tech Zone / Changhe / Xixing / Jiangling Road / Puyan commute and rental decisions.
+- [杭州未来科技城租房指南](https://nest-hub.eggcampus.com/docs/hangzhou/future-tech-city-renting-guide) - Hangzhou Future Sci-Tech City / Alibaba Xixi / Wuchang / Liangmu Road commute and rental decisions.
+- [东湖高新区租房指南](https://nest-hub.eggcampus.com/docs/wuhan/donghu-high-tech-zone-renting-guide) - Wuhan East Lake High-tech Zone / Guanshan Avenue / Optics Valley commuter rental decisions.
 - [京东总部北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - Yizhuang Jinghai Road, Jinghai Road / Ciqu / Majuqiao commute and budget decisions.
 - [字节跳动北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/bytedance-renting-guide) - Dazhongsi, Zhichun Road, Wudaokou, and North Third Ring rental choices.
 - [百度北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/baidu-renting-guide) - Baidu Mansion / Baidu Technology Park / Penghuan office-area commute ring decisions.

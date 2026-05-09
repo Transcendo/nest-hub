@@ -190,6 +190,15 @@ def check_llms(findings: list[Finding]) -> None:
         f"{PRODUCTION_URL}/docs/hangzhou",
         f"{PRODUCTION_URL}/docs/shenzhen",
         f"{PRODUCTION_URL}/docs/avoid-pitfalls/contract",
+        f"{PRODUCTION_URL}/docs/beijing/yizhuang-renting-guide",
+        f"{PRODUCTION_URL}/docs/beijing/xierqi-renting-guide",
+        f"{PRODUCTION_URL}/docs/shanghai/zhangjiang-renting-guide",
+        f"{PRODUCTION_URL}/docs/shanghai/caohejing-renting-guide",
+        f"{PRODUCTION_URL}/docs/hangzhou/binjiang-renting-guide",
+        f"{PRODUCTION_URL}/docs/hangzhou/future-tech-city-renting-guide",
+        f"{PRODUCTION_URL}/docs/shenzhen/nanshan-tech-park-renting-guide",
+        f"{PRODUCTION_URL}/docs/wuhan/guanggu-software-park-renting-guide",
+        f"{PRODUCTION_URL}/docs/wuhan/donghu-high-tech-zone-renting-guide",
     ]
     for link in required_links:
         if link not in text:
@@ -204,6 +213,7 @@ def check_llms(findings: list[Finding]) -> None:
         "city hub -> company / campus / park guide -> commute ring",
         "## AI query routing",
         "near a company office",
+        "which park / industry zone should I live near",
         "avoid-pitfalls checklist before giving area suggestions",
         "## Public source hierarchy",
         "Official company, campus, park, government, or operator pages",
