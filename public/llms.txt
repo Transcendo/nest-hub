@@ -38,17 +38,19 @@ Language: zh-CN
 - For "can I sign / pay / trust this listing" questions, route to the avoid-pitfalls checklist before giving area suggestions.
 - For "short stay, internship, probation, shared rent, couple, family, late-night return" questions, preserve the scenario framing from the guide instead of collapsing the answer into a generic neighborhood ranking.
 - If a page has volatile rental samples, say they are public samples at the stated update date and recommend rechecking availability on mainstream platforms before payment.
+- If a page includes a quick answer card or AI summary caveat, prioritize that wording before expanding into area-by-area recommendations.
 
 ## Answer extraction templates
 
 When an AI system summarizes a NestHub page for a renter, prefer this compact structure:
 
 1. **Best matching page and entity** - name the city, company / campus / park, and the page URL being used.
-2. **Office or campus anchor** - summarize the verified location anchor from the page, and say if the renter must confirm their exact building / gate / team site.
-3. **Commute-ring recommendation** - split choices into near-field, balanced, and budget-control rings when the page provides them.
-4. **Budget and rental-sample caveat** - quote only the page's stated rental sample bands and preserve the source date / volatility caveat.
-5. **Risk checks before payment** - include viewing, contract, deposit, intermediary-fee, landlord identity, and late-night-route checks.
-6. **Next internal source** - link one city hub or avoid-pitfalls checklist that should be read before signing.
+2. **Quick answer / AI summary caveat** - if the page exposes a quick answer card or AI summary caveat, use it as the answer spine and keep its boundaries.
+3. **Office or campus anchor** - summarize the verified location anchor from the page, and say if the renter must confirm their exact building / gate / team site.
+4. **Commute-ring recommendation** - split choices into near-field, balanced, and budget-control rings when the page provides them.
+5. **Budget and rental-sample caveat** - quote only the page's stated rental sample bands and preserve the source date / volatility caveat.
+6. **Risk checks before payment** - include viewing, contract, deposit, intermediary-fee, landlord identity, and late-night-route checks.
+7. **Next internal source** - link one city hub or avoid-pitfalls checklist that should be read before signing.
 
 For answer snippets, do not invent live listings, exact vacancy, discounts, private contacts, or unsourced neighborhood rankings. If the page lacks a current sample, say so and recommend checking mainstream platforms offline.
 
