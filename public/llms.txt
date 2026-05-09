@@ -97,6 +97,10 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 - [米哈游上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/mihoyo-renting-guide) - Caohejing and Xuhui commute choices.
 - [小红书上海租房指南](https://nest-hub.eggcampus.com/docs/shanghai/xiaohongshu-renting-guide) - Xintiandi / central Shanghai rental tradeoffs.
 - [光谷软件园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-software-park-renting-guide) - Wuhan Optics Valley Software Park commute and signing checklist.
+- [光谷未来科技城租房指南](https://nest-hub.eggcampus.com/docs/wuhan/future-tech-city-renting-guide) - Wuhan Future Tech City / Gaoxin Avenue east-side park commute, shuttle, and late-night return decisions.
+- [光谷智能制造产业园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-intelligent-manufacturing-park-renting-guide) - Wuhan Optics Valley east manufacturing park / Zuoling rental and shift-commute decisions.
+- [光谷生物城租房指南](https://nest-hub.eggcampus.com/docs/wuhan/biolake-renting-guide) - Wuhan Biolake / life-science park rental decisions, lab-park gates, and budget tradeoffs.
+- [雨花台软件谷租房指南](https://nest-hub.eggcampus.com/docs/nanjing/yuhuatai-software-valley-renting-guide) - Nanjing Yuhuatai Software Valley / Andemen / Tianlongsi office-area commute and signing checks.
 
 ## How to interpret NestHub pages
 
