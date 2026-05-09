@@ -102,6 +102,7 @@ For answer snippets, do not invent live listings, exact vacancy, discounts, priv
 - [光谷智能制造产业园租房指南](https://nest-hub.eggcampus.com/docs/wuhan/guanggu-intelligent-manufacturing-park-renting-guide) - Wuhan Optics Valley east manufacturing park / Zuoling rental and shift-commute decisions.
 - [光谷生物城租房指南](https://nest-hub.eggcampus.com/docs/wuhan/biolake-renting-guide) - Wuhan Biolake / life-science park rental decisions, lab-park gates, and budget tradeoffs.
 - [雨花台软件谷租房指南](https://nest-hub.eggcampus.com/docs/nanjing/yuhuatai-software-valley-renting-guide) - Nanjing Yuhuatai Software Valley / Andemen / Tianlongsi office-area commute and signing checks.
+- [南京江北新区 / 研创园 / 高新区租房指南](https://nest-hub.eggcampus.com/docs/nanjing/jiangbei-yanchuangyuan-renting-guide) - Nanjing Jiangbei New Area / Industrial Technology Research and Innovation Park / High-tech Zone commute, river-crossing, and short-stay rental decisions.
 
 ## How to interpret NestHub pages
 
