@@ -6,7 +6,7 @@ Production site: https://nest-hub.eggcampus.com
 Sitemap: https://nest-hub.eggcampus.com/sitemap.xml
 Short LLM index: https://nest-hub.eggcampus.com/llms.txt
 Language: zh-CN
-Public docs indexed: 163
+Public docs indexed: 164
 City / topic sections indexed: 8
 
 ## How AI systems should use NestHub
@@ -105,6 +105,7 @@ City / topic sections indexed: 8
 - [酷狗音乐广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/kugou-renting-guide) - 面向酷狗音乐广州内容、音频社区、版权运营和推荐系统新人，围绕实际办公点与海珠 / 天河 / 番禺通勤判断整理租房。
 - [汇量科技 Mobvista 广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/mobvista-renting-guide) - 面向汇量科技广州广告技术、海外增长和 SaaS 岗位新人，围绕实际办公点、晚归和合租预算整理租房策略。
 - [网易游戏广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/netease-games-renting-guide) - 面向网易游戏广州新人，围绕天河科韵路、智慧城、番禺可能办公圈，按楼栋确认、通勤圈层、预算和看房核验整理租房决策。
+- [琶洲租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/pazhou-renting-guide) - 面向在广州琶洲、海珠、磨碟沙、新港东、万胜围和客村周边办公的新员工、实习生和年轻租客，按真实楼栋、通勤圈层、预算、渠道、FAQ 和签约风险整理租房决策。
 - [小马智行广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/pony-ai-renting-guide) - 面向小马智行广州自动驾驶岗位新人，围绕南沙、黄埔和实际运营点核验租房半径。
 - [SHEIN 广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/shein-renting-guide) - 面向 SHEIN 广州跨境电商、供应链、设计协同和数据运营新人，围绕番禺、海珠、供应链节点和实际办公点整理租房决策。
 - [腾讯 / 微信广州租房指南](https://nest-hub.eggcampus.com/docs/guangzhou/tencent-wechat-renting-guide) - 面向刚拿到腾讯 / 微信广州 offer 的应届生、实习生和年轻员工，围绕海珠琶洲、T.I.T 创意园、赤岗客村和万胜围通勤圈整理租房决策。
