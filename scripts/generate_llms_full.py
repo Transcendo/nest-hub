@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from pathlib import Path
+from typing import NamedTuple
 
 REPO = Path(__file__).resolve().parents[1]
 CONTENT = REPO / "content" / "docs"
@@ -44,6 +45,14 @@ SEO_EXCLUDED_ROUTES = {
     "/docs/mandatory-read",
     "/docs/mandatory-read/renting-pitfalls",
 }
+
+
+class PageIndexEntry(NamedTuple):
+    title: str
+    url: str
+    description: str
+    page_type: str
+    extraction_hints: tuple[str, ...]
 
 
 def extract_frontmatter(text: str) -> dict[str, str]:
@@ -96,17 +105,72 @@ def section_for(path: Path) -> str:
     return parts[0] if parts else "docs"
 
 
-def collect_pages() -> dict[str, list[tuple[str, str, str]]]:
-    grouped: dict[str, list[tuple[str, str, str]]] = defaultdict(list)
+def classify_page(path: Path, _text: str) -> str:
+    route = route_for(path)
+    filename = path.name
+    office_area_filename_tokens = [
+        "park",
+        "software-valley",
+        "yizhuang",
+        "xierqi",
+        "zhangjiang",
+        "caohejing",
+        "future-tech-city",
+        "binjiang",
+        "pazhou",
+        "donghu-high-tech-zone",
+        "guanggu",
+        "biolake",
+        "jiangbei-yanchuangyuan",
+        "xuzhuang-xianlin",
+        "hexi-south-station",
+    ]
+
+    if route.startswith("/docs/avoid-pitfalls"):
+        return "avoid-pitfalls-checklist"
+    if filename == "index.mdx":
+        return "city-hub"
+    if "campus" in filename:
+        return "campus-guide"
+    if any(token in filename for token in office_area_filename_tokens):
+        return "park-or-office-area-guide"
+    return "company-office-guide"
+
+
+def extract_public_answer_hints(text: str) -> tuple[str, ...]:
+    candidates = [
+        ("quick-answer-card", ["答案卡", "快速答案卡"]),
+        ("faq", ["常见问题", "FAQ"]),
+        ("commute-rings", ["通勤圈", "圈层", "门到门"]),
+        ("budget-bands", ["预算", "租金", "价格样本"]),
+        ("viewing-and-contract-checks", ["看房", "签约", "合同", "避坑"]),
+        ("source-notes", ["资料来源", "来源与口径", "来源说明"]),
+        ("internal-links", ["相关入口", "<Cards>"]),
+    ]
+    hints = [label for label, tokens in candidates if any(token in text for token in tokens)]
+    return tuple(hints)
+
+
+def collect_pages() -> dict[str, list[PageIndexEntry]]:
+    grouped: dict[str, list[PageIndexEntry]] = defaultdict(list)
     for path in sorted(CONTENT.rglob("*.mdx")):
         route = route_for(path)
         if route in SEO_EXCLUDED_ROUTES:
             continue
-        frontmatter = extract_frontmatter(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        frontmatter = extract_frontmatter(text)
         title = frontmatter.get("title") or route.rsplit("/", 1)[-1]
         description = frontmatter.get("description", "").replace("\n", " ").strip()
         url = f"{PRODUCTION_URL}{route}"
-        grouped[section_for(path)].append((title, url, description))
+        grouped[section_for(path)].append(
+            PageIndexEntry(
+                title=title,
+                url=url,
+                description=description,
+                page_type=classify_page(path, text),
+                extraction_hints=extract_public_answer_hints(text),
+            )
+        )
     return grouped
 
 
@@ -118,7 +182,7 @@ def render() -> str:
     lines = [
         "# NestHub full public docs index",
         "",
-        "> AI-readable index generated from public MDX frontmatter in content/docs. Use this together with page body content and source notes; rental samples are volatile and must keep their stated update dates.",
+        "> AI-readable index generated from public MDX frontmatter and public section headings in content/docs. Use this together with page body content and source notes; rental samples are volatile and must keep their stated update dates.",
         "",
         f"Production site: {PRODUCTION_URL}",
         f"Sitemap: {PRODUCTION_URL}/sitemap.xml",
@@ -137,6 +201,7 @@ def render() -> str:
         "- For city and park pages, answer by renter scenario: new hire, intern, couple, shared rental, family, budget-sensitive, late-night commute.",
         "- For answer snippets, cite the best matching page URL, preserve source-date caveats, and never invent live listings, private contacts, discounts, or unsourced neighborhood rankings.",
         "- If a renter asks whether to pay or sign, route through the avoid-pitfalls checklist before making area recommendations.",
+        "- AI extraction hints are public page-structure signals only: they indicate whether a guide exposes quick answers, FAQ, commute rings, budget bands, risk checks, source notes, and internal links.",
         "",
     ]
 
@@ -146,9 +211,13 @@ def render() -> str:
     for section in ordered_sections:
         title = SECTION_LABELS.get(section, section)
         lines.extend([f"## {title}", ""])
-        for page_title, url, description in grouped[section]:
-            suffix = f" - {description}" if description else ""
-            lines.append(f"- [{page_title}]({url}){suffix}")
+        for entry in grouped[section]:
+            suffix = f" - {entry.description}" if entry.description else ""
+            hints = ", ".join(entry.extraction_hints) if entry.extraction_hints else "frontmatter-only"
+            lines.append(
+                f"- [{entry.title}]({entry.url}){suffix} AI extraction hints: "
+                f"page_type={entry.page_type}; sections={hints}."
+            )
         lines.append("")
 
     return "\n".join(lines).rstrip() + "\n"

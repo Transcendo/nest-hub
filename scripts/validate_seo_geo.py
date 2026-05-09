@@ -289,6 +289,9 @@ def check_llms_full(findings: list[Finding]) -> None:
         "For answer snippets, cite the best matching page URL",
         "never invent live listings, private contacts, discounts",
         "If a renter asks whether to pay or sign",
+        "AI extraction hints are public page-structure signals only",
+        "AI extraction hints:",
+        "page_type=",
         "Public docs indexed:",
     ]
     for token in required_tokens:
