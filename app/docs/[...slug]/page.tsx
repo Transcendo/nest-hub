@@ -4,6 +4,8 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import defaultMdxComponents from "fumadocs-ui/mdx";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import {
 	DocsBody,
 	DocsDescription,
@@ -55,6 +57,11 @@ type LoadableDocData = {
 };
 
 type JsonLd = Record<string, unknown>;
+
+type FaqEntry = {
+	question: string;
+	answer: string;
+};
 
 const segmentLabels: Record<string, string> = {
 	docs: "租房指南",
@@ -167,6 +174,77 @@ function buildArticleAbout(pageUrl: string, title: string): JsonLd[] {
 	];
 }
 
+function getDocSourcePath(pageUrl: string) {
+	const route = pageUrl.replace(/^\/docs\/?/, "");
+	const segments = route ? route.split("/").filter(Boolean) : [];
+	const directPath = join(process.cwd(), "content", "docs", ...segments) + ".mdx";
+	const indexPath = join(process.cwd(), "content", "docs", ...segments, "index.mdx");
+
+	return existsSync(directPath) ? directPath : indexPath;
+}
+
+function readDocSource(pageUrl: string) {
+	const sourcePath = getDocSourcePath(pageUrl);
+
+	if (!existsSync(sourcePath)) return undefined;
+
+	return readFileSync(sourcePath, "utf8");
+}
+
+function stripMdxToText(value: string) {
+	return value
+		.replace(/<[^>]+>/g, " ")
+		.replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1")
+		.replace(/[`*_~>#-]/g, " ")
+		.replace(/\s+/g, " ")
+		.trim();
+}
+
+function extractFaqEntries(mdx: string | undefined): FaqEntry[] {
+	if (!mdx) return [];
+
+	const lines = mdx.split("\n");
+	const faqStart = lines.findIndex((line) => /^##\s+.*(FAQ|常见问题)/i.test(line));
+	if (faqStart === -1) return [];
+
+	const faqLines: string[] = [];
+	for (const line of lines.slice(faqStart + 1)) {
+		if (/^##\s+/.test(line)) break;
+		faqLines.push(line);
+	}
+
+	const entries: FaqEntry[] = [];
+	let currentQuestion: string | undefined;
+	let currentAnswer: string[] = [];
+
+	function flush() {
+		if (!currentQuestion) return;
+
+		const answer = stripMdxToText(currentAnswer.join(" ")).slice(0, 700);
+		if (answer) {
+			entries.push({
+				question: stripMdxToText(currentQuestion),
+				answer,
+			});
+		}
+	}
+
+	for (const line of faqLines) {
+		const questionMatch = line.match(/^###\s+(.+)/);
+		if (questionMatch) {
+			flush();
+			currentQuestion = questionMatch[1];
+			currentAnswer = [];
+			continue;
+		}
+
+		if (currentQuestion) currentAnswer.push(line);
+	}
+	flush();
+
+	return entries.slice(0, 8);
+}
+
 function buildDocPageJsonLd({
 	pageUrl,
 	title,
@@ -183,6 +261,8 @@ function buildDocPageJsonLd({
 	const webPageId = `${absoluteUrl}#webpage`;
 	const articleId = `${absoluteUrl}#article`;
 	const breadcrumbId = `${absoluteUrl}#breadcrumb`;
+	const faqId = `${absoluteUrl}#faq`;
+	const faqEntries = extractFaqEntries(readDocSource(pageUrl));
 	const organization = {
 		"@type": "Organization",
 		"@id": new URL("/#organization", baseUrl).toString(),
@@ -216,7 +296,7 @@ function buildDocPageJsonLd({
 		article.dateModified = dateModified;
 	}
 
-	return [
+	const jsonLd: JsonLd[] = [
 		{
 			"@context": "https://schema.org",
 			"@type": "WebPage",
@@ -246,6 +326,26 @@ function buildDocPageJsonLd({
 			itemListElement: getBreadcrumbItems(pageUrl, title),
 		},
 	];
+
+	if (faqEntries.length > 0) {
+		jsonLd.push({
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"@id": faqId,
+			url: absoluteUrl,
+			inLanguage: "zh-CN",
+			mainEntity: faqEntries.map((entry) => ({
+				"@type": "Question",
+				name: entry.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: entry.answer,
+				},
+			})),
+		});
+	}
+
+	return jsonLd;
 }
 
 function serializeJsonLd(jsonLd: JsonLd[]) {
