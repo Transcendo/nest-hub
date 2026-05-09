@@ -44,7 +44,7 @@ City / topic sections indexed: 8
 - [滴滴北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/didi-renting-guide) - 面向滴滴北京唐家岭/东北旺办公的校招生、实习生和年轻员工，围绕唐家岭、西北旺、西二旗、上地、清河和回龙观整理租房决策。
 - [陌陌 / Hello Group 北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/hello-group-renting-guide) - 面向陌陌 / Hello Group 北京望京 SOHO 办公的校招生、实习生和年轻员工，围绕望京 SOHO、阜通、望京东、花家地和酒仙桥整理租房决策。
 - [地平线北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/horizon-robotics-renting-guide) - 面向地平线北京永丰/丰豪东路办公的校招生、实习生和年轻员工，围绕永丰、屯佃、西北旺、温泉、上地和清河整理租房决策。
-- [北京](https://nest-hub.eggcampus.com/docs/beijing) - 北京城市总览，把公司生态、办公区地图、当前收录内容和通勤判断放在一个入口里。
+- [北京租房指南](https://nest-hub.eggcampus.com/docs/beijing) - 北京互联网和科技公司租房总览，按海淀北部、西二旗、北三环、望京、亦庄、昌平和顺义拆解通勤圈层、公司入口、看房渠道和签约风险。
 - [爱奇艺北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/iqiyi-renting-guide) - 面向爱奇艺北京工体北路/朝阳办公的校招生、实习生和年轻员工，围绕工体、东直门、三里屯、团结湖、朝阳门和东四十条整理租房决策。
 - [掌阅科技北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/ireader-renting-guide) - 面向掌阅科技北京四惠东/四惠大厦办公的校招生、实习生和年轻员工，围绕四惠东、四惠、百子湾、青年路、高碑店和通州北苑整理租房决策。
 - [京东总部租房指南](https://nest-hub.eggcampus.com/docs/beijing/jd-headquarters-renting-guide) - 面向京东北京亦庄总部、经海路、次渠、马驹桥和东石公园通勤圈的新员工、实习生和年轻租客，按办公点确认、通勤圈层、预算、渠道、FAQ 和看房核验整理租房决策。
