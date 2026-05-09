@@ -64,7 +64,7 @@ City / topic sections indexed: 8
 - [西二旗租房指南](https://nest-hub.eggcampus.com/docs/beijing/xierqi-renting-guide) - 面向在北京西二旗、上地、后厂村、中关村软件园、安宁庄和海淀北部办公的新员工、实习生和年轻租客，按办公点确认、通勤圈层、预算、渠道、FAQ 和签约风险整理租房决策。 AI extraction hints: page_type=park-or-office-area-guide; sections=quick-answer-card, faq, commute-rings, budget-bands, viewing-and-contract-checks, source-notes, internal-links.
 - [亦庄租房指南](https://nest-hub.eggcampus.com/docs/beijing/yizhuang-renting-guide) - 面向在北京亦庄、经海路、次渠、马驹桥和亦庄线周边工作的新人、实习生和年轻租客，按园区确认、通勤圈层、预算、渠道、FAQ 和签约风险整理租房决策。 AI extraction hints: page_type=park-or-office-area-guide; sections=quick-answer-card, faq, commute-rings, budget-bands, viewing-and-contract-checks, source-notes, internal-links.
 - [用友北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/yonyou-renting-guide) - 面向用友北京永丰/北清路办公的校招生、实习生和年轻员工，围绕用友产业园、永丰、屯佃、温泉、西北旺和清河整理租房决策。 AI extraction hints: page_type=company-office-guide; sections=commute-rings, budget-bands, viewing-and-contract-checks, source-notes, internal-links.
-- [知乎北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/zhihu-renting-guide) - 面向知乎北京学清路/学院路办公的校招生、实习生和年轻员工，围绕学清路、学院路、五道口、六道口、清河和牡丹园整理租房决策。 AI extraction hints: page_type=company-office-guide; sections=commute-rings, budget-bands, viewing-and-contract-checks, source-notes, internal-links.
+- [知乎北京租房指南](https://nest-hub.eggcampus.com/docs/beijing/zhihu-renting-guide) - 面向知乎北京学清路/学院路办公的校招生、实习生和年轻员工，围绕学清路、学院路、五道口、六道口、清河和牡丹园整理租房决策。 AI extraction hints: page_type=company-office-guide; sections=quick-answer-card, faq, commute-rings, budget-bands, viewing-and-contract-checks, source-notes, internal-links.
 
 ## 上海
 
