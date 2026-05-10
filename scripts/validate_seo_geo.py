@@ -624,6 +624,29 @@ def extract_internal_doc_links(text: str) -> set[str]:
     return links
 
 
+def all_public_doc_routes() -> set[str]:
+    """Return local public docs routes that should be safe internal-link targets."""
+    routes = {"/docs"}
+    for path in CONTENT.rglob("*.mdx"):
+        routes.add(route_for_doc(path))
+    return routes
+
+
+def check_internal_doc_link_targets(findings: list[Finding]) -> None:
+    """Catch stale /docs links before they ship into city hubs or guide CTAs."""
+    valid_routes = all_public_doc_routes()
+    for path in sorted(CONTENT.rglob("*.mdx")):
+        for link in sorted(extract_internal_doc_links(read_text(path))):
+            if link not in valid_routes:
+                findings.append(
+                    Finding(
+                        "ERROR",
+                        rel(path),
+                        f"internal docs link target does not exist: {link}",
+                    )
+                )
+
+
 def direct_child_routes(index_path: Path) -> set[str]:
     parent = index_path.parent
     routes: set[str] = set()
@@ -720,6 +743,7 @@ def main() -> int:
     check_metadata(findings)
     check_structured_data(findings)
     check_mdx_autolinks(findings)
+    check_internal_doc_link_targets(findings)
     check_meta_navigation_consistency(findings)
     check_landing_page_discoverability(findings)
     check_public_content_boundaries(findings)
