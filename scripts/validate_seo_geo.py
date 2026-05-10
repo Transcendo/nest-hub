@@ -442,6 +442,7 @@ def check_structured_data(findings: list[Finding]) -> None:
             "WebSite",
             "Article",
             "BreadcrumbList",
+            "FAQPage",
             "@id",
             "articleSection",
             "keywords",
@@ -451,9 +452,11 @@ def check_structured_data(findings: list[Finding]) -> None:
             "mainEntity",
             "breadcrumb",
             "itemListElement",
+            "acceptedAnswer",
             "logo",
             "sameAs",
             "repositoryUrl",
+            "extractFaqEntries",
             "serializeJsonLd",
         ]
         for token in required_tokens:
@@ -467,8 +470,12 @@ def check_structured_data(findings: list[Finding]) -> None:
             "实地看房检查",
             "北京租房指南",
             "上海租房指南",
+            "广州租房指南",
             "杭州租房指南",
             "深圳租房指南",
+            "南京租房指南",
+            "成都租房指南",
+            "武汉租房指南",
         ]
         for label in breadcrumb_labels:
             if label not in text:
