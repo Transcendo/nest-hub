@@ -40,6 +40,10 @@ SEO_EXCLUDED_ROUTES = {
     "/docs/mandatory-read/renting-pitfalls",
 }
 
+INTERNAL_DOC_LINK_PATTERN = re.compile(
+    r"""href=[\"']([^\"']+)[\"']|\[[^\]]+\]\((/docs/[^)\s]+)\)"""
+)
+
 
 @dataclass
 class Finding:
@@ -601,6 +605,71 @@ def check_meta_navigation_consistency(findings: list[Finding]) -> None:
             )
 
 
+def extract_internal_doc_links(text: str) -> set[str]:
+    links: set[str] = set()
+    for match in INTERNAL_DOC_LINK_PATTERN.finditer(text):
+        raw_link = next(group for group in match.groups() if group)
+        route = raw_link.split("#", 1)[0].split("?", 1)[0].rstrip("/")
+        if route.startswith("/docs"):
+            links.add(route or "/docs")
+    return links
+
+
+def direct_child_routes(index_path: Path) -> set[str]:
+    parent = index_path.parent
+    routes: set[str] = set()
+    for child in sorted(parent.iterdir()):
+        if child.name == "meta.json" or child.name.startswith(".") or child == index_path:
+            continue
+        if child.is_file() and child.suffix == ".mdx":
+            route = route_for_doc(child)
+        elif child.is_dir() and (child / "index.mdx").exists():
+            route = route_for_doc(child / "index.mdx")
+        else:
+            continue
+        if not is_excluded_route(route):
+            routes.add(route)
+    return routes
+
+
+def check_landing_page_discoverability(findings: list[Finding]) -> None:
+    """Ensure public section/city landing pages link to their direct child docs."""
+    for index_path in sorted(CONTENT.glob("*/index.mdx")):
+        index_route = route_for_doc(index_path)
+        if is_excluded_route(index_route):
+            continue
+
+        links = extract_internal_doc_links(read_text(index_path))
+        expected_routes = direct_child_routes(index_path)
+        missing_routes = sorted(expected_routes - links)
+        if missing_routes:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel(index_path),
+                    f"landing page does not link to direct public child docs: {', '.join(missing_routes[:8])}",
+                )
+            )
+
+        same_section_prefix = f"{index_route}/"
+        stale_direct_links = sorted(
+            link
+            for link in links
+            if link.startswith(same_section_prefix)
+            and "/" not in link.removeprefix(same_section_prefix)
+            and link not in expected_routes
+            and not is_excluded_route(link)
+        )
+        if stale_direct_links:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel(index_path),
+                    f"landing page links to missing direct child docs: {', '.join(stale_direct_links[:8])}",
+                )
+            )
+
+
 def check_public_content_boundaries(findings: list[Finding]) -> None:
     for path in sorted(CONTENT.rglob("*.mdx")):
         text = read_text(path)
@@ -643,6 +712,7 @@ def main() -> int:
     check_structured_data(findings)
     check_mdx_autolinks(findings)
     check_meta_navigation_consistency(findings)
+    check_landing_page_discoverability(findings)
     check_public_content_boundaries(findings)
     check_city_card_copy(findings)
 
