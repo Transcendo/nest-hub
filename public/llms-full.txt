@@ -23,7 +23,7 @@ City / topic sections indexed: 8
 
 ## 租房避坑 / 签约检查
 
-- [签约谈判](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/contract) - 签约前核对合同主体、押金退还、转租退租、维修责任、付款周期、中介费和所有口头承诺的落字方式。 AI extraction hints: page_type=avoid-pitfalls-checklist; sections=rental-channel-checks, viewing-and-contract-checks.
+- [签约谈判](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/contract) - 签约前核对合同主体、押金退还、转租退租、维修责任、付款周期、中介费和所有口头承诺的落字方式。 AI extraction hints: page_type=avoid-pitfalls-checklist; sections=faq, budget-bands, rental-channel-checks, viewing-and-contract-checks.
 - [避坑指南](https://nest-hub.eggcampus.com/docs/avoid-pitfalls) - 所有城市通用的租房避坑入口，按租前准备、实地看房、签约谈判、入住生活、常见陷阱和维权路径整理检查清单。 AI extraction hints: page_type=avoid-pitfalls-checklist; sections=commute-rings, budget-bands, rental-channel-checks, viewing-and-contract-checks, internal-links.
 - [入住生活](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/living) - 入住当天留存照片视频、水电燃气读数、钥匙交接和问题清单，并提前约定合租规则、报修责任和退租交接口径。 AI extraction hints: page_type=avoid-pitfalls-checklist; sections=viewing-and-contract-checks.
 - [租前准备](https://nest-hub.eggcampus.com/docs/avoid-pitfalls/preparation) - 租房前先确定预算、通勤红线、合租边界、看房资料和房源渠道，避免被低价照片、催促话术和模糊费用带偏。 AI extraction hints: page_type=avoid-pitfalls-checklist; sections=budget-bands, rental-channel-checks, viewing-and-contract-checks.
