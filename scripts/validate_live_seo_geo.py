@@ -39,6 +39,7 @@ ESSENTIAL_DOC_ROUTES = [
     "/docs/wuhan/guanggu-software-park-renting-guide",
 ]
 
+PAGE_METADATA_ROUTES = ["/", *ESSENTIAL_DOC_ROUTES]
 TEXT_ASSET_PATHS = ["/robots.txt", "/sitemap.xml", "/llms.txt", "/llms-full.txt"]
 AI_DISCOVERY_USER_AGENTS = ["OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "Claude-User"]
 
@@ -74,6 +75,10 @@ def fetch(path: str, findings: list[Finding]) -> Response | None:
     return None
 
 
+def expected_url(path: str) -> str:
+    return PRODUCTION_URL if path == "/" else f"{PRODUCTION_URL}{path}"
+
+
 def require_status_ok(response: Response | None, path: str, findings: list[Finding]) -> None:
     if response is None:
         return
@@ -89,6 +94,32 @@ def require_tokens(response: Response | None, tokens: Iterable[str], findings: l
     for token in tokens:
         if token not in response.text:
             findings.append(Finding("ERROR", response.url, f"missing required public token: {token}"))
+
+
+def require_meta_content(response: Response, pattern: str, expected: str, label: str, findings: list[Finding]) -> None:
+    match = re.search(pattern, response.text)
+    if not match:
+        findings.append(Finding("ERROR", response.url, f"missing {label}"))
+        return
+    actual = match.group(1)
+    if actual != expected:
+        findings.append(Finding("ERROR", response.url, f"{label} mismatch: expected {expected}, got {actual}"))
+
+
+def check_page_metadata(path: str, response: Response | None, findings: list[Finding]) -> None:
+    require_status_ok(response, path, findings)
+    if response is None:
+        return
+
+    page_url = expected_url(path)
+    require_meta_content(response, r'<link rel="canonical" href="([^"]+)"', page_url, "canonical URL", findings)
+    require_meta_content(response, r'<meta property="og:url" content="([^"]+)"', page_url, "Open Graph URL", findings)
+    if not re.search(r'<meta name="description" content="[^"�]{20,}"', response.text):
+        findings.append(Finding("ERROR", response.url, "missing usable meta description"))
+    if 'type="application/ld+json"' not in response.text:
+        findings.append(Finding("ERROR", response.url, "missing JSON-LD structured data"))
+    if path.startswith("/docs") and "BreadcrumbList" not in response.text:
+        findings.append(Finding("ERROR", response.url, "docs route missing BreadcrumbList JSON-LD"))
 
 
 def check_text_asset_headers(responses: dict[str, Response | None], findings: list[Finding]) -> None:
@@ -179,10 +210,18 @@ def check_llms_full(response: Response | None, findings: list[Finding]) -> None:
 def check_doc_routes(findings: list[Finding]) -> None:
     for route in ESSENTIAL_DOC_ROUTES:
         response = fetch(route, findings)
-        require_status_ok(response, route, findings)
+        check_page_metadata(route, response, findings)
         if response is None:
             continue
         require_tokens(response, ["NestHub", "租房"], findings)
+
+
+def check_homepage_metadata(findings: list[Finding]) -> None:
+    response = fetch("/", findings)
+    check_page_metadata("/", response, findings)
+    if response is None:
+        return
+    require_tokens(response, ["NestHub", "租房", "WebSite"], findings)
 
 
 def main() -> int:
@@ -194,6 +233,7 @@ def main() -> int:
     check_sitemap(responses.get("/sitemap.xml"), findings)
     check_llms(responses.get("/llms.txt"), findings)
     check_llms_full(responses.get("/llms-full.txt"), findings)
+    check_homepage_metadata(findings)
     check_doc_routes(findings)
 
     errors = [finding for finding in findings if finding.level == "ERROR"]
@@ -203,6 +243,7 @@ def main() -> int:
     print(f"site: {PRODUCTION_URL}")
     print(f"text_assets_checked: {len(TEXT_ASSET_PATHS)}")
     print(f"doc_routes_checked: {len(ESSENTIAL_DOC_ROUTES)}")
+    print(f"page_metadata_routes_checked: {len(PAGE_METADATA_ROUTES)}")
     print(f"errors: {len(errors)}")
     print(f"warnings: {len(warnings)}")
 
