@@ -613,6 +613,25 @@ def check_public_content_boundaries(findings: list[Finding]) -> None:
         check_private_markers(path, text, findings)
 
 
+def check_city_card_copy(findings: list[Finding]) -> None:
+    """Keep homepage/docs city cards from publishing brittle collection counts."""
+    site_config = REPO / "lib" / "site-config.tsx"
+    if not require_file(site_config, findings):
+        return
+
+    text = read_text(site_config)
+    brittle_count_pattern = re.compile(r"已(?:收录|整理)\s*\d+\s*家")
+    for match in brittle_count_pattern.finditer(text):
+        line = text.count("\n", 0, match.start()) + 1
+        findings.append(
+            Finding(
+                "ERROR",
+                rel(site_config),
+                f"city card copy uses a brittle exact collection count at line {line}; prefer stable coverage wording",
+            )
+        )
+
+
 def main() -> int:
     findings: list[Finding] = []
     check_robots(findings)
@@ -625,6 +644,7 @@ def main() -> int:
     check_mdx_autolinks(findings)
     check_meta_navigation_consistency(findings)
     check_public_content_boundaries(findings)
+    check_city_card_copy(findings)
 
     errors = [finding for finding in findings if finding.level == "ERROR"]
     warnings = [finding for finding in findings if finding.level == "WARN"]

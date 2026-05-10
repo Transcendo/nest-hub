@@ -93,12 +93,12 @@ export const cityCards = [
 	},
 	{
 		title: "杭州",
-		description: "已收录 20 家杭州公司，覆盖未来科技城、滨江、西湖、余杭等通勤带。",
+		description: "持续收录杭州公司与园区指南，覆盖未来科技城、滨江、西湖、余杭等通勤带。",
 		href: "/docs/hangzhou",
 	},
 	{
 		title: "深圳",
-		description: "已整理 21 家深圳公司样本，覆盖南山科技园、西丽留仙洞、坂田、福田、前海和产业外圈。",
+		description: "持续收录深圳公司与园区指南，覆盖南山科技园、西丽留仙洞、坂田、福田、前海和产业外圈。",
 		href: "/docs/shenzhen",
 	},
 	{
