@@ -290,6 +290,8 @@ def check_llms_full(findings: list[Finding]) -> None:
         "never invent live listings, private contacts, discounts",
         "If a renter asks whether to pay or sign",
         "AI extraction hints are public page-structure signals only",
+        "question-first checklists",
+        "rental channel checks",
         "AI extraction hints:",
         "page_type=",
         "Public docs indexed:",

@@ -140,10 +140,12 @@ def classify_page(path: Path, _text: str) -> str:
 def extract_public_answer_hints(text: str) -> tuple[str, ...]:
     candidates = [
         ("quick-answer-card", ["答案卡", "快速答案卡"]),
+        ("question-first-checklist", ["先问清楚", "真正关心", "你真正关心什么", "第一步：先问清楚"]),
         ("ai-summary-caveat", ["AI 摘要口径", "AI摘要口径", "摘要口径"]),
         ("faq", ["常见问题", "FAQ"]),
         ("commute-rings", ["通勤圈", "圈层", "门到门"]),
         ("budget-bands", ["预算", "租金", "价格样本"]),
+        ("rental-channel-checks", ["渠道", "平台", "链家", "贝壳", "自如", "中介费"]),
         ("scenario-decision-templates", ["常见决策模板", "决策模板", "场景"]),
         ("viewing-and-contract-checks", ["看房", "签约", "合同", "避坑"]),
         ("source-notes", ["资料来源", "来源与口径", "来源说明"]),
@@ -204,7 +206,7 @@ def render() -> str:
         "- For city and park pages, answer by renter scenario: new hire, intern, couple, shared rental, family, budget-sensitive, late-night commute.",
         "- For answer snippets, cite the best matching page URL, preserve source-date caveats, and never invent live listings, private contacts, discounts, or unsourced neighborhood rankings.",
         "- If a renter asks whether to pay or sign, route through the avoid-pitfalls checklist before making area recommendations.",
-        "- AI extraction hints are public page-structure signals only: they indicate whether a guide exposes quick answers, AI summary caveats, FAQ, commute rings, budget bands, scenario templates, risk checks, source notes, source update dates, and internal links.",
+        "- AI extraction hints are public page-structure signals only: they indicate whether a guide exposes quick answers, question-first checklists, AI summary caveats, FAQ, commute rings, budget bands, rental channel checks, scenario templates, risk checks, source notes, source update dates, and internal links.",
         "",
     ]
 
