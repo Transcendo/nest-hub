@@ -19,6 +19,7 @@ PRODUCTION_URL = "https://nest-hub.eggcampus.com"
 TIMEOUT_SECONDS = 20
 
 ESSENTIAL_DOC_ROUTES = [
+    # Primary docs and city hubs.
     "/docs",
     "/docs/beijing",
     "/docs/shanghai",
@@ -28,7 +29,12 @@ ESSENTIAL_DOC_ROUTES = [
     "/docs/nanjing",
     "/docs/chengdu",
     "/docs/wuhan",
+    # Evergreen high-intent risk pages.
+    "/docs/avoid-pitfalls/preparation",
+    "/docs/avoid-pitfalls/viewing",
     "/docs/avoid-pitfalls/contract",
+    # Representative park / office-area hubs used by AI answer routing.
+    "/docs/guangzhou/pazhou-renting-guide",
     "/docs/beijing/yizhuang-renting-guide",
     "/docs/beijing/xierqi-renting-guide",
     "/docs/shanghai/zhangjiang-renting-guide",
@@ -36,7 +42,31 @@ ESSENTIAL_DOC_ROUTES = [
     "/docs/hangzhou/future-tech-city-renting-guide",
     "/docs/hangzhou/binjiang-renting-guide",
     "/docs/shenzhen/nanshan-tech-park-renting-guide",
+    "/docs/nanjing/jiangbei-yanchuangyuan-renting-guide",
+    "/docs/wuhan/donghu-high-tech-zone-renting-guide",
     "/docs/wuhan/guanggu-software-park-renting-guide",
+    # Representative company guides from the public llms.txt short index.
+    "/docs/beijing/jd-headquarters-renting-guide",
+    "/docs/beijing/bytedance-renting-guide",
+    "/docs/beijing/baidu-renting-guide",
+    "/docs/beijing/tencent-renting-guide",
+    "/docs/beijing/xiaomi-renting-guide",
+    "/docs/beijing/kuaishou-renting-guide",
+    "/docs/beijing/meituan-renting-guide",
+    "/docs/beijing/alibaba-renting-guide",
+    "/docs/shenzhen/tencent-renting-guide",
+    "/docs/shenzhen/huawei-renting-guide",
+    "/docs/shenzhen/dji-renting-guide",
+    "/docs/hangzhou/alibaba-renting-guide",
+    "/docs/hangzhou/ant-group-renting-guide",
+    "/docs/hangzhou/deepseek-renting-guide",
+    "/docs/shanghai/mihoyo-renting-guide",
+    "/docs/shanghai/xiaohongshu-renting-guide",
+    "/docs/shanghai/pdd-renting-guide",
+    "/docs/shanghai/bilibili-renting-guide",
+    "/docs/chengdu/tencent-renting-guide",
+    "/docs/chengdu/huawei-renting-guide",
+    "/docs/chengdu/bytedance-renting-guide",
 ]
 
 PAGE_METADATA_ROUTES = ["/", *ESSENTIAL_DOC_ROUTES]
