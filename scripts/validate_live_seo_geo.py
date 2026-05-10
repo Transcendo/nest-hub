@@ -42,6 +42,18 @@ ESSENTIAL_DOC_ROUTES = [
 PAGE_METADATA_ROUTES = ["/", *ESSENTIAL_DOC_ROUTES]
 TEXT_ASSET_PATHS = ["/robots.txt", "/sitemap.xml", "/llms.txt", "/llms-full.txt"]
 AI_DISCOVERY_USER_AGENTS = ["OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "Claude-User"]
+PRIVATE_ONLY_MARKERS = [
+    "keyword opportunity score",
+    "SERP score",
+    "competitor analysis",
+    "conversion funnel",
+    "Discord-only",
+    "cron output",
+    "执行日志",
+    "竞品分析",
+    "转化漏斗",
+    "关键词机会",
+]
 
 
 @dataclass
@@ -94,6 +106,16 @@ def require_tokens(response: Response | None, tokens: Iterable[str], findings: l
     for token in tokens:
         if token not in response.text:
             findings.append(Finding("ERROR", response.url, f"missing required public token: {token}"))
+
+
+def check_private_markers(response: Response | None, findings: list[Finding]) -> None:
+    """Guard the deployed public site against private growth-planning leakage."""
+    if response is None:
+        return
+    lowered = response.text.lower()
+    for marker in PRIVATE_ONLY_MARKERS:
+        if marker.lower() in lowered:
+            findings.append(Finding("ERROR", response.url, f"contains private-only planning marker: {marker}"))
 
 
 def require_meta_content(response: Response, pattern: str, expected: str, label: str, findings: list[Finding]) -> None:
@@ -211,6 +233,7 @@ def check_doc_routes(findings: list[Finding]) -> None:
     for route in ESSENTIAL_DOC_ROUTES:
         response = fetch(route, findings)
         check_page_metadata(route, response, findings)
+        check_private_markers(response, findings)
         if response is None:
             continue
         require_tokens(response, ["NestHub", "租房"], findings)
@@ -219,6 +242,7 @@ def check_doc_routes(findings: list[Finding]) -> None:
 def check_homepage_metadata(findings: list[Finding]) -> None:
     response = fetch("/", findings)
     check_page_metadata("/", response, findings)
+    check_private_markers(response, findings)
     if response is None:
         return
     require_tokens(response, ["NestHub", "租房", "WebSite"], findings)
@@ -229,6 +253,8 @@ def main() -> int:
     responses = {path: fetch(path, findings) for path in TEXT_ASSET_PATHS}
 
     check_text_asset_headers(responses, findings)
+    for response in responses.values():
+        check_private_markers(response, findings)
     check_robots(responses.get("/robots.txt"), findings)
     check_sitemap(responses.get("/sitemap.xml"), findings)
     check_llms(responses.get("/llms.txt"), findings)
