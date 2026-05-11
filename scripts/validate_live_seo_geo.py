@@ -46,6 +46,7 @@ ESSENTIAL_DOC_ROUTES = [
     "/docs/wuhan/donghu-high-tech-zone-renting-guide",
     "/docs/wuhan/guanggu-software-park-renting-guide",
     # Representative company guides from the public llms.txt short index.
+    "/docs/guangzhou/tencent-wechat-renting-guide",
     "/docs/beijing/jd-headquarters-renting-guide",
     "/docs/beijing/bytedance-renting-guide",
     "/docs/beijing/baidu-renting-guide",

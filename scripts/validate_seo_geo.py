@@ -218,6 +218,7 @@ def check_llms(findings: list[Finding]) -> None:
         f"{PRODUCTION_URL}/docs/wuhan",
         f"{PRODUCTION_URL}/docs/avoid-pitfalls/contract",
         f"{PRODUCTION_URL}/docs/guangzhou/pazhou-renting-guide",
+        f"{PRODUCTION_URL}/docs/guangzhou/tencent-wechat-renting-guide",
         f"{PRODUCTION_URL}/docs/beijing/yizhuang-renting-guide",
         f"{PRODUCTION_URL}/docs/beijing/xierqi-renting-guide",
         f"{PRODUCTION_URL}/docs/shanghai/zhangjiang-renting-guide",
