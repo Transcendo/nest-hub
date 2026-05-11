@@ -11,12 +11,19 @@ from __future__ import annotations
 import re
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Iterable
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 PRODUCTION_URL = "https://nest-hub.eggcampus.com"
 TIMEOUT_SECONDS = 20
+REPO = Path(__file__).resolve().parents[1]
+CONTENT = REPO / "content" / "docs"
+SEO_EXCLUDED_ROUTES = {
+    "/docs/mandatory-read",
+    "/docs/mandatory-read/renting-pitfalls",
+}
 
 ESSENTIAL_DOC_ROUTES = [
     # Primary docs and city hubs.
@@ -112,6 +119,31 @@ PRIVATE_ONLY_MARKERS = [
     "增长周报",
     "关键词机会",
 ]
+
+
+def route_for_doc(path: Path) -> str:
+    relative = path.relative_to(CONTENT).with_suffix("")
+    parts = list(relative.parts)
+    if parts[-1] == "index":
+        parts = parts[:-1]
+    return "/docs" + ("/" + "/".join(parts) if parts else "")
+
+
+def is_excluded_route(route: str) -> bool:
+    return route in SEO_EXCLUDED_ROUTES or any(
+        route.startswith(f"{excluded}/") for excluded in SEO_EXCLUDED_ROUTES
+    )
+
+
+def local_public_doc_urls(*, include_docs_root: bool = False) -> list[str]:
+    """Return local public docs URLs that production discovery files should expose."""
+    urls = {f"{PRODUCTION_URL}/docs"} if include_docs_root else set()
+    if CONTENT.exists():
+        for path in CONTENT.rglob("*.mdx"):
+            route = route_for_doc(path)
+            if not is_excluded_route(route):
+                urls.add(f"{PRODUCTION_URL}{route}")
+    return sorted(urls)
 
 
 @dataclass
@@ -243,9 +275,22 @@ def check_sitemap(response: Response | None, findings: list[Finding]) -> None:
     require_tokens(response, required_urls, findings)
     if response is None:
         return
-    loc_count = len(re.findall(r"<loc>https://nest-hub\.eggcampus\.com[^<]*</loc>", response.text))
+
+    loc_urls = set(re.findall(r"<loc>(https://nest-hub\.eggcampus\.com[^<]*)</loc>", response.text))
+    loc_count = len(loc_urls)
     if loc_count < 100:
         findings.append(Finding("ERROR", response.url, f"sitemap exposes only {loc_count} NestHub URLs; expected at least 100"))
+
+    local_urls = set(local_public_doc_urls(include_docs_root=True))
+    missing_local_urls = sorted(local_urls - loc_urls)
+    if missing_local_urls:
+        findings.append(
+            Finding(
+                "ERROR",
+                response.url,
+                "sitemap is missing local public docs URLs: " + ", ".join(missing_local_urls[:8]),
+            )
+        )
 
 
 def check_llms(response: Response | None, findings: list[Finding]) -> None:
@@ -283,9 +328,21 @@ def check_llms_full(response: Response | None, findings: list[Finding]) -> None:
     )
     if response is None:
         return
-    docs_links = len(re.findall(r"https://nest-hub\.eggcampus\.com/docs/[^)\s]+", response.text))
-    if docs_links < 100:
-        findings.append(Finding("ERROR", response.url, f"llms-full exposes only {docs_links} docs URLs; expected at least 100"))
+
+    docs_links = set(re.findall(r"https://nest-hub\.eggcampus\.com/docs(?:/[^)\s,]+)?", response.text))
+    if len(docs_links) < 100:
+        findings.append(Finding("ERROR", response.url, f"llms-full exposes only {len(docs_links)} docs URLs; expected at least 100"))
+
+    local_urls = set(local_public_doc_urls())
+    missing_local_urls = sorted(local_urls - docs_links)
+    if missing_local_urls:
+        findings.append(
+            Finding(
+                "ERROR",
+                response.url,
+                "llms-full is missing local public docs URLs: " + ", ".join(missing_local_urls[:8]),
+            )
+        )
 
 
 def check_doc_routes(findings: list[Finding]) -> None:
