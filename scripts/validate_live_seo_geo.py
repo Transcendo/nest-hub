@@ -269,6 +269,7 @@ def check_llms_full(response: Response | None, findings: list[Finding]) -> None:
             "page_type=",
             "Public docs indexed:",
             f"Short LLM index: {PRODUCTION_URL}/llms.txt",
+            *(f"{PRODUCTION_URL}{route}" for route in ESSENTIAL_DOC_ROUTES),
         ],
         findings,
     )
