@@ -554,6 +554,24 @@ def is_excluded_route(route: str) -> bool:
     )
 
 
+def public_section_dirs() -> list[Path]:
+    """Return first-level content sections that should have public discovery links."""
+    sections: list[Path] = []
+    for child in sorted(CONTENT.iterdir()):
+        if not child.is_dir() or child.name.startswith("."):
+            continue
+        section_route = f"/docs/{child.name}"
+        if is_excluded_route(section_route):
+            continue
+        if (child / "index.mdx").exists() or (child / "meta.json").exists():
+            sections.append(child)
+    return sections
+
+
+def public_section_routes() -> list[str]:
+    return [f"/docs/{section.name}" for section in public_section_dirs()]
+
+
 def route_for_meta_child(meta_dir: Path, child_name: str) -> str:
     relative_dir = meta_dir.relative_to(CONTENT)
     parts = list(relative_dir.parts)
@@ -753,6 +771,42 @@ def check_city_card_copy(findings: list[Finding]) -> None:
         )
 
 
+def check_discovery_config_consistency(findings: list[Finding]) -> None:
+    """Keep public section discovery in nav, city cards, and LLM generation aligned."""
+    site_config = REPO / "lib" / "site-config.tsx"
+    llms_generator = REPO / "scripts" / "generate_llms_full.py"
+    llms = REPO / "public" / "llms.txt"
+    section_routes = public_section_routes()
+    city_routes = [route for route in section_routes if route != "/docs/avoid-pitfalls"]
+
+    if require_file(site_config, findings):
+        text = read_text(site_config)
+        for route in section_routes:
+            if f'url: "{route}"' not in text and f'href: "{route}"' not in text:
+                findings.append(
+                    Finding("ERROR", rel(site_config), f"top navigation or city cards missing public section route: {route}")
+                )
+        for route in city_routes:
+            if f'href: "{route}"' not in text:
+                findings.append(Finding("ERROR", rel(site_config), f"cityCards missing public city route: {route}"))
+
+    if require_file(llms_generator, findings):
+        text = read_text(llms_generator)
+        for section in [route.rsplit("/", 1)[-1] for route in section_routes]:
+            for token in [f'"{section}":', f'"{section}",']:
+                if token not in text:
+                    findings.append(
+                        Finding("ERROR", rel(llms_generator), f"llms-full generator missing public section token: {token}")
+                    )
+
+    if require_file(llms, findings):
+        text = read_text(llms)
+        for route in city_routes:
+            url = f"{PRODUCTION_URL}{route}"
+            if url not in text:
+                findings.append(Finding("ERROR", rel(llms), f"llms.txt missing public city hub URL: {url}"))
+
+
 def main() -> int:
     findings: list[Finding] = []
     check_robots(findings)
@@ -768,6 +822,7 @@ def main() -> int:
     check_landing_page_discoverability(findings)
     check_public_content_boundaries(findings)
     check_city_card_copy(findings)
+    check_discovery_config_consistency(findings)
 
     errors = [finding for finding in findings if finding.level == "ERROR"]
     warnings = [finding for finding in findings if finding.level == "WARN"]
