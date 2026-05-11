@@ -151,7 +151,15 @@ def check_robots(findings: list[Finding]) -> None:
     for token in required_tokens:
         if token not in text:
             findings.append(Finding("ERROR", rel(robots), f"robots.ts missing token: {token}"))
-    for user_agent in ["OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "Claude-User"]:
+    for user_agent in [
+        "OAI-SearchBot",
+        "ChatGPT-User",
+        "GPTBot",
+        "PerplexityBot",
+        "ClaudeBot",
+        "Claude-User",
+        "Google-Extended",
+    ]:
         if user_agent not in text:
             findings.append(Finding("ERROR", rel(robots), f"robots.ts missing AI discovery user-agent: {user_agent}"))
     if "/sitemap.xml" not in text:

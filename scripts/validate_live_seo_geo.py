@@ -72,7 +72,15 @@ ESSENTIAL_DOC_ROUTES = [
 
 PAGE_METADATA_ROUTES = ["/", *ESSENTIAL_DOC_ROUTES]
 TEXT_ASSET_PATHS = ["/robots.txt", "/sitemap.xml", "/llms.txt", "/llms-full.txt"]
-AI_DISCOVERY_USER_AGENTS = ["OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "Claude-User"]
+AI_DISCOVERY_USER_AGENTS = [
+    "OAI-SearchBot",
+    "ChatGPT-User",
+    "GPTBot",
+    "PerplexityBot",
+    "ClaudeBot",
+    "Claude-User",
+    "Google-Extended",
+]
 PRIVATE_ONLY_MARKERS = [
     "keyword opportunity score",
     "keyword opportunity scores",
